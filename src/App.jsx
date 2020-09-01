@@ -10,6 +10,7 @@ import './styles/base/app.scss';
 // APP COMPONENT CLASS
 class App extends React.Component {
   render() {
+    // console.log('api key: ', process.env.REACT_APP_OPEN_WEATHER_API_KEY);
     return (
       <div className="app-container">App Component</div>
     )

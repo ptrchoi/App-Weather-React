@@ -6,14 +6,12 @@
 }
 /* Set the page's max-width within the viewport */
 body {
-	// background-color: rgb(238, 247, 253);
-  background-color: gray;
+	background-color: rgb(238, 247, 253);
 	font-family: Montserrat, Helvetica, Arial, sans-serif;
 	height: 100%;
 	margin: 0 auto !important;
 }
 
 .app-container {
-  background-color: white;
-  color: blue;
+	border: solid 1px red;
 }
