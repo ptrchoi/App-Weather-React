@@ -1,0 +1,24 @@
+{
+  "name": "App-Weather-React",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+		"start": "parcel src/index.html --open",
+		"build": "parcel build src/index.html --out-dir dist --public-url ./"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.10"
+  }
+}

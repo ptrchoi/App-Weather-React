@@ -1,0 +1,19 @@
+/* Ensure pure, inclusive box sizing across browsers. */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* Set the page's max-width within the viewport */
+body {
+	// background-color: rgb(238, 247, 253);
+  background-color: gray;
+	font-family: Montserrat, Helvetica, Arial, sans-serif;
+	height: 100%;
+	margin: 0 auto !important;
+}
+
+.app-container {
+  background-color: white;
+  color: blue;
+}
