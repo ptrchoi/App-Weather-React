@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-		"start": "parcel src/index.html --open",
-		"build": "parcel build src/index.html --out-dir dist --public-url ./"
+    "start": "parcel src/index.html --open",
+    "build": "parcel build src/index.html --out-dir dist --public-url ./"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "firebase": "^7.19.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
