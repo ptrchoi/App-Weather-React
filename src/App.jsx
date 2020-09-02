@@ -5,6 +5,7 @@ import $ from 'jquery';
 
 // COMPONENTS
 import Headline from './Components/Headline';
+import Weather from './Components/Weather';
 
 // STYLE SHEETS
 import './styles/index.scss';
@@ -97,6 +98,7 @@ class App extends React.Component {
     return (
       <div className="app-container">
         <Headline location={this.state.location} />
+        <Weather location={this.state.location} />
       </div>
     )
   }
