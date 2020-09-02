@@ -75,6 +75,7 @@ node_modules/
 /.firebase/*.cache
 /.vscode
 .DS_Store
+/TEMP
 
 # dotenv environment variables file
 .env

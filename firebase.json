@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "weather-ptrc",
+    "site": "weather2-ptrc",
     "public": "dist",
     "ignore": [
       "firebase.json",
