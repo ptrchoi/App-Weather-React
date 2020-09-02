@@ -51,9 +51,9 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      coordinates: {
-        x: null,
-        y: null
+      coords: {
+        lat: null,
+        lng: null
       },
       location: {
         city: '',
@@ -80,9 +80,9 @@ class App extends React.Component {
     // console.log("country: ", addressArr[3]);
 
     this.setState({
-      coordinates: {
-        x: lat,
-        y: lng
+      coords: {
+        lat: lat,
+        lng: lng
       },
       location: {
         city: addressArr[1],
@@ -98,7 +98,7 @@ class App extends React.Component {
     return (
       <div className="app-container">
         <Headline location={this.state.location} />
-        <Weather location={this.state.location} />
+        <Weather coords={this.state.coords} />
       </div>
     )
   }
