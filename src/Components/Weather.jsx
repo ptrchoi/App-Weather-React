@@ -2,7 +2,12 @@
 import React from 'react';
 
 // UTILITY FUNCTIONS
-import { convertTemp, getWeatherData } from './../Utils';
+import {
+  convertTemp,
+  getGoogleLocData,
+  fixAddressData,
+  getWeatherData,
+} from './../Utils';
 
 // COMPONENTS
 import Headline from './Headline';
@@ -15,8 +20,14 @@ class Weather extends React.Component {
     super(props);
 
     this.state = {
-      coords: null,
-      location: null,
+      coords: {
+        lat: null,
+        lng: null,
+      },
+      location: {
+        city: '',
+        country: '',
+      },
       weatherObj: null,
       currentTemp: '',
       description: '',
@@ -31,24 +42,42 @@ class Weather extends React.Component {
       hourForecast: null,
     };
   }
-  componentDidUpdate(prevProps) {
-    if (this.props != prevProps) {
-      this.updateWeather(this.props);
+  componentDidMount() {
+    // Get device geolocation & set location data if available
+    this.getLocationFromDevice();
+  }
+  getLocationFromDevice() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.updateCoords(position.coords.latitude, position.coords.longitude);
+      });
     }
   }
-  updateWeather = async (appProps) => {
-    let coords = appProps.coords;
-    let location = appProps.location;
+  updateCoords = async (lat, lng) => {
+    const geoLocData = await getGoogleLocData(lat, lng);
 
-    console.log('updateWeather() - appProps: ', appProps);
+    // Get parsed and formatted address elements from data
+    let addressArr = fixAddressData(geoLocData.plus_code.compound_code);
 
-    const wData = await getWeatherData(coords.lat, coords.lng);
+    let location = {
+      city: addressArr[1],
+      country: addressArr[3],
+    };
+
+    this.updateWeather(lat, lng, location);
+  };
+  updateWeather = async (lat, lng, location) => {
+    const wData = await getWeatherData(lat, lng);
 
     let curData = wData.current;
     let dailyData = wData.daily;
 
+    // Update state with coords received back from wData
     this.setState({
-      coords: coords,
+      coords: {
+        lat: wData.lat,
+        lng: wData.lon,
+      },
       location: location,
       weatherObj: wData,
       currentTemp: convertTemp(curData.temp),
