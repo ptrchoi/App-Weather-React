@@ -75,7 +75,6 @@ class ForecastDay extends React.Component {
               <i className="fas fa-long-arrow-alt-down"></i> {day.low}&deg;
             </p>
             <p>{day.pp}% chance of precipitation</p>
-            <br />
           </div>
         );
       };

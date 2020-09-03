@@ -76,7 +76,7 @@ class Weather extends React.Component {
       humidity: curData.humidity,
       uvi: dailyData[0].uvi,
       feelsLike: convertTemp(curData.feels_like),
-      precProb: dailyData[0].pop * 100,
+      precProb: Math.round(dailyData[0].pop * 100),
       dayForecast: dailyData,
       hourForecast: wData.hourly,
     });

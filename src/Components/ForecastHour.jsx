@@ -46,8 +46,6 @@ class ForecastHour extends React.Component {
     // Curry function to .map method
     function displayDiv(units) {
       return function (hour) {
-        // let pp = hour.pop * 100;
-
         return (
           <div key={uuidv4()}>
             <br />
@@ -55,7 +53,6 @@ class ForecastHour extends React.Component {
               @ {convertHour(hour.dt)} {convertTemp(hour.temp)}&deg; {units}
             </p>
             <p>{Math.round(hour.pop * 100)}% chance of precipitation</p>
-            <br />
           </div>
         );
       };
