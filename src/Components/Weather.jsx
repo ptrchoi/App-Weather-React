@@ -66,7 +66,7 @@ class Weather extends React.Component {
 
     this.updateWeather(lat, lng, addressArr[1], addressArr[3]);
   };
-  updateWeather = async (lat, lng, city, country, units = 'C') => {
+  updateWeather = async (lat, lng, city, country, units = 'F') => {
     const wData = await getWeatherData(lat, lng);
 
     let curData = wData.current;

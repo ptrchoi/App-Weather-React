@@ -50,7 +50,7 @@ class ForecastHour extends React.Component {
               {timeArr[3]} {convertTemp(hour.temp, units)}&deg; {units}
             </p>
             <p>{Math.round(hour.pop * 100)}% chance of precipitation</p>
-            <p>Rainfall: {rainfall}mm</p>
+            <p>Rainfall: {rainfall}"</p>
           </div>
         );
       };
