@@ -20,24 +20,27 @@ class Weather extends React.Component {
     super(props);
 
     this.state = {
-      coords: {
-        lat: null,
-        lng: null,
-      },
+      units: 'F',
       location: {
         city: '',
         country: '',
+        coords: {
+          lat: null,
+          lng: null,
+        },
       },
-      weatherObj: null,
-      currentTemp: '',
-      description: '',
-      units: 'F',
-      high: '',
-      low: '',
-      humidity: '',
-      uvi: '',
-      feelsLike: '',
-      precProb: '',
+      wMain: {
+        currentTemp: '',
+        description: '',
+        high: '',
+        low: '',
+        feelsLike: '',
+        precProb: '',
+      },
+      wDetails: {
+        humidity: '',
+        uvi: '',
+      },
       dayForecast: null,
       hourForecast: null,
     };
@@ -59,57 +62,54 @@ class Weather extends React.Component {
     // Get parsed and formatted address elements from data
     let addressArr = fixAddressData(geoLocData.plus_code.compound_code);
 
-    let location = {
-      city: addressArr[1],
-      country: addressArr[3],
-    };
-
-    this.updateWeather(lat, lng, location);
+    this.updateWeather(lat, lng, addressArr[1], addressArr[3]);
   };
-  updateWeather = async (lat, lng, location) => {
+  updateWeather = async (lat, lng, city, country) => {
     const wData = await getWeatherData(lat, lng);
 
     let curData = wData.current;
     let dailyData = wData.daily;
 
-    // Update state with coords received back from wData
     this.setState({
-      coords: {
-        lat: wData.lat,
-        lng: wData.lon,
+      location: {
+        city: city,
+        country: country,
+        coords: {
+          lat: wData.lat,
+          lng: wData.lon,
+        },
       },
-      location: location,
-      weatherObj: wData,
-      currentTemp: convertTemp(curData.temp),
-      description: curData.weather[0].description,
-      high: convertTemp(dailyData[0].temp.max),
-      low: convertTemp(dailyData[0].temp.min),
-      humidity: curData.humidity,
-      uvi: dailyData[0].uvi,
-      feelsLike: convertTemp(curData.feels_like),
-      precProb: Math.round(dailyData[0].pop * 100),
+      wMain: {
+        currentTemp: convertTemp(curData.temp),
+        description: curData.weather[0].description,
+        high: convertTemp(dailyData[0].temp.max),
+        low: convertTemp(dailyData[0].temp.min),
+        feelsLike: convertTemp(curData.feels_like),
+        precProb: Math.round(dailyData[0].pop * 100),
+      },
+      wDetails: {
+        humidity: curData.humidity,
+        uvi: dailyData[0].uvi,
+      },
       dayForecast: dailyData,
       hourForecast: wData.hourly,
     });
   };
   render() {
     let {
-      currentTemp,
-      description,
       units,
-      high,
-      low,
-      humidity,
-      uvi,
-      feelsLike,
-      precProb,
+      location,
+      wMain,
+      wDetails,
       dayForecast,
       hourForecast,
     } = this.state;
-    // Move this test out of the Render call
+    let { currentTemp, description, high, low, feelsLike, precProb } = wMain;
+    let { humidity, uvi } = wDetails;
+
     return (
       <div className="weather-container">
-        <Headline location={this.state.location} />
+        <Headline location={location} />
         <div className="weather-main-container">
           <p>
             Current Temperature: {currentTemp}&deg; {units}
