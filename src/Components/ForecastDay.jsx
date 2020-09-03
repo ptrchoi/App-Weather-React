@@ -2,7 +2,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-// UTILITY FUNCTIONS
+// `UTILITY FUNCTIONS
 import { convertTemp } from './../Utils';
 
 // LOCAL CONSTS
@@ -32,19 +32,20 @@ class ForecastDay extends React.Component {
   }
   componentDidUpdate(prevProps) {
     if (this.props.dayForecast != prevProps.dayForecast) {
-      this.updateForecast(this.props.dayForecast);
+      this.updateForecast(this.props.dayForecast, this.props.units);
     }
   }
-  updateForecast(forecastData) {
+  updateForecast(forecastData, units) {
     let forecastArr = [];
 
+    console.log('updateForecast() - units: ', units);
     // Create arr of dayObjs populated with forecastData & days of the week
     for (let i = 0; i < FORECAST_DAYS; i++) {
       let dayObj = {
         day: '',
-        temp: convertTemp(forecastData[i].temp.day),
-        high: convertTemp(forecastData[i].temp.max),
-        low: convertTemp(forecastData[i].temp.min),
+        temp: convertTemp(forecastData[i].temp.day, units),
+        high: convertTemp(forecastData[i].temp.max, units),
+        low: convertTemp(forecastData[i].temp.min, units),
         pp: Math.round(forecastData[i].pop * 100),
       };
       forecastArr[i] = dayObj;

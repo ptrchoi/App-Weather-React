@@ -33,15 +33,24 @@ class ForecastHour extends React.Component {
     // Curry function to .map method
     function displayDiv(units) {
       return function (hour) {
-        let timeObj = convertTime(hour.dt);
+        let timeArr = convertTime(hour.dt); // timeArr = [ hour, ':', mins, daytime]
+
+        // Due to Open Weather's naming convention of '1h', can't call it directly, so use Object.keys to access the data
+        let rainObj = hour.rain;
+        let rainfall = 0;
+        if (rainObj) {
+          rainfall = rainObj[Object.keys(rainObj)[0]];
+        }
+
         return (
           <div key={uuidv4()}>
             <br />
             <p>
-              @ {timeObj.hour}
-              {timeObj.daytime} {convertTemp(hour.temp)}&deg; {units}
+              @ {timeArr[0]}
+              {timeArr[3]} {convertTemp(hour.temp, units)}&deg; {units}
             </p>
             <p>{Math.round(hour.pop * 100)}% chance of precipitation</p>
+            <p>Rainfall: {rainfall}mm</p>
           </div>
         );
       };

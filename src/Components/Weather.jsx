@@ -4,6 +4,7 @@ import React from 'react';
 // UTILITY FUNCTIONS
 import {
   convertTemp,
+  convertTime,
   getGoogleLocData,
   fixAddressData,
   getWeatherData,
@@ -30,6 +31,7 @@ class Weather extends React.Component {
         },
       },
       wMain: {
+        currentTime: 0,
         currentTemp: '',
         description: '',
         high: '',
@@ -46,10 +48,10 @@ class Weather extends React.Component {
     };
   }
   componentDidMount() {
-    // Get device geolocation & set location data if available
-    this.getLocationFromDevice();
+    // Get device geolocation
+    this.getCoordsFromDevice();
   }
-  getLocationFromDevice() {
+  getCoordsFromDevice() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.updateCoords(position.coords.latitude, position.coords.longitude);
@@ -64,13 +66,15 @@ class Weather extends React.Component {
 
     this.updateWeather(lat, lng, addressArr[1], addressArr[3]);
   };
-  updateWeather = async (lat, lng, city, country) => {
+  updateWeather = async (lat, lng, city, country, units = 'C') => {
     const wData = await getWeatherData(lat, lng);
 
     let curData = wData.current;
     let dailyData = wData.daily;
+    let timeArr = convertTime(curData.dt);
 
     this.setState({
+      units: units,
       location: {
         city: city,
         country: country,
@@ -80,11 +84,12 @@ class Weather extends React.Component {
         },
       },
       wMain: {
-        currentTemp: convertTemp(curData.temp),
+        currentTime: timeArr.join(''),
+        currentTemp: convertTemp(curData.temp, units),
         description: curData.weather[0].description,
-        high: convertTemp(dailyData[0].temp.max),
-        low: convertTemp(dailyData[0].temp.min),
-        feelsLike: convertTemp(curData.feels_like),
+        high: convertTemp(dailyData[0].temp.max, units),
+        low: convertTemp(dailyData[0].temp.min, units),
+        feelsLike: convertTemp(curData.feels_like, units),
         precProb: Math.round(dailyData[0].pop * 100),
       },
       wDetails: {
@@ -104,12 +109,20 @@ class Weather extends React.Component {
       dayForecast,
       hourForecast,
     } = this.state;
-    let { currentTemp, description, high, low, feelsLike, precProb } = wMain;
+    let {
+      currentTime,
+      currentTemp,
+      description,
+      high,
+      low,
+      feelsLike,
+      precProb,
+    } = wMain;
     let { humidity, uvi } = wDetails;
 
     return (
       <div className="weather-container">
-        <Headline location={location} />
+        <Headline location={location} time={currentTime} />
         <div className="weather-main-container">
           <p>
             Current Temperature: {currentTemp}&deg; {units}

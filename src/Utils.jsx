@@ -3,18 +3,10 @@ import $ from 'jquery';
 
 /* MISC UTILITY FUNCTIONS
 ----------------------------------------------------------------------*/
-// Convert standard Open Weather temperature measure to Farenheit
-export const convertTemp = (temp) => {
-  return Math.round((temp * 9) / 5 - 459.67);
-};
-
-// Convert given temperature from one unit to the other (F or C)
-export const convertUnit = (tempToConvert, units) => {
-  if (units === 'F') {
-    return Math.round(((tempToConvert - 32) * 5) / 9);
-  } else {
-    return Math.round((tempToConvert * 9) / 5 + 32);
-  }
+// Convert from Farenheit to Celcius or just round off the Farenheit value
+export const convertTemp = (temp, units) => {
+  if (units === 'C') return Math.round((temp * 9) / 5 + 32);
+  else return Math.round(temp);
 };
 
 // Convert Unix timestamp (from Open Weather data) to hour, mins, and daytime (AM/PM)
@@ -30,11 +22,7 @@ export const convertTime = (unixTime) => {
     daytime = 'PM';
   } else if (hour === 0) hour = 12;
 
-  return {
-    hour: hour,
-    mins: mins,
-    daytime: daytime,
-  };
+  return [hour, ':', mins, daytime];
 };
 
 // Parse Google geolocation address data and output to array of string address elements ([street, city, state, country])
@@ -89,6 +77,7 @@ export const getWeatherData = (lat, lng) => {
     lat +
     '&lon=' +
     lng +
+    '&units=imperial' +
     '&appid=' +
     KEY;
 

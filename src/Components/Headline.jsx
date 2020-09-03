@@ -21,9 +21,6 @@ class Headline extends React.Component {
   getDate() {
     return new Date().toDateString();
   }
-  getTime() {
-    return new Date().toLocaleTimeString();
-  }
   render(props) {
     const { city, country } = this.state;
 
@@ -33,7 +30,7 @@ class Headline extends React.Component {
           {city}, {country}
         </p>
         <p>{this.getDate()}</p>
-        <p>{this.getTime()}</p>
+        <p>{this.props.time}</p>
       </div>
     );
   }
