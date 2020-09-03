@@ -5,8 +5,6 @@ import React from 'react';
 class Headline extends React.Component {
   constructor(props) {
     super(props);
-
-    this.getDate = this.getDate.bind(this);
   }
   getDate() {
     return new Date().toDateString();
@@ -16,8 +14,6 @@ class Headline extends React.Component {
   }
   render(props) {
     const { city, country } = this.props.location;
-    // console.log('city: ', city);
-    // console.log('country: ', country);
 
     return (
       <div className="headline-container">
