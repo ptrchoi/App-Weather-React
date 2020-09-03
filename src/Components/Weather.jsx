@@ -98,20 +98,22 @@ class Weather extends React.Component {
     // Move this test out of the Render call
     return (
       <div className="weather-container">
-        <div>
+        <div className="weather-main-container">
           <p>
             Current Temperature: {currentTemp}&deg; {units}
           </p>
           <p>Current Conditions: {description}</p>
           <p>
-            High: {high}&deg; {units} Low: {low}&deg; {units}
+            <i className="fas fa-long-arrow-alt-up"></i>
+            {high}&deg; {units} <i className="fas fa-long-arrow-alt-down"></i>
+            {low}&deg; {units}
           </p>
           <p>
             Feels Like: {feelsLike}&deg; {units}{' '}
           </p>
           <p>{precProb}% chance of precipitation today</p>
         </div>
-        <div>
+        <div className="weather-details-container">
           <p>Humidity: {humidity}%</p>
           <p>UV Index: {uvi}</p>
         </div>

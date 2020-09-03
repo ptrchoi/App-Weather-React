@@ -64,7 +64,11 @@ class ForecastHour extends React.Component {
     return hourlyForecast.map(displayDiv(units));
   }
   render(props) {
-    return <div>{this.renderForecast(this.props.units)}</div>;
+    return (
+      <div className="forecastHour-container">
+        {this.renderForecast(this.props.units)}
+      </div>
+    );
   }
 }
 export default ForecastHour;

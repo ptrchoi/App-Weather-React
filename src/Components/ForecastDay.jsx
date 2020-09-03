@@ -71,7 +71,8 @@ class ForecastDay extends React.Component {
               {day.day}: {day.temp}&deg; {units}
             </p>
             <p>
-              H: {day.high}&deg;, L: {day.low}&deg;
+              <i className="fas fa-long-arrow-alt-up"></i> {day.high}&deg;,{' '}
+              <i className="fas fa-long-arrow-alt-down"></i> {day.low}&deg;
             </p>
             <p>{day.pp}% chance of precipitation</p>
             <br />
@@ -83,7 +84,11 @@ class ForecastDay extends React.Component {
     return dailyForecast.map(displayDiv(units));
   }
   render(props) {
-    return <div>{this.renderForecast(this.props.units)}</div>;
+    return (
+      <div className="forecastDay-container">
+        {this.renderForecast(this.props.units)}
+      </div>
+    );
   }
 }
 export default ForecastDay;

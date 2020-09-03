@@ -20,7 +20,7 @@ class Headline extends React.Component {
     // console.log('country: ', country);
 
     return (
-      <div>
+      <div className="headline-container">
         <p>
           {city}, {country}
         </p>
