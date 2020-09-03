@@ -131,7 +131,7 @@ class Weather extends React.Component {
     console.log('arr: ', arr);
     return arr.map((day) => {
       return (
-        <div>
+        <div key={uuidv4()}>
           <br />
           <p>Day: {day.day}</p>
           <p>Temperature: {day.temp}</p>
