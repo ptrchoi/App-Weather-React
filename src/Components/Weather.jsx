@@ -5,6 +5,7 @@ import React from 'react';
 import { convertTemp, getWeatherData } from './../Utils';
 
 // COMPONENTS
+import Headline from './Headline';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
 
@@ -14,6 +15,8 @@ class Weather extends React.Component {
     super(props);
 
     this.state = {
+      coords: null,
+      location: null,
       weatherObj: null,
       currentTemp: '',
       description: '',
@@ -29,17 +32,24 @@ class Weather extends React.Component {
     };
   }
   componentDidUpdate(prevProps) {
-    if (this.props.coords != prevProps.coords) {
-      this.updateWeather(this.props.coords);
+    if (this.props != prevProps) {
+      this.updateWeather(this.props);
     }
   }
-  updateWeather = async (coords) => {
+  updateWeather = async (appProps) => {
+    let coords = appProps.coords;
+    let location = appProps.location;
+
+    console.log('updateWeather() - appProps: ', appProps);
+
     const wData = await getWeatherData(coords.lat, coords.lng);
 
     let curData = wData.current;
     let dailyData = wData.daily;
 
     this.setState({
+      coords: coords,
+      location: location,
       weatherObj: wData,
       currentTemp: convertTemp(curData.temp),
       description: curData.weather[0].description,
@@ -70,6 +80,7 @@ class Weather extends React.Component {
     // Move this test out of the Render call
     return (
       <div className="weather-container">
+        <Headline location={this.state.location} />
         <div className="weather-main-container">
           <p>
             Current Temperature: {currentTemp}&deg; {units}

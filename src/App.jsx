@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom';
 import { getGoogleLocData, fixAddressData } from './Utils';
 
 // COMPONENTS
-import Headline from './Components/Headline';
 import Weather from './Components/Weather';
 
 // STYLE SHEETS
@@ -59,8 +58,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <Headline location={this.state.location} />
-        <Weather coords={this.state.coords} />
+        <Weather coords={this.state.coords} location={this.state.location} />
       </div>
     );
   }
