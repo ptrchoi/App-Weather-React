@@ -1,7 +1,7 @@
 // LIBRARIES
 import React from 'react';
 
-// Headline Component Class
+// Headline  COMPONENT CLASS
 class Headline extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +21,9 @@ class Headline extends React.Component {
 
     return (
       <div>
-        <p>{city}, {country}</p>
+        <p>
+          {city}, {country}
+        </p>
         <p>{this.getDate()}</p>
         <p>{this.getTime()}</p>
       </div>

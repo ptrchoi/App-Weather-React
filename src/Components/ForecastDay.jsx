@@ -21,8 +21,8 @@ function convertTemp(temp) {
   return Math.round((temp * 9) / 5 - 459.67);
 }
 
-// Forecast Component Class
-class Forecast extends React.Component {
+// ForecastDay COMPONENT CLASS
+class ForecastDay extends React.Component {
   constructor(props) {
     super(props);
 
@@ -31,8 +31,8 @@ class Forecast extends React.Component {
     };
   }
   componentDidUpdate(prevProps) {
-    if (this.props.forecast != prevProps.forecast) {
-      this.updateForecast(this.props.forecast);
+    if (this.props.dayForecast != prevProps.dayForecast) {
+      this.updateForecast(this.props.dayForecast);
     }
   }
   updateForecast(forecastData) {
@@ -45,7 +45,7 @@ class Forecast extends React.Component {
         temp: convertTemp(forecastData[i].temp.day),
         high: convertTemp(forecastData[i].temp.max),
         low: convertTemp(forecastData[i].temp.min),
-        pp: forecastData[i].pop * 100,
+        pp: Math.round(forecastData[i].pop * 100),
       };
       forecastArr[i] = dayObj;
     }
@@ -61,20 +61,17 @@ class Forecast extends React.Component {
     let { dailyForecast } = this.state;
     if (!dailyForecast) return;
 
+    // Curry function to .map method
     function displayDiv(units) {
       return function (day) {
         return (
           <div key={uuidv4()}>
             <br />
-            <p>Day: {day.day}</p>
             <p>
-              Temperature: {day.temp}&deg; {units}
+              {day.day}: {day.temp}&deg; {units}
             </p>
             <p>
-              High: {day.high}&deg; {units}
-            </p>
-            <p>
-              Low: {day.low}&deg; {units}
+              H: {day.high}&deg;, L: {day.low}&deg;
             </p>
             <p>{day.pp}% chance of precipitation</p>
             <br />
@@ -89,4 +86,4 @@ class Forecast extends React.Component {
     return <div>{this.renderForecast(this.props.units)}</div>;
   }
 }
-export default Forecast;
+export default ForecastDay;

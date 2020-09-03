@@ -3,7 +3,8 @@ import React from 'react';
 import $ from 'jquery';
 
 // COMPONENTS
-import Forecast from './Forecast';
+import ForecastDay from './ForecastDay';
+import ForecastHour from './ForecastHour';
 
 // LOCAL FUNCTIONS
 function getWeatherData(lat, lng) {
@@ -35,7 +36,7 @@ function convertUnit(tempToConvert, units) {
   }
 }
 
-// Weather Component Class
+// Weather COMONENT CLASS
 class Weather extends React.Component {
   constructor(props) {
     super(props);
@@ -51,7 +52,8 @@ class Weather extends React.Component {
       uvi: '',
       feelsLike: '',
       precProb: '',
-      forecast: '',
+      dayForecast: null,
+      hourForecast: null,
     };
   }
   componentDidUpdate(prevProps) {
@@ -75,7 +77,8 @@ class Weather extends React.Component {
       uvi: dailyData[0].uvi,
       feelsLike: convertTemp(curData.feels_like),
       precProb: dailyData[0].pop * 100,
-      forecast: dailyData,
+      dayForecast: dailyData,
+      hourForecast: wData.hourly,
     });
   };
   render() {
@@ -89,7 +92,8 @@ class Weather extends React.Component {
       uvi,
       feelsLike,
       precProb,
-      forecast,
+      dayForecast,
+      hourForecast,
     } = this.state;
     // Move this test out of the Render call
     return (
@@ -111,7 +115,8 @@ class Weather extends React.Component {
           <p>Humidity: {humidity}%</p>
           <p>UV Index: {uvi}</p>
         </div>
-        <Forecast forecast={forecast} units={units} />
+        <ForecastDay dayForecast={dayForecast} units={units} />
+        <ForecastHour hourForecast={hourForecast} units={units} />
       </div>
     );
   }
