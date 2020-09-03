@@ -1,40 +1,12 @@
 // LIBRARIES
 import React from 'react';
-import $ from 'jquery';
+
+// UTILITY FUNCTIONS
+import { convertTemp, getWeatherData } from './../Utils';
 
 // COMPONENTS
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
-
-// LOCAL FUNCTIONS
-function getWeatherData(lat, lng) {
-  const KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
-  const openWeatherUrl =
-    'https://api.openweathermap.org/data/2.5/onecall?lat=' +
-    lat +
-    '&lon=' +
-    lng +
-    '&appid=' +
-    KEY;
-
-  return new Promise((resolve, reject) => {
-    $.getJSON({
-      url: openWeatherUrl,
-      success: resolve,
-      error: reject,
-    });
-  });
-}
-function convertTemp(temp) {
-  return Math.round((temp * 9) / 5 - 459.67);
-}
-function convertUnit(tempToConvert, units) {
-  if (units === 'F') {
-    return Math.round(((tempToConvert - 32) * 5) / 9);
-  } else {
-    return Math.round((tempToConvert * 9) / 5 + 32);
-  }
-}
 
 // Weather COMONENT CLASS
 class Weather extends React.Component {

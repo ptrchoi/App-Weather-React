@@ -2,6 +2,9 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+// UTILITY FUNCTIONS
+import { convertTemp } from './../Utils';
+
 // LOCAL CONSTS
 const DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const FORECAST_DAYS = 7;
@@ -16,9 +19,6 @@ function setForecastDays(arr, today) {
     arr[i].day = DAYS_OF_THE_WEEK[today];
   }
   return arr;
-}
-function convertTemp(temp) {
-  return Math.round((temp * 9) / 5 - 459.67);
 }
 
 // ForecastDay COMPONENT CLASS
