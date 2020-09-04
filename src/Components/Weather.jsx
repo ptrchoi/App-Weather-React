@@ -6,6 +6,7 @@ import {
   convertTemp,
   convertTime,
   getGoogleLocData,
+  getGoogleLocSearchResults,
   fixAddressData,
   getWeatherData,
 } from './../Utils';
@@ -63,6 +64,9 @@ class Weather extends React.Component {
 
     // Get parsed and formatted address elements from data
     let addressArr = fixAddressData(geoLocData.plus_code.compound_code);
+
+    const citySearchAutfill = await getGoogleLocSearchResults('San Fr');
+    console.log('citySearchAutfill: ', citySearchAutfill);
 
     this.updateWeather(lat, lng, addressArr[1], addressArr[3]);
   };

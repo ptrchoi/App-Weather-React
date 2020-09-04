@@ -38,7 +38,6 @@ class ForecastDay extends React.Component {
   updateForecast(forecastData, units) {
     let forecastArr = [];
 
-    console.log('updateForecast() - units: ', units);
     // Create arr of dayObjs populated with forecastData & days of the week
     for (let i = 0; i < FORECAST_DAYS; i++) {
       let dayObj = {

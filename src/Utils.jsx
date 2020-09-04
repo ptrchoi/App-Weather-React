@@ -49,7 +49,7 @@ export const fixAddressData = (addressCode) => {
 
 /* API FUNCTIONS
 ----------------------------------------------------------------------*/
-// GOOGLE GEOLOCATION API
+// GOOGLE GEOLOCATION API - Location based on Coords
 export const getGoogleLocData = (lat, lng) => {
   const KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
   const googleUrl =
@@ -68,8 +68,27 @@ export const getGoogleLocData = (lat, lng) => {
     });
   });
 };
+// GOOGLE GEOLOCATION API - Search City Results
+export const getGoogleLocSearchResults = (cityName) => {
+  const KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+  const proxyUrl = 'https://radiant-hollows-05386.herokuapp.com/'; // "Middleware" CORS solution via custom Heroku deployed server (ie. cors-anywhere.com)
 
-// OPEN WEATHER API
+  const googleUrl =
+    'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' +
+    cityName +
+    '&key=' +
+    KEY;
+
+  return new Promise((resolve, reject) => {
+    $.getJSON({
+      url: proxyUrl + googleUrl,
+      success: resolve,
+      error: reject,
+    });
+  });
+};
+
+// OPEN WEATHER API - One Call Weather + Forecast
 export const getWeatherData = (lat, lng) => {
   const KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
   const openWeatherUrl =
