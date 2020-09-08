@@ -1,13 +1,15 @@
 // LIBRARIES
 import React from 'react';
+import Autosuggest from 'react-autosuggest';
 
 // UTILITY FUNCTIONS
 import {
   convertTemp,
   convertTime,
-  getGoogleLocData,
-  getGoogleLocSearchResults,
-  fixAddressData,
+  getLocDataByCoords,
+  getLocDataByCity,
+  getGoogleCityAutofill,
+  getAddressFromData,
   getWeatherData,
 } from './../Utils';
 
@@ -15,6 +17,18 @@ import {
 import Headline from './Headline';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
+
+// LOCAL FUNCTIONS
+// getSuggestionValue() automatically called by Autosuggest: this req'd function teaches Autosuggest what the input value should be when a suggestion value is highlighted.
+// Here, we're simply passing the suggestion string back as the input value.
+const handleSuggestion = (suggestion) => {
+  return suggestion;
+};
+
+// Automatically called by Autosuggest: Tells Autosuggest how to render suggestions
+const renderSuggestion = (suggestion) => {
+  return <div className="renderSuggestionDiv">{suggestion}</div>;
+};
 
 // Weather COMONENT CLASS
 class Weather extends React.Component {
@@ -46,7 +60,17 @@ class Weather extends React.Component {
       },
       dayForecast: null,
       hourForecast: null,
+      search: {
+        value: '',
+        cityEntered: '',
+        citySuggestions: [],
+      },
     };
+
+    this.onChange = this.onChange.bind(this);
+    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(
+      this
+    );
   }
   componentDidMount() {
     // Get device geolocation
@@ -59,16 +83,70 @@ class Weather extends React.Component {
       });
     }
   }
+  // Automatically called by Autosuggest's onChange event
+  onChange = (event, { newValue }) => {
+    this.setState({
+      search: {
+        value: newValue,
+        cityEntered: '',
+        citySuggestions: [],
+      },
+    });
+  };
+  // Automatically called by Autosuggest's input event;
+  // Async call to Wikipedia API to get suggestions for dropdown list
+  onSuggestionsFetchRequested = async ({ value }) => {
+    // const suggestions = await getWikiSuggestions(value);
+    const autofillData = await getGoogleCityAutofill(value);
+
+    let citySuggestions = autofillData.predictions.map((el) => {
+      return el.description;
+    });
+
+    this.setState({
+      search: {
+        value: value,
+        cityEntered: '',
+        citySuggestions: citySuggestions,
+      },
+    });
+  };
+  // Automatically called by Autosuggest's input clear event
+  onSuggestionsClearRequested = () => {
+    this.setState({
+      search: {
+        value: '',
+        cityEntered: '',
+        citySuggestions: [],
+      },
+    });
+  };
+  // Optional Autosuggest function: called on selection event (mouse/keyboard/touch) from list; suggestion obj comes from Autosuggest's req'd `handleSuggestion()` method.
+  onSuggestionSelected = (e, suggestion) => {
+    this.updateCity(suggestion.suggestion); //Pass in only the suggestion obj's suggestion string
+  };
+  // Async API calls to collect and format data => updates content to pass to parent with contentType='search'
+  updateCity = async (city) => {
+    const locData = await getLocDataByCity(city);
+
+    let coords = locData.results[0].geometry.location;
+    let address = locData.results[0].address_components;
+
+    let cityAddress = address[0].short_name;
+    let countryAddress = address[3].short_name;
+
+    this.updateWeather(coords.lat, coords.lng, cityAddress, countryAddress);
+  };
+
   updateCoords = async (lat, lng) => {
-    const geoLocData = await getGoogleLocData(lat, lng);
+    const locData = await getLocDataByCoords(lat, lng);
 
-    // Get parsed and formatted address elements from data
-    let addressArr = fixAddressData(geoLocData.plus_code.compound_code);
+    let addressComponents = locData.results[0].address_components;
 
-    const citySearchAutfill = await getGoogleLocSearchResults('San Fr');
-    console.log('citySearchAutfill: ', citySearchAutfill);
+    let addrObj = getAddressFromData(addressComponents);
+    console.log('addrObj: ', addrObj);
 
-    this.updateWeather(lat, lng, addressArr[1], addressArr[3]);
+    this.updateWeather(lat, lng, addrObj.city, addrObj.country);
   };
   updateWeather = async (lat, lng, city, country, units = 'F') => {
     const wData = await getWeatherData(lat, lng);
@@ -112,6 +190,7 @@ class Weather extends React.Component {
       wDetails,
       dayForecast,
       hourForecast,
+      search,
     } = this.state;
     let {
       currentTime,
@@ -123,9 +202,31 @@ class Weather extends React.Component {
       precProb,
     } = wMain;
     let { humidity, uvi } = wDetails;
+    let { value, cityEntered, citySuggestions } = search;
+
+    // Required by Autosuggest
+    // type=search is optional, defaults to type=text
+    const inputProps = {
+      placeholder: 'Enter City or ZIP code',
+      value,
+      onChange: this.onChange,
+      type: 'search',
+    };
 
     return (
       <div className="weather-container">
+        <div className="search-wrapper centered-h">
+          <i className="fas fa-search search-icon" />
+          <Autosuggest
+            suggestions={citySuggestions}
+            onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+            onSuggestionSelected={this.onSuggestionSelected}
+            getSuggestionValue={handleSuggestion}
+            renderSuggestion={renderSuggestion}
+            inputProps={inputProps}
+          />
+        </div>
         <Headline location={location} time={currentTime} />
         <div className="weather-main-container">
           <p>

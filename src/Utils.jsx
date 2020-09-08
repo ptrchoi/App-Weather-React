@@ -25,40 +25,35 @@ export const convertTime = (unixTime) => {
   return [hour, ':', mins, daytime];
 };
 
-// Parse Google geolocation address data and output to array of string address elements ([street, city, state, country])
-export const fixAddressData = (addressCode) => {
-  // Split string into array of address strings
-  let arr = addressCode.split(' ');
+// Parses Google Loc Data and returns an object with filtered address components
+export const getAddressFromData = (arr) => {
+  let city,
+    state,
+    country,
+    zip = '';
 
-  // Then split each string element into an array of chars
-  arr = arr.map((el) => el.split(''));
-
-  // Remove any commas from each char array within the array
-  arr = arr.map((charArr) => {
-    if (charArr.includes(',')) {
-      let index = charArr.findIndex((ch) => ch === ',');
-      charArr.splice(index, 1);
-    }
-    // Convert charArr's back to strings
-    let str = charArr.join('');
-
-    return str;
+  arr.forEach((el) => {
+    if (el.types[0] === 'locality') city = el.short_name;
+    else if (el.types[0] === 'administrative_area_level_1')
+      state = el.short_name;
+    else if (el.types[0] === 'country') country = el.short_name;
+    else if (el.types[0] === 'postal_code') zip = el.short_name;
   });
-  return arr;
+
+  return {
+    city: city,
+    state: state,
+    country: country,
+    zip: zip,
+  };
 };
 
-/* API FUNCTIONS
+/* GOOGLE API FUNCTIONS
 ----------------------------------------------------------------------*/
-// GOOGLE GEOLOCATION API - Location based on Coords
-export const getGoogleLocData = (lat, lng) => {
+// GOOGLE GEOLOCATION API - Location data
+function getGoogleLocData(url) {
   const KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-  const googleUrl =
-    'https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
-    lat +
-    ',' +
-    lng +
-    '&key=' +
-    KEY;
+  const googleUrl = url + '&key=' + KEY;
 
   return new Promise((resolve, reject) => {
     $.getJSON({
@@ -67,15 +62,31 @@ export const getGoogleLocData = (lat, lng) => {
       error: reject,
     });
   });
+}
+export const getLocDataByCoords = (lat, lng) => {
+  let url =
+    'https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
+    lat +
+    ',' +
+    lng;
+
+  return getGoogleLocData(url);
 };
-// GOOGLE GEOLOCATION API - Search City Results
-export const getGoogleLocSearchResults = (cityName) => {
+export const getLocDataByCity = (city) => {
+  let url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city;
+
+  return getGoogleLocData(url);
+};
+
+// GOOGLE GEOLOCATION API - Search Autofill Results
+export const getGoogleCityAutofill = (string) => {
   const KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
   const proxyUrl = 'https://radiant-hollows-05386.herokuapp.com/'; // "Middleware" CORS solution via custom Heroku deployed server (ie. cors-anywhere.com)
 
   const googleUrl =
     'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' +
-    cityName +
+    string +
+    '&types=(cities)' +
     '&key=' +
     KEY;
 
@@ -88,6 +99,8 @@ export const getGoogleLocSearchResults = (cityName) => {
   });
 };
 
+/* OPEN WEATHER API FUNCTIONS
+----------------------------------------------------------------------*/
 // OPEN WEATHER API - One Call Weather + Forecast
 export const getWeatherData = (lat, lng) => {
   const KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
