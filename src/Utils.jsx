@@ -28,21 +28,21 @@ export const convertTime = (unixTime) => {
 // Parses Google Loc Data and returns an object with filtered address components
 export const getAddressFromData = (arr) => {
   let city,
-    state,
+    stateName,
     country,
     zip = '';
 
   arr.forEach((el) => {
     if (el.types[0] === 'locality') city = el.short_name;
     else if (el.types[0] === 'administrative_area_level_1')
-      state = el.short_name;
+      stateName = el.short_name;
     else if (el.types[0] === 'country') country = el.short_name;
     else if (el.types[0] === 'postal_code') zip = el.short_name;
   });
 
   return {
     city: city,
-    state: state,
+    stateName: stateName,
     country: country,
     zip: zip,
   };

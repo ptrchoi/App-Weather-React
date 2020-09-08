@@ -7,6 +7,7 @@ class Headline extends React.Component {
     super(props);
     this.state = {
       city: '',
+      stateName: '',
       country: '',
     };
   }
@@ -14,6 +15,7 @@ class Headline extends React.Component {
     if (this.props.location != prevProps.location) {
       this.setState({
         city: this.props.location.city,
+        stateName: this.props.location.stateName,
         country: this.props.location.country,
       });
     }
@@ -22,12 +24,12 @@ class Headline extends React.Component {
     return new Date().toDateString();
   }
   render(props) {
-    const { city, country } = this.state;
+    const { city, stateName, country } = this.state;
 
     return (
       <div className="headline-container">
         <p>
-          {city}, {country}
+          {city}, {stateName}, {country}
         </p>
         <p>{this.getDate()}</p>
         <p>{this.props.time}</p>

@@ -8,8 +8,8 @@ import {
   convertTime,
   getLocDataByCoords,
   getLocDataByCity,
-  getGoogleCityAutofill,
   getAddressFromData,
+  getGoogleCityAutofill,
   getWeatherData,
 } from './../Utils';
 
@@ -19,8 +19,7 @@ import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
 
 // LOCAL FUNCTIONS
-// getSuggestionValue() automatically called by Autosuggest: this req'd function teaches Autosuggest what the input value should be when a suggestion value is highlighted.
-// Here, we're simply passing the suggestion string back as the input value.
+/* getSuggestionValue() automatically called by Autosuggest: this req'd function teaches Autosuggest what the input value should be when a suggestion value is highlighted. Here, we're simply passing the suggestion string back as the input value. */
 const handleSuggestion = (suggestion) => {
   return suggestion;
 };
@@ -39,7 +38,9 @@ class Weather extends React.Component {
       units: 'F',
       location: {
         city: '',
+        stateName: '',
         country: '',
+        zip: '',
         coords: {
           lat: null,
           lng: null,
@@ -125,30 +126,23 @@ class Weather extends React.Component {
   onSuggestionSelected = (e, suggestion) => {
     this.updateCity(suggestion.suggestion); //Pass in only the suggestion obj's suggestion string
   };
-  // Async API calls to collect and format data => updates content to pass to parent with contentType='search'
+  // Async Google Maps API call to get location data by City name
   updateCity = async (city) => {
     const locData = await getLocDataByCity(city);
+    const coords = locData.results[0].geometry.location;
+    const addrObj = getAddressFromData(locData.results[0].address_components);
 
-    let coords = locData.results[0].geometry.location;
-    let address = locData.results[0].address_components;
-
-    let cityAddress = address[0].short_name;
-    let countryAddress = address[3].short_name;
-
-    this.updateWeather(coords.lat, coords.lng, cityAddress, countryAddress);
+    this.updateWeather(coords.lat, coords.lng, addrObj);
   };
-
+  // Async Google Maps API call to get location data by coordinates
   updateCoords = async (lat, lng) => {
     const locData = await getLocDataByCoords(lat, lng);
+    const addrObj = getAddressFromData(locData.results[0].address_components);
 
-    let addressComponents = locData.results[0].address_components;
-
-    let addrObj = getAddressFromData(addressComponents);
-    console.log('addrObj: ', addrObj);
-
-    this.updateWeather(lat, lng, addrObj.city, addrObj.country);
+    this.updateWeather(lat, lng, addrObj);
   };
-  updateWeather = async (lat, lng, city, country, units = 'F') => {
+  // Updates weather based on coordinates or city name updates
+  updateWeather = async (lat, lng, address, units = 'F') => {
     const wData = await getWeatherData(lat, lng);
 
     let curData = wData.current;
@@ -158,8 +152,10 @@ class Weather extends React.Component {
     this.setState({
       units: units,
       location: {
-        city: city,
-        country: country,
+        city: address.city,
+        stateName: address.stateName,
+        country: address.country,
+        zip: address.zip,
         coords: {
           lat: wData.lat,
           lng: wData.lon,
