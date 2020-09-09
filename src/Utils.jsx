@@ -86,7 +86,7 @@ export const getGoogleCityAutofill = (string) => {
   const googleUrl =
     'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' +
     string +
-    '&types=(cities)' +
+    '&types=(regions)' +
     '&key=' +
     KEY;
 

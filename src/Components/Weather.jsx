@@ -29,7 +29,7 @@ const renderSuggestion = (suggestion) => {
   return <div className="renderSuggestionDiv">{suggestion}</div>;
 };
 
-// Weather COMONENT CLASS
+// Weather COMPONENT CLASS
 class Weather extends React.Component {
   constructor(props) {
     super(props);
@@ -63,7 +63,6 @@ class Weather extends React.Component {
       hourForecast: null,
       search: {
         value: '',
-        cityEntered: '',
         citySuggestions: [],
       },
     };
@@ -89,7 +88,6 @@ class Weather extends React.Component {
     this.setState({
       search: {
         value: newValue,
-        cityEntered: '',
         citySuggestions: [],
       },
     });
@@ -107,7 +105,6 @@ class Weather extends React.Component {
     this.setState({
       search: {
         value: value,
-        cityEntered: '',
         citySuggestions: citySuggestions,
       },
     });
@@ -117,7 +114,6 @@ class Weather extends React.Component {
     this.setState({
       search: {
         value: '',
-        cityEntered: '',
         citySuggestions: [],
       },
     });
@@ -198,7 +194,7 @@ class Weather extends React.Component {
       precProb,
     } = wMain;
     let { humidity, uvi } = wDetails;
-    let { value, cityEntered, citySuggestions } = search;
+    let { value, citySuggestions } = search;
 
     // Required by Autosuggest
     // type=search is optional, defaults to type=text
