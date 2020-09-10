@@ -3,9 +3,9 @@ import $ from 'jquery';
 
 /* MISC UTILITY FUNCTIONS
 ----------------------------------------------------------------------*/
-// Convert from Farenheit to Celcius or just round off the Farenheit value
+// Convert from Farenheit to Celcius or just round off the (default) Farenheit value
 export const convertTemp = (temp, units) => {
-  if (units === 'C') return Math.round((temp * 9) / 5 + 32);
+  if (units === 'C') return Math.round(((temp - 32) * 5) / 9);
   else return Math.round(temp);
 };
 

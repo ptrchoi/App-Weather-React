@@ -68,13 +68,16 @@ class Weather extends React.Component {
     };
 
     this.onChange = this.onChange.bind(this);
+    this.getCoordsFromDevice = this.getCoordsFromDevice.bind(this);
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(
       this
     );
+    this.handleFindLoc = this.handleFindLoc.bind(this);
+    this.updateUnits = this.updateUnits.bind(this);
   }
   componentDidMount() {
     // Get device geolocation
-    this.getCoordsFromDevice();
+    // this.getCoordsFromDevice();
   }
   getCoordsFromDevice() {
     if (navigator.geolocation) {
@@ -137,9 +140,27 @@ class Weather extends React.Component {
 
     this.updateWeather(lat, lng, addrObj);
   };
+  // Handle user input - F/C unit button
+  updateUnits(e) {
+    e.preventDefault();
+
+    let { units, location } = this.state;
+
+    if (units === 'F') units = 'C';
+    else units = 'F';
+
+    this.updateWeather(
+      location.coords.lat,
+      location.coords.lng,
+      location,
+      units
+    );
+  }
   // Updates weather based on coordinates or city name updates
   updateWeather = async (lat, lng, address, units = 'F') => {
     const wData = await getWeatherData(lat, lng);
+
+    // console.log('updateWeather() - address: ', address, ' units: ', units);
 
     let curData = wData.current;
     let dailyData = wData.daily;
@@ -174,6 +195,11 @@ class Weather extends React.Component {
       hourForecast: wData.hourly,
     });
   };
+  handleFindLoc(e) {
+    e.preventDefault();
+
+    this.getCoordsFromDevice();
+  }
   render() {
     let {
       units,
@@ -207,8 +233,10 @@ class Weather extends React.Component {
 
     return (
       <div className="weather-container">
-        <div className="search-wrapper centered-h">
-          <i className="fas fa-search search-icon" />
+        <div>
+          <button onClick={this.handleFindLoc}>
+            <i className="fas fa-crosshairs"></i>
+          </button>
           <Autosuggest
             suggestions={citySuggestions}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -223,6 +251,9 @@ class Weather extends React.Component {
         <div className="weather-main-container">
           <p>
             Current Temperature: {currentTemp}&deg; {units}
+            <button onClick={this.updateUnits}>
+              <i className="fas fa-temperature-low"></i>
+            </button>
           </p>
           <p>Current Conditions: {description}</p>
           <p>
