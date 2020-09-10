@@ -5,6 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 // UTILITY FUNCTIONS
 import { convertTemp, convertTime } from './../Utils';
 
+// LOCAL CONSTS
+const FORECAST_HOURS = 8;
+
 // ForecastHour COMPONENT CLASS
 class ForecastHour extends React.Component {
   constructor(props) {
@@ -20,10 +23,10 @@ class ForecastHour extends React.Component {
     }
   }
   updateForecast(forecastData) {
-    let forecastArr = [];
+    let forecastArr = forecastData.slice(0, FORECAST_HOURS);
 
     this.setState({
-      hourlyForecast: forecastData,
+      hourlyForecast: forecastArr,
     });
   }
   renderForecast(units) {
@@ -43,7 +46,7 @@ class ForecastHour extends React.Component {
         }
 
         return (
-          <div key={uuidv4()}>
+          <div key={uuidv4()} className="hour-compact">
             <br />
             <p>
               {timeArr[0]}

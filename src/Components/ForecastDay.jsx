@@ -2,12 +2,12 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-// `UTILITY FUNCTIONS
+// UTILITY FUNCTIONS
 import { convertTemp } from './../Utils';
 
 // LOCAL CONSTS
 const DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-const FORECAST_DAYS = 7;
+const FORECAST_DAYS = 5;
 
 // LOCAL FUNCTIONS
 function setForecastDays(arr, today) {
@@ -65,7 +65,7 @@ class ForecastDay extends React.Component {
     function displayDiv(units) {
       return function (day) {
         return (
-          <div key={uuidv4()}>
+          <div key={uuidv4()} className="day-compact">
             <br />
             <p>{day.day}</p>
             <p>

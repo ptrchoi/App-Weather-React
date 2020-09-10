@@ -174,6 +174,8 @@ class Weather extends React.Component {
               <i className="fas fa-temperature-low"></i>
             </button>
           </p>
+        </div>
+        <div className="weather-summary-container">
           <p>{description}</p>
           <p>
             <i className="fas fa-long-arrow-alt-up"></i>

@@ -1,3 +1,9 @@
 .forecastDay-container {
-  border: solid 3px green;
+  background-color: rgb(23, 160, 151);
+  display: flex;
+  flex-direction: row;
+}
+.day-compact {
+  font-size: 0.5rem;
+  margin: 0.25rem;
 }

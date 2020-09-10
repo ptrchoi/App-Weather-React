@@ -1,3 +1,9 @@
 .forecastHour-container {
-  border: solid 3px black;
+  background-color: rgb(235, 148, 55);
+  display: flex;
+  flex-direction: row;
+}
+.hour-compact {
+  font-size: 0.5rem;
+  margin: 0.25rem;
 }

@@ -1,9 +1,13 @@
 .weather-container {
-  border: solid 1px red;
+  background-color: #fff;
 }
 .weather-main-container {
-  border: solid 3px gray;
+  background-color: rgb(237, 232, 94);
+  font-size: 3rem;
+}
+.weather-summary-container {
+  background-color: rgb(78, 187, 131);
 }
 .weather-details-container {
-  border: solid 3px blue;
+  background-color: rgb(174, 82, 213);
 }
