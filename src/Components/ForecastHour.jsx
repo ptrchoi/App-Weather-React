@@ -46,11 +46,14 @@ class ForecastHour extends React.Component {
           <div key={uuidv4()}>
             <br />
             <p>
-              @ {timeArr[0]}
-              {timeArr[3]} {convertTemp(hour.temp, units)}&deg; {units}
+              {timeArr[0]}
+              {timeArr[3]}
             </p>
-            <p>{Math.round(hour.pop * 100)}% chance of precipitation</p>
-            <p>Rainfall: {rainfall}"</p>
+            <p>
+              {convertTemp(hour.temp, units)}&deg; {units}{' '}
+              <i className="fas fa-umbrella"></i> {Math.round(hour.pop * 100)}%
+            </p>
+            {/* <p>Rainfall: {rainfall}"</p> */}
           </div>
         );
       };

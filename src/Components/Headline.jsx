@@ -29,10 +29,11 @@ class Headline extends React.Component {
     return (
       <div className="headline-container">
         <p>
-          {city}, {stateName}, {country}
+          <span>{this.getDate()}</span>
+          {'   '}
+          <span>{this.props.time}</span>
         </p>
-        <p>{this.getDate()}</p>
-        <p>{this.props.time}</p>
+        <p>{city}</p>
       </div>
     );
   }

@@ -250,21 +250,23 @@ class Weather extends React.Component {
         <Headline location={location} time={currentTime} />
         <div className="weather-main-container">
           <p>
-            Current Temperature: {currentTemp}&deg; {units}
+            {currentTemp}&deg; {units}
             <button onClick={this.updateUnits}>
               <i className="fas fa-temperature-low"></i>
             </button>
           </p>
-          <p>Current Conditions: {description}</p>
+          <p>{description}</p>
           <p>
             <i className="fas fa-long-arrow-alt-up"></i>
             {high}&deg; {units} <i className="fas fa-long-arrow-alt-down"></i>
             {low}&deg; {units}
           </p>
           <p>
-            Feels Like: {feelsLike}&deg; {units}{' '}
+            Feels Like {feelsLike}&deg; {units}{' '}
           </p>
-          <p>{precProb}% chance of precipitation today</p>
+          <p>
+            <i className="fas fa-umbrella"></i> {precProb}%
+          </p>
         </div>
         <div className="weather-details-container">
           <p>Humidity: {humidity}%</p>

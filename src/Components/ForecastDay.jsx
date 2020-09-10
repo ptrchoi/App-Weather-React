@@ -67,14 +67,15 @@ class ForecastDay extends React.Component {
         return (
           <div key={uuidv4()}>
             <br />
+            <p>{day.day}</p>
             <p>
-              {day.day}: {day.temp}&deg; {units}
+              {day.temp}&deg; {units} <i className="fas fa-umbrella"></i>{' '}
+              {day.pp}%
             </p>
             <p>
-              <i className="fas fa-long-arrow-alt-up"></i> {day.high}&deg;,{' '}
+              <i className="fas fa-long-arrow-alt-up"></i> {day.high}&deg;{' '}
               <i className="fas fa-long-arrow-alt-down"></i> {day.low}&deg;
             </p>
-            <p>{day.pp}% chance of precipitation</p>
           </div>
         );
       };
