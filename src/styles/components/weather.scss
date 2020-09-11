@@ -11,3 +11,34 @@
 .weather-details-container {
   background-color: rgb(174, 82, 213);
 }
+.tempButton {
+  font-size: 4rem;
+}
+.summary-div {
+  left: 0%;
+  position: absolute;
+  width: 100%;
+  transition: left 1s;
+}
+.details-div {
+  left: 100%;
+  position: absolute;
+  width: 100%;
+  transition: left 1s;
+}
+.swipe-out--left {
+  left: -100%;
+  transition: left 1s;
+}
+.swipe-in--left {
+  left: 0%;
+  transition: left 1s;
+}
+.swipe-out--right {
+  left: 100%;
+  transition: left 1s;
+}
+.swipe-in--right {
+  left: 0%;
+  transition: left 1s;
+}
