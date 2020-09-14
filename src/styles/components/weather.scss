@@ -1,16 +1,47 @@
-.weather-container {
-  background-color: #fff;
+.weather-wrapper {
+  background-color: rgb(203, 201, 201);
+
+  border: solid 4px blue;
+
+  // display: flex;
+  // flex-direction: column;
+  position: relative;
+
+  // height: 100%;
+  // width: 100%;
+
+  height: 100vh;
+  max-width: 600px;
+  overflow: hidden;
+  width: 100%;
 }
 .weather-main-container {
   background-color: rgb(237, 232, 94);
   font-size: 3rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  height: $m_weather-main-height;
 }
 .weather-summary-container {
   background-color: rgb(78, 187, 131);
+
+  height: $m_weather-sub-height;
 }
 .weather-details-container {
   background-color: rgb(174, 82, 213);
+
+  height: $m_weather-sub-height;
 }
+.weather-day-fc-compact-container {
+  height: $m_forecast-compact-height;
+}
+.weather-hour-fc-compact-container {
+  height: $m_forecast-compact-height;
+}
+
 .tempButton {
   font-size: 4rem;
 }
@@ -25,6 +56,14 @@
   position: absolute;
   width: 100%;
   transition: left 1s;
+}
+.summary-div--1,
+.details-div--1 {
+  top: $m_headline-height + $m_weather-main-height;
+}
+.summary-div--2,
+.details-div--2 {
+  top: $m_headline-height + $m_weather-main-height + $m_weather-sub-height;
 }
 .swipe-out--left {
   left: -100%;

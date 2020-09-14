@@ -2,6 +2,8 @@
   background-color: rgb(235, 148, 55);
   display: flex;
   flex-direction: row;
+
+  height: $m_forecast-compact-height;
 }
 .hour-compact {
   font-size: 0.5rem;

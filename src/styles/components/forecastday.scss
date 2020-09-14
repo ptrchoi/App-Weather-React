@@ -2,6 +2,8 @@
   background-color: rgb(23, 160, 151);
   display: flex;
   flex-direction: row;
+
+  height: $m_forecast-compact-height;
 }
 .expanded {
   flex-direction: column;

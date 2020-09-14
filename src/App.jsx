@@ -8,6 +8,7 @@ import Weather from './Components/Weather';
 // STYLE SHEETS
 import './styles/index.scss';
 import './styles/base/app.scss';
+import './styles/base/variables.scss';
 
 // APP COMPONENT CLASS
 class App extends React.Component {

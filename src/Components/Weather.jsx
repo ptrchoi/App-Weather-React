@@ -186,7 +186,7 @@ class Weather extends React.Component {
     let { humidity, uvi } = wDetails;
 
     return (
-      <div className="weather-container">
+      <div className="weather-wrapper">
         <Headline
           location={location}
           time={currentTime}
@@ -201,7 +201,7 @@ class Weather extends React.Component {
             </button>
           </p>
         </div>
-        <div className="weather-summary-container summary-div">
+        <div className="weather-summary-container summary-div summary-div--1">
           <p>{description}</p>
           <p>
             <i className="fas fa-long-arrow-alt-up"></i>
@@ -218,17 +218,17 @@ class Weather extends React.Component {
             <i className="fas fa-chevron-right"></i>
           </button>
         </div>
-        <div className="weather-details-container details-div">
+        <div className="weather-details-container details-div details-div--1">
           <p>Humidity: {humidity}%</p>
           <p>UV Index: {uvi}</p>
           <button className="tempButton" onClick={this.swipeContent}>
             <i className="fas fa-chevron-left"></i>
           </button>
         </div>
-        <div className="weather-day-fc-compact-container summary-div">
+        <div className="weather-day-fc-compact-container summary-div summary-div--2">
           <ForecastDay dayForecast={dayForecast} units={units} />
         </div>
-        <div className="weather-hour-fc-compact-container details-div">
+        <div className="weather-hour-fc-compact-container details-div details-div--2">
           <ForecastHour hourForecast={hourForecast} units={units} />
         </div>
       </div>

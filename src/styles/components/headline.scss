@@ -1,3 +1,18 @@
 .headline-container {
   background-color: rgb(235, 112, 131);
+
+  display: flex;
+  flex-direction: column;
+
+  height: $m_headline-height;
+
+  // justify-content: center;
+  // margin: 0 auto;
+
+  // position: relative;
+  // width: 100%;
+}
+.search-div {
+  display: flex;
+  flex-direction: row;
 }

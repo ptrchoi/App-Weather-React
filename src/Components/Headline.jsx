@@ -115,7 +115,7 @@ class Headline extends React.Component {
           </p>
           <p>{city}</p>
         </div>
-        <div>
+        <div className="search-div">
           <button onClick={this.handleTargetLocation}>
             <i className="fas fa-crosshairs"></i>
           </button>
