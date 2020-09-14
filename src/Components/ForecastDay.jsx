@@ -43,7 +43,7 @@ class ForecastDay extends React.Component {
   updateForecast(forecastData, units, resize = false) {
     let { size } = this.state;
 
-    // If resized, size should be toggled
+    // If resized, size should be manually toggled as state props will not have been updated yet
     if (resize) {
       if (size === 'compact') size = 'expanded';
       else size = 'compact';
@@ -80,6 +80,7 @@ class ForecastDay extends React.Component {
     else size = 'compact';
 
     this.updateForecast(this.props.dayForecast, this.props.units, true);
+    this.props.onResize(size);
 
     this.setState({
       size: size,

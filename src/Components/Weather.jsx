@@ -9,7 +9,6 @@ import {
   getLocDataByCoords,
   getLocDataByCity,
   getAddressFromData,
-  getGoogleCityAutofill,
   getWeatherData,
 } from './../Utils';
 
@@ -55,6 +54,7 @@ class Weather extends React.Component {
 
     this.getCoordsFromDevice = this.getCoordsFromDevice.bind(this);
     this.handleFindLoc = this.handleFindLoc.bind(this);
+    this.handleResize = this.handleResize.bind(this);
     this.updateUnits = this.updateUnits.bind(this);
     this.swipeContent = this.swipeContent.bind(this);
   }
@@ -142,21 +142,30 @@ class Weather extends React.Component {
   handleFindLoc() {
     this.getCoordsFromDevice();
   }
+  handleResize(size) {
+    if (size === 'compact') {
+      $('.summary-bottom').removeClass('bottom--expanded');
+      $('.details-bottom').removeClass('bottom--expanded');
+    } else {
+      $('.summary-bottom').addClass('bottom--expanded');
+      $('.details-bottom').addClass('bottom--expanded');
+    }
+  }
   swipeContent() {
     let { weatherView } = this.state;
 
     if (weatherView === 'summary') {
-      $('.summary-div').removeClass('swipe-in--right');
-      $('.summary-div').addClass('swipe-out--left');
-      $('.details-div').removeClass('swipe-out--right');
-      $('.details-div').addClass('swipe-in--left');
+      $('.summary').removeClass('swipe-in--right');
+      $('.summary').addClass('swipe-out--left');
+      $('.details').removeClass('swipe-out--right');
+      $('.details').addClass('swipe-in--left');
 
       weatherView = 'details';
     } else {
-      $('.summary-div').removeClass('swipe-out--left');
-      $('.summary-div').addClass('swipe-in--right');
-      $('.details-div').removeClass('swipe-in--left');
-      $('.details-div').addClass('swipe-out--right');
+      $('.summary').removeClass('swipe-out--left');
+      $('.summary').addClass('swipe-in--right');
+      $('.details').removeClass('swipe-in--left');
+      $('.details').addClass('swipe-out--right');
 
       weatherView = 'summary';
     }
@@ -201,7 +210,7 @@ class Weather extends React.Component {
             </button>
           </p>
         </div>
-        <div className="weather-summary-container summary-div summary-div--1">
+        <div className="summary summary-top">
           <p>{description}</p>
           <p>
             <i className="fas fa-long-arrow-alt-up"></i>
@@ -218,18 +227,26 @@ class Weather extends React.Component {
             <i className="fas fa-chevron-right"></i>
           </button>
         </div>
-        <div className="weather-details-container details-div details-div--1">
+        <div className="details details-top">
           <p>Humidity: {humidity}%</p>
           <p>UV Index: {uvi}</p>
           <button className="tempButton" onClick={this.swipeContent}>
             <i className="fas fa-chevron-left"></i>
           </button>
         </div>
-        <div className="weather-day-fc-compact-container summary-div summary-div--2">
-          <ForecastDay dayForecast={dayForecast} units={units} />
+        <div className="summary summary-bottom">
+          <ForecastDay
+            dayForecast={dayForecast}
+            units={units}
+            onResize={this.handleResize}
+          />
         </div>
-        <div className="weather-hour-fc-compact-container details-div details-div--2">
-          <ForecastHour hourForecast={hourForecast} units={units} />
+        <div className="details details-bottom">
+          <ForecastHour
+            hourForecast={hourForecast}
+            units={units}
+            onResize={this.handleResize}
+          />
         </div>
       </div>
     );

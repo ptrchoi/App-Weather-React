@@ -7,6 +7,8 @@
 }
 .expanded {
   flex-direction: column;
+
+  height: $m_forecast-expanded-height;
 }
 .day-compact {
   font-size: 0.5rem;
