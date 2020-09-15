@@ -60,7 +60,7 @@ class MobileLayout extends React.Component {
 
     return (
       <div className="panels">
-        <div className="panel single-panel">
+        <div className="panel">
           <div className="weather-main-container">
             <p>
               {currentTemp}&deg; {units}

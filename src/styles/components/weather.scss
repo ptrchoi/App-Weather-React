@@ -1,94 +1,11 @@
 .weather-wrapper {
   background-color: rgb(203, 201, 201);
-
   border: solid 4px blue;
 
   position: relative;
-
-  // height: 100%;
-  // width: 100%;
-
   max-width: $MOBILE-WIDTH-BREAKPOINT;
   overflow: hidden;
   width: 100%;
-}
-.panels {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.panel {
-  border: solid 3px green;
-  height: 100vh;
-  width: 100%;
-}
-.single-panel {
-}
-.double-panels {
-  display: none;
-}
-.weather-main-container {
-  background-color: rgb(237, 232, 94);
-  font-size: 3rem;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  height: $m_weather-main-height;
-}
-// "swipes-left" is displayed on the default page, swipes out to the left
-.swipes-left {
-  left: 0%;
-  position: absolute;
-  width: 100%;
-  transition: left 1s;
-
-  background-color: rgb(78, 187, 131);
-}
-// "swipes-right" is displayed offscreen to the right by default, swipes in from the right
-.swipes-right {
-  left: 100%;
-  position: absolute;
-  width: 100%;
-  transition: left 1s;
-
-  background-color: rgb(174, 82, 213);
-}
-// Weather Summary | Weather Details
-.weather-summary,
-.weather-details {
-  height: $m_weather-sub-height;
-  top: $m_headline-height + $m_weather-main-height;
-}
-// Forecast Day | Forecast Hour
-.forecast-day,
-.forecast-hour {
-  height: $m_weather-sub-height;
-  top: $m_headline-height + $m_weather-main-height + $m_weather-sub-height;
-}
-.forecast--expanded {
-  height: $m_forecast-expanded-height;
-  top: $m_headline-height + $m_weather-main-height;
-}
-.swipe-out--left {
-  left: -100%;
-  transition: left 1s;
-}
-.swipe-in--left {
-  left: 0%;
-  transition: left 1s;
-}
-.swipe-out--right {
-  left: 100%;
-  transition: left 1s;
-}
-.swipe-in--right {
-  left: 0%;
-  transition: left 1s;
-}
-.tempButton {
-  font-size: 4rem;
 }
 
 // DESKTOP LAYOUT

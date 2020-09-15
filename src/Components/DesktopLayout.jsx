@@ -34,7 +34,7 @@ class DesktopLayout extends React.Component {
 
     return (
       <div className="panels">
-        <div className="panel double-panel">
+        <div className="panel">
           <div className="weather-main-container">
             <p>
               {currentTemp}&deg; {units}
@@ -61,14 +61,16 @@ class DesktopLayout extends React.Component {
             <p>Humidity: {humidity}%</p>
             <p>UV Index: {uvi}</p>
           </div>
-          <div className="forecast-day swipes-left">
+        </div>
+        <div className="panel">
+          <div className="forecast-day">
             <ForecastDay
               dayForecast={dayForecast}
               units={units}
               onResize={this.handleResize}
             />
           </div>
-          <div className="forecast-hour swipes-right ">
+          <div className="forecast-hour">
             <ForecastHour
               hourForecast={hourForecast}
               units={units}

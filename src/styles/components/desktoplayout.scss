@@ -1,0 +1,39 @@
+.panels {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.panel {
+  border: solid 3px green;
+  height: 100vh;
+  width: 100%;
+}
+.weather-main-container {
+  background-color: rgb(237, 232, 94);
+  font-size: 3rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  height: $m_weather-main-height;
+}
+// Weather Summary | Weather Details
+.weather-summary,
+.weather-details {
+  height: $m_weather-sub-height;
+  top: $m_headline-height + $m_weather-main-height;
+}
+// Forecast Day | Forecast Hour
+.forecast-day,
+.forecast-hour {
+  height: $m_weather-sub-height;
+  top: $m_headline-height + $m_weather-main-height + $m_weather-sub-height;
+}
+.forecast--expanded {
+  height: $m_forecast-expanded-height;
+  top: $m_headline-height + $m_weather-main-height;
+}
+.tempButton {
+  font-size: 4rem;
+}
