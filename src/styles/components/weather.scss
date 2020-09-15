@@ -3,17 +3,29 @@
 
   border: solid 4px blue;
 
-  // display: flex;
-  // flex-direction: column;
   position: relative;
 
   // height: 100%;
   // width: 100%;
 
-  height: 100vh;
-  max-width: 600px;
+  max-width: $MOBILE-WIDTH-BREAKPOINT;
   overflow: hidden;
   width: 100%;
+}
+.panels {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.panel {
+  border: solid 3px green;
+  height: 100vh;
+  width: 100%;
+}
+.single-panel {
+}
+.double-panels {
+  display: none;
 }
 .weather-main-container {
   background-color: rgb(237, 232, 94);
@@ -25,8 +37,8 @@
 
   height: $m_weather-main-height;
 }
-// "summary" is displayed on the default page, swipes out to the left
-.summary {
+// "swipes-left" is displayed on the default page, swipes out to the left
+.swipes-left {
   left: 0%;
   position: absolute;
   width: 100%;
@@ -34,8 +46,8 @@
 
   background-color: rgb(78, 187, 131);
 }
-// "details" is displayed offscreen to the right by default, swipes in from the right
-.details {
+// "swipes-right" is displayed offscreen to the right by default, swipes in from the right
+.swipes-right {
   left: 100%;
   position: absolute;
   width: 100%;
@@ -43,19 +55,21 @@
 
   background-color: rgb(174, 82, 213);
 }
-.summary-top,
-.details-top {
+// Weather Summary | Weather Details
+.weather-summary,
+.weather-details {
   height: $m_weather-sub-height;
   top: $m_headline-height + $m_weather-main-height;
 }
-.summary-bottom,
-.details-bottom {
+// Forecast Day | Forecast Hour
+.forecast-day,
+.forecast-hour {
   height: $m_weather-sub-height;
   top: $m_headline-height + $m_weather-main-height + $m_weather-sub-height;
 }
-.bottom--expanded {
-  top: $m_headline-height + $m_weather-main-height;
+.forecast--expanded {
   height: $m_forecast-expanded-height;
+  top: $m_headline-height + $m_weather-main-height;
 }
 .swipe-out--left {
   left: -100%;
@@ -76,3 +90,56 @@
 .tempButton {
   font-size: 4rem;
 }
+
+// DESKTOP LAYOUT
+// @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
+//   .panel {
+//     border: solid 3px green;
+//     width: 50%;
+//   }
+//   .single-panel {
+//     // width: 50%;
+//   }
+//   .double-panels {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//   }
+//   .weather-main-container {
+//     height: $d_weather-main-height;
+//   }
+//   // Weather summary
+//   .weather-summary {
+//     height: $d_weather-sub-height;
+//     top: $d_headline-height + $d_weather-main-height;
+//     // width: 50%;
+//   }
+//   // Weather details
+//   .weather-details {
+//     height: $d_weather-sub-height;
+//     top: $d_headline-height + $d_weather-main-height + $d_weather-sub-height;
+//     // width: 50%;
+//   }
+//   // Day forecast
+//   .forecast-day {
+//     height: $d_forecast-compact-height;
+//     left: 50%;
+//     top: $d_headline-height;
+//   }
+//   // Hour forecast
+//   .forecast-hour {
+//     height: $d_forecast-compact-height;
+//     left: 50%;
+//     top: $d_headline-height + $d_forecast-compact-height;
+//   }
+//   .swipes-left {
+//     width: 50%;
+//   }
+//   .swipes-right {
+//     left: 0;
+//     width: 50%;
+//   }
+//   .hidden {
+//     display: none;
+//   }
+// }

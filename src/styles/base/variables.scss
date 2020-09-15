@@ -1,12 +1,15 @@
+// Shared Values
+$MOBILE-WIDTH-BREAKPOINT: 600px;
+
 // figure out total # rows; height percentages based on # of rows out of total
 $m_headline-height: 10vh;
-$m_weather-main-height: 30vh;
-$m_weather-sub-height: 30vh;
-$m_forecast-compact-height: 30vh;
-$m_forecast-expanded-height: 60vh;
+$m_weather-main-height: 20vh;
+$m_weather-sub-height: 35vh;
+$m_forecast-compact-height: 35vh;
+$m_forecast-expanded-height: 70vh;
 
 $d_headline-height: 10vh;
-$d_weather-main-height: 30vh;
-$d_weather-sub-height: 30vh;
-$d_forecast-compact-height: 30vh;
-$d_forecast-expanded-height: 60vh;
+$d_weather-main-height: 20vh;
+$d_weather-sub-height: 35vh;
+$d_forecast-compact-height: 45vh;
+$d_forecast-expanded-height: 90vh;
