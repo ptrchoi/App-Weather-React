@@ -35,7 +35,7 @@ class DesktopLayout extends React.Component {
     return (
       <div className="panels">
         <div className="panel">
-          <div className="weather-main-container">
+          <div className="weather-main-container content-block">
             <p>
               {currentTemp}&deg; {units}
               <button onClick={this.handleUnitsChange}>
@@ -43,7 +43,7 @@ class DesktopLayout extends React.Component {
               </button>
             </p>
           </div>
-          <div className="weather-summary">
+          <div className="weather-summary content-block">
             <p>{description}</p>
             <p>
               <i className="fas fa-long-arrow-alt-up"></i>
@@ -57,20 +57,20 @@ class DesktopLayout extends React.Component {
               <i className="fas fa-umbrella"></i> {precProb}%
             </p>
           </div>
-          <div className="weather-details">
+          <div className="weather-details content-block">
             <p>Humidity: {humidity}%</p>
             <p>UV Index: {uvi}</p>
           </div>
         </div>
         <div className="panel">
-          <div className="forecast-day">
+          <div className="forecast-day content-block">
             <ForecastDay
               dayForecast={dayForecast}
               units={units}
               onResize={this.handleResize}
             />
           </div>
-          <div className="forecast-hour">
+          <div className="forecast-hour content-block">
             <ForecastHour
               hourForecast={hourForecast}
               units={units}

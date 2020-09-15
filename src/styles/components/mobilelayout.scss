@@ -1,14 +1,14 @@
-.panels {
+.m_panels {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.panel {
+.m_panel {
   border: solid 3px green;
   height: 100vh;
   width: 100%;
 }
-.weather-main-container {
+.m_weather-main-container {
   background-color: rgb(237, 232, 94);
   font-size: 3rem;
 
@@ -37,18 +37,18 @@
   background-color: rgb(174, 82, 213);
 }
 // Weather Summary | Weather Details
-.weather-summary,
-.weather-details {
+.m_weather-summary,
+.m_weather-details {
   height: $m_weather-sub-height;
   top: $m_headline-height + $m_weather-main-height;
 }
 // Forecast Day | Forecast Hour
-.forecast-day,
-.forecast-hour {
+.m_forecast-day,
+.m_forecast-hour {
   height: $m_weather-sub-height;
   top: $m_headline-height + $m_weather-main-height + $m_weather-sub-height;
 }
-.forecast--expanded {
+.m_forecast--expanded {
   height: $m_forecast-expanded-height;
   top: $m_headline-height + $m_weather-main-height;
 }
@@ -68,6 +68,6 @@
   left: 0%;
   transition: left 1s;
 }
-.tempButton {
+.m_tempButton {
   font-size: 4rem;
 }

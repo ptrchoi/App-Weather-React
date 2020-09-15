@@ -46,11 +46,11 @@ class MobileLayout extends React.Component {
   }
   handleResize(size) {
     if (size === 'compact') {
-      $('.forecast-day').removeClass('forecast--expanded');
-      $('.forecast-hour').removeClass('forecast--expanded');
+      $('.m_forecast-day').removeClass('forecast--expanded');
+      $('.m_forecast-hour').removeClass('forecast--expanded');
     } else {
-      $('.forecast-day').addClass('forecast--expanded');
-      $('.forecast-hour').addClass('forecast--expanded');
+      $('.m_forecast-day').addClass('forecast--expanded');
+      $('.m_forecast-hour').addClass('forecast--expanded');
     }
   }
   render(props) {
@@ -59,9 +59,9 @@ class MobileLayout extends React.Component {
     let { humidity, uvi } = wDetails;
 
     return (
-      <div className="panels">
-        <div className="panel">
-          <div className="weather-main-container">
+      <div className="m_panels">
+        <div className="m_panel">
+          <div className="m_weather-main-container">
             <p>
               {currentTemp}&deg; {units}
               <button onClick={this.handleUnitsChange}>
@@ -69,7 +69,7 @@ class MobileLayout extends React.Component {
               </button>
             </p>
           </div>
-          <div className="weather-summary swipes-left">
+          <div className="m_weather-summary swipes-left">
             <p>{description}</p>
             <p>
               <i className="fas fa-long-arrow-alt-up"></i>
@@ -82,25 +82,25 @@ class MobileLayout extends React.Component {
             <p>
               <i className="fas fa-umbrella"></i> {precProb}%
             </p>
-            <button className="tempButton" onClick={this.swipeContent}>
+            <button className="m_tempButton" onClick={this.swipeContent}>
               <i className="fas fa-chevron-right"></i>
             </button>
           </div>
-          <div className="weather-details swipes-right ">
+          <div className="m_weather-details swipes-right ">
             <p>Humidity: {humidity}%</p>
             <p>UV Index: {uvi}</p>
-            <button className="tempButton" onClick={this.swipeContent}>
+            <button className="m_tempButton" onClick={this.swipeContent}>
               <i className="fas fa-chevron-left"></i>
             </button>
           </div>
-          <div className="forecast-day swipes-left">
+          <div className="m_forecast-day swipes-left">
             <ForecastDay
               dayForecast={dayForecast}
               units={units}
               onResize={this.handleResize}
             />
           </div>
-          <div className="forecast-hour swipes-right ">
+          <div className="m_forecast-hour swipes-right ">
             <ForecastHour
               hourForecast={hourForecast}
               units={units}
