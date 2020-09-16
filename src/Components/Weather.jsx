@@ -57,8 +57,11 @@ class Weather extends React.Component {
     this.handleFindLoc = this.handleFindLoc.bind(this);
     this.updateUnits = this.updateUnits.bind(this);
     this.updateLayout = this.updateLayout.bind(this);
+    this.renderLayout = this.renderLayout.bind(this);
   }
   componentDidMount() {
+    // Set initial layout
+    this.updateLayout();
     window.addEventListener('resize', this.updateLayout);
   }
   updateLayout() {
@@ -149,57 +152,54 @@ class Weather extends React.Component {
   handleFindLoc() {
     this.getCoordsFromDevice();
   }
-  render() {
+  renderLayout() {
     let {
       units,
-      location,
       wMain,
       wDetails,
       dayForecast,
       hourForecast,
       layout,
     } = this.state;
-    let { currentTime } = wMain;
 
     if (layout === 'mobile') {
       return (
-        <div className="weather-wrapper">
-          <Headline
-            location={location}
-            time={currentTime}
-            onNewCity={this.updateCity}
-            onFindLoc={this.handleFindLoc}
-          />
-          <MobileLayout
-            units={units}
-            wMain={wMain}
-            wDetails={wDetails}
-            dayForecast={dayForecast}
-            hourForecast={hourForecast}
-            onUnitsChanged={this.updateUnits}
-          />
-        </div>
+        <MobileLayout
+          units={units}
+          wMain={wMain}
+          wDetails={wDetails}
+          dayForecast={dayForecast}
+          hourForecast={hourForecast}
+          onUnitsChanged={this.updateUnits}
+        />
       );
     } else {
       return (
-        <div className="weather-wrapper">
-          <Headline
-            location={location}
-            time={currentTime}
-            onNewCity={this.updateCity}
-            onFindLoc={this.handleFindLoc}
-          />
-          <DesktopLayout
-            units={units}
-            wMain={wMain}
-            wDetails={wDetails}
-            dayForecast={dayForecast}
-            hourForecast={hourForecast}
-            onUnitsChanged={this.updateUnits}
-          />
-        </div>
+        <DesktopLayout
+          units={units}
+          wMain={wMain}
+          wDetails={wDetails}
+          dayForecast={dayForecast}
+          hourForecast={hourForecast}
+          onUnitsChanged={this.updateUnits}
+        />
       );
     }
+  }
+  render() {
+    let { location, wMain, layout } = this.state;
+
+    return (
+      <div className="weather-container">
+        <Headline
+          location={location}
+          time={wMain.currentTime}
+          onNewCity={this.updateCity}
+          onFindLoc={this.handleFindLoc}
+        />
+        {this.renderLayout({ layout })}
+      </div>
+    );
   }
 }
 export default Weather;

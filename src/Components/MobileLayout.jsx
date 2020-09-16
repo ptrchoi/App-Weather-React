@@ -59,54 +59,52 @@ class MobileLayout extends React.Component {
     let { humidity, uvi } = wDetails;
 
     return (
-      <div className="m_panels">
-        <div className="m_panel">
-          <div className="m_weather-main-container">
-            <p>
-              {currentTemp}&deg; {units}
-              <button onClick={this.handleUnitsChange}>
-                <i className="fas fa-temperature-low"></i>
-              </button>
-            </p>
-          </div>
-          <div className="m_weather-summary swipes-left">
-            <p>{description}</p>
-            <p>
-              <i className="fas fa-long-arrow-alt-up"></i>
-              {high}&deg; {units} <i className="fas fa-long-arrow-alt-down"></i>
-              {low}&deg; {units}
-            </p>
-            <p>
-              Feels Like {feelsLike}&deg; {units}{' '}
-            </p>
-            <p>
-              <i className="fas fa-umbrella"></i> {precProb}%
-            </p>
-            <button className="m_tempButton" onClick={this.swipeContent}>
-              <i className="fas fa-chevron-right"></i>
+      <div className="m-container">
+        <div className="m-box-1">
+          <p>
+            {currentTemp}&deg; {units}
+            <button onClick={this.handleUnitsChange}>
+              <i className="fas fa-temperature-low"></i>
             </button>
-          </div>
-          <div className="m_weather-details swipes-right ">
-            <p>Humidity: {humidity}%</p>
-            <p>UV Index: {uvi}</p>
-            <button className="m_tempButton" onClick={this.swipeContent}>
-              <i className="fas fa-chevron-left"></i>
-            </button>
-          </div>
-          <div className="m_forecast-day swipes-left">
-            <ForecastDay
-              dayForecast={dayForecast}
-              units={units}
-              onResize={this.handleResize}
-            />
-          </div>
-          <div className="m_forecast-hour swipes-right ">
-            <ForecastHour
-              hourForecast={hourForecast}
-              units={units}
-              onResize={this.handleResize}
-            />
-          </div>
+          </p>
+        </div>
+        <div className="m-box-2-L swipes-left">
+          <p>{description}</p>
+          <p>
+            <i className="fas fa-long-arrow-alt-up"></i>
+            {high}&deg; {units} <i className="fas fa-long-arrow-alt-down"></i>
+            {low}&deg; {units}
+          </p>
+          <p>
+            Feels Like {feelsLike}&deg; {units}{' '}
+          </p>
+          <p>
+            <i className="fas fa-umbrella"></i> {precProb}%
+          </p>
+          <button className="m_tempButton" onClick={this.swipeContent}>
+            <i className="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <div className="m-box-2-R swipes-right ">
+          <p>Humidity: {humidity}%</p>
+          <p>UV Index: {uvi}</p>
+          <button className="m-tempButton" onClick={this.swipeContent}>
+            <i className="fas fa-chevron-left"></i>
+          </button>
+        </div>
+        <div className="m-box-3-L swipes-left">
+          <ForecastDay
+            dayForecast={dayForecast}
+            units={units}
+            onResize={this.handleResize}
+          />
+        </div>
+        <div className="m-box-3-R swipes-right ">
+          <ForecastHour
+            hourForecast={hourForecast}
+            units={units}
+            onResize={this.handleResize}
+          />
         </div>
       </div>
     );

@@ -1,57 +1,35 @@
-.panels {
+.d-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.panel {
+.d-column {
   border: solid 3px green;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
-  height: 100vh;
+  height: $d_weather-main-height + $d_weather-sub-height + $d_weather-sub-height;
   width: 100%;
 }
-.content-block {
-  // position: absolute;
-}
-.weather-main-container {
+// Current Temperature
+.box-temp {
   background-color: rgb(237, 232, 94);
-  font-size: 3rem;
 
   display: flex;
   flex-direction: row;
-  justify-content: center;
-
+  font-size: 3rem;
   height: $d_weather-main-height;
+  justify-content: center;
 }
-// Weather Summary | Weather Details
-.weather-summary {
+// Weather Summary
+.box-summary {
   background-color: rgb(78, 187, 131);
 
   height: $d_weather-sub-height;
-  // top: $d_headline-height + $d_weather-main-height;
 }
-.weather-details {
+// Weather Details
+.box-details {
   background-color: rgb(174, 82, 213);
 
   height: $d_weather-sub-height;
-  // top: $d_headline-height + $d_weather-main-height + $d_weather-sub-height;
-}
-// Forecast Day | Forecast Hour
-.forecast-day {
-  height: $d_forecast-compact-height;
-  // top: $d_headline-height;
-}
-.forecast-hour {
-  height: $d_forecast-compact-height;
-  // top: $d_headline-height + $d_forecast-compact-height;
-}
-.forecast--expanded {
-  height: $d_forecast-expanded-height;
-  // top: $d_headline-height;
-}
-.tempButton {
-  font-size: 4rem;
 }

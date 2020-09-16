@@ -1,57 +1,61 @@
-.m_panels {
+.m-container {
+  border: solid 3px green;
+
   display: flex;
   flex-direction: row;
+  height: $m_weather-main-height + $m_weather-sub-height +
+    $m_forecast-compact-height;
   justify-content: center;
-}
-.m_panel {
-  border: solid 3px green;
-  height: 100vh;
   width: 100%;
 }
-.m_weather-main-container {
-  background-color: rgb(237, 232, 94);
-  font-size: 3rem;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  height: $m_weather-main-height;
-}
 // "swipes-left" is displayed on the default page, swipes out to the left
 .swipes-left {
+  background-color: rgb(78, 187, 131);
+
   left: 0%;
   position: absolute;
-  width: 100%;
   transition: left 1s;
-
-  background-color: rgb(78, 187, 131);
+  width: 100%;
 }
 // "swipes-right" is displayed offscreen to the right by default, swipes in from the right
 .swipes-right {
+  background-color: rgb(174, 82, 213);
+
   left: 100%;
   position: absolute;
-  width: 100%;
   transition: left 1s;
+  width: 100%;
+}
 
-  background-color: rgb(174, 82, 213);
+// Current temp
+.m-box-1 {
+  background-color: rgb(237, 232, 94);
+
+  display: flex;
+  flex-direction: row;
+  font-size: 3rem;
+  height: $m_weather-main-height;
+  justify-content: center;
+  width: 100%;
 }
 // Weather Summary | Weather Details
-.m_weather-summary,
-.m_weather-details {
+.m-box-2-L,
+.m-box-2-R {
   height: $m_weather-sub-height;
   top: $m_headline-height + $m_weather-main-height;
 }
 // Forecast Day | Forecast Hour
-.m_forecast-day,
-.m_forecast-hour {
+.m-box-3-L,
+.m-box-3-R {
   height: $m_weather-sub-height;
   top: $m_headline-height + $m_weather-main-height + $m_weather-sub-height;
 }
-.m_forecast--expanded {
-  height: $m_forecast-expanded-height;
-  top: $m_headline-height + $m_weather-main-height;
+.m-tempButton {
+  font-size: 1rem;
 }
+
+// Swipe transitions
 .swipe-out--left {
   left: -100%;
   transition: left 1s;
@@ -67,7 +71,4 @@
 .swipe-in--right {
   left: 0%;
   transition: left 1s;
-}
-.m_tempButton {
-  font-size: 4rem;
 }

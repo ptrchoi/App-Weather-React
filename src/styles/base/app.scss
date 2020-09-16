@@ -10,19 +10,11 @@ body {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   height: 100%;
   margin: 0 auto !important;
-  // display: flex;
-  // justify-content: center;
 }
 
 .app-container {
   border: solid 5px red;
 
   display: flex;
-  // flex-direction: column;
   justify-content: center;
-  // margin: 0 auto;
-
-  // height: 100vh;
-  // max-width: 1200px;
-  // width: 100%;
 }
