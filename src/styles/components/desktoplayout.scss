@@ -4,7 +4,7 @@
   justify-content: center;
 }
 .d-column {
-  border: solid 3px green;
+  // border: solid 3px green;
 
   display: flex;
   flex-direction: column;
@@ -13,13 +13,19 @@
 }
 // Current Temperature
 .box-temp {
-  background-color: rgb(237, 232, 94);
+  // background-color: rgb(237, 232, 94);
 
   display: flex;
   flex-direction: row;
   font-size: 3rem;
   height: $d_weather-main-height;
   justify-content: center;
+
+  .wIcon {
+    color: gray;
+    font-size: 8rem;
+    padding-right: 0.5rem;
+  }
 }
 // Weather Summary
 .box-summary {

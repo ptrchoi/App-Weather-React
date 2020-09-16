@@ -6,11 +6,12 @@ import $ from 'jquery';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
 
+// STYLE SHEETS
+import '../styles/weather-icons.scss';
+
 class DesktopLayout extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {};
 
     this.handleUnitsChange = this.handleUnitsChange.bind(this);
     this.handleResize = this.handleResize.bind(this);
@@ -29,13 +30,27 @@ class DesktopLayout extends React.Component {
   }
   render(props) {
     let { units, wMain, wDetails, dayForecast, hourForecast } = this.props;
-    let { currentTemp, description, high, low, feelsLike, precProb } = wMain;
+    let {
+      currentTemp,
+      description,
+      iconCode,
+      high,
+      low,
+      feelsLike,
+      precProb,
+    } = wMain;
     let { humidity, uvi } = wDetails;
+
+    // Add Weather Icon prefix to iconCode
+    let iconClass = 'wi wi-owm-' + iconCode;
 
     return (
       <div className="d-container">
         <div className="d-column">
           <div className="box-temp">
+            <div className="wIcon">
+              <i className={iconClass}></i>
+            </div>
             <p>
               {currentTemp}&deg; {units}
               <button onClick={this.handleUnitsChange}>
