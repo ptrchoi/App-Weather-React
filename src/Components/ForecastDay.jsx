@@ -74,6 +74,8 @@ class ForecastDay extends React.Component {
     });
   }
   resize() {
+    if (!this.props.dayForecast) return;
+
     let { size } = this.state;
 
     if (size === 'compact') size = 'expanded';

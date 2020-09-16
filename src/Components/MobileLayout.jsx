@@ -46,11 +46,11 @@ class MobileLayout extends React.Component {
   }
   handleResize(size) {
     if (size === 'compact') {
-      $('.m_forecast-day').removeClass('forecast--expanded');
-      $('.m_forecast-hour').removeClass('forecast--expanded');
+      $('.m-box-3').removeClass('m-box-3--expanded');
+      $('.m-box-3').removeClass('m-box-3--expanded');
     } else {
-      $('.m_forecast-day').addClass('forecast--expanded');
-      $('.m_forecast-hour').addClass('forecast--expanded');
+      $('.m-box-3').addClass('m-box-3--expanded');
+      $('.m-box-3').addClass('m-box-3--expanded');
     }
   }
   render(props) {
@@ -68,7 +68,7 @@ class MobileLayout extends React.Component {
             </button>
           </p>
         </div>
-        <div className="m-box-2-L swipes-left">
+        <div className="m-box-2 swipes-left">
           <p>{description}</p>
           <p>
             <i className="fas fa-long-arrow-alt-up"></i>
@@ -85,21 +85,21 @@ class MobileLayout extends React.Component {
             <i className="fas fa-chevron-right"></i>
           </button>
         </div>
-        <div className="m-box-2-R swipes-right ">
+        <div className="m-box-2 swipes-right ">
           <p>Humidity: {humidity}%</p>
           <p>UV Index: {uvi}</p>
           <button className="m-tempButton" onClick={this.swipeContent}>
             <i className="fas fa-chevron-left"></i>
           </button>
         </div>
-        <div className="m-box-3-L swipes-left">
+        <div className="m-box-3 swipes-left">
           <ForecastDay
             dayForecast={dayForecast}
             units={units}
             onResize={this.handleResize}
           />
         </div>
-        <div className="m-box-3-R swipes-right ">
+        <div className="m-box-3 swipes-right ">
           <ForecastHour
             hourForecast={hourForecast}
             units={units}

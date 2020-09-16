@@ -47,6 +47,8 @@ class ForecastHour extends React.Component {
     });
   }
   resize() {
+    if (!this.props.hourForecast) return;
+
     let { size } = this.state;
 
     if (size === 'compact') size = 'expanded';

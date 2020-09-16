@@ -18,13 +18,13 @@ class DesktopLayout extends React.Component {
   handleUnitsChange() {
     this.props.onUnitsChanged();
   }
-  handleResize(size) {
+  handleResize(size, whichBox) {
     if (size === 'compact') {
-      $('.forecast-day').removeClass('forecast--expanded');
-      $('.forecast-hour').removeClass('forecast--expanded');
+      if (whichBox === 'days') $('.box-hours').removeClass('hidden');
+      else $('.box-days').removeClass('hidden');
     } else {
-      $('.forecast-day').addClass('forecast--expanded');
-      $('.forecast-hour').addClass('forecast--expanded');
+      if (whichBox === 'days') $('.box-hours').addClass('hidden');
+      else $('.box-days').addClass('hidden');
     }
   }
   render(props) {
@@ -63,16 +63,24 @@ class DesktopLayout extends React.Component {
           </div>
         </div>
         <div className="d-column">
-          <ForecastDay
-            dayForecast={dayForecast}
-            units={units}
-            onResize={this.handleResize}
-          />
-          <ForecastHour
-            hourForecast={hourForecast}
-            units={units}
-            onResize={this.handleResize}
-          />
+          <div className="box-days">
+            <ForecastDay
+              dayForecast={dayForecast}
+              units={units}
+              onResize={(size) => {
+                this.handleResize(size, 'days');
+              }}
+            />
+          </div>
+          <div className="box-hours">
+            <ForecastHour
+              hourForecast={hourForecast}
+              units={units}
+              onResize={(size) => {
+                this.handleResize(size, 'hours');
+              }}
+            />
+          </div>
         </div>
       </div>
     );
