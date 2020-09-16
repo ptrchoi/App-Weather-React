@@ -33,7 +33,10 @@
   z-index: 1000;
 
   .loc-btn {
-    color: gray;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    color: green;
+    padding-right: 2%;
   }
 
   /* Styling for the Autosuggest elements (ie. react-autosuggest__)
@@ -44,8 +47,6 @@
   // Autosuggest input text box
   .react-autosuggest__input {
     border: none;
-    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
-      inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
     color: gray;
     font-size: 0.8rem;
     font-style: italic;
@@ -94,7 +95,7 @@
     }
     .react-autosuggest__suggestions-list {
       font-size: 1.1rem;
-      width: 27.5%;
+      width: 37.5%;
     }
   }
 }
