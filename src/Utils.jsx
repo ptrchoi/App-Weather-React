@@ -22,7 +22,9 @@ export const convertTime = (unixTime) => {
     daytime = 'PM';
   } else if (hour === 0) hour = 12;
 
-  return [hour, ':', mins, daytime];
+  if (mins < 10) mins = '0' + mins;
+
+  return [hour, ':', mins, ' ', daytime];
 };
 
 // Parses Google Loc Data and returns an object with filtered address components

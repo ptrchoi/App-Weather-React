@@ -3,14 +3,14 @@ $MOBILE-WIDTH-BREAKPOINT: 600px;
 $DESKTOP-MAX-WIDTH: 1200px;
 
 // figure out total # rows; height percentages based on # of rows out of total
-$m_headline-height: 10vh;
-$m_weather-main-height: 20vh;
+$m_headline-height: 15vh;
+$m_weather-main-height: 15vh;
 $m_weather-sub-height: 35vh;
 $m_forecast-compact-height: 35vh;
 $m_forecast-expanded-height: 70vh;
 
-$d_headline-height: 10vh;
-$d_weather-main-height: 20vh;
+$d_headline-height: 15vh;
+$d_weather-main-height: 15vh;
 $d_weather-sub-height: 35vh;
 $d_forecast-compact-height: 45vh;
 $d_forecast-expanded-height: 90vh;

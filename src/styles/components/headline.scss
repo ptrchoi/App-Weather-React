@@ -1,18 +1,99 @@
 .headline-container {
   background-color: rgb(235, 112, 131);
 
+  align-items: center;
+  color: white;
   display: flex;
   flex-direction: column;
-
+  font-size: 0.7rem;
   height: $m_headline-height;
-
-  // justify-content: center;
-  // margin: 0 auto;
-
-  // position: relative;
-  // width: 100%;
 }
-.search-div {
+.headline-box {
   display: flex;
   flex-direction: row;
+  padding-top: 0.3rem;
+}
+.time-date-box {
+  align-self: flex-end;
+  width: 55%;
+}
+.time {
+  margin-right: auto;
+}
+.date {
+  margin-left: auto;
+  padding-right: 1rem;
+}
+.city {
+  font-size: 1.3rem;
+}
+.search {
+  width: 100%;
+}
+.loc-btn {
+  color: gray;
+  font-size: 1.5rem;
+  left: 0;
+  position: absolute;
+  top: 7px;
+}
+
+/* Styling for the Autosuggest elements (ie. react-autosuggest__)
+---------------------------------------------------------------------*/
+.react-autosuggest__container {
+  width: 50%;
+}
+// Autosuggest input text box
+.react-autosuggest__input {
+  border: none;
+  box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
+    inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+  color: gray;
+  font-size: 0.7rem;
+  font-style: italic;
+  height: 1.4rem;
+  margin-left: 55%;
+  padding: 0.5rem;
+  width: 100%;
+}
+// Autosuggest dropdown list
+.react-autosuggest__suggestions-list {
+  background-color: rgb(255, 255, 255);
+  border: solid 1px #aaaaaa;
+  color: gray;
+  font-size: 0.8rem;
+  font-style: italic;
+  list-style-type: none;
+  left: 27%;
+  padding-left: 1%;
+  position: absolute;
+  width: 50%;
+  z-index: 100;
+}
+// Autosuggest list current highlighted selection
+.react-autosuggest__suggestion--highlighted {
+  color: green;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
+  .headline-container {
+    font-size: 1.5rem;
+  }
+  .headline-box {
+    padding-top: 1rem;
+  }
+  .city {
+    font-size: 2.3rem;
+  }
+  .search {
+  }
+  .react-autosuggest__input {
+    font-size: 1.5rem;
+    height: 2.5rem;
+  }
+  .react-autosuggest__suggestions-list {
+    font-size: 1.5rem;
+    left: 27.5%;
+  }
 }

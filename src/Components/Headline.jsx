@@ -13,7 +13,7 @@ const handleSuggestion = (suggestion) => {
 
 // Automatically called by Autosuggest: Tells Autosuggest how to render suggestions
 const renderSuggestion = (suggestion) => {
-  return <div className="renderSuggestionDiv">{suggestion}</div>;
+  return <div>{suggestion}</div>;
 };
 
 // Headline  COMPONENT CLASS
@@ -24,10 +24,8 @@ class Headline extends React.Component {
       city: '',
       stateName: '',
       country: '',
-      search: {
-        value: '',
-        citySuggestions: [],
-      },
+      value: '',
+      suggestions: [],
     };
 
     this.onChange = this.onChange.bind(this);
@@ -48,11 +46,10 @@ class Headline extends React.Component {
   }
   // Automatically called by Autosuggest's onChange event
   onChange = (event, { newValue }) => {
+    // event.preventDefault();
+
     this.setState({
-      search: {
-        value: newValue,
-        citySuggestions: [],
-      },
+      value: newValue,
     });
   };
   // Automatically called by Autosuggest's input event;
@@ -60,28 +57,24 @@ class Headline extends React.Component {
   onSuggestionsFetchRequested = async ({ value }) => {
     const autofillData = await getGoogleCityAutofill(value);
 
-    let citySuggestions = autofillData.predictions.map((el) => {
+    let suggestions = autofillData.predictions.map((el) => {
       return el.description;
     });
 
     this.setState({
-      search: {
-        value: value,
-        citySuggestions: citySuggestions,
-      },
+      suggestions: suggestions,
     });
   };
   // Automatically called by Autosuggest's input clear event
   onSuggestionsClearRequested = () => {
     this.setState({
-      search: {
-        value: '',
-        citySuggestions: [],
-      },
+      suggestions: [],
     });
   };
   // Optional Autosuggest function: called on selection event (mouse/keyboard/touch) from list; suggestion obj comes from Autosuggest's req'd `handleSuggestion()` method.
   onSuggestionSelected = (e, suggestion) => {
+    // e.preventDefault();
+
     this.props.onNewCity(suggestion.suggestion); //Pass in only the suggestion obj's suggestion string
   };
   getDate() {
@@ -93,8 +86,9 @@ class Headline extends React.Component {
     this.props.onFindLoc();
   }
   render(props) {
-    const { city, search } = this.state;
-    const { value, citySuggestions } = search;
+    let { city, value, suggestions } = this.state;
+
+    if (city === '') city = 'Temp City Name';
 
     // Required by Autosuggest
     // type=search is optional, defaults to type=text
@@ -107,20 +101,17 @@ class Headline extends React.Component {
 
     return (
       <div className="headline-container">
-        <div>
-          <p>
-            <span>{this.getDate()}</span>
-            {'   '}
-            <span>{this.props.time}</span>
-          </p>
-          <p>{city}</p>
+        <div className="headline-box time-date-box">
+          <span className="time">{this.props.time}</span>
+          <span className="date">{this.getDate()}</span>
         </div>
-        <div className="search-div">
-          <button onClick={this.handleTargetLocation}>
+        <div className="headline-box city">{city}</div>
+        <div className="headline-box search">
+          <button className="loc-btn" onClick={this.handleTargetLocation}>
             <i className="fas fa-crosshairs"></i>
           </button>
           <Autosuggest
-            suggestions={citySuggestions}
+            suggestions={suggestions}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
             onSuggestionsClearRequested={this.onSuggestionsClearRequested}
             onSuggestionSelected={this.onSuggestionSelected}
