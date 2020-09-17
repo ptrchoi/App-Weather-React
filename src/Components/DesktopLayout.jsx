@@ -3,6 +3,7 @@ import React from 'react';
 import $ from 'jquery';
 
 // COMPONENTS
+import UnitButton from './UnitButton';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
 
@@ -48,12 +49,10 @@ class DesktopLayout extends React.Component {
             <div className="wIcon">
               <i className={iconClass}></i>
             </div>
-            <p>
-              {currentTemp}&deg; {units}
-              <button onClick={this.handleUnitsChange}>
-                <i className="fas fa-temperature-low"></i>
-              </button>
-            </p>
+            <div>
+              {currentTemp}&deg;
+              <UnitButton onUnitsButton={this.handleUnitsChange} />
+            </div>
           </div>
           <div className="box-summary">
             <p>{description}</p>

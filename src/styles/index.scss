@@ -3,7 +3,7 @@
 @import 'base/app';
 
 // ERIK FLOWERS WEATHER ICONS
-@import 'weather-icons.scss';
+@import 'weather-icons';
 
 // COMPONENTS
 @import 'components/headline';
@@ -12,3 +12,4 @@
 @import 'components/desktoplayout';
 @import 'components/forecastday';
 @import 'components/forecasthour';
+@import 'components/unitbutton';
