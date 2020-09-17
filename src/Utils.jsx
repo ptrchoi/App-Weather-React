@@ -5,8 +5,9 @@ import $ from 'jquery';
 ----------------------------------------------------------------------*/
 // Convert from Farenheit to Celcius or just round off the (default) Farenheit value
 export const convertTemp = (temp, units) => {
-  if (units === 'C') return Math.round(((temp - 32) * 5) / 9);
-  else return Math.round(temp);
+  return units === 'F'
+    ? Math.round((temp * 9) / 5 + 32)
+    : Math.round(((temp - 32) * 5) / 9);
 };
 
 // Convert Unix timestamp (from Open Weather data) to hour, mins, and daytime (AM/PM)

@@ -88,41 +88,56 @@ class Weather extends React.Component {
     const coords = locData.results[0].geometry.location;
     const addrObj = getAddressFromData(locData.results[0].address_components);
 
-    this.updateWeather(coords.lat, coords.lng, addrObj);
+    this.updateWeatherData(coords.lat, coords.lng, addrObj);
   };
   // Async Google Maps API call to get location data by coordinates
   updateCoords = async (lat, lng) => {
     const locData = await getLocDataByCoords(lat, lng);
     const addrObj = getAddressFromData(locData.results[0].address_components);
 
-    this.updateWeather(lat, lng, addrObj);
+    this.updateWeatherData(lat, lng, addrObj);
   };
-  // Handle user input - F/C unit button
+  // Handle user input from child component - F/C unit button
   updateUnits() {
-    let { units, location } = this.state;
+    let { units, wMain } = this.state;
+    let {
+      currentTime,
+      currentTemp,
+      description,
+      iconCode,
+      high,
+      low,
+      feelsLike,
+      precProb,
+    } = wMain;
 
-    if (units === 'F') units = 'C';
-    else units = 'F';
+    units === 'F' ? (units = 'C') : (units = 'F');
 
-    this.updateWeather(
-      location.coords.lat,
-      location.coords.lng,
-      location,
-      units
-    );
+    this.setState({
+      units: units,
+      wMain: {
+        currenTime: currentTime,
+        currentTemp: convertTemp(currentTemp, units),
+        description: description,
+        iconCode: iconCode,
+        high: convertTemp(high, units),
+        low: convertTemp(low, units),
+        feelsLike: convertTemp(feelsLike, units),
+        precProb: precProb,
+      },
+    });
   }
   // Updates weather based on coordinates or city name updates
-  updateWeather = async (lat, lng, address, units = 'F') => {
+  updateWeatherData = async (lat, lng, address) => {
     const wData = await getWeatherData(lat, lng);
 
-    // console.log('updateWeather() - address: ', address, ' units: ', units);
+    // console.log('updateWeatherData() - address: ', address, ' units: ', units);
 
     let curData = wData.current;
     let dailyData = wData.daily;
     let timeArr = convertTime(curData.dt);
 
     this.setState({
-      units: units,
       location: {
         city: address.city,
         stateName: address.stateName,
@@ -135,12 +150,12 @@ class Weather extends React.Component {
       },
       wMain: {
         currentTime: timeArr.join(''),
-        currentTemp: convertTemp(curData.temp, units),
+        currentTemp: Math.round(curData.temp),
         description: curData.weather[0].description,
         iconCode: curData.weather[0].id,
-        high: convertTemp(dailyData[0].temp.max, units),
-        low: convertTemp(dailyData[0].temp.min, units),
-        feelsLike: convertTemp(curData.feels_like, units),
+        high: Math.round(dailyData[0].temp.max),
+        low: Math.round(dailyData[0].temp.min),
+        feelsLike: Math.round(curData.feels_like),
         precProb: Math.round(dailyData[0].pop * 100),
       },
       wDetails: {

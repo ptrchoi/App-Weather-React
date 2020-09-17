@@ -39,7 +39,6 @@ class DesktopLayout extends React.Component {
     } = wMain;
     let { humidity, uvi } = wDetails;
 
-    // Add Weather Icon prefix to iconCode
     let iconClass = 'wi wi-owm-' + iconCode;
 
     return (
@@ -58,12 +57,10 @@ class DesktopLayout extends React.Component {
             <p>{description}</p>
             <p>
               <i className="fas fa-long-arrow-alt-up"></i>
-              {high}&deg; {units} <i className="fas fa-long-arrow-alt-down"></i>
-              {low}&deg; {units}
+              {high}&deg; <i className="fas fa-long-arrow-alt-down"></i>
+              {low}&deg;
             </p>
-            <p>
-              Feels Like {feelsLike}&deg; {units}{' '}
-            </p>
+            <p>Feels Like {feelsLike}&deg;</p>
             <p>
               <i className="fas fa-umbrella"></i> {precProb}%
             </p>

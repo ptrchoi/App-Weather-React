@@ -28,6 +28,7 @@ class ForecastDay extends React.Component {
     super(props);
 
     this.state = {
+      units: 'F',
       dailyForecast: [],
       size: 'compact',
     };
@@ -36,7 +37,10 @@ class ForecastDay extends React.Component {
     this.resize = this.resize.bind(this);
   }
   componentDidUpdate(prevProps) {
-    if (this.props.dayForecast != prevProps.dayForecast) {
+    if (
+      this.props.dayForecast !== prevProps.dayForecast ||
+      this.props.units !== prevProps.units
+    ) {
       this.updateForecast(this.props.dayForecast, this.props.units);
     }
   }
@@ -44,10 +48,7 @@ class ForecastDay extends React.Component {
     let { size } = this.state;
 
     // If resized, size should be manually toggled as state props will not have been updated yet
-    if (resize) {
-      if (size === 'compact') size = 'expanded';
-      else size = 'compact';
-    }
+    if (resize) size === 'compact' ? (size = 'expanded') : (size = 'compact');
 
     let forecastArr = [];
     let numOfDays = FORECAST_DAYS_COMPACT;
@@ -55,12 +56,22 @@ class ForecastDay extends React.Component {
     if (size === 'expanded') numOfDays = FORECAST_DAYS_EXPANDED;
 
     // Create arr of dayObjs populated with forecastData & days of the week
+    // If units in 'C', convertTemp(), else just round off the value for the default 'F' value
     for (let i = 0; i < numOfDays; i++) {
       let dayObj = {
         day: '',
-        temp: convertTemp(forecastData[i].temp.day, units),
-        high: convertTemp(forecastData[i].temp.max, units),
-        low: convertTemp(forecastData[i].temp.min, units),
+        temp:
+          units === 'C'
+            ? convertTemp(forecastData[i].temp.day, units)
+            : Math.round(forecastData[i].temp.day),
+        high:
+          units === 'C'
+            ? convertTemp(forecastData[i].temp.max, units)
+            : Math.round(forecastData[i].temp.max),
+        low:
+          units === 'C'
+            ? convertTemp(forecastData[i].temp.min, units)
+            : Math.round(forecastData[i].temp.min),
         pp: Math.round(forecastData[i].pop * 100),
       };
       forecastArr[i] = dayObj;
@@ -70,25 +81,26 @@ class ForecastDay extends React.Component {
     forecastArr = setForecastDays(forecastArr, today.getDay());
 
     this.setState({
+      units: units,
       dailyForecast: forecastArr,
+      size: size,
     });
   }
   resize() {
     if (!this.props.dayForecast) return;
 
-    let { size } = this.state;
+    let { units, size } = this.state;
 
-    if (size === 'compact') size = 'expanded';
-    else size = 'compact';
+    size === 'compact' ? (size = 'expanded') : (size = 'compact');
 
-    this.updateForecast(this.props.dayForecast, this.props.units, true);
+    this.updateForecast(this.props.dayForecast, units, true);
     this.props.onResize(size);
 
     this.setState({
       size: size,
     });
   }
-  renderForecast(units) {
+  renderForecast() {
     let { dailyForecast, size } = this.state;
     if (!dailyForecast) return;
 
@@ -97,7 +109,7 @@ class ForecastDay extends React.Component {
     if (size === 'expanded') classList = 'day-expanded';
 
     // Curry function to .map method
-    function displayDiv(units, classList) {
+    function displayDiv(classList) {
       return function (day) {
         return (
           <div key={uuidv4()} className={classList}>
@@ -115,7 +127,7 @@ class ForecastDay extends React.Component {
       };
     }
 
-    return dailyForecast.map(displayDiv(units, classList));
+    return dailyForecast.map(displayDiv(classList));
   }
   render(props) {
     let { size } = this.state;
@@ -128,7 +140,7 @@ class ForecastDay extends React.Component {
         <button id="resizeBtn" onClick={this.resize}>
           <i className="fas fa-bars"></i>
         </button>
-        {this.renderForecast(this.props.units)}
+        {this.renderForecast()}
       </div>
     );
   }
