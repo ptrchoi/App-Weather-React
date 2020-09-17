@@ -89,7 +89,10 @@ class ForecastHour extends React.Component {
               {timeArr[3]}
             </p>
             <p>
-              {convertTemp(hour.temp, units)}&deg;
+              {units === 'C'
+                ? convertTemp(hour.temp, units)
+                : Math.round(hour.temp)}
+              &deg;
               <i className="fas fa-umbrella"></i> {Math.round(hour.pop * 100)}%
             </p>
             {/* <p>Rainfall: {rainfall}"</p> */}
