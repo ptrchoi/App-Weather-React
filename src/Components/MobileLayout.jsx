@@ -92,10 +92,10 @@ class MobileLayout extends React.Component {
         </div>
         <div className="m-box-2 swipes-left">
           <div className="m-summary-group">
+            <p className="m-p-description">{description}</p>
             <p className="m-p-precipitation">
               {precProb}%<i className="m-rain-icon fas fa-umbrella"></i>
             </p>
-            <p className="m-p-description">{description}</p>
           </div>
           <div className="m-summary-group">
             <p>

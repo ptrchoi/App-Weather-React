@@ -28,7 +28,7 @@
   font-size: 3rem;
   height: $m_weather-main-height;
   justify-content: center;
-  padding-top: 30%;
+  padding-top: 25%;
   width: 100%;
 
   .m-temp-group {
@@ -43,17 +43,16 @@
   .m-wIcon {
     color: rgba(255, 255, 255, 0.639);
     font-size: 5rem;
-    // padding-left: 10%;
     padding-top: 8%;
   }
   .m-unit-slider {
     margin-right: -30%;
+    margin-top: -5%;
   }
   .temp-wrapper {
-    font-size: 4rem;
+    font-size: 4.5rem;
     padding-right: 30%;
-    padding-top: 13%;
-    // margin-top: 10%;
+    padding-top: 8%;
   }
 }
 // Weather Summary | Weather Details
@@ -63,7 +62,7 @@
 
   color: white;
   font-size: 1.2rem;
-  padding-top: 30%;
+  padding-top: 20%;
 
   height: $m_weather-sub-height;
   top: $m_headline-height + $m_weather-main-height;
@@ -81,15 +80,25 @@
     p {
       padding: 2% 0% 2% 0%;
     }
-    .m-p-precipitation {
-      color: rgb(34, 185, 185);
-      text-align: center;
-    }
-    .m-rain-icon {
-      padding-left: 5%;
-    }
     .m-p-description {
+      padding-top: 16%;
       text-align: center;
+    }
+    .m-p-precipitation {
+      align-items: center;
+      color: rgb(34, 185, 185);
+      display: flex;
+      flex-direction: row;
+      font-size: 1.4rem;
+      justify-content: center;
+      padding-left: 100%;
+      padding-top: 20%;
+
+      .m-rain-icon {
+        font-size: 2.8rem;
+        padding-left: 1rem;
+        padding-top: 25%;
+      }
     }
     .m-low-temp {
       color: rgb(16, 127, 211);

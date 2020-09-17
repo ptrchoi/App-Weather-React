@@ -17,7 +17,6 @@
 
   display: flex;
   flex-direction: row;
-  font-size: 3rem;
   height: $d_weather-main-height;
   justify-content: center;
   padding-top: 50%;
@@ -42,7 +41,7 @@
     margin: -3% -50% 12% 0;
   }
   .temp-display {
-    font-size: 6rem;
+    font-size: 5.5rem;
     margin-top: 10%;
   }
 }
@@ -52,7 +51,7 @@
   flex-direction: row;
 
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   height: $d_weather-sub-height;
   padding-right: 10%;
   padding-top: 20%;
@@ -70,15 +69,24 @@
     p {
       padding: 5% 0% 5% 0%;
     }
-    .p-precipitation {
-      color: rgb(34, 185, 185);
-      text-align: center;
-    }
-    .rain-icon {
-      padding-left: 5%;
-    }
     .p-description {
+      padding-top: 20%;
       text-align: center;
+    }
+    .p-precipitation {
+      align-items: center;
+      color: rgb(34, 185, 185);
+      display: flex;
+      flex-direction: row;
+      font-size: 1.4rem;
+      justify-content: center;
+      padding-left: 100%;
+      padding-top: 30%;
+
+      .rain-icon {
+        font-size: 2.8rem;
+        padding-left: 1rem;
+      }
     }
     .low-temp {
       color: rgb(16, 127, 211);

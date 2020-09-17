@@ -64,10 +64,10 @@ class DesktopLayout extends React.Component {
           </div>
           <div className="box-summary">
             <div className="summary-group">
+              <p className="p-description">{description}</p>
               <p className="p-precipitation">
                 {precProb}%<i className="rain-icon fas fa-umbrella"></i>
               </p>
-              <p className="p-description">{description}</p>
             </div>
             <div className="summary-group">
               <p>
