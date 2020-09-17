@@ -27,7 +27,14 @@ class DesktopLayout extends React.Component {
     }
   }
   render(props) {
-    let { units, wMain, wDetails, dayForecast, hourForecast } = this.props;
+    let {
+      units,
+      wMain,
+      wDetails,
+      dayForecast,
+      hourForecast,
+      layout,
+    } = this.props;
     let {
       currentTemp,
       description,
@@ -75,6 +82,7 @@ class DesktopLayout extends React.Component {
             <ForecastDay
               dayForecast={dayForecast}
               units={units}
+              layout={layout}
               onResize={(size) => {
                 this.handleResize(size, 'days');
               }}
@@ -84,6 +92,7 @@ class DesktopLayout extends React.Component {
             <ForecastHour
               hourForecast={hourForecast}
               units={units}
+              layout={layout}
               onResize={(size) => {
                 this.handleResize(size, 'hours');
               }}

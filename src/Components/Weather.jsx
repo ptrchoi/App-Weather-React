@@ -187,6 +187,7 @@ class Weather extends React.Component {
           wDetails={wDetails}
           dayForecast={dayForecast}
           hourForecast={hourForecast}
+          layout={layout}
           onUnitsChanged={this.updateUnits}
         />
       );
@@ -198,6 +199,7 @@ class Weather extends React.Component {
           wDetails={wDetails}
           dayForecast={dayForecast}
           hourForecast={hourForecast}
+          layout={layout}
           onUnitsChanged={this.updateUnits}
         />
       );

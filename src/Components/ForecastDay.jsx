@@ -37,10 +37,7 @@ class ForecastDay extends React.Component {
     this.resize = this.resize.bind(this);
   }
   componentDidUpdate(prevProps) {
-    if (
-      this.props.dayForecast !== prevProps.dayForecast ||
-      this.props.units !== prevProps.units
-    ) {
+    if (this.props != prevProps) {
       this.updateForecast(this.props.dayForecast, this.props.units);
     }
   }

@@ -23,12 +23,7 @@ class ForecastHour extends React.Component {
     this.resize = this.resize.bind(this);
   }
   componentDidUpdate(prevProps) {
-    if (
-      this.props.hourForecast != prevProps.hourForecast ||
-      this.props.units !== prevProps.units
-    ) {
-      this.updateForecast(this.props.hourForecast);
-    }
+    if (this.props != prevProps) this.updateForecast(this.props.hourForecast);
   }
   updateForecast(forecastData, resize = false) {
     let { size } = this.state;

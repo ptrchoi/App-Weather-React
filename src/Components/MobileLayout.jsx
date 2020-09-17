@@ -55,7 +55,14 @@ class MobileLayout extends React.Component {
     }
   }
   render(props) {
-    let { units, wMain, wDetails, dayForecast, hourForecast } = this.props;
+    let {
+      units,
+      wMain,
+      wDetails,
+      dayForecast,
+      hourForecast,
+      layout,
+    } = this.props;
     let {
       currentTemp,
       description,
@@ -107,6 +114,7 @@ class MobileLayout extends React.Component {
           <ForecastDay
             dayForecast={dayForecast}
             units={units}
+            layout={layout}
             onResize={this.handleResize}
           />
         </div>
@@ -114,6 +122,7 @@ class MobileLayout extends React.Component {
           <ForecastHour
             hourForecast={hourForecast}
             units={units}
+            layout={layout}
             onResize={this.handleResize}
           />
         </div>
