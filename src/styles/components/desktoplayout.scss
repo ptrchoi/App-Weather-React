@@ -20,7 +20,8 @@
   font-size: 3rem;
   height: $d_weather-main-height;
   justify-content: center;
-  padding-top: 20%;
+  padding-top: 50%;
+  padding-right: 10%;
 
   .temp-group {
     // border: solid 1px red;
@@ -38,7 +39,7 @@
     padding-top: 10%;
   }
   .unit-slider {
-    margin-right: -50%;
+    margin: -3% -50% 12% 0;
   }
   .temp-display {
     font-size: 6rem;
@@ -53,7 +54,8 @@
   color: white;
   font-size: 1.5rem;
   height: $d_weather-sub-height;
-  padding-top: 10%;
+  padding-right: 10%;
+  padding-top: 20%;
 
   .summary-group {
     // border: solid 1px red;
