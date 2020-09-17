@@ -116,8 +116,10 @@ class MobileLayout extends React.Component {
           </button>
         </div>
         <div className="m-box-2 swipes-right ">
-          <p>Humidity: {humidity}%</p>
-          <p>UV Index: {uvi}</p>
+          <div className="m-details">
+            <p>Humidity: {humidity}%</p>
+            <p>UV Index: {uvi}</p>
+          </div>
           <button className="m-tempButton" onClick={this.swipeContent}>
             <i className="fas fa-chevron-left"></i>
           </button>

@@ -99,7 +99,14 @@
 }
 // Weather Details
 .box-details {
-  background-color: rgb(174, 82, 213);
+  // background-color: rgb(174, 82, 213);
+
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  justify-content: start;
 
   height: $d_weather-sub-height;
 }

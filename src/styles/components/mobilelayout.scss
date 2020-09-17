@@ -108,6 +108,16 @@
       padding-right: 10%;
     }
   }
+  .m-details {
+    align-items: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    justify-content: start;
+    padding-top: 10%;
+    width: 100%;
+  }
 }
 // Forecast Day | Forecast Hour
 .m-box-3 {
