@@ -55,12 +55,26 @@ class MobileLayout extends React.Component {
   }
   render(props) {
     let { units, wMain, wDetails, dayForecast, hourForecast } = this.props;
-    let { currentTemp, description, high, low, feelsLike, precProb } = wMain;
+    let {
+      currentTemp,
+      description,
+      iconCode,
+      high,
+      low,
+      feelsLike,
+      precProb,
+    } = wMain;
     let { humidity, uvi } = wDetails;
+
+    // Add Weather Icon prefix to iconCode
+    let iconClass = 'wi wi-owm-' + iconCode;
 
     return (
       <div className="m-container">
         <div className="m-box-1">
+          <div className="wIcon">
+            <i className={iconClass}></i>
+          </div>
           <p>
             {currentTemp}&deg; {units}
             <button onClick={this.handleUnitsChange}>

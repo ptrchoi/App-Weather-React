@@ -1,6 +1,4 @@
 .m-container {
-  border: solid 3px green;
-
   display: flex;
   flex-direction: row;
   height: $m_weather-main-height + $m_weather-sub-height +
@@ -11,8 +9,6 @@
 
 // "swipes-left" is displayed on the default page, swipes out to the left
 .swipes-left {
-  background-color: rgb(78, 187, 131);
-
   left: 0%;
   position: absolute;
   transition: left 1s;
@@ -20,8 +16,6 @@
 }
 // "swipes-right" is displayed offscreen to the right by default, swipes in from the right
 .swipes-right {
-  background-color: rgb(174, 82, 213);
-
   left: 100%;
   position: absolute;
   transition: left 1s;
@@ -30,14 +24,18 @@
 
 // Current temp
 .m-box-1 {
-  background-color: rgb(237, 232, 94);
-
   display: flex;
   flex-direction: row;
   font-size: 3rem;
   height: $m_weather-main-height;
   justify-content: center;
   width: 100%;
+
+  .wIcon {
+    color: gray;
+    font-size: 4rem;
+    padding-right: 0.5rem;
+  }
 }
 // Weather Summary | Weather Details
 .m-box-2 {

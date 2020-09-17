@@ -6,9 +6,6 @@ import $ from 'jquery';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
 
-// STYLE SHEETS
-import '../styles/weather-icons.scss';
-
 class DesktopLayout extends React.Component {
   constructor(props) {
     super(props);
