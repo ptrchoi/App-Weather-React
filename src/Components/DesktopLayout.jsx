@@ -52,25 +52,36 @@ class DesktopLayout extends React.Component {
       <div className="d-container">
         <div className="d-column">
           <div className="box-temp">
-            <div className="wIcon">
+            <div className="temp-group wIcon">
               <i className={iconClass}></i>
             </div>
-            <div className="temp-wrapper">
-              {currentTemp}&deg;
-              <UnitButton onUnitsButton={this.handleUnitsChange} />
+            <div className="temp-group">
+              <div className="unit-slider">
+                <UnitButton onUnitsButton={this.handleUnitsChange} />
+              </div>
+              <div className="temp-display">{currentTemp}&deg;</div>
             </div>
           </div>
           <div className="box-summary">
-            <p>{description}</p>
-            <p>
-              <i className="fas fa-long-arrow-alt-up"></i>
-              {high}&deg; <i className="fas fa-long-arrow-alt-down"></i>
-              {low}&deg;
-            </p>
-            <p>Feels Like {feelsLike}&deg;</p>
-            <p>
-              <i className="fas fa-umbrella"></i> {precProb}%
-            </p>
+            <div className="summary-group">
+              <p className="p-precipitation">
+                {precProb}%<i className="rain-icon fas fa-umbrella"></i>
+              </p>
+              <p className="p-description">{description}</p>
+            </div>
+            <div className="summary-group">
+              <p>
+                <span className="high-temp">
+                  <i className="fas fa-long-arrow-alt-up"></i>
+                  {high}&deg;
+                </span>
+                <span className="low-temp">
+                  <i className="fas fa-long-arrow-alt-down"></i>
+                  {low}&deg;
+                </span>
+              </p>
+              <p>feels like {feelsLike}&deg;</p>
+            </div>
           </div>
           <div className="box-details">
             <p>Humidity: {humidity}%</p>

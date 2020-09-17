@@ -41,13 +41,13 @@
   content: 'C'; // '°C'
   padding-left: 10px;
   background-color: white;
-  color: black;
+  color: orange;
 }
 .onoffswitch-inner:after {
   content: 'F'; // '°F'
   padding-right: 10px;
   background-color: white;
-  color: black;
+  color: orange;
   text-align: right;
 }
 .onoffswitch-switch {

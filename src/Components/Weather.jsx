@@ -116,7 +116,7 @@ class Weather extends React.Component {
     this.setState({
       units: units,
       wMain: {
-        currenTime: currentTime,
+        currentTime: currentTime,
         currentTemp: convertTemp(currentTemp, units),
         description: description,
         iconCode: iconCode,
@@ -133,6 +133,7 @@ class Weather extends React.Component {
 
     // console.log('updateWeatherData() - address: ', address, ' units: ', units);
 
+    let { units } = this.state;
     let curData = wData.current;
     let dailyData = wData.daily;
     let timeArr = convertTime(curData.dt);
@@ -150,12 +151,24 @@ class Weather extends React.Component {
       },
       wMain: {
         currentTime: timeArr.join(''),
-        currentTemp: Math.round(curData.temp),
+        currentTemp:
+          units === 'C'
+            ? convertTemp(curData.temp, units)
+            : Math.round(curData.temp),
         description: curData.weather[0].description,
         iconCode: curData.weather[0].id,
-        high: Math.round(dailyData[0].temp.max),
-        low: Math.round(dailyData[0].temp.min),
-        feelsLike: Math.round(curData.feels_like),
+        high:
+          units === 'C'
+            ? convertTemp(dailyData[0].temp.max, units)
+            : Math.round(dailyData[0].temp.max),
+        low:
+          units === 'C'
+            ? convertTemp(dailyData[0].temp.min, units)
+            : Math.round(dailyData[0].temp.min),
+        feelsLike:
+          units === 'C'
+            ? convertTemp(curData.feels_like, units)
+            : Math.round(curData.feels_like),
         precProb: Math.round(dailyData[0].pop * 100),
       },
       wDetails: {
@@ -215,6 +228,7 @@ class Weather extends React.Component {
           time={wMain.currentTime}
           onNewCity={this.updateCity}
           onFindLoc={this.handleFindLoc}
+          layout={layout}
         />
         {this.renderLayout({ layout })}
       </div>

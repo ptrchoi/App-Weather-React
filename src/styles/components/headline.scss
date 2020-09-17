@@ -31,12 +31,15 @@
   justify-content: center;
   width: 70%;
   z-index: 1000;
+  button:focus {
+    outline: 0;
+  }
 
   .loc-btn {
     background-color: rgba(255, 255, 255, 0);
     border: none;
     color: green;
-    padding-right: 2%;
+    padding-right: 3%;
   }
 
   /* Styling for the Autosuggest elements (ie. react-autosuggest__)

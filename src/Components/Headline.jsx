@@ -36,7 +36,7 @@ class Headline extends React.Component {
     this.handleTargetLocation = this.handleTargetLocation.bind(this);
   }
   componentDidUpdate(prevProps) {
-    if (this.props.location != prevProps.location) {
+    if (this.props != prevProps) {
       this.setState({
         city: this.props.location.city,
         stateName: this.props.location.stateName,
@@ -108,7 +108,8 @@ class Headline extends React.Component {
         <div className="headline-box city">{city}</div>
         <div className="headline-box search">
           <button className="loc-btn" onClick={this.handleTargetLocation}>
-            <i className="fas fa-crosshairs"></i>
+            {/* <i className="fas fa-crosshairs"></i> */}
+            <i className="fas fa-map-marker-alt"></i>{' '}
           </button>
           <Autosuggest
             suggestions={suggestions}
