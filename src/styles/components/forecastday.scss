@@ -1,8 +1,20 @@
 .forecastDay-container {
-  background-color: rgb(23, 160, 151);
+  // border: solid 1px black;
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15%;
+  // justify-content: flex-end;
+
+  height: $m_forecast-compact-height;
+}
+.inner-wrapper {
+  // border: solid 1px red;
+
   display: flex;
   flex-direction: row;
-
   height: $m_forecast-compact-height;
 }
 .expanded {
@@ -18,9 +30,14 @@
   font-size: 1rem;
   margin: 0.5rem;
 }
-#resizeBtn {
-  color: rgb(23, 160, 151);
-  height: 2rem;
+.resize-btn {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  color: gray;
+  font-size: 0.9rem;
+  // padding: 4% 0 0 0;
+  margin-left: 80%;
+  margin-top: 10%;
 }
 
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
