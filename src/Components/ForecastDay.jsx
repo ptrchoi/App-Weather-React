@@ -104,8 +104,7 @@ class ForecastDay extends React.Component {
             <br />
             <p>{day.day}</p>
             <p>
-              {day.temp}&deg; {units} <i className="fas fa-umbrella"></i>{' '}
-              {day.pp}%
+              {day.temp}&deg; <i className="fas fa-umbrella"></i> {day.pp}%
             </p>
             <p>
               <i className="fas fa-long-arrow-alt-up"></i> {day.high}&deg;{' '}

@@ -49,7 +49,7 @@ class DesktopLayout extends React.Component {
             <div className="wIcon">
               <i className={iconClass}></i>
             </div>
-            <div>
+            <div className="temp-wrapper">
               {currentTemp}&deg;
               <UnitButton onUnitsButton={this.handleUnitsChange} />
             </div>

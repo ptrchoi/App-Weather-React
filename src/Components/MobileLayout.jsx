@@ -3,6 +3,7 @@ import React from 'react';
 import $ from 'jquery';
 
 // COMPONENTS
+import UnitButton from './UnitButton';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
 
@@ -75,23 +76,19 @@ class MobileLayout extends React.Component {
           <div className="wIcon">
             <i className={iconClass}></i>
           </div>
-          <p>
-            {currentTemp}&deg; {units}
-            <button onClick={this.handleUnitsChange}>
-              <i className="fas fa-temperature-low"></i>
-            </button>
-          </p>
+          <div className="temp-wrapper">
+            {currentTemp}&deg;
+            <UnitButton onUnitsButton={this.handleUnitsChange} />
+          </div>
         </div>
         <div className="m-box-2 swipes-left">
           <p>{description}</p>
           <p>
             <i className="fas fa-long-arrow-alt-up"></i>
-            {high}&deg; {units} <i className="fas fa-long-arrow-alt-down"></i>
-            {low}&deg; {units}
+            {high}&deg; <i className="fas fa-long-arrow-alt-down"></i>
+            {low}&deg;
           </p>
-          <p>
-            Feels Like {feelsLike}&deg; {units}{' '}
-          </p>
+          <p>Feels Like {feelsLike}&deg;</p>
           <p>
             <i className="fas fa-umbrella"></i> {precProb}%
           </p>

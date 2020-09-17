@@ -26,6 +26,10 @@
     font-size: 8rem;
     padding-right: 0.5rem;
   }
+  .temp-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
 }
 // Weather Summary
 .box-summary {

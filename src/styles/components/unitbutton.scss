@@ -1,7 +1,7 @@
 /* Switch button */
 .onoffswitch {
   position: relative;
-  width: 80px;
+  width: 70px;
 
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -58,7 +58,8 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 48px;
+  right: 36px;
+  height: 32px;
   border: 2px solid #ccc;
   border-radius: 20px;
   transition: all 0.3s ease-in 0s;

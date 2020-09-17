@@ -11,7 +11,7 @@ function UnitButton(props) {
         id="unit-switch"
         onClick={props.onUnitsButton}
       />
-      <label className="onoffswitch-label" for="unit-switch">
+      <label className="onoffswitch-label" htmlFor="unit-switch">
         <span className="onoffswitch-inner"></span>
         <span className="onoffswitch-switch"></span>
       </label>
