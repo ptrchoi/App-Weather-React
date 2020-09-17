@@ -80,25 +80,37 @@ class MobileLayout extends React.Component {
     return (
       <div className="m-container">
         <div className="m-box-1">
-          <div className="wIcon">
+          <div className="m-temp-group m-wIcon">
             <i className={iconClass}></i>
           </div>
-          <div className="temp-wrapper">
-            {currentTemp}&deg;
-            <UnitButton onUnitsButton={this.handleUnitsChange} />
+          <div className="m-temp-group">
+            <div className="m-unit-slider">
+              <UnitButton onUnitsButton={this.handleUnitsChange} />
+            </div>
+            <div className="temp-wrapper">{currentTemp}&deg;</div>
           </div>
         </div>
         <div className="m-box-2 swipes-left">
-          <p>{description}</p>
-          <p>
-            <i className="fas fa-long-arrow-alt-up"></i>
-            {high}&deg; <i className="fas fa-long-arrow-alt-down"></i>
-            {low}&deg;
-          </p>
-          <p>Feels Like {feelsLike}&deg;</p>
-          <p>
-            <i className="fas fa-umbrella"></i> {precProb}%
-          </p>
+          <div className="m-summary-group">
+            <p className="m-p-precipitation">
+              {precProb}%<i className="m-rain-icon fas fa-umbrella"></i>
+            </p>
+            <p className="m-p-description">{description}</p>
+          </div>
+          <div className="m-summary-group">
+            <p>
+              <span className="m-high-temp">
+                <i className="fas fa-long-arrow-alt-up"></i>
+                {high}&deg;
+              </span>
+              <span className="m-low-temp">
+                <i className="fas fa-long-arrow-alt-down"></i>
+                {low}&deg;
+              </span>
+            </p>
+            <p>Feels Like {feelsLike}&deg;</p>
+          </div>
+          <p></p>
           <button className="m_tempButton" onClick={this.swipeContent}>
             <i className="fas fa-chevron-right"></i>
           </button>

@@ -21,30 +21,84 @@
   transition: left 1s;
   width: 100%;
 }
-
-// Current temp
+// Current Temperature
 .m-box-1 {
   display: flex;
   flex-direction: row;
   font-size: 3rem;
   height: $m_weather-main-height;
   justify-content: center;
+  padding-top: 30%;
   width: 100%;
 
-  .wIcon {
-    color: white;
-    font-size: 4rem;
-    padding-right: 0.5rem;
+  .m-temp-group {
+    // border: solid 1px red;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+  }
+  .m-wIcon {
+    color: rgba(255, 255, 255, 0.639);
+    font-size: 5rem;
+    // padding-left: 10%;
+    padding-top: 8%;
+  }
+  .m-unit-slider {
+    margin-right: -30%;
   }
   .temp-wrapper {
-    display: flex;
-    flex-direction: row;
+    font-size: 4rem;
+    padding-right: 30%;
+    padding-top: 13%;
+    // margin-top: 10%;
   }
 }
 // Weather Summary | Weather Details
 .m-box-2 {
+  display: flex;
+  flex-direction: row;
+
+  color: white;
+  font-size: 1.2rem;
+  padding-top: 30%;
+
   height: $m_weather-sub-height;
   top: $m_headline-height + $m_weather-main-height;
+
+  .m-summary-group {
+    // border: solid 1px red;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    padding-left: 4%;
+    width: 50%;
+
+    p {
+      padding: 2% 0% 2% 0%;
+    }
+    .m-p-precipitation {
+      color: rgb(34, 185, 185);
+      text-align: center;
+    }
+    .m-rain-icon {
+      padding-left: 5%;
+    }
+    .m-p-description {
+      text-align: center;
+    }
+    .m-low-temp {
+      color: rgb(16, 127, 211);
+    }
+    .m-high-temp {
+      color: rgb(215, 23, 10);
+      padding-right: 10%;
+    }
+  }
 }
 // Forecast Day | Forecast Hour
 .m-box-3 {
