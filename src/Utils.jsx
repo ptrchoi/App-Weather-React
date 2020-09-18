@@ -30,6 +30,9 @@ export const convertTime = (unixTime) => {
 
   return [hour, ':', mins, ' ', daytime];
 };
+export const convertPressureToInches = (hpa) => {
+  return Math.round(hpa * 0.03);
+};
 // Convert meters to miles
 export const convertMetersToMiles = (distance) => {
   return (distance / 1609).toFixed(1);
@@ -96,6 +99,20 @@ export const getUVrating = (uvi) => {
     },
   };
 };
+export const getCardinalDirection = (angle) => {
+  const directions = [
+    'N ↑',
+    'NE ↗',
+    'E →',
+    'SE ↘',
+    'S ↓',
+    'SW ↙',
+    'W ←',
+    'NW ↖',
+  ];
+  return directions[Math.round(angle / 45) % 8];
+};
+
 // Parses Google Loc Data and returns an object with filtered address components
 export const getAddressFromData = (arr) => {
   let city,

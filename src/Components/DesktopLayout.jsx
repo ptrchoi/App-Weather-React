@@ -106,16 +106,18 @@ class DesktopLayout extends React.Component {
               Dew Point: {dewPt}
               &deg;{units}
             </p>
-            <p>Pressure: {pressure}</p>
+            <p>Pressure: {pressure} inHg</p>
             <p>
               UV Index: {uvi}{' '}
               <span className="uvi-rating" style={getUVrating(uvi).styling}>
                 {getUVrating(uvi).rating}
               </span>
             </p>
-            <p>Visibility: {visibility} miles</p>
-            <p>Wind Speed: {windSpeed} miles/hr</p>
-            <p>Wind Direction: {windDeg} degrees</p>
+            <p>Visibility: {visibility} mi</p>
+            <br />
+            <p>Wind Speed: {windSpeed} mi/hr</p>
+            <p>Wind Direction: {windDeg} </p>
+            <br />
             <p>
               <span className="daytime">
                 <i className="sun-icon detail-icon fas fa-sun"></i>
