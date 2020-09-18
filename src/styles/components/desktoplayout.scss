@@ -108,8 +108,11 @@
   font-size: 1.4rem;
   justify-content: start;
   padding-left: 20%;
-
   height: $d_weather-sub-height;
+
+  .uvi-rating {
+    font-size: 1rem;
+  }
 }
 .hidden {
   display: none;

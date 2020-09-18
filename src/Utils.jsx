@@ -95,7 +95,6 @@ export const getUVrating = (uvi) => {
     rating,
     styling: {
       color: rgb,
-      fontSize: '1rem',
     },
   };
 };

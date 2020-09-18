@@ -109,13 +109,13 @@
     }
   }
   .m-details {
-    align-items: center;
+    align-items: left;
     color: white;
     display: flex;
     flex-direction: column;
-    font-size: 1.4rem;
+    font-size: 0.7rem;
     justify-content: start;
-    padding-top: 10%;
+    padding-left: 30%;
     width: 100%;
   }
   .m-temporary-btn {
@@ -123,6 +123,9 @@
     border: none;
     color: gray;
     font-size: 1rem;
+  }
+  .uvi-rating {
+    font-size: 0.5rem;
   }
   .btn1 {
     margin-left: auto;
