@@ -101,18 +101,21 @@ class ForecastDay extends React.Component {
       return function (day) {
         return (
           <div key={uuidv4()} className={classList}>
-            <br />
-            <p>{day.day}</p>
-            <i className={day.iconClass}></i>
-            {day.temp}&deg;
-            <p className="p-precipitation">
-              {day.pp}%{' '}
+            <p className="item-dayOfWeek item">{day.day}</p>
+            <p className="item-temp item">
+              <span className="w-icon">
+                <i className={day.iconClass}></i>
+              </span>
+              <span className="temp-text">{day.temp}&deg;</span>
+            </p>
+            <p className="item-rain item">
               <i
-                className="fas fa-umbrella"
+                className="rain-icon fas fa-umbrella"
                 style={getRainIconStyling(day.pp)}
               ></i>
+              <span className="percent-text">{day.pp}%</span>
             </p>
-            <p>
+            <p className="item-highLow item">
               <span className="high-temp">
                 <i className="fas fa-long-arrow-alt-up"></i> {day.high}&deg;{' '}
               </span>
