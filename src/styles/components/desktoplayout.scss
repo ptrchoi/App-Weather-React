@@ -75,7 +75,7 @@
     }
     .p-precipitation {
       align-items: center;
-      color: rgb(34, 185, 185);
+      // color: rgb(34, 185, 185);
       display: flex;
       flex-direction: row;
       font-size: 1.4rem;
@@ -84,6 +84,8 @@
       padding-top: 30%;
 
       .rain-icon {
+        // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
         font-size: 2.8rem;
         padding-left: 1rem;
       }

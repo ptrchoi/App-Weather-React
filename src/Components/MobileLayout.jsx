@@ -2,6 +2,9 @@
 import React from 'react';
 import $ from 'jquery';
 
+// UTILITY FUNCTIONS
+import { getRainColorAlpha } from './../Utils';
+
 // COMPONENTS
 import UnitButton from './UnitButton';
 import ForecastDay from './ForecastDay';
@@ -94,7 +97,11 @@ class MobileLayout extends React.Component {
           <div className="m-summary-group">
             <p className="m-p-description">{description}</p>
             <p className="m-p-precipitation">
-              {precProb}%<i className="m-rain-icon fas fa-umbrella"></i>
+              {precProb}%
+              <i
+                className="m-rain-icon fas fa-umbrella"
+                style={getRainColorAlpha(precProb)}
+              ></i>
             </p>
           </div>
           <div className="m-summary-group">

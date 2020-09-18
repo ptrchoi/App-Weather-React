@@ -31,6 +31,23 @@ export const convertTime = (unixTime) => {
 
   return [hour, ':', mins, ' ', daytime];
 };
+export const getRainColorAlpha = (percent) => {
+  // Need to make some adjustment so low %'s are still opaque enough to be legible
+  if (percent > 0) percent += 20;
+
+  let str = 'rgba(34, 185, 185, .' + percent + ')';
+
+  // TESTING outline
+  return {
+    WebkitTextFillColor: str,
+    WebkitTextStrokeWidth: '1px',
+    WebkitTextStrokeColor: 'rgb(255, 255, 255)',
+  };
+
+  // return {
+  //   color: str,
+  // };
+};
 
 // Parses Google Loc Data and returns an object with filtered address components
 export const getAddressFromData = (arr) => {

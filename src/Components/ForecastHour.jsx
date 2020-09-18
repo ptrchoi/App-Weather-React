@@ -3,7 +3,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // UTILITY FUNCTIONS
-import { formatTemp, convertTime } from './../Utils';
+import { formatTemp, convertTime, getRainColorAlpha } from './../Utils';
 
 // LOCAL CONSTS
 const FORECAST_HOURS_COMPACT = 8;
@@ -72,15 +72,11 @@ class ForecastHour extends React.Component {
     function displayDiv(units, classList) {
       return function (hour) {
         let timeArr = convertTime(hour.dt); // timeArr = [ hour, ':', mins, daytime]
-
-        // Due to Open Weather's naming convention of '1h', can't call it directly, so use Object.keys to access the data
+        let iconClass = 'wi wi-owm-' + hour.weather[0].id;
         let rainObj = hour.rain;
         let rainfall = 0;
-        if (rainObj) {
-          rainfall = rainObj[Object.keys(rainObj)[0]];
-        }
-
-        let iconClass = 'wi wi-owm-' + hour.weather[0].id;
+        // Due to Open Weather's naming convention of '1h', can't call it directly, so use Object.keys to access the data
+        if (rainObj) rainfall = rainObj[Object.keys(rainObj)[0]];
 
         return (
           <div key={uuidv4()} className={classList}>
@@ -89,11 +85,17 @@ class ForecastHour extends React.Component {
               {timeArr[0]}
               {timeArr[4]}
             </p>
-            <i className={iconClass}></i>
             <p>
+              <i className={iconClass}></i>
               {formatTemp(hour.temp, units)}
               &deg;
-              <i className="fas fa-umbrella"></i> {Math.round(hour.pop * 100)}%
+            </p>
+            <p className="p-precipitation">
+              {Math.round(hour.pop * 100)}%
+              <i
+                className="fas fa-umbrella"
+                style={getRainColorAlpha(hour.pop * 100)}
+              ></i>
             </p>
             {/* <p>Rainfall: {rainfall}"</p> */}
           </div>

@@ -2,6 +2,9 @@
 import React from 'react';
 import $ from 'jquery';
 
+// UTILITY FUNCTIONS
+import { getRainColorAlpha } from './../Utils';
+
 // COMPONENTS
 import UnitButton from './UnitButton';
 import ForecastDay from './ForecastDay';
@@ -66,7 +69,11 @@ class DesktopLayout extends React.Component {
             <div className="summary-group">
               <p className="p-description">{description}</p>
               <p className="p-precipitation">
-                {precProb}%<i className="rain-icon fas fa-umbrella"></i>
+                {precProb}%
+                <i
+                  className="rain-icon fas fa-umbrella"
+                  style={getRainColorAlpha(precProb)}
+                ></i>
               </p>
             </div>
             <div className="summary-group">

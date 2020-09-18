@@ -3,7 +3,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // UTILITY FUNCTIONS
-import { formatTemp } from './../Utils';
+import { formatTemp, getRainColorAlpha } from './../Utils';
 
 // LOCAL CONSTS
 const DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -104,12 +104,21 @@ class ForecastDay extends React.Component {
             <br />
             <p>{day.day}</p>
             <i className={day.iconClass}></i>
-            <p>
-              {day.temp}&deg; <i className="fas fa-umbrella"></i> {day.pp}%
+            {day.temp}&deg;
+            <p className="p-precipitation">
+              {day.pp}%{' '}
+              <i
+                className="fas fa-umbrella"
+                style={getRainColorAlpha(day.pp)}
+              ></i>
             </p>
             <p>
-              <i className="fas fa-long-arrow-alt-up"></i> {day.high}&deg;{' '}
-              <i className="fas fa-long-arrow-alt-down"></i> {day.low}&deg;
+              <span className="high-temp">
+                <i className="fas fa-long-arrow-alt-up"></i> {day.high}&deg;{' '}
+              </span>
+              <span className="low-temp">
+                <i className="fas fa-long-arrow-alt-down"></i> {day.low}&deg;
+              </span>
             </p>
           </div>
         );
