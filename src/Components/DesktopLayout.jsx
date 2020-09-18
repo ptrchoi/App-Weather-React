@@ -79,11 +79,11 @@ class DesktopLayout extends React.Component {
             <div className="summary-group">
               <p className="p-description">{description}</p>
               <p className="p-precipitation">
-                {precProb}%
                 <i
                   className="rain-icon fas fa-umbrella"
                   style={getRainIconStyling(precProb)}
                 ></i>
+                <span className="rain-percent">{precProb}%</span>
               </p>
             </div>
             <div className="summary-group">
@@ -115,19 +115,23 @@ class DesktopLayout extends React.Component {
             </p>
             <p>Visibility: {visibility} mi</p>
             <br />
-            <p>Wind Speed: {windSpeed} mi/hr</p>
-            <p>Wind Direction: {windDeg} </p>
+            <p>
+              <span>
+                <i className="wind-icon fas fa-wind"></i>
+              </span>{' '}
+              {windSpeed}mi/hr {windDeg}{' '}
+            </p>
             <br />
             <p>
               <span className="daytime">
                 <i className="sun-icon detail-icon fas fa-sun"></i>
-                Sunrise: {sunrise}
+                {sunrise}
               </span>
             </p>
             <p>
               <span className="daytime">
                 <i className="moon-icon detail-icon fas fa-moon"></i>
-                Sunset: {sunset}
+                {sunset}
               </span>
             </p>
           </div>

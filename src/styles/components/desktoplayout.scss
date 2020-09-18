@@ -19,7 +19,7 @@
   flex-direction: row;
   height: $d_weather-main-height;
   justify-content: center;
-  padding-top: 50%;
+  padding-top: 40%;
   padding-right: 10%;
 
   .temp-group {
@@ -75,7 +75,6 @@
     }
     .p-precipitation {
       align-items: center;
-      // color: rgb(34, 185, 185);
       display: flex;
       flex-direction: row;
       font-size: 1.4rem;
@@ -84,10 +83,12 @@
       padding-top: 30%;
 
       .rain-icon {
-        // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
-        font-size: 2.8rem;
-        padding-left: 1rem;
+        font-size: 3.5rem;
+      }
+      .rain-percent {
+        align-self: flex-start;
+        font-size: 1.5rem;
+        padding-left: 0.3rem;
       }
     }
     .low-temp {
@@ -128,4 +129,7 @@
 }
 .moon-icon {
   color: gray;
+}
+.wind-icon {
+  color: black;
 }
