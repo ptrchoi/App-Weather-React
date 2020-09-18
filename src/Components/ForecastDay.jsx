@@ -61,6 +61,7 @@ class ForecastDay extends React.Component {
         high: formatTemp(forecastData[i].temp.max, units),
         low: formatTemp(forecastData[i].temp.min, units),
         pp: Math.round(forecastData[i].pop * 100),
+        iconClass: 'wi wi-owm-' + forecastData[i].weather[0].id,
       };
       forecastArr[i] = dayObj;
     }
@@ -93,7 +94,6 @@ class ForecastDay extends React.Component {
     if (!dailyForecast) return;
 
     let classList = 'day-compact';
-
     if (size === 'expanded') classList = 'day-expanded';
 
     // Curry function to .map method
@@ -103,6 +103,7 @@ class ForecastDay extends React.Component {
           <div key={uuidv4()} className={classList}>
             <br />
             <p>{day.day}</p>
+            <i className={day.iconClass}></i>
             <p>
               {day.temp}&deg; <i className="fas fa-umbrella"></i> {day.pp}%
             </p>

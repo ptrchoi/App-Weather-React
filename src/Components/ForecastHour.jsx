@@ -80,6 +80,8 @@ class ForecastHour extends React.Component {
           rainfall = rainObj[Object.keys(rainObj)[0]];
         }
 
+        let iconClass = 'wi wi-owm-' + hour.weather[0].id;
+
         return (
           <div key={uuidv4()} className={classList}>
             <br />
@@ -87,6 +89,7 @@ class ForecastHour extends React.Component {
               {timeArr[0]}
               {timeArr[4]}
             </p>
+            <i className={iconClass}></i>
             <p>
               {formatTemp(hour.temp, units)}
               &deg;
