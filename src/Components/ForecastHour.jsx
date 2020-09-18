@@ -3,7 +3,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // UTILITY FUNCTIONS
-import { formatTemp, convertTime, getRainColorAlpha } from './../Utils';
+import { formatTemp, convertTime, getRainIconStyling } from './../Utils';
 
 // LOCAL CONSTS
 const FORECAST_HOURS_COMPACT = 8;
@@ -94,7 +94,7 @@ class ForecastHour extends React.Component {
               {Math.round(hour.pop * 100)}%
               <i
                 className="fas fa-umbrella"
-                style={getRainColorAlpha(hour.pop * 100)}
+                style={getRainIconStyling(hour.pop * 100)}
               ></i>
             </p>
             {/* <p>Rainfall: {rainfall}"</p> */}

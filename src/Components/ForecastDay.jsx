@@ -3,7 +3,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // UTILITY FUNCTIONS
-import { formatTemp, getRainColorAlpha } from './../Utils';
+import { formatTemp, getRainIconStyling } from './../Utils';
 
 // LOCAL CONSTS
 const DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -109,7 +109,7 @@ class ForecastDay extends React.Component {
               {day.pp}%{' '}
               <i
                 className="fas fa-umbrella"
-                style={getRainColorAlpha(day.pp)}
+                style={getRainIconStyling(day.pp)}
               ></i>
             </p>
             <p>

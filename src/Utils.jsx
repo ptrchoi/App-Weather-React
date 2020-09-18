@@ -13,7 +13,6 @@ export const convertTemp = (temp, units) => {
     ? Math.round(((temp - 32) * 5) / 9)
     : Math.round((temp * 9) / 5 + 32);
 };
-
 // Convert Unix timestamp (from Open Weather data) to hour, mins, and daytime (AM/PM)
 export const convertTime = (unixTime) => {
   // Convert to milliseconds and get new dateObj
@@ -31,7 +30,12 @@ export const convertTime = (unixTime) => {
 
   return [hour, ':', mins, ' ', daytime];
 };
-export const getRainColorAlpha = (percent) => {
+// Convert meters to miles
+export const convertMetersToMiles = (distance) => {
+  return (distance / 1609).toFixed(1);
+};
+// Convert percent to RGB Alpha decimal value for Rain icon transparency
+export const getRainIconStyling = (percent) => {
   // Need to make some adjustment so low %'s are still opaque enough to be legible
   if (percent > 0 && percent < 70) percent += 20;
 
@@ -48,7 +52,50 @@ export const getRainColorAlpha = (percent) => {
   //   color: str,
   // };
 };
+// Returns EPA's rating scale based on uv index
+export const getUVrating = (uvi) => {
+  let rating = '';
+  let rgb = 'rgb(255, 255, 255)';
 
+  switch (uvi) {
+    case uvi > 10:
+      rating = 'Extreme';
+      rgb = 'rgb(215, 59, 126)';
+      break;
+    case 10:
+    case 9:
+    case 8:
+      rating = '(Very High)';
+      rgb = 'rgb(240, 0, 21)';
+      break;
+    case 7:
+    case 6:
+      rating = 'High';
+      rgb = 'rgb(254, 144, 46)';
+      break;
+    case 5:
+    case 4:
+    case 3:
+      rating = 'Moderate';
+      rgb = 'rgb(255, 206, 61)';
+      break;
+    case 2:
+    case 1:
+    case 0:
+    default:
+      rating = '(Low)';
+      rgb = 'rgb(138, 195, 145)';
+      break;
+  }
+
+  return {
+    rating,
+    styling: {
+      color: rgb,
+      fontSize: '1rem',
+    },
+  };
+};
 // Parses Google Loc Data and returns an object with filtered address components
 export const getAddressFromData = (arr) => {
   let city,

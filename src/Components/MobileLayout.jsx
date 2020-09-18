@@ -3,7 +3,7 @@ import React from 'react';
 import $ from 'jquery';
 
 // UTILITY FUNCTIONS
-import { getRainColorAlpha } from './../Utils';
+import { getRainIconStyling } from './../Utils';
 
 // COMPONENTS
 import UnitButton from './UnitButton';
@@ -100,7 +100,7 @@ class MobileLayout extends React.Component {
               {precProb}%
               <i
                 className="m-rain-icon fas fa-umbrella"
-                style={getRainColorAlpha(precProb)}
+                style={getRainIconStyling(precProb)}
               ></i>
             </p>
           </div>

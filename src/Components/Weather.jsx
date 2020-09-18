@@ -6,6 +6,7 @@ import {
   convertTemp,
   formatTemp,
   convertTime,
+  convertMetersToMiles,
   getLocDataByCoords,
   getLocDataByCity,
   getAddressFromData,
@@ -47,7 +48,14 @@ class Weather extends React.Component {
       },
       wDetails: {
         humidity: '',
+        dewPt: 0,
+        pressure: 0,
         uvi: '',
+        visibility: 0,
+        windSpeed: 0,
+        windDeg: 0,
+        sunrise: 0,
+        sunset: 0,
       },
       dayForecast: null,
       hourForecast: null,
@@ -100,7 +108,7 @@ class Weather extends React.Component {
   };
   // Handle user input from child component - F/C unit button
   updateUnits() {
-    let { units, wMain } = this.state;
+    let { units, wMain, wDetails } = this.state;
     let {
       currentTime,
       currentTemp,
@@ -111,6 +119,17 @@ class Weather extends React.Component {
       feelsLike,
       precProb,
     } = wMain;
+    let {
+      humidity,
+      dewPt,
+      pressure,
+      uvi,
+      visibility,
+      windSpeed,
+      windDeg,
+      sunrise,
+      sunset,
+    } = wDetails;
 
     units === 'F' ? (units = 'C') : (units = 'F');
 
@@ -125,6 +144,17 @@ class Weather extends React.Component {
         low: convertTemp(low, units),
         feelsLike: convertTemp(feelsLike, units),
         precProb: precProb,
+      },
+      wDetails: {
+        humidity: humidity,
+        dewPt: convertTemp(dewPt, units),
+        pressure: pressure,
+        uvi: uvi,
+        visibility: visibility,
+        windSpeed: windSpeed,
+        windDeg: windDeg,
+        sunrise: sunrise,
+        sunset: sunset,
       },
     });
   }
@@ -162,7 +192,14 @@ class Weather extends React.Component {
       },
       wDetails: {
         humidity: curData.humidity,
-        uvi: dailyData[0].uvi,
+        dewPt: formatTemp(curData.dew_point, units),
+        pressure: curData.pressure,
+        uvi: Math.round(curData.uvi),
+        visibility: convertMetersToMiles(curData.visibility),
+        windSpeed: curData.wind_speed,
+        windDeg: curData.wind_deg.toFixed(1),
+        sunrise: convertTime(curData.sunrise).join(''),
+        sunset: convertTime(curData.sunset).join(''),
       },
       dayForecast: dailyData,
       hourForecast: wData.hourly,
