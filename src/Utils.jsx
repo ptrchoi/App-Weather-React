@@ -40,9 +40,10 @@ export const convertMetersToMiles = (distance) => {
 // Convert percent to RGB Alpha decimal value for Rain icon transparency
 export const getRainIconStyling = (percent) => {
   // Need to make some adjustment so low %'s are still opaque enough to be legible
-  if (percent > 0 && percent < 70) percent += 20;
+  if (percent > 0 && percent < 70) percent += 10;
+  percent = percent / 100;
 
-  let str = 'rgba(34, 185, 185, .' + percent + ')';
+  let str = 'rgba(34, 185, 185, ' + percent + ')';
 
   // TESTING outline
   return {
