@@ -1,10 +1,21 @@
 .forecastHour-container {
-  background-color: rgb(235, 148, 55);
+  // background-color: rgb(235, 148, 55);
+  color: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15%;
 
   height: $m_forecast-compact-height;
 }
+.h-inner-wrapper {
+  // border: solid 1px red;
+
+  display: flex;
+  flex-direction: row;
+  height: $m_forecast-compact-height;
+}
+
 .expanded {
   flex-direction: column;
 
@@ -18,8 +29,14 @@
   font-size: 1rem;
   margin: 0.5rem;
 }
-#resizeBtn {
-  font-size: 1.5rem;
+.h-resize-btn {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  color: gray;
+  font-size: 0.9rem;
+  // padding: 4% 0 0 0;
+  margin-left: 70%;
+  margin-top: 10%;
 }
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .forecastHour-container {

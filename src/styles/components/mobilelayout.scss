@@ -118,6 +118,21 @@
     padding-top: 10%;
     width: 100%;
   }
+  .m-temporary-btn {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    color: gray;
+    font-size: 1rem;
+  }
+  .btn1 {
+    margin-left: auto;
+    margin-bottom: auto;
+    padding: 10% 30% 0 0;
+  }
+  .btn2 {
+    margin-left: auto;
+    padding: 10% 10% 0 0;
+  }
 }
 // Forecast Day | Forecast Hour
 .m-box-3 {
@@ -127,10 +142,6 @@
 .m-box-3--expanded {
   height: $m_forecast-expanded-height;
   top: $m_headline-height + $m_weather-main-height;
-}
-
-.m-tempButton {
-  font-size: 1rem;
 }
 
 // Swipe transitions

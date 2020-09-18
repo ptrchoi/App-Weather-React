@@ -4,6 +4,7 @@ import React from 'react';
 // UTILITY FUNCTIONS
 import {
   convertTemp,
+  formatTemp,
   convertTime,
   getLocDataByCoords,
   getLocDataByCity,
@@ -151,24 +152,12 @@ class Weather extends React.Component {
       },
       wMain: {
         currentTime: timeArr.join(''),
-        currentTemp:
-          units === 'C'
-            ? convertTemp(curData.temp, units)
-            : Math.round(curData.temp),
+        currentTemp: formatTemp(curData.temp, units),
         description: curData.weather[0].description,
         iconCode: curData.weather[0].id,
-        high:
-          units === 'C'
-            ? convertTemp(dailyData[0].temp.max, units)
-            : Math.round(dailyData[0].temp.max),
-        low:
-          units === 'C'
-            ? convertTemp(dailyData[0].temp.min, units)
-            : Math.round(dailyData[0].temp.min),
-        feelsLike:
-          units === 'C'
-            ? convertTemp(curData.feels_like, units)
-            : Math.round(curData.feels_like),
+        high: formatTemp(dailyData[0].temp.max, units),
+        low: formatTemp(dailyData[0].temp.min, units),
+        feelsLike: formatTemp(curData.feels_like, units),
         precProb: Math.round(dailyData[0].pop * 100),
       },
       wDetails: {

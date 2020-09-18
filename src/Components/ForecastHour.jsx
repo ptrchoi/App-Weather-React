@@ -3,7 +3,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // UTILITY FUNCTIONS
-import { convertTemp, convertTime } from './../Utils';
+import { formatTemp, convertTime } from './../Utils';
 
 // LOCAL CONSTS
 const FORECAST_HOURS_COMPACT = 8;
@@ -23,7 +23,8 @@ class ForecastHour extends React.Component {
     this.resize = this.resize.bind(this);
   }
   componentDidUpdate(prevProps) {
-    if (this.props != prevProps) this.updateForecast(this.props.hourForecast);
+    if (this.props != prevProps && this.props.hourForecast)
+      this.updateForecast(this.props.hourForecast);
   }
   updateForecast(forecastData, resize = false) {
     let { size } = this.state;
@@ -87,9 +88,7 @@ class ForecastHour extends React.Component {
               {timeArr[4]}
             </p>
             <p>
-              {units === 'C'
-                ? convertTemp(hour.temp, units)
-                : Math.round(hour.temp)}
+              {formatTemp(hour.temp, units)}
               &deg;
               <i className="fas fa-umbrella"></i> {Math.round(hour.pop * 100)}%
             </p>
@@ -109,10 +108,12 @@ class ForecastHour extends React.Component {
 
     return (
       <div className={classList}>
-        <button id="resizeBtn" onClick={this.resize}>
-          <i className="fas fa-bars"></i>
+        <button className="h-resize-btn" onClick={this.resize}>
+          <i className="fas fa-expand"></i>
         </button>
-        {this.renderForecast(this.props.units)}
+        <div className="h-inner-wrapper">
+          {this.renderForecast(this.props.units)}
+        </div>
       </div>
     );
   }

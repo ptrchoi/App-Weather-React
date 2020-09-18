@@ -109,20 +109,25 @@ class MobileLayout extends React.Component {
               </span>
             </p>
             <p>Feels Like {feelsLike}&deg;</p>
+            <button
+              className="m-temporary-btn btn1"
+              onClick={this.swipeContent}
+            >
+              <i className="fas fa-info-circle"></i>
+            </button>
           </div>
-          <p></p>
-          <button className="m_tempButton" onClick={this.swipeContent}>
-            <i className="fas fa-chevron-right"></i>
-          </button>
         </div>
         <div className="m-box-2 swipes-right ">
           <div className="m-details">
+            <button
+              className="m-temporary-btn btn2"
+              onClick={this.swipeContent}
+            >
+              <i className="fas fa-info-circle"></i>
+            </button>
             <p>Humidity: {humidity}%</p>
             <p>UV Index: {uvi}</p>
           </div>
-          <button className="m-tempButton" onClick={this.swipeContent}>
-            <i className="fas fa-chevron-left"></i>
-          </button>
         </div>
         <div className="m-box-3 swipes-left">
           <ForecastDay

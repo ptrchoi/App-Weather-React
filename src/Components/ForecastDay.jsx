@@ -3,7 +3,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // UTILITY FUNCTIONS
-import { convertTemp } from './../Utils';
+import { formatTemp } from './../Utils';
 
 // LOCAL CONSTS
 const DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -37,7 +37,7 @@ class ForecastDay extends React.Component {
     this.resize = this.resize.bind(this);
   }
   componentDidUpdate(prevProps) {
-    if (this.props != prevProps) {
+    if (this.props != prevProps && this.props.dayForecast) {
       this.updateForecast(this.props.dayForecast, this.props.units);
     }
   }
@@ -57,18 +57,9 @@ class ForecastDay extends React.Component {
     for (let i = 0; i < numOfDays; i++) {
       let dayObj = {
         day: '',
-        temp:
-          units === 'C'
-            ? convertTemp(forecastData[i].temp.day, units)
-            : Math.round(forecastData[i].temp.day),
-        high:
-          units === 'C'
-            ? convertTemp(forecastData[i].temp.max, units)
-            : Math.round(forecastData[i].temp.max),
-        low:
-          units === 'C'
-            ? convertTemp(forecastData[i].temp.min, units)
-            : Math.round(forecastData[i].temp.min),
+        temp: formatTemp(forecastData[i].temp.day, units),
+        high: formatTemp(forecastData[i].temp.max, units),
+        low: formatTemp(forecastData[i].temp.min, units),
         pp: Math.round(forecastData[i].pop * 100),
       };
       forecastArr[i] = dayObj;

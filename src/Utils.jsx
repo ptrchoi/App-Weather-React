@@ -3,11 +3,15 @@ import $ from 'jquery';
 
 /* MISC UTILITY FUNCTIONS
 ----------------------------------------------------------------------*/
-// Convert from Farenheit to Celcius or just round off the (default) Farenheit value
+// Convert only if units are Celcius; if units are F, just round off the (default) Farenheit value
+export const formatTemp = (temp, units) => {
+  return units === 'C' ? Math.round(((temp - 32) * 5) / 9) : Math.round(temp);
+};
+// Convert from either Imperial or Metric to the other
 export const convertTemp = (temp, units) => {
-  return units === 'F'
-    ? Math.round((temp * 9) / 5 + 32)
-    : Math.round(((temp - 32) * 5) / 9);
+  return units === 'C'
+    ? Math.round(((temp - 32) * 5) / 9)
+    : Math.round((temp * 9) / 5 + 32);
 };
 
 // Convert Unix timestamp (from Open Weather data) to hour, mins, and daytime (AM/PM)
