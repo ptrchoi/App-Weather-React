@@ -81,21 +81,27 @@ class ForecastHour extends React.Component {
         return (
           <div key={uuidv4()} className={classList}>
             <br />
-            <p>
+            <p className="item-hour item">
               {timeArr[0]}
               {timeArr[4]}
             </p>
-            <p>
-              <i className={iconClass}></i>
-              {formatTemp(hour.temp, units)}
-              &deg;
+            <p className="item-temp item">
+              <span className="w-icon">
+                <i className={iconClass}></i>
+              </span>
+              <span className="temp-text">
+                {formatTemp(hour.temp, units)}
+                &deg;
+              </span>
             </p>
-            <p className="p-precipitation">
-              {Math.round(hour.pop * 100)}%
+            <p className="item-rain item">
               <i
-                className="fas fa-umbrella"
+                className="rain-icon fas fa-umbrella"
                 style={getRainIconStyling(hour.pop * 100)}
               ></i>
+              <span className="percent-text">
+                {Math.round(hour.pop * 100)}%
+              </span>
             </p>
             {/* <p>Rainfall: {rainfall}"</p> */}
           </div>

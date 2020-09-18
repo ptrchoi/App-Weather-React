@@ -93,8 +93,8 @@ class ForecastDay extends React.Component {
     let { dailyForecast, size } = this.state;
     if (!dailyForecast) return;
 
-    let classList = 'day-compact';
-    if (size === 'expanded') classList = 'day-expanded';
+    let classList = 'day day-compact';
+    if (size === 'expanded') classList = 'day day-expanded';
 
     // Curry function to .map method
     function displayDiv(classList) {

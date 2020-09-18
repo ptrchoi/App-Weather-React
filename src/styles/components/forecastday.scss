@@ -51,65 +51,62 @@
 
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
-  .inner-wrapper {
-    width: 85%;
-    flex-direction: column;
-  }
   .forecastDay-container {
     height: $d_forecast-compact-height;
   }
   .expanded {
     height: $d_forecast-expanded-height;
   }
-  .day-compact {
-    // border: solid 1px red;
-    font-size: 1.4rem;
-    display: grid;
+  .resize-btn {
+    font-size: 1.6rem;
+    margin-top: 0%;
+  }
+  .inner-wrapper {
+    width: 100%;
+    flex-direction: column;
 
-    grid-template-columns: 0.5fr 1.5fr 1fr 2fr;
-    align-items: center;
-    justify-items: center;
-    padding-bottom: 6%;
-
-    .item {
+    .day-compact {
       // border: solid 1px green;
-      text-align: center;
-      width: 100%;
-    }
-    .item-dayOfWeek {
-      text-align: center;
-    }
-    .item-temp {
-      // border: solid 1px red;
 
-      .w-icon {
-        font-size: 2.5rem;
-        padding-right: 0.4rem;
+      align-items: center;
+      display: grid;
+      font-size: 1.4rem;
+      grid-template-columns: 12% 34% 26% 25%;
+      padding-bottom: 6%;
+
+      .item {
+        // border: solid 1px red;
+
+        // justify-self: center;
+        text-align: center;
+        width: 100%;
       }
-      .temp-text {
+      .item-dayOfWeek {
+        text-align: center;
       }
-    }
-    .item-rain {
-      display: flex;
-      flex-direction: row;
-      .rain-icon {
-        font-size: 2rem;
+      .item-temp {
+        .w-icon {
+          font-size: 2.5rem;
+          padding-right: 0.4rem;
+        }
+        .temp-text {
+        }
       }
-      .percent-text {
-        font-size: 1.2rem;
-        padding-left: 0.4rem;
+      .item-rain {
+        display: flex;
+        flex-direction: row;
+
+        .rain-icon {
+          font-size: 2rem;
+        }
+        .percent-text {
+          font-size: 1.2rem;
+          padding-left: 0.4rem;
+        }
       }
-    }
-    .item-highLow {
-      font-size: 1.1rem;
-      .low-temp {
+      .item-highLow {
+        font-size: 1.1rem;
       }
-      .high-temp {
-      }
-    }
-    .resize-btn {
-      font-size: 1.6rem;
-      margin-top: 0%;
     }
   }
 }
