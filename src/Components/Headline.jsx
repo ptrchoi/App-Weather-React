@@ -35,6 +35,10 @@ class Headline extends React.Component {
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
     this.handleTargetLocation = this.handleTargetLocation.bind(this);
   }
+  componentDidMount() {
+    // Initiate the Google Autocomplete API call - this is needed to avoid a delay in the first user input on search!
+    this.onSuggestionsFetchRequested('');
+  }
   componentDidUpdate(prevProps) {
     if (this.props != prevProps) {
       this.setState({
