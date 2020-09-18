@@ -1,3 +1,6 @@
+/*
+  Default styling for mobile
+-----------------------------------------------*/
 .forecastDay-container {
   // border: solid 1px black;
 
@@ -5,30 +8,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 15%;
+  // padding-top: 15%;
   // justify-content: flex-end;
 
-  height: $m_forecast-compact-height;
-}
-.inner-wrapper {
-  // border: solid 1px red;
-
-  display: flex;
-  flex-direction: row;
   height: $m_forecast-compact-height;
 }
 .expanded {
   flex-direction: column;
 
   height: $m_forecast-expanded-height;
-}
-.day-compact {
-  font-size: 0.7rem;
-  margin: 0.25rem;
-}
-.day-expanded {
-  font-size: 1.5rem;
-  margin: 0.5rem;
 }
 .resize-btn {
   background-color: rgba(255, 255, 255, 0);
@@ -37,22 +25,85 @@
   font-size: 0.9rem;
   // padding: 4% 0 0 0;
   margin-left: 70%;
-  margin-top: 10%;
+  // margin-top: 10%;
 }
-.p-precipitation {
-  // color: rgb(34, 185, 185);
-}
-.low-temp {
-  color: rgb(16, 127, 211);
-}
-.high-temp {
-  color: rgb(215, 23, 10);
+
+.inner-wrapper {
+  // border: solid 3px black;
+
+  display: flex;
+  flex-direction: row;
+  padding-top: 5%;
+  width: 90%;
+
+  .day-compact {
+    // border: solid 3px green;
+
+    align-items: center;
+    display: grid;
+    font-size: 0.5rem;
+    // grid-template-columns: 12% 34% 26% 25%;
+    grid-template-rows: 12% 34% 26% 25%;
+    // padding-bottom: 6%;
+    width: 100%;
+
+    .item {
+      // border: solid 1px red;
+
+      // justify-self: center;
+      text-align: center;
+      width: 100%;
+      padding-bottom: 16%;
+    }
+    .item-dayOfWeek {
+      text-align: center;
+    }
+    .item-temp {
+      display: flex;
+      flex-direction: column;
+
+      .w-icon {
+        font-size: 1.9rem;
+        padding-bottom: 0.2rem;
+      }
+      .temp-text {
+        font-size: 0.8rem;
+      }
+    }
+    .item-rain {
+      display: flex;
+      flex-direction: column;
+      padding-top: 0.8rem;
+
+      .rain-icon {
+        font-size: 1.4rem;
+      }
+      .percent-text {
+        font-size: 0.5rem;
+        padding-top: 0.2rem;
+      }
+    }
+    .item-highLow {
+      display: flex;
+      flex-direction: column;
+
+      font-size: 0.6rem;
+
+      .low-temp {
+        color: rgb(16, 127, 211);
+      }
+      .high-temp {
+        color: rgb(215, 23, 10);
+      }
+    }
+  }
 }
 
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .forecastDay-container {
     height: $d_forecast-compact-height;
+    padding-top: 25%;
   }
   .expanded {
     height: $d_forecast-expanded-height;
@@ -85,15 +136,19 @@
         text-align: center;
       }
       .item-temp {
+        flex-direction: row;
+        padding: 0 0 0 1.2rem;
+
         .w-icon {
           font-size: 2.5rem;
           padding-right: 0.4rem;
         }
         .temp-text {
+          font-size: 1.8rem;
         }
       }
       .item-rain {
-        display: flex;
+        // display: flex;
         flex-direction: row;
 
         .rain-icon {
@@ -105,6 +160,7 @@
         }
       }
       .item-highLow {
+        flex-direction: column;
         font-size: 1.1rem;
       }
     }
