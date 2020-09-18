@@ -33,7 +33,7 @@ export const convertTime = (unixTime) => {
 };
 export const getRainColorAlpha = (percent) => {
   // Need to make some adjustment so low %'s are still opaque enough to be legible
-  if (percent > 0) percent += 20;
+  if (percent > 0 && percent < 70) percent += 20;
 
   let str = 'rgba(34, 185, 185, .' + percent + ')';
 
