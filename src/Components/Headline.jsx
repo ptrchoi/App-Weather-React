@@ -82,7 +82,14 @@ class Headline extends React.Component {
     this.props.onNewCity(suggestion.suggestion); //Pass in only the suggestion obj's suggestion string
   };
   getDate() {
-    return new Date().toDateString();
+    let dateStr = new Date().toDateString();
+
+    // Custom format - remove year (last 4 digits + space = 5)
+    for (let i = 0; i < 5; i++) {
+      dateStr = dateStr.slice(0, -1);
+    }
+
+    return dateStr;
   }
   handleTargetLocation(e) {
     e.preventDefault();
