@@ -138,9 +138,11 @@ class ForecastDay extends React.Component {
 
     return (
       <div className={classList}>
-        <button className="resize-btn" onClick={this.resize}>
-          <i className="fas fa-expand"></i>
-        </button>
+        <div className="forecast-btn">
+          <button className="resize-btn" onClick={this.resize}>
+            <i className="fas fa-expand"></i>
+          </button>
+        </div>
         <div className="inner-wrapper">{this.renderForecast()}</div>
       </div>
     );

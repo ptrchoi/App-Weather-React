@@ -7,41 +7,50 @@
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: $m_forecast-compact-height;
+  // margin-top: 20%;
+
+  // align-items: center;
   // padding-top: 15%;
   // justify-content: flex-end;
-
-  height: $m_forecast-compact-height;
 }
 .expanded {
   flex-direction: column;
 
   height: $m_forecast-expanded-height;
 }
-.resize-btn {
-  background-color: rgba(255, 255, 255, 0);
-  border: none;
-  color: gray;
-  font-size: 0.9rem;
-  // padding: 4% 0 0 0;
-  margin-left: 70%;
-  // margin-top: 10%;
-}
+.forecast-btn {
+  // border: solid 1px red;
 
+  margin-left: auto;
+  padding-bottom: 4%;
+  padding-right: 4%;
+
+  .resize-btn {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    // margin-left: 70%;
+    // margin-top: 10%;
+  }
+}
 .inner-wrapper {
   // border: solid 3px black;
 
   display: flex;
   flex-direction: row;
-  padding-top: 5%;
-  width: 90%;
+  // padding-top: 5%;
+  // padding-left: 7%;
+  padding: 0 5% 0 5%;
+  width: 100%;
 
   .day-compact {
     // border: solid 3px green;
 
     align-items: center;
     display: grid;
-    font-size: 0.5rem;
+    font-size: 0.4rem;
     // grid-template-columns: 12% 34% 26% 25%;
     grid-template-rows: 12% 34% 26% 25%;
     // padding-bottom: 6%;
@@ -51,9 +60,9 @@
       // border: solid 1px red;
 
       // justify-self: center;
+      padding-bottom: 15%;
       text-align: center;
       width: 100%;
-      padding-bottom: 16%;
     }
     .item-dayOfWeek {
       text-align: center;
@@ -63,7 +72,7 @@
       flex-direction: column;
 
       .w-icon {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
         padding-bottom: 0.2rem;
       }
       .temp-text {
@@ -79,7 +88,7 @@
         font-size: 1.4rem;
       }
       .percent-text {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
         padding-top: 0.2rem;
       }
     }
@@ -108,9 +117,12 @@
   .expanded {
     height: $d_forecast-expanded-height;
   }
-  .resize-btn {
-    font-size: 1.6rem;
-    margin-top: 0%;
+  .forecast-btn {
+    padding-bottom: 10%;
+    padding-right: 7%;
+    .resize-btn {
+      font-size: 1.4rem;
+    }
   }
   .inner-wrapper {
     width: 100%;
@@ -121,7 +133,7 @@
 
       align-items: center;
       display: grid;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       grid-template-columns: 12% 34% 26% 25%;
       padding-bottom: 6%;
 
@@ -144,7 +156,7 @@
           padding-right: 0.4rem;
         }
         .temp-text {
-          font-size: 1.8rem;
+          font-size: 1.6rem;
         }
       }
       .item-rain {
