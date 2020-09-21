@@ -52,15 +52,15 @@ class Main extends React.Component {
   handleResize(size, layout, whichBox) {
     if (layout === 'mobile') {
       if (size === 'compact') {
-        $('.box-2').removeClass('hidden');
-        $('.box-2').removeClass('hidden');
-        $('.box-3').removeClass('box-3--expanded');
-        $('.box-3').removeClass('box-3--expanded');
+        $('.box-summary').removeClass('hidden');
+        $('.box-details').removeClass('hidden');
+        $('.box-days').removeClass('box-days--expanded');
+        $('.box-hours').removeClass('box-hours--expanded');
       } else {
-        $('.box-2').addClass('hidden');
-        $('.box-2').addClass('hidden');
-        $('.box-3').addClass('box-3--expanded');
-        $('.box-3').addClass('box-3--expanded');
+        $('.box-summary').addClass('hidden');
+        $('.box-details').addClass('hidden');
+        $('.box-days').addClass('box-days--expanded');
+        $('.box-hours').addClass('box-hours--expanded');
       }
     } else {
       // DESKTOP LAYOUT
@@ -108,93 +108,89 @@ class Main extends React.Component {
 
     if (layout === 'mobile') {
       return (
-        <div className="ml-container">
-          <div className="box-1">
-            <div className="wrapper-b1 icon-weather-b1">
+        <div className="main-container">
+          <div className="box-temperature">
+            <div className="wrapper-temperature icon-weather">
               <i className={iconMapping}></i>
             </div>
-            <div className="wrapper-b1">
+            <div className="wrapper-temperature">
               <div className="unit-slider">
                 <UnitButton onUnitsButton={this.handleUnitsChange} />
               </div>
-              <div className="temp-wrapper">{currentTemp}&deg;</div>
+              <div className="text-temperature">{currentTemp}&deg;</div>
             </div>
           </div>
-          <div className="box-2 swipes swipes-left">
-            <div className="m-summary-group">
-              <p className="m-p-description">{description}</p>
-              <p className="m-p-precipitation">
-                {precProb}%
+          <div className="box-summary swipes swipes-left">
+            <div className="wrapper-summary">
+              <p className="text-description">{description}</p>
+              <p className="wrapper-precipitation">
+                {/* {precProb}% */}
                 <i
-                  className="m-rain-icon fas fa-umbrella"
+                  className="icon-umbrella fas fa-umbrella"
                   style={getRainIconStyling(precProb)}
                 ></i>
+                <span className="text-probability">{precProb}%</span>
               </p>
             </div>
-            <div className="m-summary-group">
-              <p>
-                <span className="m-high-temp">
+            <div className="wrapper-summary">
+              <p className="temp-high-low">
+                <span className="temp-high">
                   <i className="fas fa-long-arrow-alt-up"></i>
                   {high}&deg;
                 </span>
-                <span className="m-low-temp">
+                <span className="temp-low">
                   <i className="fas fa-long-arrow-alt-down"></i>
                   {low}&deg;
                 </span>
               </p>
-              <p>Feels Like {feelsLike}&deg;</p>
+              <p className="text-feelslike">Feels Like {feelsLike}&deg;</p>
               <button
-                className="m-temporary-btn btn1"
+                className="temporary-btn btn1"
                 onClick={this.swipeContent}
               >
                 <i className="fas fa-info-circle"></i>
               </button>
             </div>
           </div>
-          <div className="box-2 swipes swipes-right ">
-            <div className="m-details">
-              <button
-                className="m-temporary-btn btn2"
-                onClick={this.swipeContent}
-              >
-                <i className="fas fa-info-circle"></i>
-              </button>
-              <p>Humidity: {humidity}%</p>
-              <p>
-                Dew Point: {dewPt}
-                &deg;{units}
-              </p>
-              <p>Pressure: {pressure} inHg</p>
-              <p>
-                UV Index: {uvi}{' '}
-                <span className="uvi-rating" style={getUVrating(uvi).styling}>
-                  {getUVrating(uvi).rating}
-                </span>
-              </p>
-              <p>Visibility: {visibility} mi</p>
-              <br />
-              <p>
-                <span>
-                  <i className="wind-icon fas fa-wind"></i>
-                </span>{' '}
-                {windSpeed}mi/hr {windDeg}{' '}
-              </p>
-              <br />
-              <p>
-                <span className="daytime">
-                  <i className="sun-icon detail-icon fas fa-sun"></i>
-                  {sunrise}
-                </span>
-              </p>
-              <p>
-                <span className="daytime">
-                  <i className="moon-icon detail-icon fas fa-moon"></i>
-                  {sunset}
-                </span>
-              </p>
-            </div>
+          <div className="box-details swipes swipes-right ">
+            <button className="temporary-btn btn2" onClick={this.swipeContent}>
+              <i className="fas fa-info-circle"></i>
+            </button>
+            <p>Humidity: {humidity}%</p>
+            <p>
+              Dew Point: {dewPt}
+              &deg;{units}
+            </p>
+            <p>Pressure: {pressure} inHg</p>
+            <p>
+              UV Index: {uvi}{' '}
+              <span className="uvi-rating" style={getUVrating(uvi).styling}>
+                {getUVrating(uvi).rating}
+              </span>
+            </p>
+            <p>Visibility: {visibility} mi</p>
+            <br />
+            <p>
+              <span>
+                <i className="wind-icon fas fa-wind"></i>
+              </span>{' '}
+              {windSpeed}mi/hr {windDeg}{' '}
+            </p>
+            <br />
+            <p>
+              <span className="daytime">
+                <i className="sun-icon detail-icon fas fa-sun"></i>
+                {sunrise}
+              </span>
+            </p>
+            <p>
+              <span className="daytime">
+                <i className="moon-icon detail-icon fas fa-moon"></i>
+                {sunset}
+              </span>
+            </p>
           </div>
-          <div className="box-3 swipes swipes-left">
+          <div className="box-days swipes swipes-left">
             <ForecastDay
               dayForecast={dayForecast}
               units={units}
@@ -204,7 +200,7 @@ class Main extends React.Component {
               }}
             />
           </div>
-          <div className="box-3 swipes swipes-right ">
+          <div className="box-hours swipes swipes-right ">
             <ForecastHour
               hourForecast={hourForecast}
               units={units}
@@ -217,14 +213,15 @@ class Main extends React.Component {
         </div>
       );
     } else {
+      // layout === 'desktop'
       return (
-        <div className="dl-container">
+        <div className="main-container">
           <div className="column">
-            <div className="box-main">
-              <div className="wrapper-main icon-weather">
+            <div className="box-temperature">
+              <div className="wrapper-temperature icon-weather">
                 <i className={iconMapping}></i>
               </div>
-              <div className="wrapper-main">
+              <div className="wrapper-temperature">
                 <div className="unit-slider">
                   <UnitButton onUnitsButton={this.handleUnitsChange} />
                 </div>
@@ -234,7 +231,7 @@ class Main extends React.Component {
             <div className="box-summary">
               <div className="wrapper-summary">
                 <p className="text-description">{description}</p>
-                <p className="text-precipitation">
+                <p className="wrapper-precipitation">
                   <i
                     className="icon-umbrella fas fa-umbrella"
                     style={getRainIconStyling(precProb)}

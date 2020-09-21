@@ -1,4 +1,7 @@
-.ml-container {
+/*
+- MOBILE LAYOUT
+------------------------------------------*/
+.main-container {
   display: flex;
   flex-direction: row;
   height: $m_weather-main-height + $m_weather-sub-height +
@@ -6,6 +9,7 @@
   justify-content: center;
   width: 100%;
 }
+// FOR MOBILE ONLY - content boxes are swipable
 .swipes {
   position: absolute;
   transition: left 1s;
@@ -19,8 +23,8 @@
 .swipes-right {
   left: 100%;
 }
-// Current Temperature
-.box-1 {
+// MOBILE - Current Temperature
+.box-temperature {
   display: flex;
   flex-direction: row;
   font-size: 3rem;
@@ -29,119 +33,140 @@
   padding-top: 25%;
   width: 100%;
 
-  .wrapper-b1 {
-    // border: solid 1px red;
-
+  .wrapper-temperature {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 50%;
   }
-  .icon-weather-b1 {
+  .icon-weather {
     color: rgba(255, 255, 255, 0.639);
     font-size: 5rem;
-    padding-top: 8%;
+    padding: 8% 0 0 0;
   }
-  .m-unit-slider {
-    margin-right: -30%;
-    margin-top: -5%;
+  .unit-slider {
+    margin: -5% -30% 0 0;
   }
-  .temp-wrapper {
+  .text-temperature {
     font-size: 4.5rem;
-    padding-right: 30%;
-    padding-top: 8%;
+    padding: 8% 30% 0 0;
   }
 }
-// Weather Summary | Weather Details
-.box-2 {
+.temporary-btn {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  color: gray;
+  font-size: 1rem;
+}
+.btn1 {
+  margin-left: auto;
+  margin-bottom: auto;
+  padding: 10% 30% 0 0;
+}
+.btn2 {
+  margin-left: auto;
+  padding: 10% 10% 0 0;
+}
+
+// MOBILE - Weather Summary
+.box-summary {
+  color: white;
   display: flex;
   flex-direction: row;
-
-  color: white;
   font-size: 1.2rem;
-  padding-top: 20%;
-
   height: $m_weather-sub-height;
+  padding-top: 20%;
   top: $m_headline-height + $m_weather-main-height;
 
-  .m-summary-group {
-    // border: solid 1px red;
-
+  .wrapper-summary {
     display: flex;
     flex-direction: column;
     justify-content: start;
 
-    padding-left: 4%;
+    padding: 0 0 0 4%;
     width: 50%;
 
     p {
       padding: 2% 0% 2% 0%;
     }
-    .m-p-description {
+    .text-description {
       padding-top: 16%;
       text-align: center;
     }
-    .m-p-precipitation {
+    .wrapper-precipitation {
       align-items: center;
-      color: rgb(34, 185, 185);
       display: flex;
       flex-direction: row;
       font-size: 1.4rem;
       justify-content: center;
-      padding-left: 100%;
-      padding-top: 20%;
+      padding: 20% 0 0 100%;
 
-      .m-rain-icon {
+      .icon-umbrella {
         font-size: 2.8rem;
         padding-left: 1rem;
         padding-top: 25%;
       }
+      .text-probability {
+        align-self: flex-start;
+        font-size: 1.2rem;
+        padding-left: 0.3rem;
+      }
     }
-    .m-low-temp {
-      color: rgb(16, 127, 211);
-    }
-    .m-high-temp {
-      color: rgb(215, 23, 10);
-      padding-right: 10%;
+    .temp-high-low {
+      .temp-high {
+        color: $temp-high-red;
+        padding-right: 10%;
+      }
+      .temp-low {
+        color: $temp-low-blue;
+      }
     }
   }
-  .m-details {
-    align-items: left;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    font-size: 0.8rem;
-    justify-content: start;
-    padding-left: 30%;
-    margin-top: -2%;
-    width: 100%;
-  }
-  .m-temporary-btn {
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    color: gray;
-    font-size: 1rem;
-  }
+}
+// MOBILE - Weather Details
+.box-details {
+  align-items: left;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  height: $m_weather-sub-height;
+  justify-content: start;
+  padding-left: 30%;
+  // margin-top: 30%;
+  width: 100%;
+  padding-top: 20%;
+  top: $m_headline-height + $m_weather-main-height;
+
   .uvi-rating {
     font-size: 0.6rem;
   }
-  .btn1 {
-    margin-left: auto;
-    margin-bottom: auto;
-    padding: 10% 30% 0 0;
+  .detail-icon {
+    padding-right: 2%;
   }
-  .btn2 {
-    margin-left: auto;
-    padding: 10% 10% 0 0;
+  .daytime {
+    padding-right: 2%;
+  }
+  .sun-icon {
+    color: yellow;
+  }
+  .moon-icon {
+    color: gray;
+  }
+  .wind-icon {
+    color: black;
   }
 }
-// Forecast Day | Forecast Hour
-.box-3 {
+
+// MOBILE - Forecast Day, Forecast Hour
+.box-days,
+.box-hours {
   height: $m_weather-sub-height;
   top: $m_headline-height + $m_weather-main-height + $m_weather-sub-height;
 }
-.box-3--expanded {
+.box-days--expanded,
+.box-hours--expanded {
   height: $m_forecast-expanded-height;
   top: $m_headline-height + $m_weather-main-height;
 }
@@ -163,150 +188,88 @@
   left: 0%;
   transition: left 1s;
 }
-.hidden {
-  display: none;
-}
 
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
-  .dl-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
+  // DESKTOP layout has 2 columns
   .column {
-    // border: solid 3px green;
-
     display: flex;
     flex-direction: column;
     height: $d_weather-main-height + $d_weather-sub-height +
       $d_weather-sub-height;
     width: 100%;
   }
-  // Current Temperature
-  .box-main {
-    // background-color: rgb(237, 232, 94);
-
-    display: flex;
-    flex-direction: row;
+  // DESKTOP - Current Temperature
+  .box-temperature {
     height: $d_weather-main-height;
-    justify-content: center;
-    padding-top: 40%;
-    padding-right: 10%;
+    padding: 40% 10% 0 0;
 
-    .wrapper-main {
-      // border: solid 1px red;
-
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 50%;
-    }
     .icon-weather {
-      color: rgba(255, 255, 255, 0.639);
       font-size: 6rem;
-      padding-left: 10%;
-      padding-top: 10%;
+      padding: 10% 0 0 10%;
     }
     .unit-slider {
       margin: -3% -50% 12% 0;
     }
     .text-temperature {
       font-size: 5.5rem;
-      margin-top: 10%;
+      padding: 10% 0 0 0;
     }
   }
-  // Weather Summary
+  // DESKTOP - Weather Summary
   .box-summary {
-    display: flex;
-    flex-direction: row;
-
-    color: white;
     font-size: 1.4rem;
     height: $d_weather-sub-height;
-    padding-right: 10%;
-    padding-top: 20%;
+    padding: 20% 10% 0 0;
+    top: none;
 
     .wrapper-summary {
-      // border: solid 1px red;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: start;
-
       padding: 3% 0 0% 8%;
-      width: 50%;
 
       p {
         padding: 5% 0% 5% 0%;
       }
       .text-description {
         padding-top: 20%;
-        text-align: center;
       }
-      .text-precipitation {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
+      .wrapper-precipitation {
         font-size: 1.4rem;
-        justify-content: center;
-        padding-left: 100%;
-        padding-top: 30%;
+        padding: 30% 0 0 100%;
 
         .icon-umbrella {
           font-size: 3.5rem;
         }
         .text-probability {
-          align-self: flex-start;
           font-size: 1.5rem;
-          padding-left: 0.3rem;
         }
-      }
-      .temp-high-low {
-        .temp-high {
-          color: $temp-high-red;
-          padding-right: 10%;
-        }
-        .temp-low {
-          color: $temp-low-blue;
-        }
-      }
-      .text-feelslike {
       }
     }
   }
-  // Weather Details
+  // DESKTOP - Weather Details
   .box-details {
-    align-items: left;
-    color: white;
-    display: flex;
-    flex-direction: column;
     font-size: 1.4rem;
-    justify-content: start;
-    padding-left: 20%;
+    margin: 0;
+    padding: 0 0 0 20%;
     height: $d_weather-sub-height;
+    top: none;
 
     .uvi-rating {
       font-size: 1rem;
     }
-    .detail-icon {
-      padding-right: 2%;
-    }
-    .daytime {
-      padding-right: 2%;
-    }
-    .sun-icon {
-      color: yellow;
-    }
-    .moon-icon {
-      color: gray;
-    }
-    .wind-icon {
-      color: black;
-    }
   }
-  .hidden {
-    display: none;
+  // DESKTOP - Forecast Day, Forecast Hour
+  .box-days,
+  .box-hours {
+    height: $d_weather-sub-height;
+    top: none;
   }
+  .box-days--expanded,
+  .box-hours--expanded {
+    height: $d_forecast-expanded-height;
+    top: none;
+  }
+}
+
+.hidden {
+  display: none;
 }
