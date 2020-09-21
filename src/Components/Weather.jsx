@@ -18,8 +18,8 @@ import {
 // COMPONENTS
 import C from '../constants';
 import Headline from './Headline';
-import MobileLayout from './MobileLayout';
-import DesktopLayout from './DesktopLayout';
+import Main from './Main';
+// import DesktopLayout from './DesktopLayout';
 
 // Weather COMPONENT CLASS
 class Weather extends React.Component {
@@ -222,7 +222,7 @@ class Weather extends React.Component {
     } = this.state;
 
     return (
-      <MobileLayout
+      <Main
         units={units}
         wMain={wMain}
         wDetails={wDetails}

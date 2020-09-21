@@ -3,7 +3,7 @@ import React from 'react';
 import $ from 'jquery';
 
 // UTILITY FUNCTIONS
-import { getRainIconStyling, getUVrating } from './../Utils';
+import { getRainIconStyling, getUVrating } from '../Utils';
 
 // COMPONENTS
 import C from '../constants';
@@ -11,7 +11,7 @@ import UnitButton from './UnitButton';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
 
-class MobileLayout extends React.Component {
+class Main extends React.Component {
   constructor(props) {
     super(props);
 
@@ -199,7 +199,6 @@ class MobileLayout extends React.Component {
               dayForecast={dayForecast}
               units={units}
               layout={layout}
-              // onResize={this.handleResize}
               onResize={(size) => {
                 this.handleResize(size, layout, 'days');
               }}
@@ -210,7 +209,6 @@ class MobileLayout extends React.Component {
               hourForecast={hourForecast}
               units={units}
               layout={layout}
-              // onResize={this.handleResize}
               onResize={(size) => {
                 this.handleResize(size, layout, 'hours');
               }}
@@ -321,4 +319,4 @@ class MobileLayout extends React.Component {
     }
   }
 }
-export default MobileLayout;
+export default Main;
