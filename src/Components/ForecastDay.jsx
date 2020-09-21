@@ -89,7 +89,7 @@ class ForecastDay extends React.Component {
       size: size,
     });
   }
-  renderForecast() {
+  renderDays() {
     let { dailyForecast, size } = this.state;
     if (!dailyForecast) return;
 
@@ -101,25 +101,25 @@ class ForecastDay extends React.Component {
       return function (day) {
         return (
           <div key={uuidv4()} className={classList}>
-            <p className="item-dayOfWeek item">{day.day}</p>
-            <p className="item-temp item">
-              <span className="w-icon">
+            <p className="item item-dayOfWeek">{day.day}</p>
+            <p className="item item-temp">
+              <span className="icon-weather">
                 <i className={day.iconClass}></i>
               </span>
-              <span className="temp-text">{day.temp}&deg;</span>
+              <span className="text-degree">{day.temp}&deg;</span>
             </p>
-            <p className="item-rain item">
+            <p className="item item-rain">
               <i
-                className="rain-icon fas fa-umbrella"
+                className="fas fa-umbrella"
                 style={getRainIconStyling(day.pp)}
               ></i>
-              <span className="percent-text">{day.pp}%</span>
+              <span className="text-percent">{day.pp}%</span>
             </p>
-            <p className="item-highLow item">
-              <span className="high-temp">
+            <p className="item item-highLow">
+              <span className="temp-high">
                 <i className="fas fa-long-arrow-alt-up"></i> {day.high}&deg;{' '}
               </span>
-              <span className="low-temp">
+              <span className="temp-low">
                 <i className="fas fa-long-arrow-alt-down"></i> {day.low}&deg;
               </span>
             </p>
@@ -132,18 +132,22 @@ class ForecastDay extends React.Component {
   }
   render(props) {
     let { size } = this.state;
-    let classList = 'forecastDay-container';
+    let containerList = 'forecastDay-container';
+    let wrapperList = 'days-wrapper';
 
-    if (size === 'expanded') classList += ' expanded';
+    if (size === 'expanded') {
+      containerList += ' expanded';
+      wrapperList += ' expanded-wrapper';
+    }
 
     return (
-      <div className={classList}>
+      <div className={containerList}>
         <div className="forecast-btn">
           <button className="resize-btn" onClick={this.resize}>
             <i className="fas fa-expand"></i>
           </button>
         </div>
-        <div className="inner-wrapper">{this.renderForecast()}</div>
+        <div className={wrapperList}>{this.renderDays()}</div>
       </div>
     );
   }

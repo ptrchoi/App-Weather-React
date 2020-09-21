@@ -2,26 +2,12 @@
   Default styling for mobile
 -----------------------------------------------*/
 .forecastDay-container {
-  // border: solid 1px black;
-
   color: white;
   display: flex;
   flex-direction: column;
   height: $m_forecast-compact-height;
-  // margin-top: 20%;
-
-  // align-items: center;
-  // padding-top: 15%;
-  // justify-content: flex-end;
-}
-.expanded {
-  flex-direction: column;
-
-  height: $m_forecast-expanded-height;
 }
 .forecast-btn {
-  // border: solid 1px red;
-
   margin-left: auto;
   padding-bottom: 4%;
   padding-right: 4%;
@@ -31,35 +17,30 @@
     border: none;
     color: white;
     font-size: 0.9rem;
-    // margin-left: 70%;
-    // margin-top: 10%;
   }
 }
-.inner-wrapper {
-  // border: solid 3px black;
-
+.expanded {
+  flex-direction: column;
+  height: $m_forecast-expanded-height;
+}
+.expanded-wrapper {
+  flex-direction: column;
+}
+.days-wrapper {
   display: flex;
   flex-direction: row;
-  // padding-top: 5%;
-  // padding-left: 7%;
   padding: 0 5% 0 5%;
   width: 100%;
 
   .day-compact {
-    // border: solid 3px green;
-
     align-items: center;
     display: grid;
     font-size: 0.4rem;
-    // grid-template-columns: 12% 34% 26% 25%;
+    grid-template-columns: 1fr;
     grid-template-rows: 12% 34% 26% 25%;
-    // padding-bottom: 6%;
     width: 100%;
 
     .item {
-      // border: solid 1px red;
-
-      // justify-self: center;
       padding-bottom: 15%;
       text-align: center;
       width: 100%;
@@ -71,11 +52,11 @@
       display: flex;
       flex-direction: column;
 
-      .w-icon {
+      .icon-weather {
         font-size: 1.8rem;
         padding-bottom: 0.2rem;
       }
-      .temp-text {
+      .text-degree {
         font-size: 0.8rem;
       }
     }
@@ -84,10 +65,10 @@
       flex-direction: column;
       padding-top: 0.8rem;
 
-      .rain-icon {
+      .fa-umbrella {
         font-size: 1.4rem;
       }
-      .percent-text {
+      .text-percent {
         font-size: 0.6rem;
         padding-top: 0.2rem;
       }
@@ -98,12 +79,57 @@
 
       font-size: 0.6rem;
 
-      .low-temp {
+      .temp-low {
         color: rgb(16, 127, 211);
       }
-      .high-temp {
+      .temp-high {
         color: rgb(215, 23, 10);
       }
+    }
+  }
+  .day-expanded {
+    border: solid 1px green;
+
+    align-items: center;
+    display: grid;
+    font-size: 1.2rem;
+    grid-template-columns: 12% 34% 26% 25%;
+    grid-template-rows: 1fr;
+    padding-bottom: 6%;
+
+    .item {
+      text-align: center;
+      width: 100%;
+    }
+    .item-dayOfWeek {
+      text-align: center;
+    }
+    .item-temp {
+      flex-direction: row;
+      padding: 0 0 0 1.2rem;
+
+      .icon-weather {
+        font-size: 2.5rem;
+        padding-right: 0.4rem;
+      }
+      .text-degree {
+        font-size: 1.6rem;
+      }
+    }
+    .item-rain {
+      flex-direction: row;
+
+      .fa-umbrella {
+        font-size: 2rem;
+      }
+      .text-percent {
+        font-size: 1.2rem;
+        padding-left: 0.4rem;
+      }
+    }
+    .item-highLow {
+      flex-direction: column;
+      font-size: 1.1rem;
     }
   }
 }
@@ -115,32 +141,61 @@
     padding-top: 25%;
   }
   .expanded {
+    // flex-direction: column;
     height: $d_forecast-expanded-height;
   }
-  .forecast-btn {
-    padding-bottom: 10%;
-    padding-right: 7%;
-    .resize-btn {
-      font-size: 1.4rem;
-    }
-  }
-  .inner-wrapper {
-    width: 100%;
+  .expanded-wrapper {
     flex-direction: column;
+  }
 
+  // .forecast-btn {
+  //   padding-bottom: 10%;
+  //   padding-right: 7%;
+
+  //   .resize-btn {
+  //     font-size: 1.4rem;
+  //   }
+  // }
+  .days-wrapper {
+    padding: 0;
+
+    // COMPACT DESKTOP STYLING
     .day-compact {
-      // border: solid 1px green;
+      font-size: 1.3rem;
+      padding-right: 5%;
+      .item-temp {
+        .icon-weather {
+          font-size: 2.5rem;
+        }
+        .text-degree {
+          font-size: 1rem;
+        }
+      }
+      .item-rain {
+        .fa-umbrella {
+          font-size: 1.8rem;
+        }
+        .text-percent {
+          font-size: 0.8rem;
+        }
+      }
+      .item-highLow {
+        font-size: 0.7rem;
+      }
+    }
+
+    .day-expanded {
+      border: solid 1px red;
 
       align-items: center;
       display: grid;
       font-size: 1.2rem;
       grid-template-columns: 12% 34% 26% 25%;
+      grid-template-rows: 1fr;
+
       padding-bottom: 6%;
 
       .item {
-        // border: solid 1px red;
-
-        // justify-self: center;
         text-align: center;
         width: 100%;
       }
@@ -151,22 +206,21 @@
         flex-direction: row;
         padding: 0 0 0 1.2rem;
 
-        .w-icon {
+        .icon-weather {
           font-size: 2.5rem;
           padding-right: 0.4rem;
         }
-        .temp-text {
+        .text-degree {
           font-size: 1.6rem;
         }
       }
       .item-rain {
-        // display: flex;
         flex-direction: row;
 
-        .rain-icon {
+        .fa-umbrella {
           font-size: 2rem;
         }
-        .percent-text {
+        .text-percent {
           font-size: 1.2rem;
           padding-left: 0.4rem;
         }
