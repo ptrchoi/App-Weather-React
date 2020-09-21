@@ -75,6 +75,7 @@ class Weather extends React.Component {
     // Set initial layout
     this.updateLayout();
     window.addEventListener('resize', this.updateLayout);
+    // this.getCoordsFromDevice();
   }
   updateLayout() {
     let width = window.innerWidth;
