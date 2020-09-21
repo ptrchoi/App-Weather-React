@@ -3,11 +3,12 @@ import React from 'react';
 import $ from 'jquery';
 
 // UTILITY FUNCTIONS
-import { getRainIconStyling, getUVrating } from '../Utils';
+import { getRainIconStyling } from '../Utils';
 
 // COMPONENTS
 import C from '../constants';
 import UnitButton from './UnitButton';
+import Details from './Details';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
 
@@ -92,17 +93,6 @@ class Main extends React.Component {
       feelsLike,
       precProb,
     } = wMain;
-    let {
-      humidity,
-      dewPt,
-      pressure,
-      uvi,
-      visibility,
-      windSpeed,
-      windDeg,
-      sunrise,
-      sunset,
-    } = wDetails;
 
     // Add Weather Icon prefix to iconCode
     let iconMapping = C.ICON_PREFIX + iconCode;
@@ -157,39 +147,7 @@ class Main extends React.Component {
             <button className="temporary-btn btn2" onClick={this.swipeContent}>
               <i className="fas fa-info-circle"></i>
             </button>
-            <p>Humidity: {humidity}%</p>
-            <p>
-              Dew Point: {dewPt}
-              &deg;{units}
-            </p>
-            <p>Pressure: {pressure} inHg</p>
-            <p>
-              UV Index: {uvi}{' '}
-              <span className="uvi-rating" style={getUVrating(uvi).styling}>
-                {getUVrating(uvi).rating}
-              </span>
-            </p>
-            <p>Visibility: {visibility} mi</p>
-            <br />
-            <p>
-              <span>
-                <i className="wind-icon fas fa-wind"></i>
-              </span>{' '}
-              {windSpeed}mi/hr {windDeg}{' '}
-            </p>
-            <br />
-            <p>
-              <span className="daytime">
-                <i className="sun-icon detail-icon fas fa-sun"></i>
-                {sunrise}
-              </span>
-            </p>
-            <p>
-              <span className="daytime">
-                <i className="moon-icon detail-icon fas fa-moon"></i>
-                {sunset}
-              </span>
-            </p>
+            <Details units={units} wDetails={wDetails} layout={layout} />
           </div>
           <div className="box-days swipes swipes-left">
             <ForecastDay
@@ -255,39 +213,7 @@ class Main extends React.Component {
               </div>
             </div>
             <div className="box-details">
-              <p>Humidity: {humidity}%</p>
-              <p>
-                Dew Point: {dewPt}
-                &deg;{units}
-              </p>
-              <p>Pressure: {pressure} inHg</p>
-              <p>
-                UV Index: {uvi}{' '}
-                <span className="uvi-rating" style={getUVrating(uvi).styling}>
-                  {getUVrating(uvi).rating}
-                </span>
-              </p>
-              <p>Visibility: {visibility} mi</p>
-              <br />
-              <p>
-                <span>
-                  <i className="wind-icon fas fa-wind"></i>
-                </span>{' '}
-                {windSpeed}mi/hr {windDeg}{' '}
-              </p>
-              <br />
-              <p>
-                <span className="daytime">
-                  <i className="sun-icon detail-icon fas fa-sun"></i>
-                  {sunrise}
-                </span>
-              </p>
-              <p>
-                <span className="daytime">
-                  <i className="moon-icon detail-icon fas fa-moon"></i>
-                  {sunset}
-                </span>
-              </p>
+              <Details units={units} wDetails={wDetails} layout={layout} />
             </div>
           </div>
           <div className="column">

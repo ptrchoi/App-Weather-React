@@ -1,0 +1,48 @@
+// MOBILE - Weather Details
+.box-details {
+  align-items: left;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  height: $m_weather-sub-height;
+  justify-content: start;
+  padding-left: 30%;
+  width: 100%;
+  padding-top: 20%;
+  top: $m_headline-height + $m_weather-main-height;
+
+  .uvi-rating {
+    font-size: 0.6rem;
+  }
+  .detail-icon {
+    padding-right: 2%;
+  }
+  .daytime {
+    padding-right: 2%;
+  }
+  .sun-icon {
+    color: yellow;
+  }
+  .moon-icon {
+    color: gray;
+  }
+  .wind-icon {
+    color: black;
+  }
+}
+
+// Desktop/wider screens
+@media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
+  // DESKTOP - Weather Details
+  .box-details {
+    font-size: 1.4rem;
+    padding: 0 0 0 20%;
+    height: $d_weather-sub-height;
+    top: none;
+
+    .uvi-rating {
+      font-size: 1rem;
+    }
+  }
+}
