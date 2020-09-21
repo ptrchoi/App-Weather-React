@@ -23,9 +23,6 @@
   flex-direction: column;
   height: $m_forecast-expanded-height;
 }
-.expanded-wrapper {
-  flex-direction: column;
-}
 .days-wrapper {
   display: flex;
   flex-direction: row;
@@ -88,14 +85,14 @@
     }
   }
   .day-expanded {
-    border: solid 1px green;
+    // border: solid 1px green;
 
     align-items: center;
     display: grid;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     grid-template-columns: 12% 34% 26% 25%;
     grid-template-rows: 1fr;
-    padding-bottom: 6%;
+    padding-bottom: 2%;
 
     .item {
       text-align: center;
@@ -109,29 +106,42 @@
       padding: 0 0 0 1.2rem;
 
       .icon-weather {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         padding-right: 0.4rem;
       }
       .text-degree {
-        font-size: 1.6rem;
+        font-size: 1rem;
       }
     }
     .item-rain {
       flex-direction: row;
 
       .fa-umbrella {
-        font-size: 2rem;
+        font-size: 1.2rem;
       }
       .text-percent {
-        font-size: 1.2rem;
+        font-size: 0.8rem;
         padding-left: 0.4rem;
       }
     }
     .item-highLow {
+      display: flex;
       flex-direction: column;
-      font-size: 1.1rem;
+
+      font-size: 0.6rem;
+
+      .temp-low {
+        color: rgb(16, 127, 211);
+      }
+      .temp-high {
+        color: rgb(215, 23, 10);
+      }
     }
   }
+}
+.expanded-wrapper {
+  flex-direction: column;
+  padding: 18% 0 0 10%;
 }
 
 // Desktop/wider screens
@@ -185,7 +195,7 @@
     }
 
     .day-expanded {
-      border: solid 1px red;
+      // border: solid 1px red;
 
       align-items: center;
       display: grid;

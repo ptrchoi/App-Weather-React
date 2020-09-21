@@ -50,9 +50,13 @@ class MobileLayout extends React.Component {
   }
   handleResize(size) {
     if (size === 'compact') {
+      $('.m-box-2').removeClass('hidden');
+      $('.m-box-2').removeClass('hidden');
       $('.m-box-3').removeClass('m-box-3--expanded');
       $('.m-box-3').removeClass('m-box-3--expanded');
     } else {
+      $('.m-box-2').addClass('hidden');
+      $('.m-box-2').addClass('hidden');
       $('.m-box-3').addClass('m-box-3--expanded');
       $('.m-box-3').addClass('m-box-3--expanded');
     }
