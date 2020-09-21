@@ -50,6 +50,7 @@ class Main extends React.Component {
     this.props.onUnitsChanged();
   }
   handleResize(size, layout, whichBox) {
+    // MOBILE layout - expands over summary/details sections
     if (layout === 'mobile') {
       if (size === 'compact') {
         $('.box-summary').removeClass('hidden');
@@ -63,7 +64,7 @@ class Main extends React.Component {
         $('.box-hours').addClass('box-hours--expanded');
       }
     } else {
-      // DESKTOP LAYOUT
+      // DESKTOP layout - expands over day/hour forecast section
       if (size === 'compact') {
         if (whichBox === 'days') $('.box-hours').removeClass('hidden');
         else $('.box-days').removeClass('hidden');

@@ -3,7 +3,7 @@ import React from 'react';
 import Autosuggest from 'react-autosuggest';
 
 // UTILITY FUNCTIONS
-import { getGoogleCityAutofill } from './../Utils';
+import { getGoogleCityAutofill } from '../Utils';
 
 // LOCAL FUNCTIONS
 /* getSuggestionValue() automatically called by Autosuggest: this req'd function teaches Autosuggest what the input value should be when a suggestion value is highlighted. Here, we're simply passing the suggestion string back as the input value. */
@@ -17,7 +17,7 @@ const renderSuggestion = (suggestion) => {
 };
 
 // Headline  COMPONENT CLASS
-class Headline extends React.Component {
+class Heading extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -136,4 +136,4 @@ class Headline extends React.Component {
     );
   }
 }
-export default Headline;
+export default Heading;
