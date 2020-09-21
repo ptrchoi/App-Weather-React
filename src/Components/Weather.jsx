@@ -221,31 +221,43 @@ class Weather extends React.Component {
       layout,
     } = this.state;
 
-    if (layout === 'mobile') {
-      return (
-        <MobileLayout
-          units={units}
-          wMain={wMain}
-          wDetails={wDetails}
-          dayForecast={dayForecast}
-          hourForecast={hourForecast}
-          layout={layout}
-          onUnitsChanged={this.updateUnits}
-        />
-      );
-    } else {
-      return (
-        <DesktopLayout
-          units={units}
-          wMain={wMain}
-          wDetails={wDetails}
-          dayForecast={dayForecast}
-          hourForecast={hourForecast}
-          layout={layout}
-          onUnitsChanged={this.updateUnits}
-        />
-      );
-    }
+    return (
+      <MobileLayout
+        units={units}
+        wMain={wMain}
+        wDetails={wDetails}
+        dayForecast={dayForecast}
+        hourForecast={hourForecast}
+        layout={layout}
+        onUnitsChanged={this.updateUnits}
+      />
+    );
+
+    // if (layout === 'mobile') {
+    //   return (
+    //     <MobileLayout
+    //       units={units}
+    //       wMain={wMain}
+    //       wDetails={wDetails}
+    //       dayForecast={dayForecast}
+    //       hourForecast={hourForecast}
+    //       layout={layout}
+    //       onUnitsChanged={this.updateUnits}
+    //     />
+    //   );
+    // } else {
+    //   return (
+    //     <DesktopLayout
+    //       units={units}
+    //       wMain={wMain}
+    //       wDetails={wDetails}
+    //       dayForecast={dayForecast}
+    //       hourForecast={hourForecast}
+    //       layout={layout}
+    //       onUnitsChanged={this.updateUnits}
+    //     />
+    //   );
+    // }
   }
   render() {
     let { location, wMain, layout } = this.state;

@@ -43,7 +43,7 @@ export const getRainIconStyling = (percent) => {
   if (percent > 0 && percent < 70) percent += 10;
   percent = percent / 100;
 
-  let str = 'rgba(34, 185, 185, ' + percent + ')';
+  let str = 'rgba(34, 185, 185, ' + percent + ')'; // rain color set for all probability icon
 
   // TESTING outline
   return {

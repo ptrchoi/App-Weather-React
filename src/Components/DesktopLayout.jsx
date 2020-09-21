@@ -6,6 +6,7 @@ import $ from 'jquery';
 import { getRainIconStyling, getUVrating } from './../Utils';
 
 // COMPONENTS
+import C from '../constants';
 import UnitButton from './UnitButton';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
@@ -59,45 +60,45 @@ class DesktopLayout extends React.Component {
       sunset,
     } = wDetails;
 
-    let iconClass = 'wi wi-owm-' + iconCode;
+    let iconMapping = C.ICON_PREFIX + iconCode;
 
     return (
-      <div className="d-container">
-        <div className="d-column">
-          <div className="box-temp">
-            <div className="temp-group wIcon">
-              <i className={iconClass}></i>
+      <div className="dl-container">
+        <div className="column">
+          <div className="box-main">
+            <div className="wrapper-main icon-weather">
+              <i className={iconMapping}></i>
             </div>
-            <div className="temp-group">
+            <div className="wrapper-main">
               <div className="unit-slider">
                 <UnitButton onUnitsButton={this.handleUnitsChange} />
               </div>
-              <div className="temp-display">{currentTemp}&deg;</div>
+              <div className="text-temperature">{currentTemp}&deg;</div>
             </div>
           </div>
           <div className="box-summary">
-            <div className="summary-group">
-              <p className="p-description">{description}</p>
-              <p className="p-precipitation">
+            <div className="wrapper-summary">
+              <p className="text-description">{description}</p>
+              <p className="text-precipitation">
                 <i
-                  className="rain-icon fas fa-umbrella"
+                  className="icon-umbrella fas fa-umbrella"
                   style={getRainIconStyling(precProb)}
                 ></i>
-                <span className="rain-percent">{precProb}%</span>
+                <span className="text-probability">{precProb}%</span>
               </p>
             </div>
-            <div className="summary-group">
-              <p>
-                <span className="high-temp">
+            <div className="wrapper-summary">
+              <p className="temp-high-low">
+                <span className="temp-high">
                   <i className="fas fa-long-arrow-alt-up"></i>
                   {high}&deg;
                 </span>
-                <span className="low-temp">
+                <span className="temp-low">
                   <i className="fas fa-long-arrow-alt-down"></i>
                   {low}&deg;
                 </span>
               </p>
-              <p>feels like {feelsLike}&deg;</p>
+              <p className="text-feelslike">feels like {feelsLike}&deg;</p>
             </div>
           </div>
           <div className="box-details">
@@ -136,7 +137,7 @@ class DesktopLayout extends React.Component {
             </p>
           </div>
         </div>
-        <div className="d-column">
+        <div className="column">
           <div className="box-days">
             <ForecastDay
               dayForecast={dayForecast}

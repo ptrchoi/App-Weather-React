@@ -10,6 +10,11 @@ body {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   height: 100%;
   margin: 0 auto !important;
+
+  // REPLACE with a general styling that suits the color theme
+  button:focus {
+    outline: 0;
+  }
 }
 
 .app-container {
