@@ -80,26 +80,25 @@ class ForecastHour extends React.Component {
 
         return (
           <div key={uuidv4()} className={classList}>
-            <br />
-            <p className="item-hour item">
+            <p className="h-item-hour h-item">
               {timeArr[0]}
               {timeArr[4]}
             </p>
-            <p className="item-temp item">
-              <span className="w-icon">
+            <p className="h-item-temp h-item">
+              <span className="h-w-icon">
                 <i className={iconClass}></i>
               </span>
-              <span className="temp-text">
+              <span className="h-temp-text">
                 {formatTemp(hour.temp, units)}
                 &deg;
               </span>
             </p>
-            <p className="item-rain item">
+            <p className="h-item-rain h-item">
               <i
-                className="rain-icon fas fa-umbrella"
+                className="h-rain-icon fas fa-umbrella"
                 style={getRainIconStyling(hour.pop * 100)}
               ></i>
-              <span className="percent-text">
+              <span className="h-percent-text">
                 {Math.round(hour.pop * 100)}%
               </span>
             </p>
@@ -119,9 +118,11 @@ class ForecastHour extends React.Component {
 
     return (
       <div className={classList}>
-        <button className="h-resize-btn" onClick={this.resize}>
-          <i className="fas fa-expand"></i>
-        </button>
+        <div className="forecast-btn">
+          <button className="resize-btn" onClick={this.resize}>
+            <i className="fas fa-expand"></i>
+          </button>
+        </div>
         <div className="h-inner-wrapper">
           {this.renderForecast(this.props.units)}
         </div>
