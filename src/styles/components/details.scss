@@ -13,6 +13,9 @@
   .column-details {
     width: 50%;
   }
+  .details-label {
+    color: $details-label;
+  }
   .uvi-rating {
     font-size: 0.6rem;
   }
@@ -23,16 +26,16 @@
     padding-right: 2%;
   }
   .sun-icon {
-    color: yellow;
+    color: $sun-icon;
   }
   .moon-icon {
-    color: gray;
+    color: $moon-icon;
   }
   .wind-text {
-    color: white;
+    color: $wind-details;
   }
   .wind-icon {
-    color: gray;
+    color: $wind-icon;
   }
 }
 

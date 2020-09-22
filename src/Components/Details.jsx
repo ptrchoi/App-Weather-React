@@ -21,19 +21,30 @@ function Details(props) {
   return (
     <div className="wrapper-details">
       <div className="column-details">
-        <p>Humidity: {humidity}%</p>
         <p>
-          Dew Point: {dewPt}
+          <span className="details-label">Humidity: </span>
+          {humidity}%
+        </p>
+        <p>
+          <span className="details-label">Dew Point: </span>
+          {dewPt}
           &deg;{units}
         </p>
-        <p>Pressure: {pressure} inHg</p>
         <p>
-          UV Index: {uvi}{' '}
+          <span className="details-label">Pressure: </span>
+          {pressure} inHg
+        </p>
+        <p>
+          <span className="details-label">UV Index: </span>
+          {uvi}{' '}
           <span className="uvi-rating" style={getUVrating(uvi).styling}>
             {getUVrating(uvi).rating}
           </span>
         </p>
-        <p>Visibility: {visibility} mi</p>
+        <p>
+          <span className="details-label">Visibility: </span>
+          {visibility} mi
+        </p>
       </div>
       <div className="column-details">
         <p className="wind-text">

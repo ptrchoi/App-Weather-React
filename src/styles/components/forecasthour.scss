@@ -14,7 +14,7 @@
   width: 100%;
 
   .hour-compact {
-    border-right: solid 1px gray;
+    border-right: solid 1px $accent-divider;
     display: grid;
     font-size: 0.8rem;
     grid-template-columns: 1fr;
@@ -22,13 +22,20 @@
     padding: 0 1%;
     text-align: center;
 
+    .item-hour {
+      color: $forecast-heading;
+    }
     .item-temp {
       display: flex;
       flex-direction: column;
 
       .icon-weather {
+        color: $weather-icon;
         font-size: 1.4rem;
         padding-bottom: 8%;
+      }
+      .text-degree {
+        color: $temperature-text;
       }
     }
     .item-rain {
@@ -43,7 +50,7 @@
   }
   .hour-expanded {
     align-items: center;
-    border-bottom: solid 1px gray;
+    border-bottom: solid 1px $accent-divider;
     display: grid;
     font-size: 0.8rem;
     grid-template-columns: 33% 33% 33%;
@@ -51,14 +58,19 @@
     margin-bottom: 0.3rem;
     text-align: center;
 
+    .item-hour {
+      color: $forecast-heading;
+    }
     .item-temp {
       flex-direction: row;
 
       .icon-weather {
+        color: $weather-icon;
         font-size: 1.4rem;
         padding: 0 5% 0 0;
       }
       .text-degree {
+        color: $temperature-text;
         font-size: 0.9rem;
       }
     }

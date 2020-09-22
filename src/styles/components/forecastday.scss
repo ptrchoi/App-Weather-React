@@ -28,7 +28,7 @@
   // width: 90%;
 
   .day-compact {
-    border-right: solid 1px gray;
+    border-right: solid 1px $accent-divider;
     align-items: center;
     display: grid;
     font-size: 0.4rem;
@@ -42,6 +42,7 @@
       width: 100%;
     }
     .item-dayOfWeek {
+      color: $forecast-heading;
       text-align: center;
     }
     .item-temp {
@@ -49,10 +50,12 @@
       flex-direction: column;
 
       .icon-weather {
+        color: $weather-icon;
         font-size: 1.8rem;
         padding-bottom: 0.2rem;
       }
       .text-degree {
+        color: $temperature-text;
         font-size: 0.8rem;
       }
     }
@@ -72,20 +75,12 @@
     .item-highLow {
       display: flex;
       flex-direction: column;
-
       font-size: 0.6rem;
-
-      .temp-low {
-        color: rgb(16, 127, 211);
-      }
-      .temp-high {
-        color: rgb(215, 23, 10);
-      }
     }
   }
   .day-expanded {
     align-items: center;
-    border-bottom: solid 1px gray;
+    border-bottom: solid 1px $accent-divider;
     display: grid;
     font-size: 0.8rem;
     grid-template-columns: 12% 34% 26% 25%;
@@ -97,6 +92,7 @@
       width: 100%;
     }
     .item-dayOfWeek {
+      color: $forecast-heading;
       text-align: center;
     }
     .item-temp {
@@ -104,10 +100,12 @@
       padding: 0 0 0 1.2rem;
 
       .icon-weather {
+        color: $weather-icon;
         font-size: 1.5rem;
         padding-right: 0.4rem;
       }
       .text-degree {
+        color: $temperature-text;
         font-size: 1rem;
       }
     }
@@ -125,17 +123,15 @@
     .item-highLow {
       display: flex;
       flex-direction: column;
-
       font-size: 0.6rem;
-
-      .temp-low {
-        color: rgb(16, 127, 211);
-      }
-      .temp-high {
-        color: rgb(215, 23, 10);
-      }
     }
   }
+}
+.temp-low {
+  color: $temp-low-blue;
+}
+.temp-high {
+  color: $temp-high-red;
 }
 .expanded-wrapper {
   flex-direction: column;

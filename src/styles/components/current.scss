@@ -16,6 +16,7 @@
     width: 50%;
   }
   .icon-weather {
+    color: $weather-icon;
     font-size: 5rem;
     padding: 8% 0 0 0;
   }
@@ -24,6 +25,7 @@
     padding: 0 10% 5% 0;
   }
   .text-temperature {
+    color: $temperature-text;
     font-size: 4.5rem;
   }
 }
