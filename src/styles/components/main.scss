@@ -23,36 +23,6 @@
 .swipes-right {
   left: 100%;
 }
-// MOBILE - Current Temperature
-.box-temperature {
-  display: flex;
-  flex-direction: row;
-  font-size: 3rem;
-  height: $m_weather-main-height;
-  justify-content: center;
-  padding-top: 25%;
-  width: 100%;
-
-  .wrapper-temperature {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
-  }
-  .icon-weather {
-    color: rgba(255, 255, 255, 0.639);
-    font-size: 5rem;
-    padding: 8% 0 0 0;
-  }
-  .unit-slider {
-    margin: -5% -30% 0 0;
-  }
-  .text-temperature {
-    font-size: 4.5rem;
-    padding: 8% 30% 0 0;
-  }
-}
 .box-summary {
   top: $m_headline-height + $m_weather-main-height;
 }
@@ -111,23 +81,6 @@
     height: $d_weather-main-height + $d_weather-sub-height +
       $d_weather-sub-height;
     width: 100%;
-  }
-  // DESKTOP - Current Temperature
-  .box-temperature {
-    height: $d_weather-main-height;
-    padding: 40% 10% 0 0;
-
-    .icon-weather {
-      font-size: 6rem;
-      padding: 10% 0 0 10%;
-    }
-    .unit-slider {
-      margin: -3% -50% 12% 0;
-    }
-    .text-temperature {
-      font-size: 5.5rem;
-      padding: 10% 0 0 0;
-    }
   }
   .box-summary {
     top: none;

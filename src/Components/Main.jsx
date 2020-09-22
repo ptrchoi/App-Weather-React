@@ -3,10 +3,9 @@ import React from 'react';
 import $ from 'jquery';
 
 // COMPONENTS
-import C from '../constants';
-import UnitButton from './UnitButton';
-import Details from './Details';
+import Current from './Current';
 import Summary from './Summary';
+import Details from './Details';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
 
@@ -19,7 +18,6 @@ class Main extends React.Component {
     };
 
     this.swipeContent = this.swipeContent.bind(this);
-    this.handleUnitsChange = this.handleUnitsChange.bind(this);
     this.handleResize = this.handleResize.bind(this);
   }
   swipeContent() {
@@ -45,11 +43,8 @@ class Main extends React.Component {
       weatherView: weatherView,
     });
   }
-  handleUnitsChange() {
-    this.props.onUnitsChanged();
-  }
   handleResize(size, layout, whichBox) {
-    // MOBILE layout - expands over summary/details sections
+    // MOBILE layout - forecasts expands over summary/details sections
     if (layout === 'mobile') {
       if (size === 'compact') {
         $('.box-summary').removeClass('hidden');
@@ -63,7 +58,7 @@ class Main extends React.Component {
         $('.box-hours').addClass('box-hours--expanded');
       }
     } else {
-      // DESKTOP layout - expands over day/hour forecast section
+      // DESKTOP layout - forecast expands over the other forecast section
       if (size === 'compact') {
         if (whichBox === 'days') $('.box-hours').removeClass('hidden');
         else $('.box-days').removeClass('hidden');
@@ -82,25 +77,11 @@ class Main extends React.Component {
       hourForecast,
       layout,
     } = this.props;
-    let { currentTemp, iconCode } = wMain;
-
-    // Add Weather Icon prefix to iconCode
-    let iconMapping = C.ICON_PREFIX + iconCode;
 
     if (layout === 'mobile') {
       return (
         <div className="main-container">
-          <div className="box-temperature">
-            <div className="wrapper-temperature icon-weather">
-              <i className={iconMapping}></i>
-            </div>
-            <div className="wrapper-temperature">
-              <div className="unit-slider">
-                <UnitButton onUnitsButton={this.handleUnitsChange} />
-              </div>
-              <div className="text-temperature">{currentTemp}&deg;</div>
-            </div>
-          </div>
+          <Current wMain={wMain} onUnitsButton={this.props.onUnitsChanged} />
           <div className="box-summary swipes swipes-left">
             <Summary
               wMain={wMain}
@@ -142,17 +123,7 @@ class Main extends React.Component {
       return (
         <div className="main-container">
           <div className="column">
-            <div className="box-temperature">
-              <div className="wrapper-temperature icon-weather">
-                <i className={iconMapping}></i>
-              </div>
-              <div className="wrapper-temperature">
-                <div className="unit-slider">
-                  <UnitButton onUnitsButton={this.handleUnitsChange} />
-                </div>
-                <div className="text-temperature">{currentTemp}&deg;</div>
-              </div>
-            </div>
+            <Current wMain={wMain} onUnitsButton={this.props.onUnitsChanged} />
             <div className="box-summary">
               <Summary wMain={wMain} layout={layout} />
             </div>
