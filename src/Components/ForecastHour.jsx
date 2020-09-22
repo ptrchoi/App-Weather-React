@@ -83,29 +83,28 @@ class ForecastHour extends React.Component {
 
         return (
           <div key={uuidv4()} className={classList}>
-            <p className="h-item-hour h-item">
+            <p className="item item-hour ">
               {timeArr[0]}
               {timeArr[4]}
             </p>
-            <p className="h-item-temp h-item">
-              <span className="h-w-icon">
+            <p className="item item-temp">
+              <span className="icon-weather">
                 <i className={iconMapping}></i>
               </span>
-              <span className="h-temp-text">
+              <span className="text-degree">
                 {formatTemp(hour.temp, units)}
                 &deg;
               </span>
             </p>
-            <p className="h-item-rain h-item">
+            <p className="item item-rain">
               <i
-                className="h-rain-icon fas fa-umbrella"
+                className="fas fa-umbrella"
                 style={getRainIconStyling(hour.pop * 100)}
               ></i>
-              <span className="h-percent-text">
+              <span className="text-percent">
                 {Math.round(hour.pop * 100)}%
               </span>
             </p>
-            {/* <p>Rainfall: {rainfall}"</p> */}
           </div>
         );
       };
@@ -116,11 +115,11 @@ class ForecastHour extends React.Component {
   render(props) {
     let { size } = this.state;
     let classList = 'forecastHour-container';
-    let wrapperList = 'h-inner-wrapper';
+    let wrapperList = 'hours-wrapper';
 
     if (size === 'expanded') {
-      classList += ' expanded';
-      wrapperList += ' wrapper-expanded';
+      classList += ' expanded'; // Defined in forecasthour.scss
+      wrapperList += ' expanded-wrapper';
     }
     return (
       <div className={classList}>

@@ -1,12 +1,12 @@
+/*
+  Default styling for mobile
+-----------------------------------------------*/
 .forecastHour-container {
-  color: white;
   display: flex;
   flex-direction: column;
   height: $m_forecast-compact-height;
 }
-.h-inner-wrapper {
-  // border: solid 1px red;
-
+.hours-wrapper {
   display: flex;
   flex-direction: row;
   height: 70%;
@@ -15,128 +15,113 @@
 
   .hour-compact {
     border-right: solid 1px gray;
-
     display: grid;
     font-size: 0.8rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 20% 40% 40%;
+    grid-template-rows: 20% 40% 30%;
     padding: 0 1%;
-  }
-  .h-item {
     text-align: center;
-  }
-  .h-item-hour {
-  }
-  .h-item-temp {
-    display: flex;
-    flex-direction: column;
-    .h-w-icon {
-      font-size: 1.4rem;
-      padding-bottom: 8%;
-    }
-    .h-temp-text {
-      font-size: 0.9rem;
-    }
-  }
-  .h-item-rain {
-    .h-rain-icon {
-      font-size: 1.2rem;
-    }
-    .h-percent-text {
-      font-size: 0.7rem;
-    }
-  }
-}
 
-.expanded {
-  // border: solid 1px black;
-  flex-direction: column;
-  height: $m_forecast-expanded-height;
+    .item-temp {
+      display: flex;
+      flex-direction: column;
+
+      .icon-weather {
+        font-size: 1.4rem;
+        padding-bottom: 8%;
+      }
+    }
+    .item-rain {
+      .fa-umbrella {
+        font-size: 1.2rem;
+        padding-bottom: 8%;
+      }
+      .text-percent {
+        font-size: 0.7rem;
+      }
+    }
+  }
+  .hour-expanded {
+    align-items: center;
+    border-bottom: solid 1px gray;
+    display: grid;
+    font-size: 0.8rem;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 1fr;
+    margin-bottom: 0.3rem;
+    text-align: center;
+
+    .item-temp {
+      flex-direction: row;
+
+      .icon-weather {
+        font-size: 1.4rem;
+        padding: 0 5% 0 0;
+      }
+      .text-degree {
+        font-size: 0.9rem;
+      }
+    }
+    .item-rain {
+      .fa-umbrella {
+        font-size: 1.3rem;
+        padding-right: 5%;
+      }
+      .text-percent {
+        font-size: 0.9rem;
+      }
+    }
+  }
 }
-.wrapper-expanded {
+.expanded-wrapper {
   display: flex;
   flex-direction: column;
 }
-.hour-expanded {
-  border-bottom: solid 1px gray;
-  display: grid;
-  font-size: 0.8rem;
-  grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 1fr;
-  margin-bottom: 0.3rem;
 
-  .h-item {
-    text-align: center;
-  }
-  .h-item-hour {
-  }
-  .h-item-temp {
-    // display: flex;
-    flex-direction: row;
-    .h-w-icon {
-      font-size: 1.4rem;
-      padding: 0 5% 0 0;
-    }
-    .h-temp-text {
-      font-size: 1rem;
-    }
-  }
-  .h-item-rain {
-    .h-rain-icon {
-      font-size: 1.3rem;
-      padding-right: 5%;
-    }
-    .h-percent-text {
-      font-size: 0.9rem;
-    }
-  }
-}
-
+// Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .forecastHour-container {
     height: $d_forecast-compact-height;
   }
-  .expanded {
-    height: $d_forecast-expanded-height;
-  }
-  .h-inner-wrapper {
-    width: 100%;
-    // flex-direction: column;
-
+  .hours-wrapper {
     .hour-compact {
-      // align-items: center;
-      display: grid;
       font-size: 1.2rem;
-      // grid-template-columns: 34% 33% 33%;
       grid-template-columns: 1fr;
       grid-template-rows: 34% 33% 33%;
       padding-bottom: 6%;
 
-      .h-item {
-        // border: solid 1px red;
-
-        // justify-self: center;
-        // text-align: center;
-        width: 100%;
+      .item {
+        padding-right: 4%;
       }
-      .h-item-hour {
-      }
-      .h-item-temp {
-        .h-w-icon {
-          font-size: 2.5rem;
-          padding-right: 0.4rem;
-        }
-        .h-temp-text {
-          font-size: 1.6rem;
-        }
-      }
-      .h-item-rain {
-        .h-rain-icon {
+      .item-temp {
+        .icon-weather {
           font-size: 2rem;
         }
-        .h-percent-text {
-          font-size: 1.2rem;
-          padding-left: 0.4rem;
+        .text-degree {
+          font-size: 1.3rem;
+        }
+      }
+      .item-rain {
+        .fa-umbrella {
+          font-size: 1.9rem;
+        }
+        .text-percent {
+          font-size: 1.1rem;
+        }
+      }
+    }
+    .hour-expanded {
+      .item {
+        text-align: center;
+      }
+      .item-temp {
+        .text-degree {
+          font-size: 1rem;
+        }
+      }
+      .item-rain {
+        .fa-umbrella {
+          font-size: 1.5rem;
         }
       }
     }
