@@ -53,6 +53,9 @@
     padding: 8% 30% 0 0;
   }
 }
+.box-summary {
+  top: $m_headline-height + $m_weather-main-height;
+}
 .temporary-btn {
   background-color: rgba(255, 255, 255, 0);
   border: none;
@@ -69,61 +72,6 @@
   padding: 10% 10% 0 0;
 }
 
-// MOBILE - Weather Summary
-.box-summary {
-  color: white;
-  display: flex;
-  flex-direction: row;
-  font-size: 1.2rem;
-  height: $m_weather-sub-height;
-  padding-top: 20%;
-  top: $m_headline-height + $m_weather-main-height;
-
-  .wrapper-summary {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-
-    padding: 0 0 0 4%;
-    width: 50%;
-
-    p {
-      padding: 2% 0% 2% 0%;
-    }
-    .text-description {
-      padding-top: 16%;
-      text-align: center;
-    }
-    .wrapper-precipitation {
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-      font-size: 1.4rem;
-      justify-content: center;
-      padding: 20% 0 0 100%;
-
-      .icon-umbrella {
-        font-size: 2.8rem;
-        padding-left: 1rem;
-        padding-top: 25%;
-      }
-      .text-probability {
-        align-self: flex-start;
-        font-size: 1.2rem;
-        padding-left: 0.3rem;
-      }
-    }
-    .temp-high-low {
-      .temp-high {
-        color: $temp-high-red;
-        padding-right: 10%;
-      }
-      .temp-low {
-        color: $temp-low-blue;
-      }
-    }
-  }
-}
 // MOBILE - Forecast Day, Forecast Hour
 .box-days,
 .box-hours {
@@ -181,34 +129,8 @@
       padding: 10% 0 0 0;
     }
   }
-  // DESKTOP - Weather Summary
   .box-summary {
-    font-size: 1.4rem;
-    height: $d_weather-sub-height;
-    padding: 20% 10% 0 0;
     top: none;
-
-    .wrapper-summary {
-      padding: 3% 0 0% 8%;
-
-      p {
-        padding: 5% 0% 5% 0%;
-      }
-      .text-description {
-        padding-top: 20%;
-      }
-      .wrapper-precipitation {
-        font-size: 1.4rem;
-        padding: 30% 0 0 100%;
-
-        .icon-umbrella {
-          font-size: 3.5rem;
-        }
-        .text-probability {
-          font-size: 1.5rem;
-        }
-      }
-    }
   }
   // DESKTOP - Forecast Day, Forecast Hour
   .box-days,

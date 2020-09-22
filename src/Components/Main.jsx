@@ -2,13 +2,11 @@
 import React from 'react';
 import $ from 'jquery';
 
-// UTILITY FUNCTIONS
-import { getRainIconStyling } from '../Utils';
-
 // COMPONENTS
 import C from '../constants';
 import UnitButton from './UnitButton';
 import Details from './Details';
+import Summary from './Summary';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
 
@@ -84,15 +82,7 @@ class Main extends React.Component {
       hourForecast,
       layout,
     } = this.props;
-    let {
-      currentTemp,
-      description,
-      iconCode,
-      high,
-      low,
-      feelsLike,
-      precProb,
-    } = wMain;
+    let { currentTemp, iconCode } = wMain;
 
     // Add Weather Icon prefix to iconCode
     let iconMapping = C.ICON_PREFIX + iconCode;
@@ -112,38 +102,14 @@ class Main extends React.Component {
             </div>
           </div>
           <div className="box-summary swipes swipes-left">
-            <div className="wrapper-summary">
-              <p className="text-description">{description}</p>
-              <p className="wrapper-precipitation">
-                {/* {precProb}% */}
-                <i
-                  className="icon-umbrella fas fa-umbrella"
-                  style={getRainIconStyling(precProb)}
-                ></i>
-                <span className="text-probability">{precProb}%</span>
-              </p>
-            </div>
-            <div className="wrapper-summary">
-              <p className="temp-high-low">
-                <span className="temp-high">
-                  <i className="fas fa-long-arrow-alt-up"></i>
-                  {high}&deg;
-                </span>
-                <span className="temp-low">
-                  <i className="fas fa-long-arrow-alt-down"></i>
-                  {low}&deg;
-                </span>
-              </p>
-              <p className="text-feelslike">Feels Like {feelsLike}&deg;</p>
-              <button
-                className="temporary-btn btn1"
-                onClick={this.swipeContent}
-              >
-                <i className="fas fa-info-circle"></i>
-              </button>
-            </div>
+            <Summary
+              wMain={wMain}
+              layout={layout}
+              className="swipes swipes-left"
+              onSwipe={this.swipeContent}
+            />
           </div>
-          <div className="box-details swipes swipes-right ">
+          <div className="box-details swipes swipes-right">
             <button className="temporary-btn btn2" onClick={this.swipeContent}>
               <i className="fas fa-info-circle"></i>
             </button>
@@ -188,29 +154,7 @@ class Main extends React.Component {
               </div>
             </div>
             <div className="box-summary">
-              <div className="wrapper-summary">
-                <p className="text-description">{description}</p>
-                <p className="wrapper-precipitation">
-                  <i
-                    className="icon-umbrella fas fa-umbrella"
-                    style={getRainIconStyling(precProb)}
-                  ></i>
-                  <span className="text-probability">{precProb}%</span>
-                </p>
-              </div>
-              <div className="wrapper-summary">
-                <p className="temp-high-low">
-                  <span className="temp-high">
-                    <i className="fas fa-long-arrow-alt-up"></i>
-                    {high}&deg;
-                  </span>
-                  <span className="temp-low">
-                    <i className="fas fa-long-arrow-alt-down"></i>
-                    {low}&deg;
-                  </span>
-                </p>
-                <p className="text-feelslike">feels like {feelsLike}&deg;</p>
-              </div>
+              <Summary wMain={wMain} layout={layout} />
             </div>
             <div className="box-details">
               <Details units={units} wDetails={wDetails} layout={layout} />
