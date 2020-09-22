@@ -1,20 +1,20 @@
 .headline-container {
-  // background-color: rgb(235, 112, 131);
+  border: solid 1px black;
 
   align-items: center;
   color: white;
   display: flex;
   flex-direction: column;
   font-size: 0.7rem;
-  height: $m_headline-height;
+  height: $m_heading-height;
 }
 .headline-box {
   display: flex;
   flex-direction: row;
-  padding-top: 2%;
 }
 .time-date-box {
   align-self: flex-end;
+  padding-top: 3%;
   width: 55%;
   .time {
     margin-right: auto;
@@ -26,14 +26,12 @@
 }
 .city {
   font-size: 1.3rem;
+  padding-top: 5%;
 }
 .search {
   justify-content: center;
+  padding-top: 3%;
   width: 70%;
-  z-index: 1000;
-  button:focus {
-    outline: 0;
-  }
 
   .loc-btn {
     background-color: rgba(255, 255, 255, 0);
@@ -79,12 +77,14 @@
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .headline-container {
     font-size: 1.2rem;
+    height: $d_heading-height;
   }
   .headline-box {
     padding-top: 1.8%;
   }
   .city {
     font-size: 2.3rem;
+    padding-top: 4%;
   }
   .search {
     width: 40%;

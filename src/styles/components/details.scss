@@ -1,16 +1,17 @@
 // MOBILE - Weather Details
 .box-details {
+  border: solid 3px black;
+
   align-items: left;
   color: white;
   display: flex;
   flex-direction: column;
   font-size: 0.8rem;
-  height: $m_weather-sub-height;
-  justify-content: start;
+  height: $m_secondary-height;
+  // justify-content: start;
   padding-left: 30%;
   width: 100%;
-  padding-top: 20%;
-  top: $m_headline-height + $m_weather-main-height;
+  top: $m_heading-height + $m_primary-height;
 
   .uvi-rating {
     font-size: 0.6rem;
@@ -38,7 +39,7 @@
   .box-details {
     font-size: 1.4rem;
     padding: 0 0 0 20%;
-    height: $d_weather-sub-height;
+    height: $d_details-height;
     top: none;
 
     .uvi-rating {

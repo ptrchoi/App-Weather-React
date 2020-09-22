@@ -82,21 +82,21 @@ class Main extends React.Component {
       return (
         <div className="main-container">
           <Current wMain={wMain} onUnitsButton={this.props.onUnitsChanged} />
-          <div className="box-summary swipes swipes-left">
+          <div className="box-summary swipeable swipes-left">
             <Summary
               wMain={wMain}
               layout={layout}
-              className="swipes swipes-left"
+              className="swipeable swipes-left"
               onSwipe={this.swipeContent}
             />
           </div>
-          <div className="box-details swipes swipes-right">
+          <div className="box-details swipeable swipes-right">
             <button className="temporary-btn btn2" onClick={this.swipeContent}>
               <i className="fas fa-info-circle"></i>
             </button>
             <Details units={units} wDetails={wDetails} layout={layout} />
           </div>
-          <div className="box-days swipes swipes-left">
+          <div className="box-days swipeable swipes-left">
             <ForecastDay
               dayForecast={dayForecast}
               units={units}
@@ -106,7 +106,7 @@ class Main extends React.Component {
               }}
             />
           </div>
-          <div className="box-hours swipes swipes-right ">
+          <div className="box-hours swipeable swipes-right ">
             <ForecastHour
               hourForecast={hourForecast}
               units={units}

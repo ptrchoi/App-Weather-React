@@ -9,8 +9,7 @@
 }
 .forecast-btn {
   margin-left: auto;
-  padding-bottom: 4%;
-  padding-right: 4%;
+  padding: 0 4% 4% 0;
 
   .resize-btn {
     background-color: rgba(255, 255, 255, 0);
@@ -26,7 +25,7 @@
 .days-wrapper {
   display: flex;
   flex-direction: row;
-  padding: 0 5% 0 5%;
+  padding: 0 4% 0 4%;
   width: 100%;
 
   .day-compact {
@@ -85,14 +84,12 @@
     }
   }
   .day-expanded {
-    // border: solid 1px green;
-
     align-items: center;
     display: grid;
     font-size: 0.8rem;
     grid-template-columns: 12% 34% 26% 25%;
     grid-template-rows: 1fr;
-    padding-bottom: 2%;
+    padding-bottom: 3%;
 
     .item {
       text-align: center;
@@ -141,31 +138,19 @@
 }
 .expanded-wrapper {
   flex-direction: column;
-  padding: 18% 0 0 10%;
+  padding: 0 2% 0 10%;
 }
 
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .forecastDay-container {
     height: $d_forecast-compact-height;
-    padding-top: 25%;
+    padding-top: 5%;
   }
   .expanded {
-    // flex-direction: column;
     height: $d_forecast-expanded-height;
   }
-  .expanded-wrapper {
-    flex-direction: column;
-  }
 
-  // .forecast-btn {
-  //   padding-bottom: 10%;
-  //   padding-right: 7%;
-
-  //   .resize-btn {
-  //     font-size: 1.4rem;
-  //   }
-  // }
   .days-wrapper {
     padding: 0;
 
@@ -195,38 +180,18 @@
     }
 
     .day-expanded {
-      // border: solid 1px red;
-
-      align-items: center;
-      display: grid;
       font-size: 1.2rem;
-      grid-template-columns: 12% 34% 26% 25%;
-      grid-template-rows: 1fr;
-
       padding-bottom: 6%;
 
-      .item {
-        text-align: center;
-        width: 100%;
-      }
-      .item-dayOfWeek {
-        text-align: center;
-      }
       .item-temp {
-        flex-direction: row;
-        padding: 0 0 0 1.2rem;
-
         .icon-weather {
           font-size: 2.5rem;
-          padding-right: 0.4rem;
         }
         .text-degree {
           font-size: 1.6rem;
         }
       }
       .item-rain {
-        flex-direction: row;
-
         .fa-umbrella {
           font-size: 2rem;
         }

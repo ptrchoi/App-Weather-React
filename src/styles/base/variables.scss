@@ -7,14 +7,15 @@ $temp-high-red: rgb(215, 23, 10);
 $temp-low-blue: rgb(16, 127, 211);
 
 // figure out total # rows; height percentages based on # of rows out of total
-$m_headline-height: 15vh;
-$m_weather-main-height: 15vh;
-$m_weather-sub-height: 35vh;
+$m_heading-height: 18vh;
+$m_primary-height: 22vh;
+$m_secondary-height: 25vh;
 $m_forecast-compact-height: 35vh;
-$m_forecast-expanded-height: 70vh;
+$m_forecast-expanded-height: 60vh;
 
-$d_headline-height: 15vh;
-$d_weather-main-height: 15vh;
-$d_weather-sub-height: 35vh;
-$d_forecast-compact-height: 45vh;
-$d_forecast-expanded-height: 90vh;
+$d_heading-height: 20vh;
+$d_primary-height: 20vh;
+$d_secondary-height: 25vh;
+$d_details-height: 35vh;
+$d_forecast-compact-height: 40vh;
+$d_forecast-expanded-height: 80vh;

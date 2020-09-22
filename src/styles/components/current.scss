@@ -1,11 +1,11 @@
 // MOBILE - Current Temperature
 .box-temperature {
+  border: solid 3px orange;
   display: flex;
   flex-direction: row;
   font-size: 3rem;
-  height: $m_weather-main-height;
+  height: $m_primary-height;
   justify-content: center;
-  padding-top: 25%;
   width: 100%;
 
   .wrapper-temperature {
@@ -21,11 +21,11 @@
     padding: 8% 0 0 0;
   }
   .unit-slider {
-    margin: -5% -30% 0 0;
+    margin-left: auto;
+    padding: 0 10% 5% 0;
   }
   .text-temperature {
     font-size: 4.5rem;
-    padding: 8% 30% 0 0;
   }
 }
 
@@ -33,19 +33,16 @@
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   // DESKTOP - Current Temperature
   .box-temperature {
-    height: $d_weather-main-height;
-    padding: 40% 10% 0 0;
+    height: $d_primary-height;
 
     .icon-weather {
       font-size: 6rem;
       padding: 10% 0 0 10%;
     }
     .unit-slider {
-      margin: -3% -50% 12% 0;
     }
     .text-temperature {
       font-size: 5.5rem;
-      padding: 10% 0 0 0;
     }
   }
 }

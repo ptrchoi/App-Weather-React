@@ -4,16 +4,12 @@
   display: flex;
   flex-direction: row;
   font-size: 1.2rem;
-  height: $m_weather-sub-height;
-  padding-top: 20%;
-  // top: $m_headline-height + $m_weather-main-height;
-  // width: 100%;
+  height: $m_secondary-height;
 
   .wrapper-summary {
     display: flex;
     flex-direction: column;
     justify-content: start;
-
     padding: 0 0 0 4%;
     width: 50%;
 
@@ -35,7 +31,6 @@
       .icon-umbrella {
         font-size: 2.8rem;
         padding-left: 1rem;
-        padding-top: 25%;
       }
       .text-probability {
         align-self: flex-start;
@@ -60,8 +55,7 @@
   // DESKTOP - Weather Summary
   .summary-container {
     font-size: 1.4rem;
-    height: $d_weather-sub-height;
-    padding: 20% 10% 0 0;
+    height: $d_secondary-height;
     top: none;
 
     .wrapper-summary {

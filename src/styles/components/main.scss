@@ -4,13 +4,12 @@
 .main-container {
   display: flex;
   flex-direction: row;
-  height: $m_weather-main-height + $m_weather-sub-height +
-    $m_forecast-compact-height;
+  height: $m_primary-height + $m_secondary-height + $m_forecast-compact-height;
   justify-content: center;
   width: 100%;
 }
 // FOR MOBILE ONLY - content boxes are swipable
-.swipes {
+.swipeable {
   position: absolute;
   transition: left 1s;
   width: 100%;
@@ -24,7 +23,8 @@
   left: 100%;
 }
 .box-summary {
-  top: $m_headline-height + $m_weather-main-height;
+  border: solid 1px blue;
+  top: $m_heading-height + $m_primary-height;
 }
 .temporary-btn {
   background-color: rgba(255, 255, 255, 0);
@@ -45,13 +45,14 @@
 // MOBILE - Forecast Day, Forecast Hour
 .box-days,
 .box-hours {
-  height: $m_weather-sub-height;
-  top: $m_headline-height + $m_weather-main-height + $m_weather-sub-height;
+  border: solid 3px green;
+  height: $m_forecast-compact-height;
+  top: $m_heading-height + $m_primary-height + $m_secondary-height;
 }
 .box-days--expanded,
 .box-hours--expanded {
   height: $m_forecast-expanded-height;
-  top: $m_headline-height + $m_weather-main-height;
+  top: $m_heading-height + $m_primary-height;
 }
 
 // Swipe transitions
@@ -78,8 +79,7 @@
   .column {
     display: flex;
     flex-direction: column;
-    height: $d_weather-main-height + $d_weather-sub-height +
-      $d_weather-sub-height;
+    height: $d_primary-height + $d_secondary-height + $d_forecast-compact-height;
     width: 100%;
   }
   .box-summary {
@@ -88,7 +88,7 @@
   // DESKTOP - Forecast Day, Forecast Hour
   .box-days,
   .box-hours {
-    height: $d_weather-sub-height;
+    height: $d_forecast-compact-height;
     top: none;
   }
   .box-days--expanded,

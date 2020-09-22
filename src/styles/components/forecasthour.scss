@@ -1,5 +1,6 @@
 .forecastHour-container {
-  // background-color: rgb(235, 148, 55);
+  // border: solid 1px black;
+
   color: white;
   display: flex;
   flex-direction: column;
@@ -22,12 +23,13 @@
   .hour-compact {
     align-items: center;
     display: grid;
-    font-size: 1.2rem;
-    grid-template-columns: 34% 33% 33%;
+    font-size: 0.8rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 34% 33% 33%;
     padding-bottom: 6%;
   }
   .h-item {
-    padding-bottom: 15%;
+    padding-bottom: 25%;
     text-align: center;
     width: 100%;
   }
@@ -74,13 +76,15 @@
   }
   .h-inner-wrapper {
     width: 100%;
-    flex-direction: column;
+    // flex-direction: column;
 
     .hour-compact {
       // align-items: center;
       display: grid;
       font-size: 1.2rem;
-      grid-template-columns: 34% 33% 33%;
+      // grid-template-columns: 34% 33% 33%;
+      grid-template-columns: 1fr;
+      grid-template-rows: 34% 33% 33%;
       padding-bottom: 6%;
 
       .h-item {
