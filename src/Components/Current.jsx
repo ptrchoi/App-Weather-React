@@ -6,7 +6,8 @@ import C from '../constants';
 import UnitButton from './UnitButton';
 
 function Current(props) {
-  let { currentTemp, iconCode } = props.wMain;
+  let { units, wMain } = props;
+  let { currentTemp, iconCode } = wMain;
 
   // Add Weather Icon prefix to iconCode
   let iconMapping = C.ICON_PREFIX + iconCode;
@@ -18,7 +19,7 @@ function Current(props) {
       </div>
       <div className="wrapper-temperature">
         <div className="unit-slider">
-          <UnitButton onUnitsButton={props.onUnitsButton} />
+          <UnitButton units={units} onUnitsButton={props.onUnitsButton} />
         </div>
         <div className="text-temperature">{currentTemp}&deg;</div>
       </div>

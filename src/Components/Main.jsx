@@ -81,7 +81,11 @@ class Main extends React.Component {
     if (layout === 'mobile') {
       return (
         <div className="main-container">
-          <Current wMain={wMain} onUnitsButton={this.props.onUnitsChanged} />
+          <Current
+            units={units}
+            wMain={wMain}
+            onUnitsButton={this.props.onUnitsChanged}
+          />
           <div className="box-summary swipeable swipes-left">
             <Summary
               wMain={wMain}
@@ -123,7 +127,11 @@ class Main extends React.Component {
       return (
         <div className="main-container">
           <div className="column left-column">
-            <Current wMain={wMain} onUnitsButton={this.props.onUnitsChanged} />
+            <Current
+              units={units}
+              wMain={wMain}
+              onUnitsButton={this.props.onUnitsChanged}
+            />
             <div className="box-summary">
               <Summary wMain={wMain} layout={layout} />
             </div>
