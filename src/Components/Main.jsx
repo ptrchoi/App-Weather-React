@@ -122,7 +122,7 @@ class Main extends React.Component {
       // layout === 'desktop'
       return (
         <div className="main-container">
-          <div className="column">
+          <div className="column left-column">
             <Current wMain={wMain} onUnitsButton={this.props.onUnitsChanged} />
             <div className="box-summary">
               <Summary wMain={wMain} layout={layout} />
@@ -131,7 +131,7 @@ class Main extends React.Component {
               <Details units={units} wDetails={wDetails} />
             </div>
           </div>
-          <div className="column">
+          <div className="column right-column">
             <div className="box-days">
               <ForecastDay
                 dayForecast={dayForecast}
