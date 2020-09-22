@@ -73,6 +73,7 @@ class Heading extends React.Component {
   onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: [],
+      value: '',
     });
   };
   // Optional Autosuggest function: called on selection event (mouse/keyboard/touch) from list; suggestion obj comes from Autosuggest's req'd `handleSuggestion()` method.
