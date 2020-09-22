@@ -25,10 +25,11 @@
 .days-wrapper {
   display: flex;
   flex-direction: row;
-  padding: 0 4% 0 4%;
-  width: 100%;
+  // padding: 0 4% 0 14%;
+  // width: 90%;
 
   .day-compact {
+    border-right: solid 1px gray;
     align-items: center;
     display: grid;
     font-size: 0.4rem;
@@ -85,6 +86,7 @@
   }
   .day-expanded {
     align-items: center;
+    border-bottom: solid 1px gray;
     display: grid;
     font-size: 0.8rem;
     grid-template-columns: 12% 34% 26% 25%;

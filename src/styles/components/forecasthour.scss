@@ -14,7 +14,7 @@
   width: 100%;
 
   .hour-compact {
-    border: solid 1px gray;
+    border-right: solid 1px gray;
 
     display: grid;
     font-size: 0.8rem;
@@ -49,7 +49,7 @@
 }
 
 .expanded {
-  border: solid 1px black;
+  // border: solid 1px black;
   flex-direction: column;
   height: $m_forecast-expanded-height;
 }
