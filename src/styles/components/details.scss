@@ -5,7 +5,6 @@
   top: $m_heading-height + $m_primary-height;
 
   .wrapper-details {
-    color: white;
     font-size: 0.9rem;
     display: flex;
     flex-direction: row;
@@ -31,7 +30,7 @@
     color: gray;
   }
   .wind-icon {
-    color: black;
+    color: darkgray;
   }
 }
 
