@@ -36,7 +36,7 @@ function Details(props) {
         <p>Visibility: {visibility} mi</p>
       </div>
       <div className="column-details">
-        <p>
+        <p className="wind-text">
           <span>
             <i className="wind-icon fas fa-wind"></i>
           </span>{' '}

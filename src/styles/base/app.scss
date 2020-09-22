@@ -18,8 +18,9 @@ body {
 }
 
 .app-container {
-  // border: solid 5px red;
-
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
   display: flex;
   justify-content: center;
 }

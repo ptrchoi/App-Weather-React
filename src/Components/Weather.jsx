@@ -226,6 +226,7 @@ class Weather extends React.Component {
         <Heading
           location={location}
           time={wMain.currentTime}
+          description={wMain.description}
           onNewCity={this.updateCity}
           onFindLoc={this.handleFindLoc}
           layout={layout}

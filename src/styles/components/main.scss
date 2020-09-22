@@ -23,7 +23,6 @@
   left: 100%;
 }
 .box-summary {
-  // border: solid 1px blue;
   top: $m_heading-height + $m_primary-height;
 }
 .temporary-btn {
@@ -45,7 +44,6 @@
 // MOBILE - Forecast Day, Forecast Hour
 .box-days,
 .box-hours {
-  // border: solid 3px green;
   height: $m_forecast-compact-height;
   top: $m_heading-height + $m_primary-height + $m_secondary-height;
 }

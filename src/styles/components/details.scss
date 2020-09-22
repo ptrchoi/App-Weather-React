@@ -1,6 +1,5 @@
 // MOBILE - Weather Details
 .box-details {
-  // border: solid 3px black;
   height: $m_secondary-height;
   top: $m_heading-height + $m_primary-height;
 
@@ -29,8 +28,11 @@
   .moon-icon {
     color: gray;
   }
+  .wind-text {
+    color: white;
+  }
   .wind-icon {
-    color: darkgray;
+    color: gray;
   }
 }
 

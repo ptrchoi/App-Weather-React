@@ -34,6 +34,7 @@ class Heading extends React.Component {
     );
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
     this.handleTargetLocation = this.handleTargetLocation.bind(this);
+    this.loadBgImage = this.loadBgImage.bind(this);
   }
   componentDidMount() {
     // Initiate the Google Autocomplete API call - this is needed to avoid a delay in the first user input on search!
@@ -41,12 +42,56 @@ class Heading extends React.Component {
   }
   componentDidUpdate(prevProps) {
     if (this.props != prevProps) {
+      this.loadBgImage(this.props.location, this.props.description);
+
       this.setState({
         city: this.props.location.city,
         stateName: this.props.location.stateName,
         country: this.props.location.country,
       });
     }
+  }
+  loadBgImage(location, description) {
+    let city = location.city;
+    let state = location.stateName;
+
+    console.log('city BEFORE: ', city);
+    console.log('state BEFORE: ', state);
+    console.log('description BEFORE: ', description);
+
+    if (!city || !state || !description) return;
+
+    let formattedCity = city.split(' ').join('+');
+    let formattedState = state.split(' ').join('+');
+    let formattedDescription = description.split(' ').join('+');
+
+    console.log('city AFTER: ', formattedCity);
+    console.log('state AFTER: ', state);
+    console.log('description AFTER: ', formattedDescription);
+
+    let searchStr =
+      formattedDescription + '+' + formattedCity + '+' + formattedState;
+    // let searchStr = formattedDescription + '+weather';
+
+    console.log('searchStr: ', searchStr);
+
+    let url =
+      'https://source.unsplash.com/random/featured/?' +
+      searchStr +
+      '/?sig=' +
+      Math.floor(Math.random() * 1000);
+
+    let imageProperties = {
+      background: `url(${url})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center',
+      backgroundAttachment: 'fixed',
+      backgroundSize: 'cover',
+      zIndex: 0,
+    };
+
+    let bgEl = document.getElementsByClassName('app-container')[0];
+    Object.assign(bgEl.style, imageProperties);
   }
   // Automatically called by Autosuggest's onChange event
   onChange = (event, { newValue }) => {
