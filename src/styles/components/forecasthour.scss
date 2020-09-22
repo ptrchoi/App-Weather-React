@@ -1,72 +1,97 @@
 .forecastHour-container {
-  // border: solid 1px black;
-
   color: white;
   display: flex;
   flex-direction: column;
   height: $m_forecast-compact-height;
-
-  // align-items: center;
-  // padding-top: 15%;
 }
 .h-inner-wrapper {
   // border: solid 1px red;
 
   display: flex;
   flex-direction: row;
-
-  padding: 0 5% 0 5%;
+  height: 70%;
+  padding: 0 2%;
   width: 100%;
 
-  // height: $m_forecast-compact-height;
-
   .hour-compact {
-    align-items: center;
+    border: solid 1px gray;
+
     display: grid;
     font-size: 0.8rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 34% 33% 33%;
-    padding-bottom: 6%;
+    grid-template-rows: 20% 40% 40%;
+    padding: 0 1%;
   }
   .h-item {
-    padding-bottom: 25%;
     text-align: center;
-    width: 100%;
   }
   .h-item-hour {
   }
   .h-item-temp {
+    display: flex;
+    flex-direction: column;
     .h-w-icon {
+      font-size: 1.4rem;
+      padding-bottom: 8%;
     }
     .h-temp-text {
+      font-size: 0.9rem;
     }
   }
   .h-item-rain {
     .h-rain-icon {
+      font-size: 1.2rem;
     }
     .h-percent-text {
+      font-size: 0.7rem;
     }
   }
 }
 
 .expanded {
+  border: solid 1px black;
   flex-direction: column;
-
   height: $m_forecast-expanded-height;
 }
-.hour-expanded {
-  font-size: 1rem;
-  margin: 0.5rem;
+.wrapper-expanded {
+  display: flex;
+  flex-direction: column;
 }
-// .h-resize-btn {
-//   background-color: rgba(255, 255, 255, 0);
-//   border: none;
-//   color: gray;
-//   font-size: 0.9rem;
-//   // padding: 4% 0 0 0;
-//   margin-left: 70%;
-//   margin-top: 10%;
-// }
+.hour-expanded {
+  border-bottom: solid 1px gray;
+  display: grid;
+  font-size: 0.8rem;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 1fr;
+  margin-bottom: 0.3rem;
+
+  .h-item {
+    text-align: center;
+  }
+  .h-item-hour {
+  }
+  .h-item-temp {
+    // display: flex;
+    flex-direction: row;
+    .h-w-icon {
+      font-size: 1.4rem;
+      padding: 0 5% 0 0;
+    }
+    .h-temp-text {
+      font-size: 1rem;
+    }
+  }
+  .h-item-rain {
+    .h-rain-icon {
+      font-size: 1.3rem;
+      padding-right: 5%;
+    }
+    .h-percent-text {
+      font-size: 0.9rem;
+    }
+  }
+}
+
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .forecastHour-container {
     height: $d_forecast-compact-height;

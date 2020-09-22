@@ -116,9 +116,12 @@ class ForecastHour extends React.Component {
   render(props) {
     let { size } = this.state;
     let classList = 'forecastHour-container';
+    let wrapperList = 'h-inner-wrapper';
 
-    if (size === 'expanded') classList += ' expanded';
-
+    if (size === 'expanded') {
+      classList += ' expanded';
+      wrapperList += ' wrapper-expanded';
+    }
     return (
       <div className={classList}>
         <div className="forecast-btn">
@@ -126,7 +129,7 @@ class ForecastHour extends React.Component {
             <i className="fas fa-expand"></i>
           </button>
         </div>
-        <div className="h-inner-wrapper">
+        <div className={wrapperList}>
           {this.renderForecast(this.props.units)}
         </div>
       </div>
