@@ -1,23 +1,9 @@
-// Shared Values
+// LAYOUT:
+//-------------------------------------------------------------
 $MOBILE-WIDTH-BREAKPOINT: 600px;
 $DESKTOP-MAX-WIDTH: 1200px;
 
-// Global Colors:
-$background-transparency: rgba(77, 77, 77, 0.605);
-$main-text: white;
-$forecast-heading: white;
-$accent-divider: white;
-$weather-icon: rgb(145, 145, 145);
-$temperature-text: white;
-$details-label: black;
-$wind-details: gray;
-$wind-icon: black;
-$sun-icon: yellow;
-$moon-icon: black;
-$temp-high-red: rgb(215, 23, 10);
-$temp-low-blue: rgb(16, 127, 211);
-
-// figure out total # rows; height percentages based on # of rows out of total
+// figure out total # section rows; height percentages based on # of rows out of total
 $m_heading-height: 18vh;
 $m_primary-height: 22vh;
 $m_secondary-height: 25vh;
@@ -30,3 +16,41 @@ $d_secondary-height: 25vh;
 $d_details-height: 35vh;
 $d_forecast-compact-height: 40vh;
 $d_forecast-expanded-height: 80vh;
+
+// COLORS:
+//-------------------------------------------------------------
+// General:
+$background-transparency: rgba(48, 48, 48, 0.639);
+$main-text: white;
+
+// Icons:
+$temp-high-red: rgb(171, 15, 4);
+$temp-low-blue: rgb(20, 156, 240);
+$weather-icon: rgb(213, 211, 195);
+$temperature-text: white;
+// RAIN ICON sets Alpha dynamically and is set in Utils.jsx > getRainIconStyling()
+
+// Heading section:
+$search-button: black;
+$search-box-border: #aaaaaa;
+$search-box-text: gray;
+$autosuggest-list: black;
+$autosuggest-background: white;
+
+// Forecast section:
+$forecast-heading: white;
+$accent-divider: white;
+
+// Details section:
+$details-label: black;
+$wind-details: rgb(213, 211, 195);
+$wind-icon: black;
+$sun-icon: yellow;
+$moon-icon: black;
+
+// Buttons:
+$units-button: rgb(58, 58, 58);
+$units-button-border: #ccc;
+$units-text-C: orange;
+$units-text-F: orange;
+$units-text-background: white;

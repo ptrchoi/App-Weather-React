@@ -14,7 +14,7 @@
   display: block;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid #ccc;
+  border: 2px solid $units-button-border;
   border-radius: 20px;
 }
 .onoffswitch-inner {
@@ -32,7 +32,7 @@
   padding: 0;
   line-height: 28px;
   font-size: 21px;
-  color: white;
+  color: $units-text-background;
   font-family: Trebuchet, Arial, sans-serif;
   font-weight: bold;
   box-sizing: border-box;
@@ -40,27 +40,27 @@
 .onoffswitch-inner:before {
   content: 'C'; // '°C'
   padding-left: 10px;
-  background-color: white;
-  color: orange;
+  background-color: $units-text-background;
+  color: $units-text-C;
 }
 .onoffswitch-inner:after {
   content: 'F'; // '°F'
   padding-right: 10px;
   background-color: white;
-  color: orange;
+  color: $units-text-F;
   text-align: right;
 }
 .onoffswitch-switch {
   display: block;
   width: 32px;
   margin: 0px;
-  background: gray;
+  background: $units-button;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 36px;
   height: 32px;
-  border: 2px solid #ccc;
+  border: 2px solid $units-button-border;
   border-radius: 20px;
   transition: all 0.3s ease-in 0s;
 }

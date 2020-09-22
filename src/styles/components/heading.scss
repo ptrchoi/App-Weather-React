@@ -35,7 +35,7 @@
   .loc-btn {
     background-color: rgba(255, 255, 255, 0);
     border: none;
-    color: gray;
+    color: $search-button;
     padding-right: 4%;
   }
 
@@ -47,7 +47,7 @@
   // Autosuggest input text box
   .react-autosuggest__input {
     border: none;
-    color: gray;
+    color: $search-box-text;
     font-size: 0.8rem;
     font-style: italic;
     padding: 0.2rem;
@@ -55,9 +55,9 @@
   }
   // Autosuggest dropdown list
   .react-autosuggest__suggestions-list {
-    background-color: rgb(255, 255, 255);
-    border: solid 1px #aaaaaa;
-    color: gray;
+    background-color: $autosuggest-background;
+    border: solid 1px $search-box-border;
+    color: $search-box-text;
     font-size: 0.7rem;
     font-style: italic;
     list-style-type: none;
@@ -68,7 +68,7 @@
   }
   // Autosuggest list current highlighted selection
   .react-autosuggest__suggestion--highlighted {
-    color: green;
+    color: $autosuggest-list;
     font-weight: bold;
   }
 }

@@ -55,25 +55,14 @@ class Heading extends React.Component {
     let city = location.city;
     let state = location.stateName;
 
-    console.log('city BEFORE: ', city);
-    console.log('state BEFORE: ', state);
-    console.log('description BEFORE: ', description);
-
     if (!city || !state || !description) return;
 
-    let formattedCity = city.split(' ').join('+');
-    let formattedState = state.split(' ').join('+');
-    let formattedDescription = description.split(' ').join('+');
+    city = city.split(' ').join('+');
+    state = state.split(' ').join('+');
+    description = description.split(' ').join('+');
 
-    console.log('city AFTER: ', formattedCity);
-    console.log('state AFTER: ', state);
-    console.log('description AFTER: ', formattedDescription);
-
-    let searchStr =
-      formattedDescription + '+' + formattedCity + '+' + formattedState;
+    let searchStr = description + '+' + city + '+' + state;
     // let searchStr = formattedDescription + '+weather';
-
-    console.log('searchStr: ', searchStr);
 
     let url =
       'https://source.unsplash.com/random/featured/?' +
