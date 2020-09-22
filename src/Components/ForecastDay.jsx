@@ -5,6 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 // UTILITY FUNCTIONS
 import { formatTemp, getRainIconStyling } from './../Utils';
 
+// COMPONENTS
+import C from '../constants';
+
 // LOCAL CONSTS
 const DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const FORECAST_DAYS_COMPACT = 5; // Includes today
@@ -61,7 +64,7 @@ class ForecastDay extends React.Component {
         high: formatTemp(forecastData[i].temp.max, units),
         low: formatTemp(forecastData[i].temp.min, units),
         pp: Math.round(forecastData[i].pop * 100),
-        iconClass: 'wi wi-owm-' + forecastData[i].weather[0].id,
+        iconMapping: C.ICON_PREFIX + forecastData[i].weather[0].id,
       };
       forecastArr[i] = dayObj;
     }
@@ -104,7 +107,7 @@ class ForecastDay extends React.Component {
             <p className="item item-dayOfWeek">{day.day}</p>
             <p className="item item-temp">
               <span className="icon-weather">
-                <i className={day.iconClass}></i>
+                <i className={day.iconMapping}></i>
               </span>
               <span className="text-degree">{day.temp}&deg;</span>
             </p>

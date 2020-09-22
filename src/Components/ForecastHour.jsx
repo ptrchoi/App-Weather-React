@@ -5,6 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 // UTILITY FUNCTIONS
 import { formatTemp, convertTime, getRainIconStyling } from './../Utils';
 
+// COMPONENTS
+import C from '../constants';
+
 // LOCAL CONSTS
 const FORECAST_HOURS_COMPACT = 8;
 const FORECAST_HOURS_EXPANDED = 16;
@@ -72,7 +75,7 @@ class ForecastHour extends React.Component {
     function displayDiv(units, classList) {
       return function (hour) {
         let timeArr = convertTime(hour.dt); // timeArr = [ hour, ':', mins, daytime]
-        let iconClass = 'wi wi-owm-' + hour.weather[0].id;
+        let iconMapping = C.ICON_PREFIX + hour.weather[0].id;
         let rainObj = hour.rain;
         let rainfall = 0;
         // Due to Open Weather's naming convention of '1h', can't call it directly, so use Object.keys to access the data
@@ -86,7 +89,7 @@ class ForecastHour extends React.Component {
             </p>
             <p className="h-item-temp h-item">
               <span className="h-w-icon">
-                <i className={iconClass}></i>
+                <i className={iconMapping}></i>
               </span>
               <span className="h-temp-text">
                 {formatTemp(hour.temp, units)}

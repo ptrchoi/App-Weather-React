@@ -99,7 +99,7 @@ class Heading extends React.Component {
   render(props) {
     let { city, value, suggestions } = this.state;
 
-    if (city === '') city = 'Temp City Name';
+    if (city === '') city = 'City';
 
     // Required by Autosuggest
     // type=search is optional, defaults to type=text

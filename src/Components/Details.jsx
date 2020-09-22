@@ -19,40 +19,43 @@ function Details(props) {
   } = wDetails;
 
   return (
-    <div>
-      <p>Humidity: {humidity}%</p>
-      <p>
-        Dew Point: {dewPt}
-        &deg;{units}
-      </p>
-      <p>Pressure: {pressure} inHg</p>
-      <p>
-        UV Index: {uvi}{' '}
-        <span className="uvi-rating" style={getUVrating(uvi).styling}>
-          {getUVrating(uvi).rating}
-        </span>
-      </p>
-      <p>Visibility: {visibility} mi</p>
-      <br />
-      <p>
-        <span>
-          <i className="wind-icon fas fa-wind"></i>
-        </span>{' '}
-        {windSpeed}mi/hr {windDeg}{' '}
-      </p>
-      <br />
-      <p>
-        <span className="daytime">
-          <i className="sun-icon detail-icon fas fa-sun"></i>
-          {sunrise}
-        </span>
-      </p>
-      <p>
-        <span className="daytime">
-          <i className="moon-icon detail-icon fas fa-moon"></i>
-          {sunset}
-        </span>
-      </p>
+    <div className="wrapper-details">
+      <div className="column-details">
+        <p>Humidity: {humidity}%</p>
+        <p>
+          Dew Point: {dewPt}
+          &deg;{units}
+        </p>
+        <p>Pressure: {pressure} inHg</p>
+        <p>
+          UV Index: {uvi}{' '}
+          <span className="uvi-rating" style={getUVrating(uvi).styling}>
+            {getUVrating(uvi).rating}
+          </span>
+        </p>
+        <p>Visibility: {visibility} mi</p>
+      </div>
+      <div className="column-details">
+        <p>
+          <span>
+            <i className="wind-icon fas fa-wind"></i>
+          </span>{' '}
+          {windSpeed}mi/hr {windDeg}{' '}
+        </p>
+        <br />
+        <p>
+          <span className="daytime">
+            <i className="sun-icon detail-icon fas fa-sun"></i>
+            {sunrise}
+          </span>
+        </p>
+        <p>
+          <span className="daytime">
+            <i className="moon-icon detail-icon fas fa-moon"></i>
+            {sunset}
+          </span>
+        </p>
+      </div>
     </div>
   );
 }

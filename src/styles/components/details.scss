@@ -1,18 +1,20 @@
 // MOBILE - Weather Details
 .box-details {
   border: solid 3px black;
-
-  align-items: left;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  font-size: 0.8rem;
   height: $m_secondary-height;
-  // justify-content: start;
-  padding-left: 30%;
-  width: 100%;
   top: $m_heading-height + $m_primary-height;
 
+  .wrapper-details {
+    color: white;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10%;
+    width: 100%;
+  }
+  .column-details {
+    width: 50%;
+  }
   .uvi-rating {
     font-size: 0.6rem;
   }
@@ -38,9 +40,18 @@
   // DESKTOP - Weather Details
   .box-details {
     font-size: 1.4rem;
-    padding: 0 0 0 20%;
     height: $d_details-height;
     top: none;
+    .wrapper-details {
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      padding-left: 30%;
+    }
+    .column-details {
+      padding-bottom: 10%;
+      width: 100%;
+    }
 
     .uvi-rating {
       font-size: 1rem;

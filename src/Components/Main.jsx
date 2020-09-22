@@ -94,7 +94,7 @@ class Main extends React.Component {
             <button className="temporary-btn btn2" onClick={this.swipeContent}>
               <i className="fas fa-info-circle"></i>
             </button>
-            <Details units={units} wDetails={wDetails} layout={layout} />
+            <Details units={units} wDetails={wDetails} />
           </div>
           <div className="box-days swipeable swipes-left">
             <ForecastDay
@@ -128,7 +128,7 @@ class Main extends React.Component {
               <Summary wMain={wMain} layout={layout} />
             </div>
             <div className="box-details">
-              <Details units={units} wDetails={wDetails} layout={layout} />
+              <Details units={units} wDetails={wDetails} />
             </div>
           </div>
           <div className="column">
