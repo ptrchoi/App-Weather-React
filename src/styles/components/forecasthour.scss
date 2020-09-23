@@ -6,13 +6,17 @@
   flex-direction: column;
   height: $m_forecast-compact-height;
 }
+// Mobile wrapper for hour divs
 .hours-wrapper {
   display: flex;
   flex-direction: row;
-  height: 70%;
+  height: 70%; // height of hours wrapper for Mobile
   padding: 0 2%;
   width: 100%;
 
+  overflow-y: scroll;
+
+  // Individual hour div (mobile + compact layout) within .hours-wrapper
   .hour-compact {
     border-right: solid 1px $accent-divider;
     display: grid;
@@ -72,6 +76,7 @@
       }
     }
   }
+  // Individual hour div (mobile + expanded layout) within .hours-wrapper
   .hour-expanded {
     align-items: center;
     border-bottom: solid 1px $accent-divider;
@@ -134,11 +139,16 @@
     }
   }
 }
+// .expanded-wrapper class added to .hour-wrapper (mobile)
 .expanded-wrapper {
   display: flex;
   flex-direction: column;
+  height: 80%;
 }
-
+// .expanded class added to .forecastHour-container (mobile)
+.expanded {
+  height: $m_forecast-expanded-height;
+}
 // Remove borders on last element
 .hours-wrapper .hour-compact:last-child,
 .hour-expanded:last-child {
@@ -150,7 +160,9 @@
   .forecastHour-container {
     height: $d_forecast-compact-height;
   }
+  // Desktop wrapper for hour divs
   .hours-wrapper {
+    // Individual hour div (desktop + compact layout) within .hours-wrapper
     .hour-compact {
       font-size: 1.2rem;
       grid-template-columns: 1fr;
@@ -181,6 +193,7 @@
         }
       }
     }
+    // Individual hour div (desktop + expanded layout) within .hours-wrapper
     .hour-expanded {
       .item {
         text-align: center;
@@ -204,5 +217,13 @@
         }
       }
     }
+  }
+  // .expanded-wrapper class added to .hour-wrapper
+  .expanded-wrapper {
+    // height: 80%;
+  }
+  // .expanded class added to .forecastHour-container
+  .expanded {
+    height: $d_forecast-expanded-height;
   }
 }
