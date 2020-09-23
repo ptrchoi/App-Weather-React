@@ -1,25 +1,18 @@
 /*
   Default styling for mobile
 -----------------------------------------------*/
-.forecastHour-container {
-  display: flex;
-  flex-direction: column;
-  height: $m_forecast-compact-height;
-}
-// Mobile wrapper for hour divs (array)
-.hours-wrapper {
-  // border: solid 1px red;
+.hourly-forecast-container {
+  // height: $m_forecast-compact-height;
+
   display: flex;
   flex-direction: row;
-  height: 70%; // height of hours wrapper for Mobile
+  height: 95%; // height of hours wrapper for Mobile
   justify-content: space-between;
+  overflow: auto;
   padding: 0 4%;
   width: 100%;
 
-  overflow: scroll;
-
-  // Individual hour div (mobile + compact layout) within .hours-wrapper
-  .hour-compact {
+  .hour-forecast {
     border-right: solid 1px $accent-divider;
     display: grid;
     font-size: 0.8rem;
@@ -28,6 +21,8 @@
     padding: 0 1%;
     text-align: center;
 
+    .item {
+    }
     .item-hour {
       color: $forecast-heading;
     }
@@ -40,7 +35,7 @@
         font-size: 1.4rem;
         padding-bottom: 8%;
       }
-      .text-degree {
+      .text-degrees {
         color: $temperature-text;
       }
     }
@@ -78,99 +73,101 @@
       }
     }
   }
-  // Individual hour div (mobile + expanded layout) within .hours-wrapper
-  .hour-expanded {
-    align-items: center;
-    border-bottom: solid 1px $accent-divider;
-    display: grid;
-    font-size: 0.8rem;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 1fr;
-    margin-bottom: 0.3rem;
-    text-align: center;
-
-    .item-hour {
-      color: $forecast-heading;
-    }
-    .item-temp {
-      flex-direction: row;
-
-      .icon-weather {
-        color: $weather-icon;
-        font-size: 1.4rem;
-        padding: 0 5% 0 0;
-      }
-      .text-degree {
-        color: $temperature-text;
-        font-size: 0.9rem;
-      }
-    }
-    .item-rain {
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-
-      .wrapper-raindrop-icon {
-        font-size: 1.2rem;
-        position: relative;
-        display: inline-block;
-
-        .raindrop-under {
-          color: $rain-probability;
-          vertical-align: top;
-          -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: $rain-probability-outline;
-        }
-        .raindrop-over {
-          color: $rain-probability-fill;
-          position: absolute;
-          left: 0;
-          top: 0;
-          overflow: hidden;
-          -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: $rain-probability-outline;
-        }
-      }
-      .wrapper-raindrop-text {
-        padding: 0 0 0 8%;
-        .text-probability {
-          font-size: 0.8rem;
-        }
-      }
-    }
+  // Remove borders on last element
+  .hour-forecast:last-child {
+    border: none;
   }
 }
+// Individual hour div (mobile + expanded layout) within .hours-wrapper
+// .hour-expanded {
+//   align-items: center;
+//   border-bottom: solid 1px $accent-divider;
+//   display: grid;
+//   font-size: 0.8rem;
+//   grid-template-columns: 33% 33% 33%;
+//   grid-template-rows: 1fr;
+//   margin-bottom: 0.3rem;
+//   text-align: center;
+
+//   .item-hour {
+//     color: $forecast-heading;
+//   }
+//   .item-temp {
+//     flex-direction: row;
+
+//     .icon-weather {
+//       color: $weather-icon;
+//       font-size: 1.4rem;
+//       padding: 0 5% 0 0;
+//     }
+//     .text-degree {
+//       color: $temperature-text;
+//       font-size: 0.9rem;
+//     }
+//   }
+//   .item-rain {
+//     align-items: center;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+
+//     .wrapper-raindrop-icon {
+//       font-size: 1.2rem;
+//       position: relative;
+//       display: inline-block;
+
+//       .raindrop-under {
+//         color: $rain-probability;
+//         vertical-align: top;
+//         -webkit-text-stroke-width: 1px;
+//         -webkit-text-stroke-color: $rain-probability-outline;
+//       }
+//       .raindrop-over {
+//         color: $rain-probability-fill;
+//         position: absolute;
+//         left: 0;
+//         top: 0;
+//         overflow: hidden;
+//         -webkit-text-stroke-width: 1px;
+//         -webkit-text-stroke-color: $rain-probability-outline;
+//       }
+//     }
+//     .wrapper-raindrop-text {
+//       padding: 0 0 0 8%;
+//       .text-probability {
+//         font-size: 0.8rem;
+//       }
+//     }
+//   }
+// }
+
 // .expanded-wrapper class added to .hours-wrapper (mobile)
-.expanded-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 80%;
-}
-// .expanded class added to .forecastHour-container (mobile)
-.expanded {
-  height: $m_forecast-expanded-height;
-}
-// Remove borders on last element
-.hours-wrapper .hour-compact:last-child,
-.hour-expanded:last-child {
-  border: none;
-}
+// .expanded-wrapper {
+//   display: flex;
+//   flex-direction: column;
+//   height: 80%;
+// }
+// // .expanded class added to .forecastHour-container (mobile)
+// .expanded {
+//   height: $m_forecast-expanded-height;
+// }
+// // Remove borders on last element
+// .hours-wrapper .hour-compact:last-child,
+// .hour-expanded:last-child {
+//   border: none;
+// }
 
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
-  .forecastHour-container {
+  .hourly-forecast-container {
     height: $d_forecast-compact-height;
-  }
-  // Desktop wrapper for hour divs
-  .hours-wrapper {
-    // Individual hour div (desktop + compact layout) within .hours-wrapper
-    .hour-compact {
+
+    .hour-forecast {
       font-size: 1.2rem;
-      grid-template-columns: 1fr;
-      grid-template-rows: 34% 33% 33%;
-      overflow: hidden;
-      padding: 0 4% 6% 0;
+      // grid-template-columns: 1fr;
+      // grid-template-rows: 34% 33% 33%;
+      // overflow: hidden;
+      // padding: 0 4% 6% 0;
 
       .item {
         padding-right: 4%;
@@ -179,7 +176,7 @@
         .icon-weather {
           font-size: 2rem;
         }
-        .text-degree {
+        .text-degrees {
           font-size: 1.3rem;
         }
       }
@@ -196,36 +193,36 @@
       }
     }
     // Individual hour div (desktop + expanded layout) within .hours-wrapper
-    .hour-expanded {
-      .item {
-        text-align: center;
-      }
-      .item-temp {
-        .text-degree {
-          font-size: 1rem;
-        }
-      }
-      .item-rain {
-        flex-direction: row;
+    // .hour-expanded {
+    //   .item {
+    //     text-align: center;
+    //   }
+    //   .item-temp {
+    //     .text-degree {
+    //       font-size: 1rem;
+    //     }
+    //   }
+    //   .item-rain {
+    //     flex-direction: row;
 
-        .wrapper-raindrop-icon {
-          font-size: 1.7rem;
-        }
-        .wrapper-raindrop-text {
-          padding: 0 0 0 8%;
-          .text-probability {
-            font-size: 0.9rem;
-          }
-        }
-      }
-    }
+    //     .wrapper-raindrop-icon {
+    //       font-size: 1.7rem;
+    //     }
+    //     .wrapper-raindrop-text {
+    //       padding: 0 0 0 8%;
+    //       .text-probability {
+    //         font-size: 0.9rem;
+    //       }
+    //     }
+    //   }
+    // }
   }
   // .expanded-wrapper class added to .hour-wrapper
-  .expanded-wrapper {
-    // height: 80%;
-  }
-  // .expanded class added to .forecastHour-container
-  .expanded {
-    height: $d_forecast-expanded-height;
-  }
+  // .expanded-wrapper {
+  //   // height: 80%;
+  // }
+  // // .expanded class added to .forecastHour-container
+  // .expanded {
+  //   height: $d_forecast-expanded-height;
+  // }
 }
