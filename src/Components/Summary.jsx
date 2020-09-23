@@ -2,7 +2,7 @@
 import React from 'react';
 
 // UTILITY FUNCTIONS
-import { getRainIconStyling, getRainIconFillHeight } from '../Utils';
+import { getRainIconFillHeight } from '../Utils';
 
 function Summary(props) {
   let { description, high, low, feelsLike, precProb } = props.wMain;
@@ -25,10 +25,6 @@ function Summary(props) {
             <div className="wrapper-raindrop-text">
               <p className="text-probability">{precProb}%</p>
             </div>
-            {/* <i
-              className="icon-umbrella fas fa-umbrella"
-              style={getRainIconStyling(precProb)}
-            ></i> */}
           </div>
         </div>
         <div className="wrapper-summary">
@@ -67,11 +63,6 @@ function Summary(props) {
             <div className="wrapper-raindrop-text">
               <p className="text-probability">{precProb}%</p>
             </div>
-            {/* <i
-              className="icon-umbrella fas fa-umbrella"
-              style={getRainIconStyling(precProb)}
-            ></i>
-            <span className="text-probability">{precProb}%</span> */}
           </div>
         </div>
         <div className="wrapper-summary">

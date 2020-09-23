@@ -60,6 +60,7 @@ export const getRainIconStyling = (percent) => {
 export const getRainIconFillHeight = (percent) => {
   console.log('percent received: ', percent);
   let invertedHeight = 100 - percent;
+  invertedHeight += '%';
   // Need to invert height
   console.log('invertedHeight: ', invertedHeight);
   return {

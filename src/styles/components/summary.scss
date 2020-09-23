@@ -33,19 +33,19 @@
         display: inline-block;
 
         .raindrop-under {
-          color: rgb(34, 185, 185);
+          color: $rain-probability;
           vertical-align: top;
           -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: white;
+          -webkit-text-stroke-color: $rain-probability-outline;
         }
         .raindrop-over {
-          color: white;
+          color: $rain-probability-fill;
           position: absolute;
           left: 0;
           top: 0;
           overflow: hidden;
           -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: white;
+          -webkit-text-stroke-color: $rain-probability-outline;
         }
       }
       .wrapper-raindrop-text {
@@ -55,11 +55,6 @@
           padding: 0 0 80% 10%;
         }
       }
-
-      // .icon-umbrella {
-      //   font-size: 2.8rem;
-      //   padding-left: 1rem;
-      // }
     }
     .temp-high-low {
       .temp-high {

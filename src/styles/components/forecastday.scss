@@ -60,16 +60,36 @@
       }
     }
     .item-rain {
+      align-items: center;
       display: flex;
       flex-direction: column;
-      padding-top: 0.8rem;
+      justify-content: center;
 
-      .fa-umbrella {
-        font-size: 1.4rem;
+      .wrapper-raindrop-icon {
+        font-size: 1.2rem;
+        position: relative;
+        display: inline-block;
+
+        .raindrop-under {
+          color: $rain-probability;
+          vertical-align: top;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: $rain-probability-outline;
+        }
+        .raindrop-over {
+          color: $rain-probability-fill;
+          position: absolute;
+          left: 0;
+          top: 0;
+          overflow: hidden;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: $rain-probability-outline;
+        }
       }
-      .text-percent {
-        font-size: 0.6rem;
-        padding-top: 0.2rem;
+      .wrapper-raindrop-text {
+        .text-probability {
+          font-size: 0.8rem;
+        }
       }
     }
     .item-highLow {
@@ -110,14 +130,36 @@
       }
     }
     .item-rain {
-      flex-direction: row;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-      .fa-umbrella {
+      .wrapper-raindrop-icon {
         font-size: 1.2rem;
+        position: relative;
+        display: inline-block;
+
+        .raindrop-under {
+          color: $rain-probability;
+          vertical-align: top;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: $rain-probability-outline;
+        }
+        .raindrop-over {
+          color: $rain-probability-fill;
+          position: absolute;
+          left: 0;
+          top: 0;
+          overflow: hidden;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: $rain-probability-outline;
+        }
       }
-      .text-percent {
-        font-size: 0.8rem;
-        padding-left: 0.4rem;
+      .wrapper-raindrop-text {
+        .text-probability {
+          font-size: 0.8rem;
+        }
       }
     }
     .item-highLow {
@@ -164,11 +206,14 @@
         }
       }
       .item-rain {
-        .fa-umbrella {
-          font-size: 1.8rem;
+        .wrapper-raindrop-icon {
+          font-size: 1.7rem;
         }
-        .text-percent {
-          font-size: 0.8rem;
+        .wrapper-raindrop-text {
+          padding-top: 5%;
+          .text-probability {
+            font-size: 0.9rem;
+          }
         }
       }
       .item-highLow {
@@ -189,12 +234,16 @@
         }
       }
       .item-rain {
-        .fa-umbrella {
-          font-size: 2rem;
+        flex-direction: row;
+
+        .wrapper-raindrop-icon {
+          font-size: 1.7rem;
         }
-        .text-percent {
-          font-size: 1.2rem;
-          padding-left: 0.4rem;
+        .wrapper-raindrop-text {
+          padding: 0 0 0 8%;
+          .text-probability {
+            font-size: 0.9rem;
+          }
         }
       }
       .item-highLow {

@@ -3,7 +3,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // UTILITY FUNCTIONS
-import { formatTemp, getRainIconStyling } from './../Utils';
+import { formatTemp, getRainIconFillHeight } from './../Utils';
 
 // COMPONENTS
 import C from '../constants';
@@ -111,13 +111,19 @@ class ForecastDay extends React.Component {
               </span>
               <span className="text-degree">{day.temp}&deg;</span>
             </p>
-            <p className="item item-rain">
-              <i
-                className="fas fa-umbrella"
-                style={getRainIconStyling(day.pp)}
-              ></i>
-              <span className="text-percent">{day.pp}%</span>
-            </p>
+
+            <div className="item item-rain">
+              <div className="wrapper-raindrop-icon">
+                <span className="raindrop-under fas fa-tint"></span>
+                <span
+                  className="raindrop-over fas fa-tint"
+                  style={getRainIconFillHeight(day.pp)}
+                ></span>
+              </div>
+              <div className="wrapper-raindrop-text">
+                <p className="text-probability">{day.pp}%</p>
+              </div>
+            </div>
             <p className="item item-highLow">
               <span className="temp-high">
                 <i className="fas fa-long-arrow-alt-up"></i> {day.high}&deg;{' '}

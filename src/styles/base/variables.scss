@@ -24,11 +24,13 @@ $background-transparency: rgba(48, 48, 48, 0.516);
 $main-text: white;
 
 // Icons:
+$rain-probability: rgb(34, 185, 185);
+$rain-probability-outline: gray;
+$rain-probability-fill: rgb(230, 230, 230);
 $temp-high-red: rgb(171, 15, 4);
 $temp-low-blue: rgb(20, 156, 240);
 $weather-icon: white;
 $temperature-text: white;
-// RAIN ICON sets Alpha dynamically and is set in Utils.jsx > getRainIconStyling()
 
 // Heading section:
 $search-button: black;
