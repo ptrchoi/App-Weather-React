@@ -24,11 +24,11 @@ $background-transparency: rgba(48, 48, 48, 0.516);
 $main-text: white;
 
 // Icons:
-$rain-probability: rgb(34, 185, 185);
-$rain-probability-outline: gray;
-$rain-probability-fill: rgb(230, 230, 230);
-$temp-high-red: rgb(171, 15, 4);
-$temp-low-blue: rgb(20, 156, 240);
+$rain-probability: rgb(29, 224, 245);
+$rain-probability-outline: rgb(227, 227, 227);
+$rain-probability-fill: white;
+$temp-high-red: rgb(145, 16, 7);
+$temp-low-blue: rgb(12, 84, 128);
 $weather-icon: white;
 $temperature-text: white;
 
@@ -44,7 +44,7 @@ $forecast-heading: white;
 $accent-divider: white;
 
 // Details section:
-$details-label: black;
+$details-label: rgb(205, 205, 205);
 $wind-details: rgb(213, 211, 195);
 $wind-icon: black;
 $sun-icon: yellow;

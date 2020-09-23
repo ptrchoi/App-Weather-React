@@ -7,12 +7,14 @@ import $ from 'jquery';
 export const formatTemp = (temp, units) => {
   return units === 'C' ? Math.round(((temp - 32) * 5) / 9) : Math.round(temp);
 };
+
 // Convert from either Imperial or Metric to the other
 export const convertTemp = (temp, units) => {
   return units === 'C'
     ? Math.round(((temp - 32) * 5) / 9)
     : Math.round((temp * 9) / 5 + 32);
 };
+
 // Convert Unix timestamp (from Open Weather data) to hour, mins, and daytime (AM/PM)
 export const convertTime = (unixTime) => {
   // Convert to milliseconds and get new dateObj
@@ -30,39 +32,34 @@ export const convertTime = (unixTime) => {
 
   return [hour, ':', mins, ' ', daytime];
 };
+
 export const convertPressureToInches = (hpa) => {
   return Math.round(hpa * 0.03);
 };
+
 // Convert meters to miles
 export const convertMetersToMiles = (distance) => {
   return (distance / 1609).toFixed(1);
 };
+
 // Convert percent to RGB Alpha decimal value for Rain icon transparency
-export const getRainIconStyling = (percent) => {
-  // Need to make some adjustment so low %'s are still opaque enough to be legible
-  if (percent > 0 && percent < 70) percent += 10;
-  percent = percent / 100;
+// export const getRainIconStyling = (percent) => {
+//   // Need to make some adjustment so low %'s are still opaque enough to be legible
+//   if (percent > 0 && percent < 70) percent += 10;
+//   percent = percent / 100;
 
-  let str = 'rgba(34, 185, 185, ' + percent + ')'; // rain color set for all probability icon
+//   let str = 'rgba(34, 185, 185, ' + percent + ')'; // rain color set for all probability icon
 
-  // TESTING outline
-  return {
-    WebkitTextFillColor: str,
-    WebkitTextStrokeWidth: '1px',
-    WebkitTextStrokeColor: 'rgb(255, 255, 255)',
-  };
+//   return {
+//     WebkitTextFillColor: str,
+//     WebkitTextStrokeWidth: '1px',
+//     WebkitTextStrokeColor: 'rgb(255, 255, 255)',
+//   };
+// };
 
-  // return {
-  //   color: str,
-  // };
-};
-
+// Convert percent to an inverted height to fill from top down of raindrop overlay (white fill overlay over rain color underneath)
 export const getRainIconFillHeight = (percent) => {
-  console.log('percent received: ', percent);
-  let invertedHeight = 100 - percent;
-  invertedHeight += '%';
-  // Need to invert height
-  console.log('invertedHeight: ', invertedHeight);
+  let invertedHeight = 100 - percent + '%';
   return {
     height: invertedHeight,
   };
@@ -111,6 +108,7 @@ export const getUVrating = (uvi) => {
     },
   };
 };
+
 export const getCardinalDirection = (angle) => {
   const directions = [
     'N ↑',
