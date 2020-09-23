@@ -56,6 +56,17 @@ export const getRainIconStyling = (percent) => {
   //   color: str,
   // };
 };
+
+export const getRainIconFillHeight = (percent) => {
+  console.log('percent received: ', percent);
+  let invertedHeight = 100 - percent;
+  // Need to invert height
+  console.log('invertedHeight: ', invertedHeight);
+  return {
+    height: invertedHeight,
+  };
+};
+
 // Returns EPA's rating scale based on uv index
 export const getUVrating = (uvi) => {
   let rating = '';

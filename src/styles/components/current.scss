@@ -19,7 +19,7 @@
     color: $weather-icon;
     font-size: 5rem;
     padding: 8% 0 0 0;
-    animation: fade 6s linear infinite, arc 6s linear infinite;
+    animation: fade 7s linear infinite, arc 7s linear infinite;
   }
   .unit-slider {
     margin-left: auto;
@@ -58,29 +58,41 @@
     color: $weather-icon;
   }
   100% {
-    color: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0.7);
   }
 }
 @keyframes arc {
   0% {
-    transform: translate(-45px, 25px) scale(0.65);
+    transform: translate(-30px, 40px) scale(0.7);
+  }
+  10% {
+    transform: translate(-25px, 25px) scale(0.8);
   }
   20% {
-    transform: translate(-25px, 5px) scale(0.8);
+    transform: translate(-20px, 10px) scale(0.85);
+  }
+  30% {
+    transform: translate(-10px, -5px) scale(0.9);
   }
   40% {
-    transform: translate(-10px, -10px) scale(0.9);
+    transform: translate(0, -20px) scale(0.95);
   }
   50% {
-    transform: translate(0, -20px) scale(1);
+    transform: translate(10px, -25px) scale(1);
   }
   60% {
-    transform: translate(10px, -10px) scale(0.9);
+    transform: translate(20px, -20px) scale(1.05);
+  }
+  70% {
+    transform: translate(30px, -10px) scale(1);
   }
   80% {
-    transform: translate(25px, 5px) scale(0.8);
+    transform: translate(40px, 0) scale(0.95);
+  }
+  90% {
+    transform: translate(50px, 10px) scale(0.9);
   }
   100% {
-    transform: translate(45px, 25px) scale(0.7);
+    transform: translate(60px, 20px) scale(0.85);
   }
 }

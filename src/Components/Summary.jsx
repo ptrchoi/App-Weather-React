@@ -2,7 +2,7 @@
 import React from 'react';
 
 // UTILITY FUNCTIONS
-import { getRainIconStyling } from '../Utils';
+import { getRainIconStyling, getRainIconFillHeight } from '../Utils';
 
 function Summary(props) {
   let { description, high, low, feelsLike, precProb } = props.wMain;
@@ -12,14 +12,24 @@ function Summary(props) {
       <div className="summary-container">
         <div className="wrapper-summary">
           <p className="text-description">{description}</p>
-          <p className="wrapper-precipitation">
-            {/* {precProb}% */}
-            <i
+          <div className="wrapper-precipitation">
+            <div className="wrapper-raindrop-icon">
+              <p>
+                <span className="raindrop-under fas fa-tint"></span>
+                <span
+                  className="raindrop-over fas fa-tint"
+                  style={getRainIconFillHeight(precProb)}
+                ></span>
+              </p>
+            </div>
+            <div className="wrapper-raindrop-text">
+              <p className="text-probability">{precProb}%</p>
+            </div>
+            {/* <i
               className="icon-umbrella fas fa-umbrella"
               style={getRainIconStyling(precProb)}
-            ></i>
-            <span className="text-probability">{precProb}%</span>
-          </p>
+            ></i> */}
+          </div>
         </div>
         <div className="wrapper-summary">
           <p className="temp-high-low">
@@ -44,13 +54,25 @@ function Summary(props) {
       <div className="summary-container">
         <div className="wrapper-summary">
           <p className="text-description">{description}</p>
-          <p className="wrapper-precipitation">
-            <i
+          <div className="wrapper-precipitation">
+            <div className="wrapper-raindrop-icon">
+              <p>
+                <span className="raindrop-under fas fa-tint"></span>
+                <span
+                  className="raindrop-over fas fa-tint"
+                  style={getRainIconFillHeight(precProb)}
+                ></span>
+              </p>
+            </div>
+            <div className="wrapper-raindrop-text">
+              <p className="text-probability">{precProb}%</p>
+            </div>
+            {/* <i
               className="icon-umbrella fas fa-umbrella"
               style={getRainIconStyling(precProb)}
             ></i>
-            <span className="text-probability">{precProb}%</span>
-          </p>
+            <span className="text-probability">{precProb}%</span> */}
+          </div>
         </div>
         <div className="wrapper-summary">
           <p className="temp-high-low">
