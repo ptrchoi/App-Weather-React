@@ -6,15 +6,17 @@
   flex-direction: column;
   height: $m_forecast-compact-height;
 }
-// Mobile wrapper for hour divs
+// Mobile wrapper for hour divs (array)
 .hours-wrapper {
+  // border: solid 1px red;
   display: flex;
   flex-direction: row;
   height: 70%; // height of hours wrapper for Mobile
-  padding: 0 2% 0 4%;
+  justify-content: space-between;
+  padding: 0 4%;
   width: 100%;
 
-  overflow-y: scroll;
+  overflow: scroll;
 
   // Individual hour div (mobile + compact layout) within .hours-wrapper
   .hour-compact {
@@ -139,7 +141,7 @@
     }
   }
 }
-// .expanded-wrapper class added to .hour-wrapper (mobile)
+// .expanded-wrapper class added to .hours-wrapper (mobile)
 .expanded-wrapper {
   display: flex;
   flex-direction: column;

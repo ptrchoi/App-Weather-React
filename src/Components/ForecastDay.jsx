@@ -10,8 +10,9 @@ import C from '../constants';
 
 // LOCAL CONSTS
 const DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-const FORECAST_DAYS_COMPACT = 5; // Includes today
-const FORECAST_DAYS_EXPANDED = 8; // 7 day forecast includes today = 8
+// const FORECAST_DAYS_COMPACT = 8; // Includes today
+// const FORECAST_DAYS_EXPANDED = 8; // 7 day forecast includes today = 8
+const FORECAST_DAYS = 8; // 7 day forecast includes today = 8
 
 // LOCAL FUNCTIONS
 function setForecastDays(arr, today) {
@@ -37,23 +38,23 @@ class ForecastDay extends React.Component {
     };
 
     this.updateForecast = this.updateForecast.bind(this);
-    this.resize = this.resize.bind(this);
+    // this.resize = this.resize.bind(this);
   }
   componentDidUpdate(prevProps) {
     if (this.props != prevProps && this.props.dayForecast) {
       this.updateForecast(this.props.dayForecast, this.props.units);
     }
   }
-  updateForecast(forecastData, units, resize = false) {
-    let { size } = this.state;
+  updateForecast(forecastData, units) {
+    // let { size } = this.state;
 
-    // If resized, size should be manually toggled as state props will not have been updated yet
-    if (resize) size === 'compact' ? (size = 'expanded') : (size = 'compact');
+    // // If resized, size should be manually toggled as state props will not have been updated yet
+    // if (resize) size === 'compact' ? (size = 'expanded') : (size = 'compact');
 
     let forecastArr = [];
-    let numOfDays = FORECAST_DAYS_COMPACT;
+    let numOfDays = FORECAST_DAYS;
 
-    if (size === 'expanded') numOfDays = FORECAST_DAYS_EXPANDED;
+    // if (size === 'expanded') numOfDays = FORECAST_DAYS_EXPANDED;
 
     // Create arr of dayObjs populated with forecastData & days of the week
     // If units in 'C', convertTemp(), else just round off the value for the default 'F' value
@@ -75,29 +76,14 @@ class ForecastDay extends React.Component {
     this.setState({
       units: units,
       dailyForecast: forecastArr,
-      size: size,
-    });
-  }
-  resize() {
-    if (!this.props.dayForecast) return;
-
-    let { units, size } = this.state;
-
-    size === 'compact' ? (size = 'expanded') : (size = 'compact');
-
-    this.updateForecast(this.props.dayForecast, units, true);
-    this.props.onResize(size);
-
-    this.setState({
-      size: size,
     });
   }
   renderDays() {
-    let { dailyForecast, size } = this.state;
+    let { dailyForecast } = this.state;
     if (!dailyForecast) return;
 
     let classList = 'day day-compact';
-    if (size === 'expanded') classList = 'day day-expanded';
+    // if (size === 'expanded') classList = 'day day-expanded';
 
     // Curry function to .map method
     function displayDiv(classList) {
@@ -140,24 +126,19 @@ class ForecastDay extends React.Component {
     return dailyForecast.map(displayDiv(classList));
   }
   render(props) {
-    let { size } = this.state;
-    let containerList = 'forecastDay-container';
+    // let { size } = this.state;
+    // let containerList = 'forecastDay-container';
     let wrapperList = 'days-wrapper';
 
-    if (size === 'expanded') {
-      containerList += ' expanded';
-      wrapperList += ' expanded-wrapper';
-    }
+    // if (size === 'expanded') {
+    //   containerList += ' expanded';
+    //   wrapperList += ' expanded-wrapper';
+    // }
 
     return (
-      <div className={containerList}>
-        <div className="forecast-btn">
-          <button className="resize-btn" onClick={this.resize}>
-            <i className="fas fa-expand"></i>
-          </button>
-        </div>
-        <div className={wrapperList}>{this.renderDays()}</div>
-      </div>
+      // <div className={containerList}>
+      <div className="days-wrapper">{this.renderDays()}</div>
+      // </div>
     );
   }
 }
