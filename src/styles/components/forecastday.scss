@@ -1,39 +1,22 @@
 /*
   Default styling for mobile
 -----------------------------------------------*/
-// .forecastDay-container {
-// }
-// Mobile wrapper for days divs (array)
-.days-wrapper {
-  // display: flex;
-  // flex-direction: column;
-  height: $m_forecast-compact-height;
-
+.forecast-container {
   display: flex;
   flex-direction: row;
-  height: 80%; // Only display within a subset of the full height
+  height: 95%; // Only display within a subset of the full height
   width: 100%;
   overflow: auto;
 
-  // Temp colors set for both compact & expanded
-  .temp-low {
-    color: $temp-low-blue;
-  }
-  .temp-high {
-    color: $temp-high-red;
-  }
-
-  // Individual day div (mobile + compact layout) within .days-wrapper
-  .day-compact {
+  .day-forecast {
     border-right: solid 1px $accent-divider;
     align-items: center;
     display: grid;
     font-size: 0.9rem;
     grid-template-columns: 100%;
     grid-template-rows: 12% 34% 26% 25%;
-    width: 60vw;
-
     padding: 4%;
+    width: 60vw;
 
     .item {
       padding-bottom: 10%;
@@ -43,7 +26,7 @@
       color: $forecast-heading;
       text-align: center;
     }
-    .item-temp {
+    .item-temperature {
       display: flex;
       flex-direction: column;
 
@@ -52,7 +35,7 @@
         font-size: 1.6rem;
         padding-bottom: 0.2rem;
       }
-      .text-degree {
+      .text-degrees {
         color: $temperature-text;
         font-size: 0.8rem;
       }
@@ -95,127 +78,38 @@
       flex-direction: column;
       font-size: 0.8rem;
       text-shadow: 1px 1px 0 $temp-text-shadow;
-    }
-  }
-  // Individual day div (mobile + expanded layout) within .days-wrapper
-  .day-expanded {
-    align-items: center;
-    border-bottom: solid 1px $accent-divider;
-    display: grid;
-    font-size: 0.8rem;
-    grid-template-columns: 12% 34% 26% 25%;
-    grid-template-rows: 1fr;
-    // padding-bottom: 3%;
-    padding: 2% 0 3% 0;
 
-    .item {
-      text-align: center;
-      width: 100%;
-    }
-    .item-dayOfWeek {
-      color: $forecast-heading;
-      text-align: center;
-    }
-    .item-temp {
-      display: flex;
-      flex-direction: row;
-      padding: 0 0 0 1.2rem;
-
-      .icon-weather {
-        color: $weather-icon;
-        font-size: 1.5rem;
-        padding-right: 0.4rem;
+      .temp-low {
+        color: $temp-low-blue;
       }
-      .text-degree {
-        color: $temperature-text;
-        font-size: 1rem;
-      }
-    }
-    .item-rain {
-      display: flex;
-      flex-direction: row;
-      padding-left: 20%;
-
-      .wrapper-raindrop-icon {
-        display: inline-block;
-        font-size: 1.2rem;
-        position: relative;
-
-        .raindrop-under {
-          color: $rain-probability;
-          vertical-align: top;
-          -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: $rain-probability-outline;
-        }
-        .raindrop-over {
-          color: $rain-probability-fill;
-          position: absolute;
-          left: 0;
-          top: 0;
-          overflow: hidden;
-          -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: $rain-probability-outline;
-        }
-      }
-      .wrapper-raindrop-text {
-        padding: 0 0 0 8%;
-        .text-probability {
-          font-size: 0.8rem;
-        }
-      }
-    }
-    .item-highLow {
-      display: flex;
-      flex-direction: row;
-      font-size: 0.8rem;
-      text-shadow: 1px 1px 0 $temp-text-shadow;
       .temp-high {
-        padding-right: 10%;
+        color: $temp-high-red;
       }
     }
   }
+  // Remove borders on last element
+  .day-forecast:last-child {
+    border: none;
+  }
 }
-// .expanded-wrapper class added to .days-wrapper (mobile)
-// .expanded {
-//   flex-direction: column;
-//   height: $m_forecast-expanded-height;
-//   padding-right: 5%;
-// }
-// .expanded class added to .forecastDay-container (mobile)
-.expanded-wrapper {
-  flex-direction: column;
-  padding: 0 2% 0 10%;
-}
-// Remove borders on last element
-.days-wrapper .day-compact:last-child,
-.day-expanded:last-child {
-  border: none;
-}
-
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
-  // .forecastDay-container {
-  //   height: $d_forecast-compact-height;
-  //   padding-top: 5%;
-  // }
-
-  // Desktop wrapper for days divs
-  .days-wrapper {
+  .forecast-container {
     height: $d_forecast-compact-height;
     width: 96%;
-    // Individual day div (desktop + compact layout) within .days-wrapper
-    .day-compact {
+    // Individual day forecast div
+    .day-forecast {
       font-size: 1.3rem;
       padding-right: 5%;
 
       .item {
         padding: 0 0 30% 0;
       }
-      .item-temp {
+      .item-temperature {
         .icon-weather {
           font-size: 2.5rem;
         }
-        .text-degree {
+        .text-degrees {
           font-size: 1rem;
         }
       }
@@ -234,46 +128,5 @@
         font-size: 1rem;
       }
     }
-    // Individual day div (desktop + expanded layout) within .days-wrapper
-    .day-expanded {
-      font-size: 1.2rem;
-      padding-bottom: 6%;
-
-      .item-temp {
-        flex-direction: row;
-        .icon-weather {
-          font-size: 2.5rem;
-        }
-        .text-degree {
-          font-size: 1.6rem;
-        }
-      }
-      .item-rain {
-        flex-direction: row;
-        padding-left: 30%;
-
-        .wrapper-raindrop-icon {
-          font-size: 1.7rem;
-        }
-        .wrapper-raindrop-text {
-          padding: 0 0 0 8%;
-          .text-probability {
-            font-size: 1.1rem;
-          }
-        }
-      }
-      .item-highLow {
-        flex-direction: column;
-        font-size: 1.2rem;
-      }
-    }
   }
-  // .expanded class added to .forecastDay-container
-  // .expanded {
-  //   height: $d_forecast-expanded-height;
-  //   .days-wrapper {
-  //     justify-content: center;
-  //     width: 100%;
-  //   }
-  // }
 }
