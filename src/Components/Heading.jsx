@@ -42,7 +42,10 @@ class Heading extends React.Component {
   }
   componentDidUpdate(prevProps) {
     if (this.props != prevProps) {
-      this.loadBgImage(this.props.location, this.props.description);
+      // Load new image when location is updated
+      if (this.props.location != prevProps.location) {
+        this.loadBgImage(this.props.location, this.props.description);
+      }
 
       this.setState({
         city: this.props.location.city,
@@ -54,15 +57,17 @@ class Heading extends React.Component {
   loadBgImage(location, description) {
     let city = location.city;
     let state = location.stateName;
+    let searchStr = 'scenic+sunshine+clouds';
 
-    if (!city || !state || !description) return;
+    if (city && state && description) {
+      city = city.split(' ').join('+');
+      state = state.split(' ').join('+');
+      description = description.split(' ').join('+');
 
-    city = city.split(' ').join('+');
-    state = state.split(' ').join('+');
-    description = description.split(' ').join('+');
-
-    let searchStr = description + '+' + city + '+' + state;
-    // let searchStr = formattedDescription + '+weather';
+      searchStr = description + '+' + city + '+' + state;
+      // let searchStr = formattedDescription + '+weather';
+    }
+    console.log('searchStr: ', searchStr);
 
     let url =
       'https://source.unsplash.com/random/featured/?' +

@@ -19,6 +19,7 @@
     color: $weather-icon;
     font-size: 5rem;
     padding: 8% 0 0 0;
+    animation: fade 6s linear infinite, arc 6s linear infinite;
   }
   .unit-slider {
     margin-left: auto;
@@ -45,5 +46,41 @@
     .text-temperature {
       font-size: 5.5rem;
     }
+  }
+}
+
+// Animation
+@keyframes fade {
+  0% {
+    color: rgba(255, 255, 255, 0);
+  }
+  50% {
+    color: $weather-icon;
+  }
+  100% {
+    color: rgba(255, 255, 255, 0);
+  }
+}
+@keyframes arc {
+  0% {
+    transform: translate(-45px, 25px) scale(0.65);
+  }
+  20% {
+    transform: translate(-25px, 5px) scale(0.8);
+  }
+  40% {
+    transform: translate(-10px, -10px) scale(0.9);
+  }
+  50% {
+    transform: translate(0, -20px) scale(1);
+  }
+  60% {
+    transform: translate(10px, -10px) scale(0.9);
+  }
+  80% {
+    transform: translate(25px, 5px) scale(0.8);
+  }
+  100% {
+    transform: translate(45px, 25px) scale(0.7);
   }
 }
