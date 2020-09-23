@@ -42,6 +42,9 @@ class Main extends React.Component {
       weatherView: weatherView,
     });
   }
+  swapForecast(forecastType) {
+    console.log('forecastType: ', forecastType);
+  }
   render(props) {
     let {
       units,
@@ -74,19 +77,34 @@ class Main extends React.Component {
             </button>
             <Details units={units} wDetails={wDetails} />
           </div>
-          <div className="box-days swipeable swipes-left">
-            <ForecastDay
-              dayForecast={dayForecast}
-              units={units}
-              layout={layout}
-            />
-          </div>
-          <div className="box-hours swipeable swipes-right ">
-            <ForecastHour
-              hourForecast={hourForecast}
-              units={units}
-              layout={layout}
-            />
+
+          <div className="box-forecasts">
+            {/* <button
+              className="forecast-btn day-btn"
+              onClick={this.swapForecast('day')}
+            >
+              DAY |
+            </button>
+            <button
+              className="forecast-btn hour-btn"
+              onClick={this.swapForecast('hour')}
+            >
+              HOUR
+            </button> */}
+            <div className="box-days">
+              <ForecastDay
+                dayForecast={dayForecast}
+                units={units}
+                layout={layout}
+              />
+            </div>
+            <div className="box-hours">
+              <ForecastHour
+                hourForecast={hourForecast}
+                units={units}
+                layout={layout}
+              />
+            </div>
           </div>
         </div>
       );

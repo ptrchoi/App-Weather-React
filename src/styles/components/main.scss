@@ -42,10 +42,31 @@
 }
 
 // MOBILE - Forecast Day, Forecast Hour
-.box-days,
-.box-hours {
+.box-forecasts {
   height: $m_forecast-height;
+  position: absolute;
   top: $m_heading-height + $m_primary-height + $m_secondary-height;
+  width: 100%;
+  .box-days,
+  .box-hours {
+  }
+
+  // .forecast-btn {
+  //   border: none;
+  //   background-color: inherit;
+  //   cursor: pointer;
+  //   display: inline-block;
+
+  //   margin-top: -20px;
+  // }
+  // .forecast-btn:hover {
+  //   background: #eee;
+  // }
+
+  // .day-btn {
+  // }
+  // .hour-btn {
+  // }
 }
 
 // Swipe transitions
@@ -91,7 +112,9 @@
   .box-days,
   .box-hours {
     height: $d_forecast-height;
+    position: absolute;
     top: none;
+    width: 100%;
   }
 }
 
