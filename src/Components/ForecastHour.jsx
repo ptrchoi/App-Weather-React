@@ -3,7 +3,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // UTILITY FUNCTIONS
-import { formatTemp, convertTime, getRainIconStyling } from './../Utils';
+import { formatTemp, convertTime, getRainIconFillHeight } from './../Utils';
 
 // COMPONENTS
 import C from '../constants';
@@ -96,15 +96,20 @@ class ForecastHour extends React.Component {
                 &deg;
               </span>
             </p>
-            <p className="item item-rain">
-              <i
-                className="fas fa-umbrella"
-                style={getRainIconStyling(hour.pop * 100)}
-              ></i>
-              <span className="text-percent">
-                {Math.round(hour.pop * 100)}%
-              </span>
-            </p>
+            <div className="item item-rain">
+              <div className="wrapper-raindrop-icon">
+                <span className="raindrop-under fas fa-tint"></span>
+                <span
+                  className="raindrop-over fas fa-tint"
+                  style={getRainIconFillHeight(hour.pop * 100)}
+                ></span>
+              </div>
+              <div className="wrapper-raindrop-text">
+                <p className="text-probability">
+                  {Math.round(hour.pop * 100)}%
+                </p>
+              </div>
+            </div>
           </div>
         );
       };

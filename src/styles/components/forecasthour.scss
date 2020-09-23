@@ -39,12 +39,36 @@
       }
     }
     .item-rain {
-      .fa-umbrella {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .wrapper-raindrop-icon {
         font-size: 1.2rem;
-        padding-bottom: 8%;
+        position: relative;
+        display: inline-block;
+
+        .raindrop-under {
+          color: $rain-probability;
+          vertical-align: top;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: $rain-probability-outline;
+        }
+        .raindrop-over {
+          color: $rain-probability-fill;
+          position: absolute;
+          left: 0;
+          top: 0;
+          overflow: hidden;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: $rain-probability-outline;
+        }
       }
-      .text-percent {
-        font-size: 0.7rem;
+      .wrapper-raindrop-text {
+        .text-probability {
+          font-size: 0.8rem;
+        }
       }
     }
   }
@@ -75,12 +99,37 @@
       }
     }
     .item-rain {
-      .fa-umbrella {
-        font-size: 1.3rem;
-        padding-right: 5%;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      .wrapper-raindrop-icon {
+        font-size: 1.2rem;
+        position: relative;
+        display: inline-block;
+
+        .raindrop-under {
+          color: $rain-probability;
+          vertical-align: top;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: $rain-probability-outline;
+        }
+        .raindrop-over {
+          color: $rain-probability-fill;
+          position: absolute;
+          left: 0;
+          top: 0;
+          overflow: hidden;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: $rain-probability-outline;
+        }
       }
-      .text-percent {
-        font-size: 0.9rem;
+      .wrapper-raindrop-text {
+        padding: 0 0 0 8%;
+        .text-probability {
+          font-size: 0.8rem;
+        }
       }
     }
   }
@@ -114,11 +163,14 @@
         }
       }
       .item-rain {
-        .fa-umbrella {
-          font-size: 1.9rem;
+        .wrapper-raindrop-icon {
+          font-size: 1.7rem;
         }
-        .text-percent {
-          font-size: 1.1rem;
+        .wrapper-raindrop-text {
+          padding-top: 5%;
+          .text-probability {
+            font-size: 0.9rem;
+          }
         }
       }
     }
@@ -132,8 +184,16 @@
         }
       }
       .item-rain {
-        .fa-umbrella {
-          font-size: 1.5rem;
+        flex-direction: row;
+
+        .wrapper-raindrop-icon {
+          font-size: 1.7rem;
+        }
+        .wrapper-raindrop-text {
+          padding: 0 0 0 8%;
+          .text-probability {
+            font-size: 0.9rem;
+          }
         }
       }
     }
