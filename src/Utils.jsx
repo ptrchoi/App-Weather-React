@@ -59,10 +59,18 @@ export const convertMetersToMiles = (distance) => {
 
 // Convert percent to an inverted height to fill from top down of raindrop overlay (white fill overlay over rain color underneath)
 export const getRainIconFillHeight = (percent) => {
-  let invertedHeight = 100 - percent + '%';
-  return {
-    height: invertedHeight,
-  };
+  // If zero % chance of rain, replace overlay "white" with a slightly "gray" color to make the icon more subtle
+  if (percent === 0) {
+    return {
+      color: 'rgba(210, 210, 210, 1)',
+      height: '100%',
+    };
+  } else {
+    let invertedHeight = 100 - percent + '%';
+    return {
+      height: invertedHeight,
+    };
+  }
 };
 
 // Returns EPA's rating scale based on uv index

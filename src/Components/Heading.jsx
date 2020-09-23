@@ -67,7 +67,7 @@ class Heading extends React.Component {
       searchStr = description + '+' + city + '+' + state;
       // let searchStr = formattedDescription + '+weather';
     }
-    console.log('searchStr: ', searchStr);
+    // console.log('searchStr: ', searchStr);
 
     let url =
       'https://source.unsplash.com/random/featured/?' +
