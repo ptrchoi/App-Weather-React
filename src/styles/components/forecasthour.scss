@@ -139,6 +139,12 @@
   flex-direction: column;
 }
 
+// Remove borders on last element
+.hours-wrapper .hour-compact:last-child,
+.hour-expanded:last-child {
+  border: none;
+}
+
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .forecastHour-container {
@@ -149,7 +155,8 @@
       font-size: 1.2rem;
       grid-template-columns: 1fr;
       grid-template-rows: 34% 33% 33%;
-      padding-bottom: 6%;
+      overflow: hidden;
+      padding: 0 4% 6% 0;
 
       .item {
         padding-right: 4%;

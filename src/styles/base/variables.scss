@@ -27,10 +27,13 @@ $main-text: white;
 $rain-probability: rgb(29, 224, 245);
 $rain-probability-outline: rgb(227, 227, 227);
 $rain-probability-fill: white;
-$temp-high-red: rgb(145, 16, 7);
-$temp-low-blue: rgb(12, 84, 128);
 $weather-icon: white;
 $temperature-text: white;
+
+// High/Low Temperatures
+$temp-high-red: rgb(145, 16, 7);
+$temp-low-blue: rgb(12, 84, 128);
+$temp-text-shadow: rgba(255, 255, 255, 0.31);
 
 // Heading section:
 $search-button: black;
@@ -51,8 +54,8 @@ $sun-icon: yellow;
 $moon-icon: black;
 
 // Buttons:
-$units-button: rgb(58, 58, 58);
-$units-button-border: #ccc;
+$units-button: gray;
+$units-button-border: rgb(179, 179, 179);
 $units-text-C: orange;
 $units-text-F: orange;
 $units-text-background: white;

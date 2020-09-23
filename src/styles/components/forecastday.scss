@@ -95,7 +95,8 @@
     .item-highLow {
       display: flex;
       flex-direction: column;
-      font-size: 0.6rem;
+      font-size: 0.8rem;
+      text-shadow: 1px 1px 0 $temp-text-shadow;
     }
   }
   .day-expanded {
@@ -165,8 +166,9 @@
     }
     .item-highLow {
       display: flex;
-      flex-direction: column;
-      font-size: 0.6rem;
+      flex-direction: row;
+      font-size: 0.8rem;
+      text-shadow: 1px 1px 0 $temp-text-shadow;
     }
   }
 }
@@ -179,6 +181,12 @@
 .expanded-wrapper {
   flex-direction: column;
   padding: 0 2% 0 10%;
+}
+
+// Remove borders on last element
+.days-wrapper .day-compact:last-child,
+.day-expanded:last-child {
+  border: none;
 }
 
 // Desktop/wider screens
@@ -218,7 +226,7 @@
         }
       }
       .item-highLow {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
       }
     }
 
