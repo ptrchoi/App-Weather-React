@@ -4,18 +4,18 @@ $MOBILE-WIDTH-BREAKPOINT: 600px;
 $DESKTOP-MAX-WIDTH: 1200px;
 
 // figure out total # section rows; height percentages based on # of rows out of total
+// MOBILE Heights:
 $m_heading-height: 18vh;
 $m_primary-height: 22vh;
 $m_secondary-height: 25vh;
-$m_forecast-compact-height: 35vh;
-$m_forecast-expanded-height: 60vh;
+$m_forecast-height: 35vh;
 
+// DESKTOP Heights:
 $d_heading-height: 20vh;
 $d_primary-height: 20vh;
 $d_secondary-height: 25vh;
 $d_details-height: 35vh;
-$d_forecast-compact-height: 40vh;
-$d_forecast-expanded-height: 80vh;
+$d_forecast-height: 40vh;
 
 // COLORS:
 //-------------------------------------------------------------

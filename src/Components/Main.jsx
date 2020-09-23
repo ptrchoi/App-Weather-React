@@ -18,7 +18,6 @@ class Main extends React.Component {
     };
 
     this.swipeContent = this.swipeContent.bind(this);
-    this.handleResize = this.handleResize.bind(this);
   }
   swipeContent() {
     let { weatherView } = this.state;
@@ -42,31 +41,6 @@ class Main extends React.Component {
     this.setState({
       weatherView: weatherView,
     });
-  }
-  handleResize(size, layout, whichBox) {
-    // MOBILE layout - forecasts expands over summary/details sections
-    if (layout === 'mobile') {
-      if (size === 'compact') {
-        $('.box-summary').removeClass('hidden');
-        $('.box-details').removeClass('hidden');
-        $('.box-days').removeClass('box-days--expanded');
-        $('.box-hours').removeClass('box-hours--expanded');
-      } else {
-        $('.box-summary').addClass('hidden');
-        $('.box-details').addClass('hidden');
-        $('.box-days').addClass('box-days--expanded');
-        $('.box-hours').addClass('box-hours--expanded');
-      }
-    } else {
-      // DESKTOP layout - forecast expands over the other forecast section
-      if (size === 'compact') {
-        if (whichBox === 'days') $('.box-hours').removeClass('hidden');
-        else $('.box-days').removeClass('hidden');
-      } else {
-        if (whichBox === 'days') $('.box-hours').addClass('hidden');
-        else $('.box-days').addClass('hidden');
-      }
-    }
   }
   render(props) {
     let {
@@ -105,9 +79,6 @@ class Main extends React.Component {
               dayForecast={dayForecast}
               units={units}
               layout={layout}
-              onResize={(size) => {
-                this.handleResize(size, layout, 'days');
-              }}
             />
           </div>
           <div className="box-hours swipeable swipes-right ">
@@ -115,9 +86,6 @@ class Main extends React.Component {
               hourForecast={hourForecast}
               units={units}
               layout={layout}
-              onResize={(size) => {
-                this.handleResize(size, layout, 'hours');
-              }}
             />
           </div>
         </div>
@@ -145,9 +113,6 @@ class Main extends React.Component {
                 dayForecast={dayForecast}
                 units={units}
                 layout={layout}
-                onResize={(size) => {
-                  this.handleResize(size, layout, 'days');
-                }}
               />
             </div>
             <div className="box-hours">
@@ -155,9 +120,6 @@ class Main extends React.Component {
                 hourForecast={hourForecast}
                 units={units}
                 layout={layout}
-                onResize={(size) => {
-                  this.handleResize(size, layout, 'hours');
-                }}
               />
             </div>
           </div>

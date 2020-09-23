@@ -4,7 +4,7 @@
 .main-container {
   display: flex;
   flex-direction: row;
-  height: $m_primary-height + $m_secondary-height + $m_forecast-compact-height;
+  height: $m_primary-height + $m_secondary-height + $m_forecast-height;
   justify-content: center;
   width: 100%;
 }
@@ -44,13 +44,8 @@
 // MOBILE - Forecast Day, Forecast Hour
 .box-days,
 .box-hours {
-  height: $m_forecast-compact-height;
+  height: $m_forecast-height;
   top: $m_heading-height + $m_primary-height + $m_secondary-height;
-}
-.box-days--expanded,
-.box-hours--expanded {
-  height: $m_forecast-expanded-height;
-  top: $m_heading-height + $m_primary-height;
 }
 
 // Swipe transitions
@@ -79,7 +74,7 @@
 
     display: flex;
     flex-direction: column;
-    height: $d_primary-height + $d_secondary-height + $d_forecast-compact-height;
+    height: $d_primary-height + $d_secondary-height + $d_forecast-height;
     // width: 50%;
   }
   .left-column {
@@ -95,12 +90,7 @@
   // DESKTOP - Forecast Day, Forecast Hour
   .box-days,
   .box-hours {
-    height: $d_forecast-compact-height;
-    top: none;
-  }
-  .box-days--expanded,
-  .box-hours--expanded {
-    height: $d_forecast-expanded-height;
+    height: $d_forecast-height;
     top: none;
   }
 }

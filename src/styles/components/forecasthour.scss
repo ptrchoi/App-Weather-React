@@ -80,7 +80,7 @@
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .hourly-forecast-container {
-    height: $d_forecast-compact-height;
+    height: $d_forecast-height;
 
     .hour-forecast {
       font-size: 1.2rem;
