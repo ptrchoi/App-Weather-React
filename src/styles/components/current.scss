@@ -24,6 +24,7 @@
   .unit-slider {
     margin-left: auto;
     padding: 0 10% 5% 0;
+    transform: scale(0.7);
   }
   .text-temperature {
     color: $temperature-text;
@@ -42,6 +43,7 @@
       padding: 10% 0 0 10%;
     }
     .unit-slider {
+      transform: scale(0.9);
     }
     .text-temperature {
       font-size: 5.5rem;
