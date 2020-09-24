@@ -6,9 +6,9 @@ $DESKTOP-MAX-WIDTH: 1200px;
 // figure out total # section rows; height percentages based on # of rows out of total
 // MOBILE Heights:
 $m_heading-height: 18vh;
-$m_primary-height: 22vh;
-$m_secondary-height: 25vh;
-$m_forecast-height: 35vh;
+$m_primary-height: 19vh;
+$m_secondary-height: 24vh;
+$m_forecast-height: 39vh;
 
 // DESKTOP Heights:
 $d_heading-height: 20vh;
@@ -21,8 +21,8 @@ $d_forecast-height: 40vh;
 //-------------------------------------------------------------
 // General:
 $background-transparency: rgba(48, 48, 48, 0.516);
+$forecast-background-transparency: rgba(16, 16, 16, 0.18);
 $main-text: white;
-// $text-shadow: rgba(255, 255, 255, 0.283);
 $text-shadow-light: rgba(165, 165, 165, 0.844);
 $text-shadow-dark: rgba(2, 2, 2, 0.577);
 

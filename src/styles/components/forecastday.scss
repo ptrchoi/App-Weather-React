@@ -2,6 +2,8 @@
   Default styling for mobile
 -----------------------------------------------*/
 .forecast-container {
+  background-color: $forecast-background-transparency;
+
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -15,7 +17,7 @@
     display: grid;
     font-size: 0.8rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 15% 35% 20% 20%;
+    grid-template-rows: 14% 34% 20% 22%;
     height: 90%;
     padding: 0 6%;
     text-align: center;
@@ -73,6 +75,16 @@
       font-size: 0.6rem;
       text-shadow: 1px 1px 0 $text-shadow-dark;
 
+      span {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        span {
+          font-size: 0.8rem;
+          padding-left: 6%;
+          text-shadow: 1px 1px 1px rgba(21, 21, 21, 0.837);
+        }
+      }
       .temp-low {
         color: $temp-low-blue;
       }
@@ -89,6 +101,7 @@
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .forecast-container {
+    background-color: rgba(0, 0, 0, 0); // fully transparent ie. no bgc
     // Individual day forecast div
     .day-forecast {
       font-size: 1.3rem;
@@ -115,6 +128,13 @@
       }
       .item-highLow {
         font-size: 1.1rem;
+
+        span {
+          span {
+            font-size: 1.1rem;
+            padding-left: 6%;
+          }
+        }
       }
     }
   }

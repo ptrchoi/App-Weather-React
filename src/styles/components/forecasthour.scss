@@ -2,6 +2,8 @@
   Default styling for mobile
 -----------------------------------------------*/
 .hourly-forecast-container {
+  background-color: $forecast-background-transparency;
+
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -73,6 +75,8 @@
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .hourly-forecast-container {
+    background-color: rgba(0, 0, 0, 0); // fully transparent ie. no bgc
+
     .hour-forecast {
       font-size: 1.3rem;
       height: 80%;

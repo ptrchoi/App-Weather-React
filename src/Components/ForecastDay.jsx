@@ -94,10 +94,12 @@ class ForecastDay extends React.Component {
             </div>
             <p className="item item-highLow">
               <span className="temp-high">
-                <i className="fas fa-long-arrow-alt-up"></i> {day.high}&deg;{' '}
+                <i className="fas fa-long-arrow-alt-up"></i>
+                <span>{day.high}&deg;</span>
               </span>
               <span className="temp-low">
-                <i className="fas fa-long-arrow-alt-down"></i> {day.low}&deg;
+                <i className="fas fa-long-arrow-alt-down"></i>
+                <span>{day.low}&deg;</span>
               </span>
             </p>
           </div>
