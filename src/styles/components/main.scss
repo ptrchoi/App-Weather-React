@@ -47,26 +47,18 @@
   position: absolute;
   top: $m_heading-height + $m_primary-height + $m_secondary-height;
   width: 100%;
+  .forecast-btn {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    color: black;
+  }
+  .active-btn {
+    color: white;
+  }
   .mobile-box-days,
   .mobile-box-hours {
+    // height: $m_forecast-height;
   }
-
-  // .forecast-btn {
-  //   border: none;
-  //   background-color: inherit;
-  //   cursor: pointer;
-  //   display: inline-block;
-
-  //   margin-top: -20px;
-  // }
-  // .forecast-btn:hover {
-  //   background: #eee;
-  // }
-
-  // .day-btn {
-  // }
-  // .hour-btn {
-  // }
 }
 
 // Swipe transitions
@@ -108,12 +100,6 @@
     top: none;
   }
   // DESKTOP - Forecast Day, Forecast Hour
-  // .box-forecasts {
-  //   // border: solid 1px red;
-  //   height: $d_forecast-height + $d_forecast-height;
-  //   position: absolute;
-  //   top: $d_heading-height;
-  //   width: 100%;
   .box-days {
     height: $d_forecast-height;
     position: absolute;
@@ -126,7 +112,6 @@
     top: $d_heading-height + $d_forecast-height;
     width: 100%;
   }
-  // }
 }
 
 .hidden {

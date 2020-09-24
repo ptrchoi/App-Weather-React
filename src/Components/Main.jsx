@@ -45,16 +45,22 @@ class Main extends React.Component {
       weatherView: weatherView,
     });
   }
-  swapForecast() {
+  swapForecast(e, caller) {
+    e.preventDefault();
     let { mobileForecastType } = this.state;
+    if (caller === mobileForecastType) return;
 
     if (mobileForecastType === 'day') {
       $('.mobile-box-hours').removeClass('hidden');
       $('.mobile-box-days').addClass('hidden');
+      $('.day-btn').removeClass('active-btn');
+      $('.hour-btn').addClass('active-btn');
       mobileForecastType = 'hour';
     } else {
       $('.mobile-box-days').removeClass('hidden');
       $('.mobile-box-hours').addClass('hidden');
+      $('.hour-btn').removeClass('active-btn');
+      $('.day-btn').addClass('active-btn');
       mobileForecastType = 'day';
     }
 
@@ -96,23 +102,23 @@ class Main extends React.Component {
           </div>
 
           <div className="box-forecasts">
-            {/* <button
-              className="forecast-btn day-btn"
-              onClick={this.swapForecast()}
+            <button
+              className="forecast-btn day-btn active-btn"
+              onClick={(e) => {
+                this.swapForecast(e, 'day');
+              }}
             >
-              DAY |
+              DAY
             </button>
+            <span>&nbsp;|&nbsp;</span>
             <button
               className="forecast-btn hour-btn"
-              onClick={this.swapForecast()}
+              onClick={(e) => {
+                this.swapForecast(e, 'hour');
+              }}
             >
               HOUR
-            </button> */}
-            <UnitButton
-              toggleType="forecast"
-              forecastType={this.state.mobileForecastType}
-              onToggleForecast={this.swapForecast}
-            />
+            </button>
             <div className="mobile-box-days">
               <ForecastDay
                 dayForecast={dayForecast}
@@ -148,7 +154,6 @@ class Main extends React.Component {
             </div>
           </div>
           <div className="column right-column">
-            {/* <div className="box-forecasts"> */}
             <div className="box-days">
               <ForecastDay
                 dayForecast={dayForecast}
@@ -163,7 +168,6 @@ class Main extends React.Component {
                 layout={layout}
               />
             </div>
-            {/* </div> */}
           </div>
         </div>
       );
