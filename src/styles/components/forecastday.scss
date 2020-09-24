@@ -2,23 +2,23 @@
   Default styling for mobile
 -----------------------------------------------*/
 .forecast-container {
+  border: solid 1px teal;
+
   display: flex;
   flex-direction: row;
-  // height: 50%; // Only display within a subset of the full height
-  width: 100%;
+  height: 100%;
+  justify-content: space-between;
   overflow: auto;
+  width: 100%;
 
   .day-forecast {
-    height: 95%;
-
     border-right: solid 1px $accent-divider;
-    align-items: center;
     display: grid;
     font-size: 0.9rem;
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
     grid-template-rows: 12% 34% 26% 25%;
     padding: 4%;
-    width: 60vw;
+    text-align: center;
 
     .item {
       padding-bottom: 10%;
@@ -78,7 +78,7 @@
     .item-highLow {
       display: flex;
       flex-direction: column;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       text-shadow: 1px 1px 0 $temp-text-shadow;
 
       .temp-low {
@@ -97,16 +97,19 @@
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .forecast-container {
-    height: $d_forecast-height;
-    width: 96%;
+    border: solid 1px red;
+    align-items: center;
+    // justify-content: none;
+
     // Individual day forecast div
     .day-forecast {
       font-size: 1.3rem;
-      height: 75%;
-      padding-right: 5%;
+      height: 90%;
+      // padding-right: 5%;
 
       .item {
-        padding: 0 0 30% 0;
+        // padding-bottom: 10%;
+        // text-align: none;
       }
       .item-temperature {
         .icon-weather {

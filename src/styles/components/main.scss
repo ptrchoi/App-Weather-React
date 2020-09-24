@@ -25,6 +25,32 @@
 .box-summary {
   top: $m_heading-height + $m_primary-height;
 }
+// MOBILE - Forecast Day, Forecast Hour
+.box-forecasts {
+  // border: solid 3px black;
+  height: $m_forecast-height;
+  position: absolute;
+  top: $m_heading-height + $m_primary-height + $m_secondary-height;
+  width: 100%;
+  .forecast-btn {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    color: black;
+    padding: 1%;
+  }
+  .active-btn {
+    color: white;
+  }
+  .mobile-box-days,
+  .mobile-box-hours {
+    // border: solid 1px yellow;
+
+    height: 80%; // adjust for shorter display height for the forecast-container
+  }
+}
+
+// .temp-btn called in <Main> - summary div
+// also called in <Details> - details div
 .temporary-btn {
   background-color: rgba(255, 255, 255, 0);
   border: none;
@@ -39,26 +65,6 @@
 .btn2 {
   margin-left: auto;
   padding: 10% 10% 0 0;
-}
-
-// MOBILE - Forecast Day, Forecast Hour
-.box-forecasts {
-  height: $m_forecast-height;
-  position: absolute;
-  top: $m_heading-height + $m_primary-height + $m_secondary-height;
-  width: 100%;
-  .forecast-btn {
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    color: black;
-  }
-  .active-btn {
-    color: white;
-  }
-  .mobile-box-days,
-  .mobile-box-hours {
-    // height: $m_forecast-height;
-  }
 }
 
 // Swipe transitions
@@ -91,29 +97,39 @@
   }
   .left-column {
     width: 40%;
+    .box-summary {
+      top: none;
+    }
   }
   .right-column {
     padding-left: 8%;
     width: 60%;
-  }
-  .box-summary {
-    top: none;
-  }
-  // DESKTOP - Forecast Day, Forecast Hour
-  .box-days {
-    height: $d_forecast-height;
-    position: absolute;
-    top: $d_heading-height;
-    width: 100%;
-  }
-  .box-hours {
-    height: $d_forecast-height;
-    position: absolute;
-    top: $d_heading-height + $d_forecast-height;
-    width: 100%;
+    // DESKTOP - Forecast Day, Forecast Hour
+    .box-forecasts {
+      // border: solid 4px purple;
+
+      height: $d_forecast-height + $d_forecast-height;
+      position: absolute;
+      top: $d_heading-height;
+      width: 100%;
+
+      .box-days {
+        border: solid 2px yellow;
+
+        height: 40%;
+        position: absolute;
+        top: 0;
+      }
+      .box-hours {
+        border: solid 2px blue;
+
+        height: 40%;
+        position: absolute;
+        top: $d_forecast-height;
+      }
+    }
   }
 }
-
 .hidden {
   display: none;
 }

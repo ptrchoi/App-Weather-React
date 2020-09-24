@@ -154,19 +154,21 @@ class Main extends React.Component {
             </div>
           </div>
           <div className="column right-column">
-            <div className="box-days">
-              <ForecastDay
-                dayForecast={dayForecast}
-                units={units}
-                layout={layout}
-              />
-            </div>
-            <div className="box-hours">
-              <ForecastHour
-                hourForecast={hourForecast}
-                units={units}
-                layout={layout}
-              />
+            <div className="box-forecasts">
+              <div className="box-days">
+                <ForecastDay
+                  dayForecast={dayForecast}
+                  units={units}
+                  layout={layout}
+                />
+              </div>
+              <div className="box-hours">
+                <ForecastHour
+                  hourForecast={hourForecast}
+                  units={units}
+                  layout={layout}
+                />
+              </div>
             </div>
           </div>
         </div>

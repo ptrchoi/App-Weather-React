@@ -2,17 +2,17 @@
   Default styling for mobile
 -----------------------------------------------*/
 .hourly-forecast-container {
+  border: solid 1px green;
+
   display: flex;
   flex-direction: row;
-  // height: 95%;
+  height: 100%;
   justify-content: space-between;
   overflow: auto;
-  padding: 0 4%;
+  // padding: 0 4%;
   width: 100%;
 
   .hour-forecast {
-    height: 95%;
-
     border-right: solid 1px $accent-divider;
     display: grid;
     font-size: 0.8rem;
@@ -82,11 +82,12 @@
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .hourly-forecast-container {
-    height: $d_forecast-height;
+    // height: $d_forecast-height;
+    align-items: center;
 
     .hour-forecast {
       font-size: 1.2rem;
-      height: 80%;
+      height: 70%;
 
       .item {
         padding-right: 4%;
