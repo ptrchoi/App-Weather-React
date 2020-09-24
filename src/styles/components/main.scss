@@ -27,7 +27,6 @@
 }
 // MOBILE - Forecast Day, Forecast Hour
 .box-forecasts {
-  // border: solid 3px black;
   height: $m_forecast-height;
   position: absolute;
   top: $m_heading-height + $m_primary-height + $m_secondary-height;
@@ -43,8 +42,6 @@
   }
   .mobile-box-days,
   .mobile-box-hours {
-    // border: solid 1px yellow;
-
     height: 80%; // adjust for shorter display height for the forecast-container
   }
 }
@@ -89,43 +86,37 @@
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   // DESKTOP layout has 2 columns
   .column {
-    // border: solid 3px black;
-
     display: flex;
     flex-direction: column;
     height: $d_primary-height + $d_secondary-height + $d_forecast-height;
   }
   .left-column {
-    width: 40%;
+    width: 50%;
+
     .box-summary {
       top: none;
     }
   }
   .right-column {
-    padding-left: 8%;
-    width: 60%;
+    width: 50%;
+
     // DESKTOP - Forecast Day, Forecast Hour
     .box-forecasts {
-      // border: solid 4px purple;
-
       height: $d_forecast-height + $d_forecast-height;
-      position: absolute;
       top: $d_heading-height;
-      width: 100%;
+      width: 50%;
 
       .box-days {
-        border: solid 2px yellow;
-
         height: 40%;
         position: absolute;
         top: 0;
+        width: 100%;
       }
       .box-hours {
-        border: solid 2px blue;
-
         height: 40%;
         position: absolute;
         top: $d_forecast-height;
+        width: 100%;
       }
     }
   }

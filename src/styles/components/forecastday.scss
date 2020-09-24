@@ -2,8 +2,6 @@
   Default styling for mobile
 -----------------------------------------------*/
 .forecast-container {
-  border: solid 1px teal;
-
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -97,19 +95,14 @@
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .forecast-container {
-    border: solid 1px red;
     align-items: center;
-    // justify-content: none;
 
     // Individual day forecast div
     .day-forecast {
       font-size: 1.3rem;
       height: 90%;
-      // padding-right: 5%;
 
       .item {
-        // padding-bottom: 10%;
-        // text-align: none;
       }
       .item-temperature {
         .icon-weather {

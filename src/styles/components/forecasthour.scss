@@ -2,8 +2,6 @@
   Default styling for mobile
 -----------------------------------------------*/
 .hourly-forecast-container {
-  border: solid 1px green;
-
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -82,7 +80,6 @@
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .hourly-forecast-container {
-    // height: $d_forecast-height;
     align-items: center;
 
     .hour-forecast {
