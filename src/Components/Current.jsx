@@ -14,8 +14,10 @@ function Current(props) {
 
   return (
     <div className="box-temperature">
-      <div className="wrapper-temperature icon-weather">
-        <i className={iconMapping}></i>
+      <div className="wrapper-temperature icon-weather-wrapper">
+        <div className=" icon-weather">
+          <i className={iconMapping}></i>
+        </div>
       </div>
       <div className="wrapper-temperature">
         <div className="unit-slider">

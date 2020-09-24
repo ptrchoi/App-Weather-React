@@ -15,11 +15,16 @@
     justify-content: center;
     width: 50%;
   }
-  .icon-weather {
-    color: $weather-icon;
-    font-size: 5rem;
-    padding: 8% 0 0 0;
-    animation: fade 7s linear infinite, arc 7s linear infinite;
+  .icon-weather-wrapper {
+    padding-top: 10%;
+    transform: scale(0.8);
+
+    .icon-weather {
+      color: $weather-icon;
+      font-size: 5rem;
+      padding: 8% 0 0 0;
+      animation: fade 7s linear infinite, arc 7s linear infinite;
+    }
   }
   .unit-slider {
     margin-left: auto;
@@ -38,9 +43,13 @@
   .box-temperature {
     height: $d_primary-height;
 
-    .icon-weather {
-      font-size: 6rem;
-      padding: 10% 0 0 10%;
+    .icon-weather-wrapper {
+      padding-top: 10%;
+      transform: scale(0.9);
+
+      .icon-weather {
+        font-size: 6rem;
+      }
     }
     .unit-slider {
       transform: scale(0.9);
