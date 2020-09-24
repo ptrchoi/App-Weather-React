@@ -1,16 +1,18 @@
 // MOBILE - Weather Details
 .box-details {
   height: $m_secondary-height;
-  top: $m_heading-height + $m_primary-height;
 
   .wrapper-details {
-    font-size: 0.9rem;
     display: flex;
     flex-direction: row;
-    padding-left: 10%;
+    font-size: 0.9rem;
+    height: 100%;
     width: 100%;
   }
   .column-details {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     width: 50%;
   }
   .details-label {

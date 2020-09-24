@@ -21,6 +21,30 @@ function Details(props) {
   return (
     <div className="wrapper-details">
       <div className="column-details">
+        <p className="wind-text">
+          <span>
+            <i className="wind-icon fas fa-wind"></i>
+          </span>{' '}
+          {windSpeed}mi/hr {windDeg}{' '}
+        </p>
+        <br />
+        <p>
+          <span className="daytime">
+            <i className="sun-icon detail-icon fas fa-sun"></i>
+            {sunrise}
+          </span>
+        </p>
+        <p>
+          <span className="daytime">
+            <i className="moon-icon detail-icon fas fa-moon"></i>
+            {sunset}
+          </span>
+        </p>
+        <button className="swipe-btn left-btn" onClick={props.onSwipe}>
+          <i className="fas fa-chevron-left"></i>&nbsp;summary
+        </button>
+      </div>
+      <div className="column-details">
         <p>
           <span className="details-label">Humidity: </span>
           {humidity}%
@@ -44,27 +68,6 @@ function Details(props) {
         <p>
           <span className="details-label">Visibility: </span>
           {visibility} mi
-        </p>
-      </div>
-      <div className="column-details">
-        <p className="wind-text">
-          <span>
-            <i className="wind-icon fas fa-wind"></i>
-          </span>{' '}
-          {windSpeed}mi/hr {windDeg}{' '}
-        </p>
-        <br />
-        <p>
-          <span className="daytime">
-            <i className="sun-icon detail-icon fas fa-sun"></i>
-            {sunrise}
-          </span>
-        </p>
-        <p>
-          <span className="daytime">
-            <i className="moon-icon detail-icon fas fa-moon"></i>
-            {sunset}
-          </span>
         </p>
       </div>
     </div>

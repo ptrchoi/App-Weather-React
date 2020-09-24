@@ -39,7 +39,7 @@ function Summary(props) {
               {low}&deg;
             </span>
           </p>
-          <button className="temporary-btn btn1" onClick={props.onSwipe}>
+          <button className="swipe-btn right-btn" onClick={props.onSwipe}>
             details&nbsp;<i className="fas fa-chevron-right"></i>
           </button>
         </div>
