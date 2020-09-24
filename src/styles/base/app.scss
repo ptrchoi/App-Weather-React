@@ -28,12 +28,12 @@ body {
 // FORCED Scrollbar to display
 ::-webkit-scrollbar {
   -webkit-appearance: none;
-  height: 10px;
+  height: 5px;
   width: 1px;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 20px;
+  border-radius: 40px;
   background-color: rgba(196, 196, 196, 0.899);
-  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px rgba(16, 16, 16, 0.797);
 }

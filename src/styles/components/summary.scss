@@ -2,69 +2,74 @@
 .summary-container {
   display: flex;
   flex-direction: row;
-  font-size: 1.2rem;
+  font-size: 0.85rem;
   height: $m_secondary-height;
 
   .wrapper-summary {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    padding: 0 0 0 4%;
     width: 50%;
+  }
+  .text-description {
+    padding-top: 16%;
+    text-align: center;
+  }
+  .wrapper-precipitation {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.4rem;
+    justify-content: center;
+    padding-top: 10%;
+    transform: scale(0.8);
 
-    p {
-      padding: 2% 0% 2% 0%;
-    }
-    .text-description {
-      padding-top: 16%;
-      text-align: center;
-    }
-    .wrapper-precipitation {
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-      font-size: 1.4rem;
-      justify-content: center;
-      padding: 20% 0 0 100%;
+    .wrapper-raindrop-icon {
+      font-size: 3rem;
+      position: relative;
+      display: inline-block;
 
-      .wrapper-raindrop-icon {
-        font-size: 3rem;
-        position: relative;
-        display: inline-block;
-
-        .raindrop-under {
-          color: $rain-probability;
-          vertical-align: top;
-          -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: $rain-probability-outline;
-        }
-        .raindrop-over {
-          color: $rain-probability-fill;
-          position: absolute;
-          left: 0;
-          top: 0;
-          overflow: hidden;
-          -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: $rain-probability-outline;
-        }
+      .raindrop-under {
+        color: $rain-probability;
+        vertical-align: top;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $rain-probability-outline;
       }
-      .wrapper-raindrop-text {
-        .text-probability {
-          align-self: flex-start;
-          font-size: 1.2rem;
-          padding: 0 0 80% 10%;
-        }
+      .raindrop-over {
+        color: $rain-probability-fill;
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $rain-probability-outline;
       }
     }
-    .temp-high-low {
-      text-shadow: 1px 1px 0 $text-shadow;
-      .temp-high {
-        color: $temp-high-red;
-        padding-right: 10%;
+    .wrapper-raindrop-text {
+      align-self: start;
+      padding-left: 4%;
+
+      .text-probability {
+        font-size: 1.2rem;
       }
-      .temp-low {
-        color: $temp-low-blue;
-      }
+    }
+  }
+  .text-feelslike {
+    padding-top: 16%;
+    text-align: center;
+  }
+  .temp-high-low {
+    font-size: 1.1rem;
+    padding-top: 11%;
+    text-align: center;
+    text-shadow: 1px 1px 0 $text-shadow;
+
+    .temp-high {
+      color: $temp-high-red;
+    }
+    .temp-low {
+      color: $temp-low-blue;
+      padding-left: 5%;
     }
   }
 }
@@ -73,30 +78,26 @@
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   // DESKTOP - Weather Summary
   .summary-container {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     height: $d_secondary-height;
     top: none;
 
-    .wrapper-summary {
-      padding: 3% 0 0% 8%;
+    .text-description {
+      padding-top: 0;
+    }
+    .wrapper-precipitation {
+      padding: 20% 0 0 0;
+      transform: scale(1.2);
 
-      p {
-        padding: 5% 0% 5% 0%;
+      .text-probability {
+        font-size: 1.5rem;
       }
-      .text-description {
-        padding-top: 20%;
-      }
-      .wrapper-precipitation {
-        font-size: 1.4rem;
-        padding: 30% 0 0 100%;
-
-        .icon-umbrella {
-          font-size: 3.5rem;
-        }
-        .text-probability {
-          font-size: 1.5rem;
-          padding: 0 0 80% 0;
-        }
+    }
+    .text-feelslike {
+      padding-top: 0;
+      .temp-high-low {
+        font-size: 1.1rem;
+        padding-top: 11%;
       }
     }
   }

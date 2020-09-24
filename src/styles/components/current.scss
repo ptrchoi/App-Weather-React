@@ -1,11 +1,11 @@
 // MOBILE - Current Temperature
 .box-temperature {
-  // border: solid 3px orange;
   display: flex;
   flex-direction: row;
   font-size: 3rem;
   height: $m_primary-height;
   justify-content: center;
+  margin-top: 5%;
   width: 100%;
 
   .wrapper-temperature {
@@ -33,7 +33,7 @@
   }
   .text-temperature {
     color: $temperature-text;
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
 }
 
@@ -42,6 +42,7 @@
   // DESKTOP - Current Temperature
   .box-temperature {
     height: $d_primary-height;
+    margin-top: 0;
 
     .icon-weather-wrapper {
       padding-top: 10%;

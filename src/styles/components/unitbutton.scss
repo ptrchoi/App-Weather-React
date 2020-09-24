@@ -38,13 +38,13 @@
   box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-  content: '°C';
+  content: 'C°';
   padding-left: 10px;
   background-color: $units-text-background;
   color: $units-text-C;
 }
 .onoffswitch-inner:after {
-  content: '°F';
+  content: 'F°';
   padding-right: 10px;
   background-color: white;
   color: $units-text-F;

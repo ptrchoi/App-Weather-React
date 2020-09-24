@@ -96,7 +96,7 @@ class Main extends React.Component {
           </div>
           <div className="box-details swipeable swipes-right">
             <button className="temporary-btn btn2" onClick={this.swipeContent}>
-              <i className="fas fa-chevron-left"></i>
+              <i className="fas fa-chevron-left"></i>&nbsp;summary
             </button>
             <Details units={units} wDetails={wDetails} />
           </div>
