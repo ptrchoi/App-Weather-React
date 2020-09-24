@@ -40,7 +40,7 @@ function Summary(props) {
           </p>
           <p className="text-feelslike">Feels Like {feelsLike}&deg;</p>
           <button className="temporary-btn btn1" onClick={props.onSwipe}>
-            <i className="fas fa-info-circle"></i>
+            <i className="fas fa-chevron-right"></i>
           </button>
         </div>
       </div>

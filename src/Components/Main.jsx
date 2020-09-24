@@ -96,7 +96,7 @@ class Main extends React.Component {
           </div>
           <div className="box-details swipeable swipes-right">
             <button className="temporary-btn btn2" onClick={this.swipeContent}>
-              <i className="fas fa-info-circle"></i>
+              <i className="fas fa-chevron-left"></i>
             </button>
             <Details units={units} wDetails={wDetails} />
           </div>
@@ -155,6 +155,7 @@ class Main extends React.Component {
           </div>
           <div className="column right-column">
             <div className="box-forecasts">
+              8 DAY FORECAST:
               <div className="box-days">
                 <ForecastDay
                   dayForecast={dayForecast}
@@ -163,6 +164,7 @@ class Main extends React.Component {
                 />
               </div>
               <div className="box-hours">
+                24 HOUR FORECAST:
                 <ForecastHour
                   hourForecast={hourForecast}
                   units={units}

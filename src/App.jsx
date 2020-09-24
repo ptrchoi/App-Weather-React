@@ -8,8 +8,8 @@ import Weather from './Components/Weather';
 
 // STYLE SHEETS
 import './styles/index.scss';
-import './styles/base/app.scss';
 import './styles/base/variables.scss';
+import './styles/base/app.scss';
 import './styles/weather-icons.scss';
 
 // APP COMPONENT CLASS
