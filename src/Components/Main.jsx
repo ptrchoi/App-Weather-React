@@ -102,25 +102,26 @@ class Main extends React.Component {
               onSwipe={this.swipeContent}
             />
           </div>
-
           <div className="box-forecasts">
-            <button
-              className="forecast-btn day-btn active-btn"
-              onClick={(e) => {
-                this.swapForecast(e, 'day');
-              }}
-            >
-              DAY
-            </button>
-            <span>&nbsp;|&nbsp;</span>
-            <button
-              className="forecast-btn hour-btn"
-              onClick={(e) => {
-                this.swapForecast(e, 'hour');
-              }}
-            >
-              HOUR
-            </button>
+            <div className="forecast-selector">
+              <button
+                className="forecast-btn day-btn active-btn"
+                onClick={(e) => {
+                  this.swapForecast(e, 'day');
+                }}
+              >
+                DAY
+              </button>
+              <span>&nbsp;|&nbsp;</span>
+              <button
+                className="forecast-btn hour-btn"
+                onClick={(e) => {
+                  this.swapForecast(e, 'hour');
+                }}
+              >
+                HOUR
+              </button>
+            </div>
             <div className="mobile-box-days">
               <ForecastDay
                 dayForecast={dayForecast}

@@ -34,15 +34,21 @@
   position: absolute;
   top: $m_heading-height + $m_primary-height + $m_secondary-height;
   width: 100%;
-  .forecast-btn {
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    color: rgb(40, 39, 39);
-    padding: 1%;
-    text-shadow: 1px 1px 0 $text-shadow;
-  }
-  .active-btn {
-    color: white;
+  .forecast-selector {
+    padding-left: 5%;
+
+    .forecast-btn {
+      background-color: rgba(255, 255, 255, 0);
+      border: none;
+      color: rgba(142, 142, 142, 0.974);
+      padding: 1%;
+      text-shadow: 1px 1px 0 $text-shadow-dark;
+    }
+    .active-btn {
+      color: white;
+      font-weight: bold;
+      // text-decoration: underline;
+    }
   }
   .mobile-box-days,
   .mobile-box-hours {

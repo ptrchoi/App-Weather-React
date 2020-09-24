@@ -2,6 +2,7 @@
   Default styling for mobile
 -----------------------------------------------*/
 .hourly-forecast-container {
+  align-items: center;
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -15,6 +16,7 @@
     font-size: 0.9rem;
     grid-template-columns: 1fr;
     grid-template-rows: 20% 40% 20%;
+    height: 86%;
     padding: 0 4%;
     text-align: center;
 
@@ -71,8 +73,6 @@
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .hourly-forecast-container {
-    align-items: center;
-
     .hour-forecast {
       font-size: 1.3rem;
       height: 80%;

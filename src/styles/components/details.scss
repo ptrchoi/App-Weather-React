@@ -39,9 +39,11 @@
   }
   .wind-text {
     color: $wind-details;
+    text-shadow: 1px 1px 0 $text-shadow-dark;
   }
   .wind-icon {
     color: $wind-icon;
+    font-size: 1.1rem;
   }
 }
 
@@ -55,7 +57,7 @@
       font-size: 1.5rem;
       display: flex;
       flex-direction: column;
-      margin-top: -20%;
+      margin-top: -25%;
       padding-left: 18%;
 
       p {
@@ -69,6 +71,10 @@
 
     .uvi-rating {
       font-size: 1rem;
+    }
+    .wind-icon {
+      color: $wind-icon;
+      font-size: 2.2rem;
     }
   }
 }

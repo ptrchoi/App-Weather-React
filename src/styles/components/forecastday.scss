@@ -2,6 +2,7 @@
   Default styling for mobile
 -----------------------------------------------*/
 .forecast-container {
+  align-items: center;
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -15,6 +16,7 @@
     font-size: 0.8rem;
     grid-template-columns: 1fr;
     grid-template-rows: 15% 35% 20% 20%;
+    height: 90%;
     padding: 0 6%;
     text-align: center;
 
@@ -69,7 +71,7 @@
       display: flex;
       flex-direction: column;
       font-size: 0.6rem;
-      text-shadow: 1px 1px 0 $text-shadow;
+      text-shadow: 1px 1px 0 $text-shadow-dark;
 
       .temp-low {
         color: $temp-low-blue;
@@ -87,8 +89,6 @@
 // Desktop/wider screens
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   .forecast-container {
-    align-items: center;
-
     // Individual day forecast div
     .day-forecast {
       font-size: 1.3rem;

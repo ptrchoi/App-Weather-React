@@ -23,7 +23,8 @@ $d_forecast-height: 40vh;
 $background-transparency: rgba(48, 48, 48, 0.516);
 $main-text: white;
 // $text-shadow: rgba(255, 255, 255, 0.283);
-$text-shadow: rgba(53, 53, 53, 0.378);
+$text-shadow-light: rgba(165, 165, 165, 0.844);
+$text-shadow-dark: rgba(2, 2, 2, 0.577);
 
 // Icons:
 $rain-probability: rgb(29, 224, 245);
@@ -49,10 +50,10 @@ $accent-divider: white;
 
 // Details section:
 $details-label: rgb(205, 205, 205);
-$wind-details: rgb(213, 211, 195);
-$wind-icon: black;
+$wind-details: rgb(150, 210, 90);
+$wind-icon: rgb(40, 40, 40);
 $sun-icon: yellow;
-$moon-icon: black;
+$moon-icon: rgb(17, 90, 154);
 
 // Buttons:
 $units-button: gray;
