@@ -28,7 +28,7 @@
 .temporary-btn {
   background-color: rgba(255, 255, 255, 0);
   border: none;
-  color: gray;
+  color: white;
   font-size: 1rem;
 }
 .btn1 {
@@ -47,8 +47,8 @@
   position: absolute;
   top: $m_heading-height + $m_primary-height + $m_secondary-height;
   width: 100%;
-  .box-days,
-  .box-hours {
+  .mobile-box-days,
+  .mobile-box-hours {
   }
 
   // .forecast-btn {
@@ -91,12 +91,11 @@
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   // DESKTOP layout has 2 columns
   .column {
-    // border: solid 1px red;
+    // border: solid 3px black;
 
     display: flex;
     flex-direction: column;
     height: $d_primary-height + $d_secondary-height + $d_forecast-height;
-    // width: 50%;
   }
   .left-column {
     width: 40%;
@@ -109,13 +108,25 @@
     top: none;
   }
   // DESKTOP - Forecast Day, Forecast Hour
-  .box-days,
+  // .box-forecasts {
+  //   // border: solid 1px red;
+  //   height: $d_forecast-height + $d_forecast-height;
+  //   position: absolute;
+  //   top: $d_heading-height;
+  //   width: 100%;
+  .box-days {
+    height: $d_forecast-height;
+    position: absolute;
+    top: $d_heading-height;
+    width: 100%;
+  }
   .box-hours {
     height: $d_forecast-height;
     position: absolute;
-    top: none;
+    top: $d_heading-height + $d_forecast-height;
     width: 100%;
   }
+  // }
 }
 
 .hidden {

@@ -19,7 +19,11 @@ function Current(props) {
       </div>
       <div className="wrapper-temperature">
         <div className="unit-slider">
-          <UnitButton units={units} onUnitsButton={props.onUnitsButton} />
+          <UnitButton
+            units={units}
+            toggleType="units"
+            onToggleUnits={props.onUnitsButton}
+          />
         </div>
         <div className="text-temperature">{currentTemp}&deg;</div>
       </div>

@@ -70,3 +70,78 @@
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px;
 }
+
+/* FORECAST VERSION OF TOGGLE
+-------------------------------------------*/
+/* Switch button */
+.onoffswitch2 {
+  position: relative;
+  width: 70px;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.onoffswitch2-checkbox {
+  display: none;
+}
+.onoffswitch2-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid $units-button-border;
+  border-radius: 20px;
+}
+.onoffswitch2-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch2-inner:before,
+.onoffswitch2-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 28px;
+  padding: 0;
+  line-height: 28px;
+  font-size: 10px;
+  color: $units-text-background;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch2-inner:before {
+  content: 'Hour';
+  padding-left: 10px;
+  background-color: $units-text-background;
+  color: $units-text-C;
+}
+.onoffswitch2-inner:after {
+  content: 'Day';
+  padding-right: 10px;
+  background-color: white;
+  color: $units-text-F;
+  text-align: right;
+}
+.onoffswitch2-switch {
+  display: block;
+  width: 32px;
+  margin: 0px;
+  background: $units-button;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 36px;
+  height: 32px;
+  border: 2px solid $units-button-border;
+  border-radius: 20px;
+  transition: all 0.3s ease-in 0s;
+}
+.onoffswitch2-checkbox:checked + .onoffswitch2-label .onoffswitch2-inner {
+  margin-left: 0;
+}
+.onoffswitch2-checkbox:checked + .onoffswitch2-label .onoffswitch2-switch {
+  right: 0px;
+}

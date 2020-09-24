@@ -8,6 +8,7 @@ import Summary from './Summary';
 import Details from './Details';
 import ForecastDay from './ForecastDay';
 import ForecastHour from './ForecastHour';
+import UnitButton from './UnitButton';
 
 class Main extends React.Component {
   constructor(props) {
@@ -15,9 +16,11 @@ class Main extends React.Component {
 
     this.state = {
       weatherView: 'summary',
+      mobileForecastType: 'day',
     };
 
     this.swipeContent = this.swipeContent.bind(this);
+    this.swapForecast = this.swapForecast.bind(this);
   }
   swipeContent() {
     let { weatherView } = this.state;
@@ -42,8 +45,22 @@ class Main extends React.Component {
       weatherView: weatherView,
     });
   }
-  swapForecast(forecastType) {
-    console.log('forecastType: ', forecastType);
+  swapForecast() {
+    let { mobileForecastType } = this.state;
+
+    if (mobileForecastType === 'day') {
+      $('.mobile-box-hours').removeClass('hidden');
+      $('.mobile-box-days').addClass('hidden');
+      mobileForecastType = 'hour';
+    } else {
+      $('.mobile-box-days').removeClass('hidden');
+      $('.mobile-box-hours').addClass('hidden');
+      mobileForecastType = 'day';
+    }
+
+    this.setState({
+      mobileForecastType: mobileForecastType,
+    });
   }
   render(props) {
     let {
@@ -81,24 +98,29 @@ class Main extends React.Component {
           <div className="box-forecasts">
             {/* <button
               className="forecast-btn day-btn"
-              onClick={this.swapForecast('day')}
+              onClick={this.swapForecast()}
             >
               DAY |
             </button>
             <button
               className="forecast-btn hour-btn"
-              onClick={this.swapForecast('hour')}
+              onClick={this.swapForecast()}
             >
               HOUR
             </button> */}
-            <div className="box-days">
+            <UnitButton
+              toggleType="forecast"
+              forecastType={this.state.mobileForecastType}
+              onToggleForecast={this.swapForecast}
+            />
+            <div className="mobile-box-days">
               <ForecastDay
                 dayForecast={dayForecast}
                 units={units}
                 layout={layout}
               />
             </div>
-            <div className="box-hours">
+            <div className="mobile-box-hours hidden">
               <ForecastHour
                 hourForecast={hourForecast}
                 units={units}
@@ -126,6 +148,7 @@ class Main extends React.Component {
             </div>
           </div>
           <div className="column right-column">
+            {/* <div className="box-forecasts"> */}
             <div className="box-days">
               <ForecastDay
                 dayForecast={dayForecast}
@@ -140,6 +163,7 @@ class Main extends React.Component {
                 layout={layout}
               />
             </div>
+            {/* </div> */}
           </div>
         </div>
       );

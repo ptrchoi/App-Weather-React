@@ -4,13 +4,15 @@
 .hourly-forecast-container {
   display: flex;
   flex-direction: row;
-  height: 95%;
+  // height: 95%;
   justify-content: space-between;
   overflow: auto;
   padding: 0 4%;
   width: 100%;
 
   .hour-forecast {
+    height: 95%;
+
     border-right: solid 1px $accent-divider;
     display: grid;
     font-size: 0.8rem;
@@ -84,6 +86,7 @@
 
     .hour-forecast {
       font-size: 1.2rem;
+      height: 80%;
 
       .item {
         padding-right: 4%;
