@@ -43,6 +43,7 @@
   .box-temperature {
     height: $d_primary-height;
     margin-top: 0;
+    padding-right: 5%; // this should align with (summary>.summary-left)
 
     .icon-weather-wrapper {
       padding-top: 10%;

@@ -82,6 +82,9 @@
     height: $d_secondary-height;
     top: none;
 
+    .summary-right {
+      padding-right: 5%; // This should align with (current>.box-temperature)
+    }
     .text-description {
       padding-top: 0;
     }

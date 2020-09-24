@@ -5,7 +5,7 @@ import React from 'react';
 import { getUVrating } from '../Utils';
 
 function Details(props) {
-  let { units, wDetails } = props;
+  let { units, wDetails, layout } = props;
   let {
     humidity,
     dewPt,
@@ -17,6 +17,9 @@ function Details(props) {
     sunrise,
     sunset,
   } = wDetails;
+
+  let btnClasses = 'swipe-btn left-btn';
+  if (layout === 'desktop') btnClasses += ' hidden';
 
   return (
     <div className="wrapper-details">
@@ -40,7 +43,7 @@ function Details(props) {
             {sunset}
           </span>
         </p>
-        <button className="swipe-btn left-btn" onClick={props.onSwipe}>
+        <button className={btnClasses} onClick={props.onSwipe}>
           <i className="fas fa-chevron-left"></i>&nbsp;summary
         </button>
       </div>

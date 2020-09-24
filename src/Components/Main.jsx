@@ -98,6 +98,7 @@ class Main extends React.Component {
             <Details
               units={units}
               wDetails={wDetails}
+              layout={layout}
               onSwipe={this.swipeContent}
             />
           </div>
@@ -151,7 +152,7 @@ class Main extends React.Component {
               <Summary wMain={wMain} layout={layout} />
             </div>
             <div className="box-details">
-              <Details units={units} wDetails={wDetails} />
+              <Details units={units} wDetails={wDetails} layout={layout} />
             </div>
           </div>
           <div className="column right-column">

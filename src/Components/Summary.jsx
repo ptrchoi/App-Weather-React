@@ -10,7 +10,7 @@ function Summary(props) {
   if (props.layout === 'mobile') {
     return (
       <div className="summary-container">
-        <div className="wrapper-summary">
+        <div className="wrapper-summary summary-left">
           <p className="text-description">{description}</p>
           <div className="wrapper-precipitation">
             <div className="wrapper-raindrop-icon">
@@ -27,7 +27,7 @@ function Summary(props) {
             </div>
           </div>
         </div>
-        <div className="wrapper-summary">
+        <div className="wrapper-summary summary-right">
           <p className="text-feelslike">feels Like {feelsLike}&deg;</p>
           <p className="temp-high-low">
             <span className="temp-high">
@@ -48,7 +48,7 @@ function Summary(props) {
   } else {
     return (
       <div className="summary-container">
-        <div className="wrapper-summary">
+        <div className="wrapper-summary summary-left">
           <p className="text-description">{description}</p>
           <div className="wrapper-precipitation">
             <div className="wrapper-raindrop-icon">
@@ -65,7 +65,7 @@ function Summary(props) {
             </div>
           </div>
         </div>
-        <div className="wrapper-summary">
+        <div className="wrapper-summary summary-right">
           <p className="text-feelslike">feels like {feelsLike}&deg;</p>
           <p className="temp-high-low">
             <span className="temp-high">
