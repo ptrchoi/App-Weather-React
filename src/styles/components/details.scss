@@ -15,6 +15,9 @@
     height: 100%;
     padding: 8% 0 0 8%;
     width: 50%;
+    p {
+      padding-bottom: 4%;
+    }
   }
   .details-label {
     color: $details-label;
@@ -54,6 +57,10 @@
       flex-direction: column;
       margin-top: -20%;
       padding-left: 18%;
+
+      p {
+        padding-bottom: 2%;
+      }
     }
     .column-details {
       padding-bottom: 10%;
