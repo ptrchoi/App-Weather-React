@@ -37,3 +37,18 @@ body {
   background-color: rgba(196, 196, 196, 0.899);
   box-shadow: 0 0 1px rgba(16, 16, 16, 0.797);
 }
+
+// Classes to counter device rotation to maintain portrait perspective
+.orientleft {
+  transform: rotate(-90deg) translateX(-100%);
+}
+.orientright {
+  transform: rotate(90deg) translateY(-100%);
+}
+@media screen and (orientation: landscape) {
+  .app-container {
+    height: 100vw;
+    width: 100vh;
+    transform-origin: 0 0;
+  }
+}

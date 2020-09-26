@@ -100,13 +100,15 @@
   .column {
     display: flex;
     flex-direction: column;
-    height: $d_primary-height + $d_secondary-height + $d_forecast-height;
   }
   .left-column {
     width: 50%;
 
     .box-summary {
-      top: none;
+      height: $d_summary-height;
+    }
+    .box-details {
+      height: $d_details-height;
     }
   }
   .right-column {
@@ -119,13 +121,13 @@
       width: 50%;
 
       .box-days {
-        height: 40%;
+        height: $d_forecast-height;
         position: absolute;
         top: 0;
         width: 100%;
       }
       .box-hours {
-        height: 40%;
+        height: $d_forecast-height;
         position: absolute;
         top: $d_forecast-height;
         width: 100%;

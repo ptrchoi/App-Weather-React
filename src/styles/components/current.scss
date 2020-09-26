@@ -41,7 +41,7 @@
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   // DESKTOP - Current Temperature
   .box-temperature {
-    height: $d_primary-height;
+    height: $d_current-height;
     margin-top: 0;
     padding-right: 5%; // this should align with (summary>.summary-left)
 

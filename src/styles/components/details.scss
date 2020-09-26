@@ -1,7 +1,5 @@
 // MOBILE - Weather Details
 .box-details {
-  height: $m_secondary-height;
-
   .wrapper-details {
     display: flex;
     flex-direction: row;
@@ -51,8 +49,6 @@
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
   // DESKTOP - Weather Details
   .box-details {
-    height: $d_details-height;
-
     .wrapper-details {
       font-size: 1.5rem;
       display: flex;

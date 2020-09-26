@@ -5,17 +5,21 @@ $DESKTOP-MAX-WIDTH: 1200px;
 
 // figure out total # section rows; height percentages based on # of rows out of total
 // MOBILE Heights:
-$m_heading-height: 18vh;
-$m_primary-height: 19vh;
-$m_secondary-height: 24vh;
-$m_forecast-height: 39vh;
+$m_heading-height: 18%;
+$m_primary-height: 19%;
+$m_secondary-height: 24%;
+$m_forecast-height: 39%;
 
 // DESKTOP Heights:
-$d_heading-height: 20vh;
-$d_primary-height: 20vh;
-$d_secondary-height: 25vh;
-$d_details-height: 35vh;
-$d_forecast-height: 40vh;
+$d_heading-height: 20%;
+
+// These 3 heights total 100% of it's container:
+$d_current-height: 25%;
+$d_summary-height: 25%;
+$d_details-height: 40%;
+
+// 2 of these heights total 100% of it's container
+$d_forecast-height: 42%;
 
 // COLORS:
 //-------------------------------------------------------------
