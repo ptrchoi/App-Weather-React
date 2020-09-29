@@ -38,14 +38,10 @@ body {
   box-shadow: 0 0 1px rgba(16, 16, 16, 0.797);
 }
 
-// Classes to counter device rotation to maintain portrait perspective
-.orientleft {
+.rotatedOrientation {
   transform: rotate(-90deg) translateX(-100%);
 }
-.orientright {
-  transform: rotate(90deg) translateY(-100%);
-}
-@media screen and (orientation: landscape) {
+@media only screen and (max-width: 1200px) and (orientation: landscape) {
   .app-container {
     height: 100vw;
     width: 100vh;

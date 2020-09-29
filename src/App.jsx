@@ -5,6 +5,7 @@ import $ from 'jquery';
 import 'regenerator-runtime/runtime';
 
 // COMPONENTS
+import C from './constants.js';
 import Weather from './Components/Weather';
 
 // STYLE SHEETS
@@ -15,28 +16,36 @@ import './styles/weather-icons.scss';
 
 // APP COMPONENT CLASS
 class App extends React.Component {
-  componentDidMount() {
-    // Set initial orientation
-    this.adjustOrientation(window.orientation);
-    // Function to counter device rotation to maintain portrait perspective
-    window.addEventListener(
-      'orientationchange',
-      () => this.adjustOrientation(window.orientation),
-      true
-    );
+  constructor(props) {
+    super(props);
+
+    this.adjustOrientation = this.adjustOrientation.bind(this);
   }
-  adjustOrientation(orientation) {
-    if (orientation === -90) {
-      $('.app-container').addClass('orientright');
-      $('.app-container').removeClass('orientleft');
-    }
-    if (orientation === 90) {
-      $('.app-container').addClass('orientleft');
-      $('.app-container').removeClass('orientright');
-    }
-    if (orientation === 0) {
-      $('.app-container').removeClass('orientleft');
-      $('.app-container').removeClass('orientright');
+  componentDidMount() {
+    // Find matches
+    let mqList = window.matchMedia('(orientation: portrait)');
+
+    // Set initial orientation
+    this.adjustOrientation(mqList);
+
+    // Listen for orientation changes (media query list)
+    mqList.addEventListener('change', () => {
+      this.adjustOrientation(mqList);
+    });
+  }
+  // Adjust orientation (if landscape)
+  adjustOrientation(mqList) {
+    // If there are media query list matches, we're in portrait
+    if (mqList.matches) {
+      if ($('.app-container').hasClass('rotatedOrientation'))
+        $('.app-container').removeClass('rotatedOrientation');
+      return;
+    } else {
+      let width = $(window).width();
+
+      // Check for landscape orientation only on smaller screens (C.DESKTOP_MAX_WIDTH needs to match in app.scss media query for 'max-width')
+      if (width < C.DESKTOP_MAX_WIDTH)
+        $('.app-container').addClass('rotatedOrientation');
     }
   }
 
