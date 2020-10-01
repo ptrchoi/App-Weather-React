@@ -33,8 +33,7 @@ class Heading extends React.Component {
       this
     );
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
-    this.handleTargetLocation = this.handleTargetLocation.bind(this);
-    this.loadBgImage = this.loadBgImage.bind(this);
+    this.handleFindLocation = this.handleFindLocation.bind(this);
   }
   componentDidMount() {
     // Initiate the Google Autocomplete API call - this is needed to avoid a delay in the first user input on search!
@@ -42,50 +41,12 @@ class Heading extends React.Component {
   }
   componentDidUpdate(prevProps) {
     if (this.props != prevProps) {
-      // Load new image when location is updated
-      if (this.props.location != prevProps.location) {
-        this.loadBgImage(this.props.location, this.props.description);
-      }
-
       this.setState({
         city: this.props.location.city,
         stateName: this.props.location.stateName,
         country: this.props.location.country,
       });
     }
-  }
-  loadBgImage(location, description) {
-    let city = location.city;
-    let state = location.stateName;
-    let searchStr = 'scenic+sunshine+clouds';
-
-    if (city && state && description) {
-      city = city.split(' ').join('+');
-      state = state.split(' ').join('+');
-      description = description.split(' ').join('+');
-
-      searchStr = description + '+' + city + '+' + state;
-      // let searchStr = formattedDescription + '+weather';
-    }
-    // console.log('searchStr: ', searchStr);
-
-    let url =
-      'https://source.unsplash.com/random/featured/?' +
-      searchStr +
-      '/?sig=' +
-      Math.floor(Math.random() * 1000);
-
-    let imageProperties = {
-      background: `url(${url})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center center',
-      backgroundAttachment: 'fixed',
-      backgroundSize: 'cover',
-      zIndex: 0,
-    };
-
-    let bgEl = document.getElementsByClassName('app-container')[0];
-    Object.assign(bgEl.style, imageProperties);
   }
   // Automatically called by Autosuggest's onChange event
   onChange = (event, { newValue }) => {
@@ -131,7 +92,7 @@ class Heading extends React.Component {
 
     return dateStr;
   }
-  handleTargetLocation(e) {
+  handleFindLocation(e) {
     e.preventDefault();
 
     this.props.onFindLoc();
@@ -158,8 +119,7 @@ class Heading extends React.Component {
         </div>
         <div className="headline-box city">{city}</div>
         <div className="headline-box search">
-          <button className="loc-btn" onClick={this.handleTargetLocation}>
-            {/* <i className="fas fa-crosshairs"></i> */}
+          <button className="loc-btn" onClick={this.handleFindLocation}>
             <i className="fas fa-map-marker-alt"></i>{' '}
           </button>
           <Autosuggest

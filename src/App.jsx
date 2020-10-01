@@ -37,15 +37,12 @@ class App extends React.Component {
   adjustOrientation(mqList) {
     // If there are media query list matches, we're in portrait
     if (mqList.matches) {
-      if ($('.app-container').hasClass('rotatedOrientation'))
-        $('.app-container').removeClass('rotatedOrientation');
-      return;
+      if ($('.app-container').hasClass('adjustedOrientation'))
+        $('.app-container').removeClass('adjustedOrientation');
     } else {
-      let width = $(window).width();
-
-      // Check for landscape orientation only on smaller screens (C.DESKTOP_MAX_WIDTH needs to match in app.scss media query for 'max-width')
-      if (width < C.DESKTOP_MAX_WIDTH)
-        $('.app-container').addClass('rotatedOrientation');
+      // Apply portrait orientation adjustment only on smaller screens (C.DESKTOP_MAX_WIDTH needs to match in app.scss media query for 'max-width')
+      if ($(window).width() < C.DESKTOP_MAX_WIDTH)
+        $('.app-container').addClass('adjustedOrientation');
     }
   }
 
