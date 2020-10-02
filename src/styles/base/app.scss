@@ -6,7 +6,6 @@
 }
 /* Set the page's max-width within the viewport */
 body {
-  // background-color: rgb(238, 247, 253);
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   height: 100%;
   margin: 0 auto !important;
@@ -23,6 +22,7 @@ body {
   width: 100vw;
   display: flex;
   justify-content: center;
+  z-index: -1;
 }
 
 // FORCED Scrollbar to display
@@ -31,7 +31,6 @@ body {
   height: 8px;
   width: 1px;
 }
-
 ::-webkit-scrollbar-thumb {
   border-radius: 40px;
   background-color: rgba(196, 196, 196, 0.899);
@@ -39,14 +38,8 @@ body {
 }
 
 .adjustedOrientation {
-  // border: solid 5px red;
-
-  // height: 100vw;
-  // width: 100vh;
   transform: rotate(-90deg) translateX(-100%);
-  // transform-origin: 0 0;
 }
-
 // Smaller screens
 //max-width needs to match App.jsx - adjustOrientation 'C.DESKTOP_MAX_WIDTH'
 @media only screen and (max-width: 1200px) and (orientation: landscape) {
@@ -56,12 +49,3 @@ body {
     transform-origin: 0 0;
   }
 }
-// TESTING PURPOSES ONLY - REMOVE ME
-// @media only screen and (min-width: 1200px) {
-//   .app-container {
-//     // border: solid 5px green;
-//     // height: 100vh;
-//     // width: 100vw;
-//     // transform-origin: 0 0;
-//   }
-// }

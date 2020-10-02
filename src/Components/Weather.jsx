@@ -1,6 +1,5 @@
 // LIBRARIES
 import React from 'react';
-import $ from 'jquery';
 
 // UTILITY FUNCTIONS
 import {
@@ -20,16 +19,6 @@ import {
 import C from '../constants';
 import Heading from './Heading';
 import Main from './Main';
-
-function getImageProps(url) {
-  return {
-    background: `url(${url})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center',
-    backgroundAttachment: 'fixed',
-    backgroundSize: 'cover',
-  };
-}
 
 // Weather COMPONENT CLASS
 class Weather extends React.Component {
@@ -73,16 +62,12 @@ class Weather extends React.Component {
       hourForecast: null,
       weatherView: 'summary',
       layout: 'mobile',
-      curImgUrl: '',
-      bgElement: null,
     };
 
     this.getCoordsFromDevice = this.getCoordsFromDevice.bind(this);
     this.handleFindLoc = this.handleFindLoc.bind(this);
     this.updateUnits = this.updateUnits.bind(this);
     this.updateLayout = this.updateLayout.bind(this);
-    this.loadBgImage = this.loadBgImage.bind(this);
-    // this.reloadBgImage = this.reloadBgImage.bind(this);
   }
   componentDidMount() {
     // Set initial layout
@@ -101,10 +86,6 @@ class Weather extends React.Component {
       window.matchMedia('(orientation: portrait)').matches
     )
       layout = 'desktop';
-
-    // Reload bg image if one is already loaded and the layout has changed, to ensure the bg image dimensions match the updated layout
-    // if (this.state.bgElement !== null && this.state.curImgUrl !== '')
-    //   this.reloadBgImage();
 
     this.setState({
       layout: layout,
@@ -188,8 +169,6 @@ class Weather extends React.Component {
   updateWeatherData = async (lat, lng, address) => {
     const wData = await getWeatherData(lat, lng);
 
-    // console.log('updateWeatherData() - address: ', address, ' units: ', units);
-
     let { units } = this.state;
     let curData = wData.current;
     let dailyData = wData.daily;
@@ -236,24 +215,19 @@ class Weather extends React.Component {
   handleFindLoc() {
     this.getCoordsFromDevice();
   }
-  loadBgImage(location, description) {
+  // Default location & description values as a safety in case of null or undefined args
+  loadBgImage(
+    location = { city: 'San Francisco', stateName: 'CA' },
+    description = 'scenic+sunshine'
+  ) {
     let city = location.city;
     let state = location.stateName;
-    let searchStr = 'scenic+sunshine+clouds';
 
-    if (city && state && description) {
-      city = city.split(' ').join('+');
-      state = state.split(' ').join('+');
-      description = description.split(' ').join('+');
+    city = city.split(' ').join('+');
+    state = state.split(' ').join('+');
+    description = description.split(' ').join('+');
 
-      searchStr = description + '+' + city + '+' + state;
-    } else {
-      console.log(
-        'WARNING: loadBgImage() - (city || state || description) = false '
-      );
-      return;
-    }
-    console.log('loadBgImage() - searchStr: ', searchStr);
+    let searchStr = description + '+' + city + '+' + state;
 
     let url =
       'https://source.unsplash.com/random/featured/?' +
@@ -261,31 +235,17 @@ class Weather extends React.Component {
       '/?sig=' +
       Math.floor(Math.random() * 1000);
 
+    // Assign style props to main app container + background image
     let bgEl = document.getElementsByClassName('app-container')[0];
-    Object.assign(bgEl.style, getImageProps(url));
+    let bgElStyle = {
+      background: `url(${url})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center',
+      backgroundSize: 'cover',
+    };
 
-    this.setState({
-      curImgUrl: url,
-      bgElement: bgEl,
-    });
+    Object.assign(bgEl.style, bgElStyle);
   }
-  // reloadBgImage() {
-  //   let { curImgUrl, bgElement } = this.state;
-
-  //   // console.log('reloadBgImage() - bgElement: ', bgElement);
-
-  //   if (bgElement !== null && curImgUrl !== '') {
-  //     if (window.matchMedia('(orientation: landscape)').matches) {
-  //       Object.assign(bgElement.style, getImageProps(curImgUrl, true));
-  //     } else {
-  //       Object.assign(bgElement.style, getImageProps(curImgUrl));
-  //     }
-  //   } else {
-  //     console.log(
-  //       'WARNING: reloadBgImage - there is not a curImgUrl or bgElement'
-  //     );
-  //   }
-  // }
 
   render() {
     let {
