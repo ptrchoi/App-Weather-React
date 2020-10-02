@@ -28,7 +28,6 @@ function getImageProps(url) {
     backgroundPosition: 'center center',
     backgroundAttachment: 'fixed',
     backgroundSize: 'cover',
-    zIndex: 0,
   };
 }
 
@@ -83,7 +82,7 @@ class Weather extends React.Component {
     this.updateUnits = this.updateUnits.bind(this);
     this.updateLayout = this.updateLayout.bind(this);
     this.loadBgImage = this.loadBgImage.bind(this);
-    this.reloadBgImage = this.reloadBgImage.bind(this);
+    // this.reloadBgImage = this.reloadBgImage.bind(this);
   }
   componentDidMount() {
     // Set initial layout
@@ -104,8 +103,8 @@ class Weather extends React.Component {
       layout = 'desktop';
 
     // Reload bg image if one is already loaded and the layout has changed, to ensure the bg image dimensions match the updated layout
-    if (this.state.bgElement !== null && this.state.curImgUrl !== '')
-      this.reloadBgImage();
+    // if (this.state.bgElement !== null && this.state.curImgUrl !== '')
+    //   this.reloadBgImage();
 
     this.setState({
       layout: layout,
@@ -254,7 +253,7 @@ class Weather extends React.Component {
       );
       return;
     }
-    // console.log('searchStr: ', searchStr);
+    console.log('loadBgImage() - searchStr: ', searchStr);
 
     let url =
       'https://source.unsplash.com/random/featured/?' +
@@ -270,19 +269,23 @@ class Weather extends React.Component {
       bgElement: bgEl,
     });
   }
-  reloadBgImage() {
-    let { curImgUrl, bgElement } = this.state;
+  // reloadBgImage() {
+  //   let { curImgUrl, bgElement } = this.state;
 
-    // console.log('reloadBgImage() - bgElement: ', bgElement);
+  //   // console.log('reloadBgImage() - bgElement: ', bgElement);
 
-    if (bgElement !== null && curImgUrl !== '') {
-      Object.assign(bgElement.style, getImageProps(curImgUrl));
-    } else {
-      console.log(
-        'WARNING: reloadBgImage - there is not a curImgUrl or bgElement'
-      );
-    }
-  }
+  //   if (bgElement !== null && curImgUrl !== '') {
+  //     if (window.matchMedia('(orientation: landscape)').matches) {
+  //       Object.assign(bgElement.style, getImageProps(curImgUrl, true));
+  //     } else {
+  //       Object.assign(bgElement.style, getImageProps(curImgUrl));
+  //     }
+  //   } else {
+  //     console.log(
+  //       'WARNING: reloadBgImage - there is not a curImgUrl or bgElement'
+  //     );
+  //   }
+  // }
 
   render() {
     let {
