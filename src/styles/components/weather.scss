@@ -8,7 +8,6 @@
 }
 
 // Desktop/wider screens
-// @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) and (orientation: landscape) {
 @media only screen and (min-width: $TABLET-WIDTH-BREAKPOINT) {
   .weather-container {
     max-width: $DESKTOP-MAX-WIDTH;

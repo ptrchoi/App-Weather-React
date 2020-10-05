@@ -37,8 +37,8 @@
   }
 }
 
-// If W && H larger than mobile breakpoints => DESKTOP layout
-@media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) and (min-height: $MOBILE-HEIGHT-BREAKPOINT) {
+// If W && H (ie. rotated width) larger than mobile breakpoints => DESKTOP layout
+@media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) and (min-height: $MOBILE_WIDTH_BREAKPOINT) {
   // DESKTOP - Current Temperature
   .box-temperature {
     height: $d_current-height;
