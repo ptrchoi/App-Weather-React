@@ -105,3 +105,23 @@
     }
   }
 }
+
+@media only screen and (orientation: landscape) and (min-height: 720px) and (max-height: 880px) {
+  .summary-container {
+    font-size: 1rem;
+
+    .wrapper-precipitation {
+      .wrapper-raindrop-icon {
+        font-size: 1.8rem;
+      }
+      .wrapper-raindrop-text {
+        .text-probability {
+          font-size: 0.9rem;
+        }
+      }
+    }
+    .temp-high-low {
+      font-size: 1.3rem;
+    }
+  }
+}
