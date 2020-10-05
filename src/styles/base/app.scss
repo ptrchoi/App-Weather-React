@@ -17,11 +17,11 @@ body {
 }
 
 .app-container {
+  display: flex;
   height: 100vh;
+  justify-content: center;
   position: fixed;
   width: 100vw;
-  display: flex;
-  justify-content: center;
   z-index: -1;
 }
 
@@ -37,15 +37,10 @@ body {
   box-shadow: 0 0 1px rgba(16, 16, 16, 0.797);
 }
 
+// For smaller screens, adjust to maintain portrait orientation
 .adjustedOrientation {
   transform: rotate(-90deg) translateX(-100%);
-}
-// Smaller screens
-//max-width needs to match App.jsx - adjustOrientation 'C.DESKTOP_MAX_WIDTH'
-@media only screen and (max-width: 1200px) and (orientation: landscape) {
-  .app-container {
-    height: 100vw;
-    width: 100vh;
-    transform-origin: 0 0;
-  }
+  transform-origin: 0 0;
+  height: 100vw;
+  width: 100vh;
 }

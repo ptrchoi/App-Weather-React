@@ -33,15 +33,21 @@ class App extends React.Component {
       this.adjustOrientation(mqList);
     });
   }
-  // Adjust orientation (if landscape)
+  // Adjust orientation (if landscape && small screen)
   adjustOrientation(mqList) {
-    // If there are media query list matches, we're in portrait
+    // If there are media query list matches (portrait orientation), remove adjustment class, if assigned
     if (mqList.matches) {
       if ($('.app-container').hasClass('adjustedOrientation'))
         $('.app-container').removeClass('adjustedOrientation');
     } else {
-      // Apply portrait orientation adjustment only on smaller screens (C.DESKTOP_MAX_WIDTH needs to match in app.scss media query for 'max-width')
-      if ($(window).width() < C.DESKTOP_MAX_WIDTH)
+      let width = $(window).width();
+      let height = $(window).height();
+
+      // Only adjust orientation on mobile screens (using TABLET_WIDTH breakpoint to include width of rotated tall phones (ie. iPhone X/Pixel XL/etc) in conjuction with MOBILE_HEIGHT)
+      if (
+        width < C.TABLET_WIDTH_BREAKPOINT &&
+        height < C.MOBILE_HEIGHT_BREAKPOINT
+      )
         $('.app-container').addClass('adjustedOrientation');
     }
   }

@@ -1,5 +1,6 @@
 // LIBRARIES
 import React from 'react';
+import $ from 'jquery';
 
 // UTILITY FUNCTIONS
 import {
@@ -79,11 +80,12 @@ class Weather extends React.Component {
   }
   updateLayout() {
     let layout = 'mobile';
+    let width = $(window).width();
+    let height = $(window).height();
 
-    // If width > breakpoint && portrait orientation, then layout should be desktop
     if (
-      window.innerWidth > C.MOBILE_WIDTH_BREAKPOINT &&
-      window.matchMedia('(orientation: portrait)').matches
+      width > C.MOBILE_WIDTH_BREAKPOINT &&
+      height > C.MOBILE_HEIGHT_BREAKPOINT
     )
       layout = 'desktop';
 
