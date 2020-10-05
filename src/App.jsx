@@ -40,7 +40,7 @@ class App extends React.Component {
       if ($('.app-container').hasClass('adjustedOrientation'))
         $('.app-container').removeClass('adjustedOrientation');
     } else {
-      // IN LANDSCAPE ORIENTATION
+      // IN LANDSCAPE ORIENTATION, adjust smaller screen orientation
       let height = $(window).height();
 
       // Only adjust orientation (lock to portrait) on smaller screens based on rotated width (ie. Height)

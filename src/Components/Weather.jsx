@@ -83,7 +83,7 @@ class Weather extends React.Component {
     let width = $(window).width();
     let height = $(window).height();
 
-    // Test W & H (ie. rotated width) to include landscape
+    // Test W & H (incl rotated width + landscape)
     if (width > C.MOBILE_WIDTH_BREAKPOINT && height > C.MOBILE_WIDTH_BREAKPOINT)
       layout = 'desktop';
 

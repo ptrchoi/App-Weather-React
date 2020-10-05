@@ -61,18 +61,21 @@
     }
   }
 }
+
+// ~70% scale
 @media only screen and (orientation: landscape) and (min-height: 720px) and (max-height: 880px) {
   .box-temperature {
     .icon-weather-wrapper {
+      transform: scale(0.63);
       .icon-weather {
-        font-size: 3rem;
+        font-size: 4.2rem;
       }
     }
     .unit-slider {
       transform: scale(0.7);
     }
     .text-temperature {
-      font-size: 3rem;
+      font-size: 3.85rem;
     }
   }
 }

@@ -104,14 +104,15 @@
   }
 }
 
+// ~70% scale
 @media only screen and (orientation: landscape) and (min-height: 720px) and (max-height: 880px) {
   .hourly-forecast-container {
     .hour-forecast {
-      font-size: 0.8rem;
+      font-size: 0.91rem;
 
       .item-temp {
         .icon-weather {
-          font-size: 1.5rem;
+          font-size: 1.4rem;
         }
         .text-degrees {
           font-size: 1rem;
@@ -119,11 +120,11 @@
       }
       .item-rain {
         .wrapper-raindrop-icon {
-          font-size: 0.7rem;
+          font-size: 1.2rem;
         }
         .wrapper-raindrop-text {
           .text-probability {
-            font-size: 0.7rem;
+            font-size: 0.84rem;
           }
         }
       }

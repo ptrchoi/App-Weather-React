@@ -16,7 +16,6 @@
 @media only screen and (orientation: landscape) and (min-height: 720px) and (max-height: 880px) {
   .weather-container {
     height: 100%;
-    width: 75vh; // maintain ~75% height-to-width ratio
-    // overflow: scroll;
+    width: 70vh; // maintain ~75% height-to-width ratio minus ~5% buffer for browser bar
   }
 }
