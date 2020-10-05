@@ -44,7 +44,7 @@ class App extends React.Component {
       let height = $(window).height();
 
       // Only adjust orientation (lock to portrait) on smaller screens based on rotated width (ie. Height)
-      if (height < C.TABLET_WIDTH_BREAKPOINT)
+      if (height < C.MOBILE_WIDTH_BREAKPOINT)
         $('.app-container').addClass('adjustedOrientation');
     }
   }
