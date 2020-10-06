@@ -1,4 +1,6 @@
 $slide-in-speed: 0.7s;
+$modal-text-color: white;
+$modal-highlight-color: rgb(37, 211, 211);
 
 .modal-container {
   height: 100%;
@@ -14,7 +16,7 @@ $slide-in-speed: 0.7s;
   .sidebar {
     align-items: center;
     background: rgba(33, 33, 33, 0.9);
-    color: white;
+    color: $modal-text-color;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -22,13 +24,42 @@ $slide-in-speed: 0.7s;
     justify-content: center;
     position: fixed;
     top: 0;
-    width: 80%;
+    width: 90%;
     z-index: $z_modal-sidebar;
 
-    .info-text {
+    .info-heading {
+      margin-bottom: 8%;
+      .app-title {
+        color: $modal-highlight-color;
+        font-size: 2rem;
+        margin-bottom: 6%;
+      }
+      .app-subtitle {
+        color: white;
+        font-size: 0.8rem;
+      }
+    }
+    li {
+      font-size: 0.7rem;
+      margin-bottom: 8%;
+    }
+    .fas {
+      color: $modal-highlight-color;
+      font-size: 1rem;
+      padding: 4%;
+    }
+
+    a:link,
+    a:visited {
+      color: $modal-highlight-color;
+    }
+    a:hover,
+    a:active {
+      color: pink;
     }
   }
 }
+
 .modal-container--open {
   animation: slideIn $slide-in-speed;
   transform: translateX(0%);
