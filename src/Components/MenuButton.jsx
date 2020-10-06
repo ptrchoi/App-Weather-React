@@ -2,7 +2,9 @@ import React from 'react';
 
 function MenuButton(props) {
   let { modalOpen } = props;
-  const iconClass = modalOpen ? 'burger-icon--closed' : 'burger-icon';
+  const iconClass = modalOpen
+    ? 'burger-icon burger-icon--closed'
+    : 'burger-icon';
 
   return (
     <div className={iconClass} onClick={props.onMenuToggle}>

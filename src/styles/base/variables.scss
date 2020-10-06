@@ -21,6 +21,15 @@ $d_details-height: 40%;
 // 2 of these heights total 100% of it's container
 $d_forecast-height: 42%;
 
+// Z-INDEX:
+//-------------------------------------------------------------
+$z_background: -1;
+$z_forecast-button: 10;
+$z_details-button: 20;
+$z_search-dropdown: 30;
+$z_modal: 80;
+$z_menu-button: 90;
+
 // COLORS:
 //-------------------------------------------------------------
 // General:
