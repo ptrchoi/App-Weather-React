@@ -76,50 +76,55 @@
 // If W && H (ie. rotated width) larger than mobile breakpoints => DESKTOP layout
 @media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) and (min-height: $MOBILE-WIDTH-BREAKPOINT) {
   .headline-container {
-    font-size: 1.2rem;
+    // font-size: 1.2rem;
+    font-size: 0.84rem;
     height: $d_heading-height;
   }
   .headline-box {
     padding-top: 1.8%;
   }
   .city {
-    font-size: 2.3rem;
+    // font-size: 2.3rem;
+    font-size: 1.61rem;
     padding-top: 4%;
   }
   .search {
     width: 40%;
 
     .loc-btn {
-      font-size: 1.2rem;
+      // font-size: 1.2rem;
+      font-size: 0.84rem;
     }
     .react-autosuggest__input {
-      font-size: 1.2rem;
+      // font-size: 1.2rem;
+      font-size: 0.84rem;
       padding: 0.3rem;
     }
     .react-autosuggest__suggestions-list {
-      font-size: 1.1rem;
+      // font-size: 1.1rem;
+      font-size: 0.77rem;
       width: 37.5%;
     }
   }
 }
 // ~70% font-size
-@media only screen and (orientation: landscape) and (min-height: 720px) and (max-height: 880px) {
-  .headline-container {
-    font-size: 0.84rem;
-  }
-  .city {
-    font-size: 1.61rem;
-  }
-  .search {
-    .loc-btn {
-      font-size: 0.84rem;
-    }
-    .react-autosuggest__input {
-      font-size: 0.84rem;
-    }
-    .react-autosuggest__suggestions-list {
-      font-size: 0.77rem;
-      width: 36%;
-    }
-  }
-}
+// @media only screen and (orientation: landscape) and (min-height: 720px) and (max-height: 880px) {
+//   .headline-container {
+//     font-size: 0.84rem;
+//   }
+//   .city {
+//     font-size: 1.61rem;
+//   }
+//   .search {
+//     .loc-btn {
+//       font-size: 0.84rem;
+//     }
+//     .react-autosuggest__input {
+//       font-size: 0.84rem;
+//     }
+//     .react-autosuggest__suggestions-list {
+//       font-size: 0.77rem;
+//       width: 36%;
+//     }
+//   }
+// }

@@ -7,15 +7,11 @@
   width: 100%;
 }
 
-// Desktop/wider screens
-@media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) {
-  .weather-container {
-    max-width: $DESKTOP-MAX-WIDTH;
-  }
-}
-@media only screen and (orientation: landscape) and (min-height: 720px) and (max-height: 880px) {
+// Screens wider && taller than MOBILE-BREAKPOINT ===> Tablet/Desktop
+@media only screen and (min-width: $MOBILE-WIDTH-BREAKPOINT) and (min-height: $MOBILE-WIDTH-BREAKPOINT) {
   .weather-container {
     height: 100%;
-    width: 70vh; // maintain ~75% height-to-width ratio minus ~5% buffer for browser bar
+    width: 80vh; // maintain ~85% height-to-width ratio minus ~5% buffer for browser bar
+    max-width: 1800px;
   }
 }

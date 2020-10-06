@@ -104,49 +104,8 @@
     background-color: rgba(0, 0, 0, 0); // fully transparent ie. no bgc
     // Individual day forecast div
     .day-forecast {
-      font-size: 1.3rem;
-      height: 80%;
-
-      .item-temperature {
-        .icon-weather {
-          font-size: 2.5rem;
-        }
-        .text-degrees {
-          font-size: 1.4rem;
-        }
-      }
-      .item-rain {
-        .wrapper-raindrop-icon {
-          font-size: 1.7rem;
-        }
-        .wrapper-raindrop-text {
-          padding-top: 5%;
-          .text-probability {
-            font-size: 1.1rem;
-          }
-        }
-      }
-      .item-highLow {
-        font-size: 1.1rem;
-
-        span {
-          span {
-            font-size: 1.1rem;
-            padding-left: 6%;
-          }
-        }
-      }
-    }
-  }
-}
-
-// ~70% scale
-@media only screen and (orientation: landscape) and (min-height: 720px) and (max-height: 880px) {
-  .forecast-container {
-    // Individual day forecast div
-    .day-forecast {
       font-size: 0.91rem;
-      // height: 80%;
+      height: 80%;
 
       .item-temperature {
         .icon-weather {
@@ -161,7 +120,7 @@
           font-size: 1.2rem;
         }
         .wrapper-raindrop-text {
-          // padding-top: 5%;
+          padding-top: 5%;
           .text-probability {
             font-size: 0.77rem;
           }
@@ -173,7 +132,7 @@
         span {
           span {
             font-size: 0.77rem;
-            // padding-left: 6%;
+            padding-left: 6%;
           }
         }
       }
