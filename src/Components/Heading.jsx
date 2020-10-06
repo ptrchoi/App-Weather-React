@@ -2,6 +2,10 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
 
+// COMPONENTS
+import MenuButton from './MenuButton';
+import InfoModal from './InfoModal';
+
 // UTILITY FUNCTIONS
 import { getGoogleCityAutofill } from '../Utils';
 
@@ -26,6 +30,7 @@ class Heading extends React.Component {
       country: '',
       value: '',
       suggestions: [],
+      modalOpen: false,
     };
 
     this.onChange = this.onChange.bind(this);
@@ -34,6 +39,7 @@ class Heading extends React.Component {
     );
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
     this.handleFindLocation = this.handleFindLocation.bind(this);
+    this.handleMenuToggle = this.handleMenuToggle.bind(this);
   }
   componentDidMount() {
     // Initiate the Google Autocomplete API call - this is needed to avoid a delay in the first user input on search!
@@ -97,8 +103,13 @@ class Heading extends React.Component {
 
     this.props.onFindLoc();
   }
+  handleMenuToggle() {
+    this.setState((prevState) => ({
+      modalOpen: !prevState.modalOpen,
+    }));
+  }
   render(props) {
-    let { city, value, suggestions } = this.state;
+    let { city, value, suggestions, modalOpen } = this.state;
 
     if (city === '') city = 'City';
 
@@ -113,7 +124,14 @@ class Heading extends React.Component {
 
     return (
       <div className="headline-container">
+        <InfoModal modalOpen={modalOpen} />
         <div className="headline-box time-date-box">
+          <span className="menu">
+            <MenuButton
+              modalOpen={modalOpen}
+              onMenuToggle={this.handleMenuToggle}
+            />
+          </span>
           <span className="time">{this.props.time}</span>
           <span className="date">{this.getDate()}</span>
         </div>
