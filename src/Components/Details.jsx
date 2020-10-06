@@ -43,9 +43,9 @@ function Details(props) {
             {sunset}
           </span>
         </p>
-        <button className={btnClasses} onClick={props.onSwipe}>
+        {/* <button className={btnClasses} onClick={props.onSwipe}>
           <i className="fas fa-chevron-left"></i>&nbsp;summary
-        </button>
+        </button> */}
       </div>
       <div className="column-details">
         <p>
@@ -72,6 +72,9 @@ function Details(props) {
           <span className="details-label">Visibility: </span>
           {visibility} mi
         </p>
+        <button className={btnClasses} onClick={props.onSwipe}>
+          <i className="fas fa-chevron-left"></i>&nbsp;summary
+        </button>
       </div>
     </div>
   );
