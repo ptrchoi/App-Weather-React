@@ -1,6 +1,7 @@
 $slide-in-speed: 0.7s;
 $modal-text-color: white;
-$modal-highlight-color: rgb(37, 211, 211);
+$modal-highlight-color: $rain-probability;
+$sidebar-width: 90%;
 
 .modal-container {
   height: 100%;
@@ -15,40 +16,59 @@ $modal-highlight-color: rgb(37, 211, 211);
 
   .sidebar {
     align-items: center;
-    background: rgba(33, 33, 33, 0.9);
+    background: rgba(33, 33, 33, 0.95);
+    border-right: solid 1px white;
     color: $modal-text-color;
     display: flex;
     flex-direction: column;
     height: 100%;
     left: 0;
-    justify-content: center;
+    justify-content: start;
+    padding-top: 25%;
     position: fixed;
     top: 0;
-    width: 90%;
+    width: $sidebar-width;
     z-index: $z_modal-sidebar;
 
     .info-heading {
-      margin-bottom: 8%;
       .app-title {
         color: $modal-highlight-color;
         font-size: 2rem;
-        margin-bottom: 6%;
       }
       .app-subtitle {
         color: white;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
+        margin: 3% 0 0 3%;
+        text-align: center;
       }
     }
-    li {
-      font-size: 0.7rem;
-      margin-bottom: 8%;
+    .horizontal-divider {
+      border-top: solid 2px white;
+      margin: 5% 0 10% 0;
+      width: 90%;
     }
-    .fas {
-      color: $modal-highlight-color;
-      font-size: 1rem;
-      padding: 4%;
-    }
+    ul {
+      padding-left: 4%;
+      width: $sidebar-width;
 
+      li {
+        display: flex;
+        align-items: center;
+        font-size: 0.7rem;
+        margin-bottom: 8%;
+
+        .bullet-wrapper {
+          .fas {
+            color: $modal-highlight-color;
+            font-size: 1.1rem;
+          }
+        }
+        .li-text {
+          display: inline-block;
+          margin-left: 4%;
+        }
+      }
+    }
     a:link,
     a:visited {
       color: $modal-highlight-color;
