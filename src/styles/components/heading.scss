@@ -50,6 +50,7 @@
   /* Styling for the Autosuggest elements (ie. react-autosuggest__)
   ---------------------------------------------------------------------*/
   .react-autosuggest__container {
+    position: relative;
     width: 100%;
   }
   // Autosuggest input text box
@@ -71,7 +72,7 @@
     list-style-type: none;
     padding-left: 0.2rem;
     position: absolute;
-    width: 63%;
+    width: 100%;
     z-index: $z_search-dropdown;
   }
   // Autosuggest list current highlighted selection
@@ -106,7 +107,7 @@
     }
     .react-autosuggest__suggestions-list {
       font-size: 0.77rem;
-      width: 37.5%;
+      width: 100%;
     }
   }
 }

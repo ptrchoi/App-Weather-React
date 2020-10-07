@@ -47,7 +47,7 @@ function InfoModal(props) {
               <i className="fas fa-cloud-sun-rain"></i>
             </span>
             <span className="li-text">
-              Weather Icons -{' '}
+              Weather icons -{' '}
               <a
                 href="https://erikflowers.github.io/weather-icons/"
                 target="_blank"
@@ -61,7 +61,7 @@ function InfoModal(props) {
               <i className="fas fa-palette"></i>
             </span>
             <span className="li-text">
-              Weather Icon art -{' '}
+              Weather icon art -{' '}
               <a href="https://twitter.com/artill" target="_blank">
                 Lukas Bischoff
               </a>
